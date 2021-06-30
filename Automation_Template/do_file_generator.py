@@ -332,9 +332,9 @@ if page_list:
 else:
     print(
         'Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
-    replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
-    replace_pagenum_str = 'replace pagenum=0 if page=="index"\n'
-    replace_pagenum_str = 'replace pagenum=1 if page=="offer"\n'
+    replace_pagenum_str += '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
+    replace_pagenum_str += 'replace pagenum=0 if page=="index"\n'
+    replace_pagenum_str += 'replace pagenum=1 if page=="offer"\n'
 
 # replace strings in history_file
 timestamp_str = timestamp()

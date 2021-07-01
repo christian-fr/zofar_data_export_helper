@@ -95,9 +95,9 @@ time.sleep(.2)
 print(' ╔═════════════════════════════════════╗')
 print(' ║  Zofar Automation - Datenlieferung  ║')
 print(' ╚═════════════════════════════════════╝\n\n\n')
-print('\n')
-print('authors: {0}\n\n'.format(__author__))
-print('version: {0}\n\n'.format(__version__))
+
+print('authors: {0}'.format(__author__))
+print('version: {0}'.format(__version__))
 print('license: {0}\n\n'.format(__license__))
 
 while True:

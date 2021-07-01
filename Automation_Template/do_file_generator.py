@@ -9,12 +9,36 @@ import time
 import os
 import sys
 import argparse
-from tkinter import filedialog
+from tkinter import filedialog, Tk
 import shutil
 import xml
 from xml.etree import ElementTree
+import logging
+import argparse
+
+parser = argparse.ArgumentParser(description='Optionally set the debug flag for verbose output and debug logging.')
+parser.add_argument('--debug', action='store_true', help='enable verbose output and debug logging')
+
+args = parser.parse_args()
+
+# assert that optional debug flag is of boolean type
+assert isinstance(args.debug, bool)
+# set flag for debug
+flag_debug = args.debug
 
 
+
+
+# file search algorithm - return list of found files within given path, with absolute paths
+def find_all(name: str, path: str) -> list:
+    result = []
+    for root, dirs, files in os.walk(path):
+        if name in files:
+            result.append(os.path.join(root, name))
+    return result
+
+
+# return a timestamp string
 def timestamp(time_localtime_object: time.localtime = None) -> str:
     if time_localtime_object is None:
         t = time.localtime()
@@ -25,12 +49,39 @@ def timestamp(time_localtime_object: time.localtime = None) -> str:
     return time.strftime('%Y-%m-%d_%H-%M-%S', t)
 
 
+def startup_logger(logger: logging.Logger, log_level=logging.DEBUG):
+    """
+    CRITICAL: 50, ERROR: 40, WARNING: 30, INFO: 20, DEBUG: 10, NOTSET: 0
+    """
+    logging.basicConfig(level=log_level)
+    fh = logging.FileHandler("{0}.log".format('log_' + __name__))
+    fh.setLevel(log_level)
+    fh_format = logging.Formatter('%(name)s\t%(module)s\t%(funcName)s\t%(asctime)s\t%(lineno)d\t'
+                                  '%(levelname)-8s\t%(message)s')
+    fh.setFormatter(fh_format)
+    logger.addHandler(fh)
+
+
 # parser = argparse.ArgumentParser(description='Process the projectname.')
 # parser.add_argument('projectname', action='store', type=str, help='projectname as a string')
 #
 # args = parser.parse_args()
 # projectname = args.projectname.strip()
 
+
+# start logger
+my_logger = logging.getLogger('debug')
+
+if not flag_debug:
+    startup_logger(logger=my_logger, log_level=logging.INFO)
+    my_logger.info('starting up program')
+else:
+    startup_logger(logger=my_logger, log_level=logging.DEBUG)
+    my_logger.info('starting up program')
+    my_logger.debug('"flag_debug" is set to True!')
+
+
+time.sleep(.2)
 
 print(' ╔═════════════════════════════════════╗')
 print(' ║  Zofar Automation - Datenlieferung  ║')
@@ -66,9 +117,11 @@ initial_input_dir = r'P:\Zofar\Automation_Input'
 if not os.path.exists(initial_input_dir):
     initial_input_dir = os.path.split(os.getcwd())[0]
 
+root = Tk()
 zipfile = os.path.normpath(filedialog.askopenfilename(initialdir=initial_input_dir,
                                                       filetypes=(('zip files', '*.zip'), ('all files', '*.*')),
                                                       title='Bitte ZIP-Datei, die den Datenexport beinhaltet, auswählen.'))
+root.withdraw()
 
 print('\n')
 print('Dateiname: "{0}"'.format(os.path.split(zipfile)[1]))
@@ -84,51 +137,105 @@ initial_output_dir = r'P:\Zofar\Automation_Output'
 if not os.path.exists(initial_output_dir):
     initial_output_dir = os.path.split(os.getcwd())[0]
 
+# set project_base_dir
 project_base_dir = os.path.join(os.path.normpath(
     filedialog.askdirectory(initialdir=initial_output_dir, title='Bitte Oberverzeichnis auswählen.')),
     projectname_short)
+
+my_logger.debug('project_base_dir = "{0}"'.format(project_base_dir))
 
 # create folder structure
 project_orig_dir = os.path.normpath(os.path.join(project_base_dir, 'orig'))
 project_doc_dir = os.path.normpath(os.path.join(project_base_dir, 'doc'))
 project_lieferung_dir = os.path.normpath(os.path.join(project_base_dir, 'lieferung'))
 
-print('md {0}'.format(project_orig_dir))
+my_logger.debug('project_orig_dir = "{0}"'.format(project_orig_dir))
+my_logger.debug('project_doc_dir = "{0}"'.format(project_doc_dir))
+my_logger.debug('project_lieferung_dir = "{0}"'.format(project_lieferung_dir))
+
+# creating "orig" subdirectory - using "os.system('md ...')" instead of os.mkdir because it automatically creates
+#  more than one level of subfolders if needed
+my_logger.debug('md {0}'.format(project_orig_dir))
 return_md_orig = os.system('md {0}'.format(project_orig_dir))
 if return_md_orig == 1:
     print('Verzeichnis "{0}" existiert bereits.'.format(project_orig_dir))
 
-print('md {0}'.format(project_doc_dir))
+# creating "doc" subdirectory - using "os.system('md ...')" instead of os.mkdir because it automatically creates
+#  more than one level of subfolders if needed
+my_logger.debug('md {0}'.format(project_doc_dir))
 return_md_doc = os.system('md {0}'.format(project_doc_dir))
 if return_md_doc == 1:
     print('Verzeichnis "{0}" existiert bereits.'.format(project_doc_dir))
 
-print('md {0}'.format(project_lieferung_dir))
+# creating "lieferung" subdirectory - using "os.system('md ...')" instead of os.mkdir because it automatically creates
+#  more than one level of subfolders if needed
+my_logger.debug('md {0}'.format(project_lieferung_dir))
 return_md_lieferung = os.system('md {0}'.format(project_lieferung_dir))
 if return_md_lieferung == 1:
     print('Verzeichnis "{0}" existiert bereits.'.format(project_lieferung_dir))
 
-# unzip zip file with export data
-
+# copy zip file with export data to project_orig_dir
 shutil.copy(zipfile, project_orig_dir)
+my_logger.debug('zip file "{0}" copied to "{1}"'.format(zipfile, project_orig_dir))
 
+# set string variable for project_orig_version_dir (directory has yet to be created)
 project_orig_version_dir = os.path.join(project_orig_dir, version)
+my_logger.debug('project_orig_version_dir = "{0}"'.format(project_orig_version_dir))
+
+# create a folder project_orig_version_dir  - using "os.mkdir()" because top folder has been created in the last
+#  step
 os.mkdir(project_orig_version_dir)
+my_logger.debug('os.mkdir({0})'.format(project_doc_dir))
 
+# set string variable for project_lieferung_version_dir (directory has yet to be created)
 project_lieferung_version_dir = os.path.join(project_lieferung_dir, '{0}_export_{1}'.format(projectname_short, version))
-os.mkdir(project_lieferung_version_dir)
+my_logger.debug('project_lieferung_version_dir = "{0}"'.format(project_lieferung_version_dir))
 
+# create a folder project_lieferung_version_dir  - using "os.mkdir()" because top folder has been created in the last
+#  step
+os.mkdir(project_lieferung_version_dir)
+my_logger.debug('os.mkdir({0})'.format(project_lieferung_version_dir))
+
+print('\n')
 print('zipfile: {0}'.format(zipfile))
 print('project_base_dir: {0}'.format(project_base_dir))
+
+# create variable "return_code" to store the return code of the 7zip archive unpacking command
+# a return_code of 0 means the unzip operation has been successful
+
+# set return_code to an initial value other than 0 (just to already have the variable before starting the loop)
 return_code = -1
 
 print('\n' * 3)
 print(' ******************************')
 print('*******************************')
 print('******    7-Zip             ***')
+
+
+# start the while loop: it will loop until the return_code == 0 (so when a wrong password has been entered, it will
+#  just start the unzipping again and also prompt for the password again
+#  we are using the "counter" variable to make sure that we do a maximum of 10 loops
+
+# set counter variable to initial value
+counter = 0
+
 while return_code != 0:
+    my_logger.debug('counter: "{0}"'.format(counter))
+    my_logger.debug(r'''running: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(zipfile, project_lieferung_version_dir))
     return_code = os.system(
         r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}'.format(zipfile, project_lieferung_version_dir))
+    my_logger.debug('return code: "{0}"'.format(return_code))
+
+    counter += 1
+    if counter == 10:
+        my_logger.info(
+            r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
+                zipfile, project_lieferung_version_dir))
+        my_logger.info('Exiting this program.')
+        sys.exit(r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
+                zipfile, project_lieferung_version_dir))
+
+
 print('*                            **')
 print('*******************************')
 print('****************************** ')
@@ -156,16 +263,6 @@ if os.path.exists(os.path.join(lieferung_output_path)):
             '\n\nNo access permission to Folder "{0}" - it therefore has not been deleted, please check and clean up manually.\n\n'.format(
                 lieferung_output_path))
 
-
-# file search algorith
-def find_all(name: str, path: str) -> list:
-    result = []
-    for root, dirs, files in os.walk(path):
-        if name in files:
-            result.append(os.path.join(root, name))
-    return result
-
-
 # look for xml file within project_lieferung_version_dir
 list_of_questionnaire_xml_files = find_all(name='questionnaire.xml', path=project_lieferung_version_dir)
 
@@ -175,10 +272,11 @@ print(list_of_questionnaire_xml_files)
 if len(list_of_questionnaire_xml_files) == 1:
     xmlfile = list_of_questionnaire_xml_files[0]
 
+
 # if there are less or more than one match, display a filedialog to manually choose a file
 else:
     # read xml file
-    input('Bitte die XML-Datei des Fragebogens auswählen. (Weiter mit ENTER)')
+    input('Es wird nach der XML-Datei des Fragebogens gesucht ... ... ...')
 
     xml_file_initial_path = os.path.join(project_lieferung_version_dir, version, 'output', 'instruction', 'QML')
 
@@ -302,9 +400,24 @@ else:
 # # set paths of templates
 # ##########################
 
-master_do_file_template_path = r'P:\Zofar\Automation_Template\master_template.do'
-history_do_file_template_path = r'P:\Zofar\Automation_Template\history_template.do'
-response_do_file_template_path = r'P:\Zofar\Automation_Template\ruecklauf_graph_template.do'
+# if flag_debug is not set
+if not flag_debug:
+    master_do_file_template_path = r'P:\Zofar\Automation_Template\master_template.do'
+    history_do_file_template_path = r'P:\Zofar\Automation_Template\history_template.do'
+    response_do_file_template_path = r'P:\Zofar\Automation_Template\ruecklauf_graph_template.do'
+    kontrolle_do_file_template_path = r'P:\Zofar\Automation_Template\kontrolle_template.do'
+
+
+# if flag_debug is set
+else:
+    master_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\master_template.do'
+    history_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\history_template.do'
+    response_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\ruecklauf_graph_template.do'
+    kontrolle_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\kontrolle_template.do'
+
+my_logger.debug('master_do_file_template_path = "{0}"'.format(master_do_file_template_path))
+my_logger.debug('history_do_file_template_path = "{0}"'.format(history_do_file_template_path))
+my_logger.debug('response_do_file_template_path = "{0}"'.format(response_do_file_template_path))
 
 master_do_file_path = os.path.normpath(
     os.path.join(project_doc_dir, '00_master_' + projectname_short + '_' + version + '.do'))
@@ -312,18 +425,28 @@ history_do_file_path = os.path.normpath(
     os.path.join(project_doc_dir, '01_history_' + projectname_short + '_' + version + '.do'))
 response_do_file_path = os.path.normpath(
     os.path.join(project_doc_dir, '02_response_' + projectname_short + '_' + version + '.do'))
+kontrolle_do_file_path = os.path.normpath(
+    os.path.join(project_doc_dir, '03_kontrolle_' + projectname_short + '_' + version + '.do'))
+
+
+my_logger.debug('master_do_file_path = "{0}"'.format(master_do_file_path))
+my_logger.debug('history_do_file_path = "{0}"'.format(history_do_file_path))
+my_logger.debug('response_do_file_path = "{0}"'.format(response_do_file_path))
+my_logger.debug('kontrolle_do_file_path = "{0}"'.format(kontrolle_do_file_path))
 
 # ##################
 # # HISTORY DOFILE
 # ##################
 
 # load history dofile template
+my_logger.debug('load history dofile template')
 
 history_dofile_str = ''
 with open(history_do_file_template_path, 'r', encoding='utf-8') as file:
     history_dofile_str = file.read()
 
 # generate STATA code for pagenum replacement
+my_logger.debug('generate STATA code for pagenum replacement')
 replace_pagenum_str = ''
 if page_list:
     for i in range(len(page_list)):
@@ -337,6 +460,8 @@ else:
     replace_pagenum_str += 'replace pagenum=1 if page=="offer"\n'
 
 # replace strings in history_file
+my_logger.debug('modifiy history dofile')
+
 timestamp_str = timestamp()
 
 history_dofile_str = history_dofile_str.replace('XXX__REPLACE_PAGENUM__XXX', replace_pagenum_str)
@@ -350,22 +475,24 @@ history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
                                                 history_csv_zip_file_modification_time_str)
 
 # save history do file
+my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))
 with open(history_do_file_path, 'w', encoding='utf-8') as file:
     file.write(history_dofile_str)
 
-print(history_do_file_path)
+my_logger.info('Created history do file: "{0}"'.format(history_do_file_path))
 
 # ###################
 # # RESPONSE DOFILE
 # ###################
 
 # load response dofile template
-
+my_logger.debug('load response dofile template')
 master_dofile = ''
 with open(response_do_file_template_path, 'r', encoding='utf-8') as file:
     response_dofile_str = file.read()
 
 # modify response dofile
+my_logger.debug('modifiy response dofile')
 response_dofile_str = response_dofile_str.replace('', '')
 response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
 response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
@@ -373,22 +500,49 @@ response_dofile_str = response_dofile_str.replace('XXX__USER__XXX', user)
 response_dofile_str = response_dofile_str.replace('XXX__VERSION__XXX', version)
 
 # save response do file
+my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))
 with open(response_do_file_path, 'w', encoding='utf-8') as file:
     file.write(response_dofile_str)
 
-print(response_do_file_path)
+my_logger.info('Created response do file: "{0}"'.format(response_do_file_path))
+
+# ###################
+# # KONTROLLE DOFILE
+# ###################
+
+# load kontrolle dofile template
+my_logger.debug('load kontrolle dofile template')
+kontrolle_dofile = ''
+with open(kontrolle_do_file_template_path, 'r', encoding='utf-8') as file:
+    kontrolle_dofile_str = file.read()
+
+# modify kontrolle dofile
+my_logger.debug('modifiy kontrolle dofile')
+kontrolle_dofile_str = kontrolle_dofile_str.replace('', '')
+kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
+kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
+kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__USER__XXX', user)
+kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__VERSION__XXX', version)
+
+# save kontrolle do file
+my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))
+with open(kontrolle_do_file_path, 'w', encoding='utf-8') as file:
+    file.write(kontrolle_dofile_str)
+
+my_logger.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path))
 
 # #################
 # # MASTER DOFILE
 # #################
 
 # load master dofile template
-
+my_logger.debug('load master dofile template')
 master_dofile = ''
 with open(master_do_file_template_path, 'r', encoding='utf-8') as file:
     master_dofile_str = file.read()
 
 # modify master dofile
+my_logger.debug('modifiy master dofile')
 
 master_dofile_str = master_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
 master_dofile_str = master_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
@@ -398,12 +552,21 @@ master_dofile_str = master_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_s
 master_dofile_str = master_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX', data_csv_zip_file_modification_time_str)
 master_dofile_str = master_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX', history_csv_zip_file_modification_time_str)
 
+# add to run history do file
 master_dofile_str += 'do {0}\n'.format(history_do_file_path)
 
+# add to run response do file
+master_dofile_str += 'do {0}\n'.format(response_do_file_path)
+
+# add to run kontrolle do file
+master_dofile_str += 'do {0}\n'.format(kontrolle_do_file_path)
+
 # save master do file
+my_logger.debug('save master dofile as "{0}"'.format(history_do_file_path))
 with open(master_do_file_path, 'w', encoding='utf-8') as file:
     file.write(master_dofile_str)
 
-print(master_do_file_path)
+my_logger.info('Created master do file: "{0}"'.format(master_do_file_path))
 
-input('Programm beendet!')
+input('Programm beendet! (weiter mit ENTER)')
+sys.exit()

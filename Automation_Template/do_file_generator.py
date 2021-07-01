@@ -1,6 +1,6 @@
 #!"C:\Program Files\IBM\SPSS\Statistics\26\Python3\python.exe"
-__version__ = "0.0.2"
-__author__ = "Christian Friedrich"
+__version__ = "0.0.3"
+__author__ = "Christian Friedrich, Andrea Schulze"
 __license__ = "MIT"
 __copyright__ = "2021, Christian Friedrich"
 __status__ = "Prototype"

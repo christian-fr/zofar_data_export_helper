@@ -18,6 +18,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Optionally set the debug flag for verbose output and debug logging.')
 parser.add_argument('--debug', action='store_true', help='enable verbose output and debug logging')
+parser.add_argument('--local', action='store_true', help='set paths to local environment')
 
 args = parser.parse_args()
 
@@ -25,6 +26,11 @@ args = parser.parse_args()
 assert isinstance(args.debug, bool)
 # set flag for debug
 flag_debug = args.debug
+
+# assert that optional debug flag is of boolean type
+assert isinstance(args.local, bool)
+# set flag for debug
+flag_local = args.local
 
 
 
@@ -401,7 +407,7 @@ else:
 # ##########################
 
 # if flag_debug is not set
-if not flag_debug:
+if not flag_local:
     master_do_file_template_path = r'P:\Zofar\Automation_Template\master_template.do'
     history_do_file_template_path = r'P:\Zofar\Automation_Template\history_template.do'
     response_do_file_template_path = r'P:\Zofar\Automation_Template\ruecklauf_graph_template.do'

@@ -4,3 +4,6 @@
 *.log
 *.zip
 *.csv
+*.dta
+*.xls
+*.xlsx

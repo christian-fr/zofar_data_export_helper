@@ -86,6 +86,9 @@ else:
     my_logger.info('starting up program')
     my_logger.debug('"flag_debug" is set to True!')
 
+if flag_local:
+    my_logger.info('"flag_local" is set to True! does not work on the server!')
+
 
 time.sleep(.2)
 

@@ -2,7 +2,7 @@
 __version__ = "0.0.3"
 __author__ = "Christian Friedrich, Andrea Schulze"
 __license__ = "MIT"
-__copyright__ = "2021, Christian Friedrich"
+__copyright__ = "2021, Christian Friedrich, Andrea Schulze"
 __status__ = "Prototype"
 
 import time
@@ -95,6 +95,10 @@ time.sleep(.2)
 print(' ╔═════════════════════════════════════╗')
 print(' ║  Zofar Automation - Datenlieferung  ║')
 print(' ╚═════════════════════════════════════╝\n\n\n')
+print('\n')
+print('authors: {0}\n\n'.format(__author__))
+print('version: {0}\n\n'.format(__version__))
+print('license: {0}\n\n'.format(__license__))
 
 while True:
     projectname = input('Bitte Projektnamen angeben: ').strip()

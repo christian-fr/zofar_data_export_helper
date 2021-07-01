@@ -2,3 +2,5 @@
 /venv_38_new/
 /.idea/
 *.log
+*.zip
+*.csv

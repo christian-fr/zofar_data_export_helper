@@ -472,10 +472,48 @@ else:
     replace_pagenum_str += 'replace pagenum=0 if page=="index"\n'
     replace_pagenum_str += 'replace pagenum=1 if page=="offer"\n'
 
+# generate STATA code for dauer generate
+egen_str='egen dauer=rowtotal(p0-p{0})'.format(len(page_list))
+
+    
 # replace strings in history_file
 my_logger.debug('modifiy history dofile')
 
 timestamp_str = timestamp()
+
+
+# generate STATA code for labeling pages
+label_page_str = ''
+if page_list:
+	for i in range(len(page_list)):
+		label_page_str += 'label var p{0} "Verweildauer auf {1} (in Sekunden)"\n'.format(i, page_list[i])
+
+else:
+	print('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
+	replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
+	replace_pagenum_str = 'label var p0 "Verweildauer auf index (in Sekunden)"\n'
+	replace_pagenum_str = 'label var p1 "Verweildauer auf offer (in Sekunden)"\n'
+
+
+# generate STATA code for labeling maxpage
+label_maxpage_str ='label define maxpagelb '
+if page_list:
+    for i in range(len(page_list)):
+        label_maxpage_str += '{0} "{1}" '.format(i, page_list[i])
+else:
+	print('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
+	replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
+	replace_pagenum_str = 'label define maxpagelb 0 "index" 1 "offer"'
+
+
+# generate STATA code for Tabout Verweildauer with finished questionnaires
+tabstat_verweildauer_finished_str='tabstatout verwdauer if maxpage=={0}, (n mean median min max sd) tf(verwdauer_gesamt_nurBeendet) format(%9.4g) replace\n'.format(len(page_list)-1)
+
+
+# generate STATA code for dauer generate
+tabstat_verweildauer_str='foreach n of numlist 0/{0} {{\n	tabstat p\`n\' if visit\`n\'==1, stat(n mean min max sd med)\n	}}'.format(len(page_list)-1)
+
+
 
 history_dofile_str = history_dofile_str.replace('XXX__REPLACE_PAGENUM__XXX', replace_pagenum_str)
 history_dofile_str = history_dofile_str.replace('XXX__VERSION__XXX', version)
@@ -484,8 +522,15 @@ history_dofile_str = history_dofile_str.replace('XXX__PROJECTNAME__XXX', project
 history_dofile_str = history_dofile_str.replace('XXX__USER__XXX', user)
 history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
 history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX', data_csv_zip_file_modification_time_str)
-history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-                                                history_csv_zip_file_modification_time_str)
+history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX', history_csv_zip_file_modification_time_str)
+history_dofile_str = history_dofile_str.replace('XXX__DAUER__XXX', egen_str)
+history_dofile_str = history_dofile_str.replace('XXX__PAGE_LABEL__XXX', label_page_str)
+history_dofile_str = history_dofile_str.replace('XXX__MAXPAGE_LABEL__XXX', label_maxpage_str)
+
+history_dofile_str = history_dofile_str.replace('XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX', tabstat_verweildauer_finished_str)
+history_dofile_str = history_dofile_str.replace('XXX__TABSTAT_VERWEILDAUER__XXX', tabstat_verweildauer_str)
+
+
 
 # save history do file
 my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))

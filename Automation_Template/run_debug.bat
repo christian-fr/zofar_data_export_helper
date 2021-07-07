@@ -1,0 +1,1 @@
+cmd /k create_new_project_folder_structure_debug.bat

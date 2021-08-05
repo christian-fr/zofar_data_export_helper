@@ -8,13 +8,15 @@ __status__ = "Prototype"
 import time
 import os
 import sys
-import argparse
+# import argparse
 from tkinter import filedialog, Tk
 import shutil
 import xml
 from xml.etree import ElementTree
 import logging
 import argparse
+from collections import defaultdict
+import csv
 
 parser = argparse.ArgumentParser(description='Optionally set the debug flag for verbose output and debug logging.')
 parser.add_argument('--debug', action='store_true', help='enable verbose output and debug logging')
@@ -316,6 +318,21 @@ else:
         print('Seitenreihenfolge:')
         print(page_list)
 
+        var_dict = defaultdict(list)
+        xmlfile = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\data\questionnaire.xml'
+        # create page list
+        x = ElementTree.parse(source=xmlfile)
+        for element in x.iter():
+            if element.tag == '{http://www.his.de/zofar/xml/questionnaire}variables':
+                for child_element in element:
+                    if child_element.tag == '{http://www.his.de/zofar/xml/questionnaire}variable':
+                        if hasattr(child_element, 'attrib'):
+                            if 'name' in child_element.attrib and 'type' in child_element.attrib:
+                                var_dict[child_element.attrib['type']].append(child_element.attrib['name'])
+
+        print('Variablentypen:')
+        print(var_dict)
+
     except xml.etree.ElementTree.ParseError:
         print('XML Datei ist nicht lesbar, wird übersprungen.\n\n')
         xmlfile = ''
@@ -388,6 +405,8 @@ else:
             ('data.csv.zip file', 'data.csv.zip'), ('all files', '*.*')),
                                    title='Bitte die data.csv.zip-Datei auswählen.'))
 
+list_of_csv_string_var_columns = []
+
 if not os.path.isfile(data_csv_zip_file_str):
     input('Keine data.csv.zip-Datei geladen. Manuelle Eingabe des \nTimestamps (kann leer gelassen werden): ')
 else:
@@ -399,6 +418,27 @@ else:
         print('\nKonnte ZIP-Datei {0} nicht entpacken.\n'.format(data_csv_zip_file_str))
     else:
         print('\nZIP-Datei {0} erfolgreich entpackt.\n'.format(data_csv_zip_file_str))
+
+        # read variablenames from csv header
+        # ToDo: check if path is correct!
+        my_logger.debug('CSV header ist geladen, Variablennamen erfasst.')
+
+        data_csv_file_str = os.path.join(project_orig_version_dir, 'data.csv')
+        my_logger.debug('Lade CSV-Datei: {0}'.format(data_csv_file_str))
+
+        with open(data_csv_file_str, encoding='utf-8') as csv_file:
+            reader = csv.reader(csv_file)
+            list_of_all_varnames = next(reader)
+
+        print('CSV header ist geladen, Variablennamen erfasst.')
+
+        # check if var_dict does contain a key "string"
+        if var_dict['string']:
+            for index, varname in enumerate(list_of_all_varnames):
+                if varname in var_dict['string']:
+                    list_of_csv_string_var_columns.append(str(index))
+        print('Liste mit Spaltennummern für Stringvariablen wurde erstellt.')
+
         try:
             shutil.move(data_csv_zip_file_str, project_orig_version_dir)
         except PermissionError:
@@ -450,7 +490,7 @@ my_logger.debug('kontrolle_do_file_path = "{0}"'.format(kontrolle_do_file_path))
 # load history dofile template
 my_logger.debug('load history dofile template')
 
-history_dofile_str = ''
+# history_dofile_str = ''
 with open(history_do_file_template_path, 'r', encoding='utf-8') as file:
     history_dofile_str = file.read()
 
@@ -486,8 +526,8 @@ else:
     print(
         'Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
     replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
-    replace_pagenum_str = 'label var p0 "Verweildauer auf index (in Sekunden)"\n'
-    replace_pagenum_str = 'label var p1 "Verweildauer auf offer (in Sekunden)"\n'
+    replace_pagenum_str += 'label var p0 "Verweildauer auf index (in Sekunden)"\n'
+    replace_pagenum_str += 'label var p1 "Verweildauer auf offer (in Sekunden)"\n'
 
 # generate STATA code for labeling maxpage
 label_maxpage_str = 'label define maxpagelb '
@@ -497,8 +537,8 @@ if page_list:
 else:
     print(
         'Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
-    replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
-    replace_pagenum_str = 'label define maxpagelb 0 "index" 1 "offer"'
+    # replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
+    replace_pagenum_str += 'label define maxpagelb 0 "index" 1 "offer"'
 
 # generate STATA code for Tabout Verweildauer with finished questionnaires
 tabstat_verweildauer_finished_str = 'tabstatout dauer if maxpage=={0}, s(n mean median min max sd) tf(verwdauer_gesamt_nurBeendet) format(%9.4g) replace\n'.format(
@@ -538,7 +578,7 @@ my_logger.info('Created history do file: "{0}"'.format(history_do_file_path))
 
 # load response dofile template
 my_logger.debug('load response dofile template')
-master_dofile = ''
+response_dofile = ''
 with open(response_do_file_template_path, 'r', encoding='utf-8') as file:
     response_dofile_str = file.read()
 
@@ -563,7 +603,7 @@ my_logger.info('Created response do file: "{0}"'.format(response_do_file_path))
 
 # load kontrolle dofile template
 my_logger.debug('load kontrolle dofile template')
-kontrolle_dofile = ''
+# kontrolle_dofile = ''
 with open(kontrolle_do_file_template_path, 'r', encoding='utf-8') as file:
     kontrolle_dofile_str = file.read()
 
@@ -588,7 +628,7 @@ my_logger.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path)
 
 # load master dofile template
 my_logger.debug('load master dofile template')
-master_dofile = ''
+# master_dofile = ''
 with open(master_do_file_template_path, 'r', encoding='utf-8') as file:
     master_dofile_str = file.read()
 
@@ -611,6 +651,16 @@ master_dofile_str += 'do {0}\n'.format(response_do_file_path)
 
 # add to run kontrolle do file
 master_dofile_str += 'do {0}\n'.format(kontrolle_do_file_path)
+
+# ToDo: strincolumn added to master do file - probably not the right place, needs to be rearranged and tested!
+master_dofile_str += '\n' * 2
+# comment the line
+master_dofile_str += '* '
+
+my_logger.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
+master_dofile_str += '* ToDo 2021-08-05 CF: this is just a snippet from "do_file_generator.py" - it needs to be moved somewhere else!\n'
+master_dofile_str += """import delimited "$data\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcolumn({0})\n""".format(
+    ' '.join(list_of_csv_string_var_columns))
 
 # save master do file
 my_logger.debug('save master dofile as "{0}"'.format(history_do_file_path))

@@ -33,8 +33,6 @@ assert isinstance(args.local, bool)
 flag_local = args.local
 
 
-
-
 # file search algorithm - return list of found files within given path, with absolute paths
 def find_all(name: str, path: str) -> list:
     result = []
@@ -88,7 +86,6 @@ else:
 
 if flag_local:
     my_logger.info('"flag_local" is set to True! does not work on the server!')
-
 
 time.sleep(.2)
 
@@ -224,7 +221,6 @@ print(' ******************************')
 print('*******************************')
 print('******    7-Zip             ***')
 
-
 # start the while loop: it will loop until the return_code == 0 (so when a wrong password has been entered, it will
 #  just start the unzipping again and also prompt for the password again
 #  we are using the "counter" variable to make sure that we do a maximum of 10 loops
@@ -234,7 +230,8 @@ counter = 0
 
 while return_code != 0:
     my_logger.debug('counter: "{0}"'.format(counter))
-    my_logger.debug(r'''running: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(zipfile, project_lieferung_version_dir))
+    my_logger.debug(r'''running: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(zipfile,
+                                                                                                         project_lieferung_version_dir))
     return_code = os.system(
         r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}'.format(zipfile, project_lieferung_version_dir))
     my_logger.debug('return code: "{0}"'.format(return_code))
@@ -245,9 +242,9 @@ while return_code != 0:
             r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
                 zipfile, project_lieferung_version_dir))
         my_logger.info('Exiting this program.')
-        sys.exit(r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
+        sys.exit(
+            r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
                 zipfile, project_lieferung_version_dir))
-
 
 print('*                            **')
 print('*******************************')
@@ -441,7 +438,6 @@ response_do_file_path = os.path.normpath(
 kontrolle_do_file_path = os.path.normpath(
     os.path.join(project_doc_dir, '03_kontrolle_' + projectname_short + '_' + version + '.do'))
 
-
 my_logger.debug('master_do_file_path = "{0}"'.format(master_do_file_path))
 my_logger.debug('history_do_file_path = "{0}"'.format(history_do_file_path))
 my_logger.debug('response_do_file_path = "{0}"'.format(response_do_file_path))
@@ -473,47 +469,44 @@ else:
     replace_pagenum_str += 'replace pagenum=1 if page=="offer"\n'
 
 # generate STATA code for dauer generate
-egen_str='egen dauer=rowtotal(p0-p{0})'.format(len(page_list)-1)
+egen_str = 'egen dauer=rowtotal(p0-p{0})'.format(len(page_list) - 1)
 
-    
 # replace strings in history_file
 my_logger.debug('modifiy history dofile')
 
 timestamp_str = timestamp()
 
-
 # generate STATA code for labeling pages
 label_page_str = ''
 if page_list:
-	for i in range(len(page_list)):
-		label_page_str += 'label var p{0} "Verweildauer auf {1} (in Sekunden)"\n'.format(i, page_list[i])
+    for i in range(len(page_list)):
+        label_page_str += 'label var p{0} "Verweildauer auf {1} (in Sekunden)"\n'.format(i, page_list[i])
 
 else:
-	print('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
-	replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
-	replace_pagenum_str = 'label var p0 "Verweildauer auf index (in Sekunden)"\n'
-	replace_pagenum_str = 'label var p1 "Verweildauer auf offer (in Sekunden)"\n'
-
+    print(
+        'Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
+    replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
+    replace_pagenum_str = 'label var p0 "Verweildauer auf index (in Sekunden)"\n'
+    replace_pagenum_str = 'label var p1 "Verweildauer auf offer (in Sekunden)"\n'
 
 # generate STATA code for labeling maxpage
-label_maxpage_str ='label define maxpagelb '
+label_maxpage_str = 'label define maxpagelb '
 if page_list:
     for i in range(len(page_list)):
         label_maxpage_str += '{0} "{1}" '.format(i, page_list[i])
 else:
-	print('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
-	replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
-	replace_pagenum_str = 'label define maxpagelb 0 "index" 1 "offer"'
-
+    print(
+        'Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
+    replace_pagenum_str = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
+    replace_pagenum_str = 'label define maxpagelb 0 "index" 1 "offer"'
 
 # generate STATA code for Tabout Verweildauer with finished questionnaires
-tabstat_verweildauer_finished_str='tabstatout dauer if maxpage=={0}, s(n mean median min max sd) tf(verwdauer_gesamt_nurBeendet) format(%9.4g) replace\n'.format(len(page_list)-1)
-
+tabstat_verweildauer_finished_str = 'tabstatout dauer if maxpage=={0}, s(n mean median min max sd) tf(verwdauer_gesamt_nurBeendet) format(%9.4g) replace\n'.format(
+    len(page_list) - 1)
 
 # generate STATA code for dauer generate
-tabstat_verweildauer_str='foreach n of numlist 0/{0} {{\n	tabstat p\`n\' if visit\`n\'==1, stat(n mean min max sd med)\n	}}'.format(len(page_list)-1)
-
-
+tabstat_verweildauer_str = 'foreach n of numlist 0/{0} {{\n	tabstat p\`n\' if visit\`n\'==1, stat(n mean min max sd med)\n	}}'.format(
+    len(page_list) - 1)
 
 history_dofile_str = history_dofile_str.replace('XXX__REPLACE_PAGENUM__XXX', replace_pagenum_str)
 history_dofile_str = history_dofile_str.replace('XXX__VERSION__XXX', version)
@@ -522,15 +515,15 @@ history_dofile_str = history_dofile_str.replace('XXX__PROJECTNAME__XXX', project
 history_dofile_str = history_dofile_str.replace('XXX__USER__XXX', user)
 history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
 history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX', data_csv_zip_file_modification_time_str)
-history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX', history_csv_zip_file_modification_time_str)
+history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
+                                                history_csv_zip_file_modification_time_str)
 history_dofile_str = history_dofile_str.replace('XXX__DAUER__XXX', egen_str)
 history_dofile_str = history_dofile_str.replace('XXX__PAGE_LABEL__XXX', label_page_str)
 history_dofile_str = history_dofile_str.replace('XXX__MAXPAGE_LABEL__XXX', label_maxpage_str)
 
-history_dofile_str = history_dofile_str.replace('XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX', tabstat_verweildauer_finished_str)
+history_dofile_str = history_dofile_str.replace('XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX',
+                                                tabstat_verweildauer_finished_str)
 history_dofile_str = history_dofile_str.replace('XXX__TABSTAT_VERWEILDAUER__XXX', tabstat_verweildauer_str)
-
-
 
 # save history do file
 my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))

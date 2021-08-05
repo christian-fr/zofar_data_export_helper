@@ -1,9 +1,9 @@
 *********************************************************************
-*_______________ Nacaps 2020.1 ___________
-global version "2021-04-22"
-global workdir "P:\Zofar\NACAPS\Nacaps2020-1\\"	
+*_______________ XXX__PROJECTNAME__XXX ___________
+global version "XXX__VERSION__XXX"
+global workdir "P:\Zofar\NACAPS\XXX__PROJECTNAME_SHORT__XXX\\"	
 global orig "${workdir}orig\\${version}\"
-global out "${workdir}lieferung\Nacaps20-1_export_\${version}\"
+global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
 
 cd "${workdir}doc"
 cap log close
@@ -11,21 +11,17 @@ log using log_`: di %tdCY-N-D daily("$S_DATE", "DMY")', replace
 
 
 ****************************************************************************
-** Projekt/ Studie: prod_nacaps20201
-** Erstelldatum: 30.03.2021 11:47:58
-** Datensatz: Tue Mar 30 11:47:58 CEST 2021
+** Projekt/ Studie:        XXX__PROJECTNAME__XXX
+** Projektname kurz
+** (für Pfade/Dateinamen): XXX__PROJECTNAME_SHORT__XXX
+** Erstelldatum:           XXX__TIMESTAMP__XXX
+** History-Daten:          XXX__TIMESTAMPHISTORY__XXX
+** Datensatz:              XXX__TIMESTAMPDATASET__XXX
+** Bearbeitet von:         XXX__USER__XXX
 ****************************************************************************
-** Glossar Missing-Werte
-** -9999 : voreingestellte Missing-Werte, insbesondere bei technischen Variablen
-** -9992 : Item wurde gemäß Fragebogensteuerung nicht angezeigt oder befindet sich auf der Seite des Befragungsabbruches
-** -9990 : Item wurde gesehen, aber nicht beantwortet
-** -9991 : Seite, auf der sich das Item befindet, wurde gemäß Fragebogensteuerung oder aufgrund eines vorherigen Befragungsabbruches nicht besucht
-** -9995 : Variable wurde nicht erhoben (-9992 oder -9991), jedoch für die Fragebogensteuerung verwendet
-*************************************************************************
-*************************************************************************
+
 
 *____________Daten importieren____________________
-// mit Postleitzahlen als String-Variablen
 import delimited "${orig}data.csv", delimiter(comma) bindquote(strict) varnames(1) encoding(utf8) clear 
 
 
@@ -78,19 +74,6 @@ foreach n of numlist 1/200 {
 *____________Paradaten ________________________________
 tostring width, generate(width_t)
 tostring height, generate(height_t)
-
-**** screen-size als text-variable erstellen
-/*
-*** funktioniert, ist aber sehr rechenintensiv
-gen screen=""
-
-
-forvalues w= 320/3840 {
-forvalues h= 347/2560 {
-quietly: replace screen= "`h'x`w'" if width==`w' & height==`h'
-}
-}
-*/
 
 gen screen=height + "x" + width
 label var screen "Bildschirmgröße: Höhe x Breite"

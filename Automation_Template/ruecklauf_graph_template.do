@@ -4,9 +4,9 @@
 * Bearbeitet von: XXX__USER__XXX
 *
 global version "XXX__VERSION__XXX"
-	XXXXXXXX
-	global workdir "P:\Zofar\NACAPS\XXX__PROJECTNAME_SHORT__XXX_export_\\"	
-	XXXXXXXX
+
+global workdir "P:\Zofar\NACAPS\XXX__PROJECTNAME_SHORT__XXX_export_\\"	
+
 global orig "${workdir}orig\\${version}\"
 global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
 
@@ -67,7 +67,7 @@ graph export "${doc}Rücklauf_Graph_day.png", as(png) replace
 
 graph twoway line teiln fin date ,  ///
 	 lpattern(dash) ///
-	 lstyle(foreground)///
+	 lstyle(foreground) ///
 	 title("Rücklauf während der Feldphase") ///
 	 ytitle("number of respondents") ///
 	 xtitle("") ///

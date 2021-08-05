@@ -2,14 +2,11 @@
 *_______________ XXX__PROJECTNAME__XXX ___________
 global version "XXX__VERSION__XXX"
 
-/*
-	XXXXXXXX
-	global workdir "P:\Zofar\NACAPS\Nacaps2020-1\"	
-	XXXXXXXX
-*/
+global workdir "P:\Zofar\NACAPS\XXX__PROJECTNAME_SHORT__XXX\"	
 
 global orig "${workdir}orig\\${version}\"
 global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
+global doc "${workdir}doc\"
 
 
 ****************************************************************************
@@ -231,14 +228,27 @@ tabstat dauer, statistic(mean median min max sd)
 XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX
 
 *tabstat dauer if maxpage==157, statistic(mean median min max sd) 
+*tabstatout dauer, s(n mean median min max sd) replace
 
 
 *_______________________Verweildauer pro Seite__________________
-foreach n of numlist 0/152 {
+*** Verweildauer pro Seite, wenn visit==1 um Summierung herauszurechnen
+/*foreach n of numlist 0/152 {
  	tabstat p`n' if visit`n'==1, stat(mean min max sd med)
  	}
+*/ 
 
-
+/*
+*XXXXXXXXX ToDo: varlist generieren lassen XXXXXXXXX
+local num "0" "1" "2"
+local varlist p`num'
+*local varlist "p0 p1 p2"
+local varlist "p0" "p1" "p2"
+tabstat `varlist', statistic(n mean median min max sd) ///
+	col(stat) ///
+	format(%9.3g)  ///
+	tf(table)
+*/
 
 log close
 

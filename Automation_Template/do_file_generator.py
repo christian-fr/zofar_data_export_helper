@@ -473,7 +473,7 @@ else:
     replace_pagenum_str += 'replace pagenum=1 if page=="offer"\n'
 
 # generate STATA code for dauer generate
-egen_str='egen dauer=rowtotal(p0-p{0})'.format(len(page_list))
+egen_str='egen dauer=rowtotal(p0-p{0})'.format(len(page_list)-1)
 
     
 # replace strings in history_file
@@ -507,7 +507,7 @@ else:
 
 
 # generate STATA code for Tabout Verweildauer with finished questionnaires
-tabstat_verweildauer_finished_str='tabstatout verwdauer if maxpage=={0}, (n mean median min max sd) tf(verwdauer_gesamt_nurBeendet) format(%9.4g) replace\n'.format(len(page_list)-1)
+tabstat_verweildauer_finished_str='tabstatout dauer if maxpage=={0}, s(n mean median min max sd) tf(verwdauer_gesamt_nurBeendet) format(%9.4g) replace\n'.format(len(page_list)-1)
 
 
 # generate STATA code for dauer generate

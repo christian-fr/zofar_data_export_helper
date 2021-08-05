@@ -319,7 +319,6 @@ else:
         print(page_list)
 
         var_dict = defaultdict(list)
-        xmlfile = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\data\questionnaire.xml'
         # create page list
         x = ElementTree.parse(source=xmlfile)
         for element in x.iter():

@@ -437,7 +437,7 @@ else:
         if var_dict['string']:
             for index, varname in enumerate(list_of_all_varnames):
                 if varname in var_dict['string']:
-                    list_of_csv_string_var_columns.append(str(index))
+                    list_of_csv_string_var_columns.append(str(index+1))
         print('Liste mit Spaltennummern für Stringvariablen wurde erstellt.')
 
         try:

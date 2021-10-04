@@ -367,7 +367,8 @@ else:
 
 csv_zip_files_folder_str = os.path.normpath(os.path.split(history_csv_zip_file_str)[0])
 if not os.path.isfile(history_csv_zip_file_str):
-    input('Keine history.csv.zip-Datei geladen. Manuelle Eingabe \ndes Timestamps (kann leer gelassen werden): ')
+    history_csv_zip_file_modification_time_str = input('Keine history.csv.zip-Datei geladen. Manuelle Eingabe \n'
+                                                       'des Timestamps (kann leer gelassen werden): ')
 else:
     history_csv_zip_file_modification_localtime = time.localtime(os.path.getmtime(history_csv_zip_file_str))
     history_csv_zip_file_modification_time_str = timestamp(history_csv_zip_file_modification_localtime)
@@ -407,7 +408,8 @@ else:
 list_of_csv_string_var_columns = []
 
 if not os.path.isfile(data_csv_zip_file_str):
-    input('Keine data.csv.zip-Datei geladen. Manuelle Eingabe des \nTimestamps (kann leer gelassen werden): ')
+    data_csv_zip_file_modification_time_str = input('Keine data.csv.zip-Datei geladen. Manuelle Eingabe des \n'
+                                                    'Timestamps (kann leer gelassen werden): ')
 else:
     data_csv_zip_file_modification_localtime = time.localtime(os.path.getmtime(data_csv_zip_file_str))
     data_csv_zip_file_modification_time_str = timestamp(data_csv_zip_file_modification_localtime)
@@ -657,7 +659,7 @@ master_dofile_str += '\n' * 2
 
 my_logger.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
 master_dofile_str += '* ToDo 2021-08-05 CF: this is just a snippet from "do_file_generator.py" - it needs to be moved somewhere else!\n'
-master_dofile_str += """* import delimited "$data\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcolumn({0})\n""".format(
+master_dofile_str += """* import delimited "$data\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcols({0})\n""".format(
     ' '.join(list_of_csv_string_var_columns))
 
 # save master do file

@@ -651,13 +651,13 @@ master_dofile_str += 'do {0}\n'.format(response_do_file_path)
 # add to run kontrolle do file
 master_dofile_str += 'do {0}\n'.format(kontrolle_do_file_path)
 
-# ToDo: stringcolumn added to master do file - probably not the right place, needs to be rearranged and tested!
+# ToDo: strincolumn added to master do file - probably not the right place, needs to be rearranged and tested!
 master_dofile_str += '\n' * 2
 # comment the line
 
 my_logger.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
 master_dofile_str += '* ToDo 2021-08-05 CF: this is just a snippet from "do_file_generator.py" - it needs to be moved somewhere else!\n'
-master_dofile_str += """* import delimited "$data\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcols({0})\n""".format(
+master_dofile_str += """* import delimited "$data\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcolumn({0})\n""".format(
     ' '.join(list_of_csv_string_var_columns))
 
 # save master do file

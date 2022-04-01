@@ -1,14 +1,26 @@
 *********************************************************************
 *_______________ XXX__PROJECTNAME__XXX ___________
 *
-* Bearbeitet von: XXX__USER__XXX
-*
+****************************************************************************
+** Projekt/ Studie:        XXX__PROJECTNAME__XXX
+** Projektname kurz
+** (für Pfade/Dateinamen): XXX__PROJECTNAME_SHORT__XXX
+** Erstelldatum:           XXX__TIMESTAMP__XXX
+** History-Daten:          XXX__TIMESTAMPHISTORY__XXX
+** Datensatz:              XXX__TIMESTAMPDATASET__XXX
+** Bearbeitet von:         XXX__USER__XXX
+****************************************************************************
+
+version 17
+
 global version "XXX__VERSION__XXX"
 
-global workdir "P:\Zofar\NACAPS\XXX__PROJECTNAME_SHORT__XXX_export_\\"	
+global workdir "XXX__PROJECT_BASE_DIR__XXX\"
 
 global orig "${workdir}orig\\${version}\"
 global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
+global doc "${workdir}doc\"
+
 
 *____________Daten importieren____________________
 import delimited "${orig}data.csv", delimiter(comma) bindquote(strict) clear 

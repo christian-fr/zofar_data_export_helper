@@ -1,8 +1,11 @@
 *********************************************************************
 *_______________ XXX__PROJECTNAME__XXX ___________
+
+version 17
+
 global version "XXX__VERSION__XXX"
 
-global workdir "P:\Zofar\NACAPS\XXX__PROJECTNAME_SHORT__XXX\"	
+global workdir "XXX__PROJECT_BASE_DIR__XXX\"
 
 global orig "${workdir}orig\\${version}\"
 global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
@@ -10,12 +13,13 @@ global doc "${workdir}doc\"
 
 
 ****************************************************************************
-** Projekt/ Studie:         XXX__PROJECTNAME__XXX
-** Projektname kurz 
-** (für Pfade/Dateinamen):  XXX__PROJECTNAME_SHORT__XXX
-** Bearbeitet von:          XXX__USER__XXX
-** Erstelldatum:            XXX__TIMESTAMP__XXX
-** Datensatz:               XXX__TIMESTAMPHISTORY__XXX
+** Projekt/ Studie:        XXX__PROJECTNAME__XXX
+** Projektname kurz
+** (für Pfade/Dateinamen): XXX__PROJECTNAME_SHORT__XXX
+** Erstelldatum:           XXX__TIMESTAMP__XXX
+** History-Daten:          XXX__TIMESTAMPHISTORY__XXX
+** Datensatz:              XXX__TIMESTAMPDATASET__XXX
+** Bearbeitet von:         XXX__USER__XXX
 ****************************************************************************
 
 *_________________________________________________________________
@@ -159,16 +163,17 @@ label var dauer_sd "Verweildauer: Standardabweichung"
 
 
 *_______________________________________________________________
-log using "${data}XXX__PROJECTNAME_SHORT__XXX_abbrecher-verwdauer.smcl", replace 
+log using "XXX__PROJECT_BASE_DIR__XXX\XXX__PROJECTNAME_SHORT__XXX_abbrecher-verwdauer_${version}.smcl", replace
 
 *******************************************************************************
 ********************* Auswertungen Abbrüche und Verweildauern **********************
 
 *________Anzahl der Abbrecher pro Seite___________
-table page, contents(n abbrecher mean dropoutrate n dropoutrate) format(%9.4f)
+// table page, contents(n abbrecher mean dropoutrate n dropoutrate) format(%9.4f)
+table page, stat(n abbrecher) stat(mean dropoutrate) stat(n dropoutrate) nformat(%9.4f)
 
 
-quiet: tabout page using "XXX__PROJECTNAME_SHORT__XXX_abbrecher.xls", ///
+quiet: tabout page using "XXX__PROJECTNAME_SHORT__XXX_abbrecher_${version}.xls", ///
 	c(count abbrecher mean dropoutrate count dropoutrate) ///
 	replace sum ///
 	f(0 4 0) ///
@@ -180,9 +185,9 @@ quiet: tabout page using "XXX__PROJECTNAME_SHORT__XXX_abbrecher.xls", ///
 tabstat verwdauer, statistics(mean median min max sd)
 
 *________Seitenverweildauer nach Seite ____________________
-table page, contents(n verwdauer mean verwdauer med verwdauer min verwdauer max verwdauer) format(%9.4f)
+table page, stat(n verwdauer) stat(mean verwdauer) stat(median verwdauer) stat(min verwdauer) stat(max verwdauer) nformat(%9.4f)
 
-quiet: tabout page using "XXX__PROJECTNAME_SHORT__XXX_verwdauer.xls", ///
+quiet: tabout page using "XXX__PROJECTNAME_SHORT__XXX_verwdauer_${version}.xls", ///
 	c(count verwdauer mean verwdauer p50 verwdauer min verwdauer max verwdauer) ///
 	replace sum ///
 	f(0 2 2) ///
@@ -218,7 +223,7 @@ XXX__MAXPAGE_LABEL__XXX
 label val maxpage maxpagelb
 
 *_______________________________________________________________
-log using "XXX__PROJECTNAME_SHORT__XXX_verweildauer.smcl", replace 
+log using "XXX__PROJECT_DOC_DIR__XXX\XXX__PROJECTNAME_SHORT__XXX_verweildauer_${version}.smcl", replace
 
 *************************************************************************
 ************************** Auswertungen *********************************

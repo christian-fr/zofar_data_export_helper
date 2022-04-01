@@ -1,7 +1,10 @@
 *********************************************************************
 *_______________ XXX__PROJECTNAME__XXX ___________
+
+version 17
+
 global version "XXX__VERSION__XXX"
-global workdir "P:\Zofar\NACAPS\XXX__PROJECTNAME_SHORT__XXX\\"	
+global workdir "XXX__PROJECT_BASE_DIR__XXX\"
 global orig "${workdir}orig\\${version}\"
 global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
 

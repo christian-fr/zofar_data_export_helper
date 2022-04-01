@@ -196,7 +196,8 @@ my_logger.debug('project_orig_version_dir = "{0}"'.format(project_orig_version_d
 
 # create a folder project_orig_version_dir  - using "os.mkdir()" because top folder has been created in the last
 #  step
-os.mkdir(project_orig_version_dir)
+if not os.path.exists(project_orig_version_dir):
+    os.mkdir(project_orig_version_dir)
 my_logger.debug('os.mkdir({0})'.format(project_doc_dir))
 
 # set string variable for project_lieferung_version_dir (directory has yet to be created)
@@ -491,9 +492,9 @@ my_logger.debug('kontrolle_do_file_path = "{0}"'.format(kontrolle_do_file_path))
 # load history dofile template
 my_logger.debug('load history dofile template')
 
-# history_dofile_str = ''
+# history_do_file_str = ''
 with open(history_do_file_template_path, 'r', encoding='utf-8') as file:
-    history_dofile_str = file.read()
+    history_do_file_str = file.read()
 
 # generate STATA code for pagenum replacement
 my_logger.debug('generate STATA code for pagenum replacement')
@@ -521,7 +522,7 @@ timestamp_str = timestamp()
 label_page_str = ''
 if page_list:
     for i in range(len(page_list)):
-        label_page_str += 'label var p{0} "Verweildauer auf {1} (in Sekunden)"\n'.format(i, page_list[i])
+        label_page_str += 'cap label var p{0} "Verweildauer auf {1} (in Sekunden)"\n'.format(i, page_list[i])
 
 else:
     print(
@@ -549,27 +550,29 @@ tabstat_verweildauer_finished_str = 'tabstatout dauer if maxpage=={0}, s(n mean 
 tabstat_verweildauer_str = 'foreach n of numlist 0/{0} {{\n	tabstat p\`n\' if visit\`n\'==1, stat(n mean min max sd med)\n	}}'.format(
     len(page_list) - 1)
 
-history_dofile_str = history_dofile_str.replace('XXX__REPLACE_PAGENUM__XXX', replace_pagenum_str)
-history_dofile_str = history_dofile_str.replace('XXX__VERSION__XXX', version)
-history_dofile_str = history_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
-history_dofile_str = history_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
-history_dofile_str = history_dofile_str.replace('XXX__USER__XXX', user)
-history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
-history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX', data_csv_zip_file_modification_time_str)
-history_dofile_str = history_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-                                                history_csv_zip_file_modification_time_str)
-history_dofile_str = history_dofile_str.replace('XXX__DAUER__XXX', egen_str)
-history_dofile_str = history_dofile_str.replace('XXX__PAGE_LABEL__XXX', label_page_str)
-history_dofile_str = history_dofile_str.replace('XXX__MAXPAGE_LABEL__XXX', label_maxpage_str)
+history_do_file_str = history_do_file_str.replace('XXX__REPLACE_PAGENUM__XXX', replace_pagenum_str)
+history_do_file_str = history_do_file_str.replace('XXX__VERSION__XXX', version)
+history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
+history_do_file_str = history_do_file_str.replace('XXX__PROJECT_DOC_DIR__XXX', project_doc_dir)
+history_do_file_str = history_do_file_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
+history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME__XXX', projectname)
+history_do_file_str = history_do_file_str.replace('XXX__USER__XXX', user)
+history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
+history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMPDATASET__XXX', data_csv_zip_file_modification_time_str)
+history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMPHISTORY__XXX',
+                                                  history_csv_zip_file_modification_time_str)
+history_do_file_str = history_do_file_str.replace('XXX__DAUER__XXX', egen_str)
+history_do_file_str = history_do_file_str.replace('XXX__PAGE_LABEL__XXX', label_page_str)
+history_do_file_str = history_do_file_str.replace('XXX__MAXPAGE_LABEL__XXX', label_maxpage_str)
 
-history_dofile_str = history_dofile_str.replace('XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX',
-                                                tabstat_verweildauer_finished_str)
-history_dofile_str = history_dofile_str.replace('XXX__TABSTAT_VERWEILDAUER__XXX', tabstat_verweildauer_str)
+history_do_file_str = history_do_file_str.replace('XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX',
+                                                  tabstat_verweildauer_finished_str)
+history_do_file_str = history_do_file_str.replace('XXX__TABSTAT_VERWEILDAUER__XXX', tabstat_verweildauer_str)
 
 # save history do file
 my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))
 with open(history_do_file_path, 'w', encoding='utf-8') as file:
-    file.write(history_dofile_str)
+    file.write(history_do_file_str)
 
 my_logger.info('Created history do file: "{0}"'.format(history_do_file_path))
 
@@ -587,9 +590,14 @@ with open(response_do_file_template_path, 'r', encoding='utf-8') as file:
 my_logger.debug('modifiy response dofile')
 response_dofile_str = response_dofile_str.replace('', '')
 response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
+response_dofile_str = response_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
 response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
 response_dofile_str = response_dofile_str.replace('XXX__USER__XXX', user)
 response_dofile_str = response_dofile_str.replace('XXX__VERSION__XXX', version)
+response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
+response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX', data_csv_zip_file_modification_time_str)
+response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
+                                                  history_csv_zip_file_modification_time_str)
 
 # save response do file
 my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))
@@ -613,8 +621,14 @@ my_logger.debug('modifiy kontrolle dofile')
 kontrolle_dofile_str = kontrolle_dofile_str.replace('', '')
 kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
 kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
+kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
 kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__USER__XXX', user)
 kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__VERSION__XXX', version)
+kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
+kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX',
+                                                    data_csv_zip_file_modification_time_str)
+kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
+                                                    history_csv_zip_file_modification_time_str)
 
 # save kontrolle do file
 my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))

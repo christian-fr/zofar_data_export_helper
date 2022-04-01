@@ -254,8 +254,18 @@ print('*******************************')
 print('****************************** ')
 print('\n' * 3)
 
+
+assert len(os.listdir(project_lieferung_version_dir)) == 1
+zipfile_tmp_output_path = os.path.join(project_lieferung_version_dir, os.listdir(project_lieferung_version_dir)[0])
+
+for file_or_folder_path in [os.path.join(zipfile_tmp_output_path, file_or_folder) for file_or_folder in os.listdir(zipfile_tmp_output_path)]:
+    shutil.move(file_or_folder_path, project_lieferung_version_dir)
+
+shutil.rmtree(zipfile_tmp_output_path)
+
 # check if "output" folder is present:
 lieferung_output_path = os.path.normpath(os.path.join(project_lieferung_version_dir, 'output'))
+
 
 if os.path.exists(os.path.join(lieferung_output_path)):
     # move recursively all subfolders to lieferung version folder

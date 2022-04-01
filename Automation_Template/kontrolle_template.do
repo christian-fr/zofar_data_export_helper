@@ -78,7 +78,7 @@ foreach n of numlist 1/200 {
 tostring width, generate(width_t)
 tostring height, generate(height_t)
 
-gen screen=height + "x" + width
+gen screen=height_t + "x" + width_t
 label var screen "Bildschirmgröße: Höhe x Breite"
 
 tab1 jscheck ismobile screen, miss

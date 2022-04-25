@@ -63,19 +63,58 @@ grstyle set legend 2, inside
 
 *************************************************************************
 
+
+qui sum teiln
+local teiln_order_of_magnitude = floor(log10(r(max)))
+local teiln_interval = 10^`teiln_order_of_magnitude'
+
+local teiln_min = r(min) - mod(r(min), `teiln_interval')
+local teiln_max = r(max) - mod(r(max), `teiln_interval') + `teiln_interval'
+
+qui sum day
+local day_min = r(min)
+local day_max = r(max)
+local day_range =  `day_max' - `day_min'
+
+
 graph twoway line teiln fin day ,  ///
 	 lpattern(dash) ///
 	 lstyle(foreground) ///
 	 title("Rücklauf während der Feldphase") ///
 	 ytitle("number of respondents") ///
 	 xtitle("field phase (in days)") ///
-	 ylabel(0 500 1000 (1000) 6000, gmin angle(horizontal) labsize(vsmall)) ///
-	 xlabel(0 5 10 15 20(10)50 58, labsize(small)) ///
+	 ylabel(`teiln_min' (`teiln_interval') `teiln_max', gmin angle(horizontal) labsize(vsmall)) ///
+	 xlabel(0 5 10 15 20(10)50 `day_range', labsize(small)) ///
 	 legend(label(1 "first access") label(2 "finished")) ///
 	 note("XXX__PROJECTNAME_SHORT__XXX")
 
 graph save Graph "${doc}Rücklauf_Graph_day.gph", replace 
 graph export "${doc}Rücklauf_Graph_day.png", as(png) replace 
+
+qui sum date
+local date_min = r(min)
+local date_max = r(max)
+local date_range =  `date_max' - `date_min'
+local date_range_order_of_magnitude = floor(log10(`date_range'))
+
+**********************************
+* modify this value to scale the ticks / label interval on the x-axis
+* restriction: value has to be > 0!
+*
+local scale_value = 5 // set the value
+di 1/`scale_value' // assert that the value is != 0
+*
+ **********************************
+
+
+local date_range_interval = ceil(10^`date_range_order_of_magnitude'/`scale_value')
+
+**********************************
+* redeclare the local macro date_range_interval to directly
+* set another ticks / label interval (uncomment the following line to do so)
+// local date_range_interval = 10
+*
+ **********************************
 
 graph twoway line teiln fin date ,  ///
 	 lpattern(dash) ///
@@ -83,8 +122,8 @@ graph twoway line teiln fin date ,  ///
 	 title("Rücklauf während der Feldphase") ///
 	 ytitle("number of respondents") ///
 	 xtitle("") ///
-	 ylabel(0 500 1000 (1000) 6000, gmin angle(horizontal) labsize(vsmall)) ///
-	 xlabel(22330 (10) 22389, angle(35) labsize(vsmall)) ///
+	 ylabel(`teiln_min' (`teiln_interval') `teiln_max', gmin angle(horizontal) labsize(vsmall)) ///
+	 xlabel(`date_min' (`date_range_interval') `date_max', angle(35) labsize(vsmall)) ///
 	 legend(label(1 "first access") label(2 "finished")) ///
 	 note("XXX__PROJECTNAME_SHORT__XXX")
 

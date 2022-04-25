@@ -464,18 +464,18 @@ else:
 
 # if flag_debug is not set
 if not flag_local:
-    master_do_file_template_path = r'P:\Zofar\Automation_Template\master_template.do'
-    history_do_file_template_path = r'P:\Zofar\Automation_Template\history_template.do'
-    response_do_file_template_path = r'P:\Zofar\Automation_Template\ruecklauf_graph_template.do'
-    kontrolle_do_file_template_path = r'P:\Zofar\Automation_Template\kontrolle_template.do'
+    master_do_file_template_path = r'P:\Zofar\Automation_Template\template_master.do'
+    history_do_file_template_path = r'P:\Zofar\Automation_Template\template_history.do'
+    response_do_file_template_path = r'P:\Zofar\Automation_Template\template_response.do'
+    kontrolle_do_file_template_path = r'P:\Zofar\Automation_Template\template_kontrolle.do'
 
 
 # if flag_debug is set
 else:
-    master_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\master_template.do'
-    history_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\history_template.do'
-    response_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\ruecklauf_graph_template.do'
-    kontrolle_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\kontrolle_template.do'
+    master_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\template_master.do'
+    history_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\template_history.do'
+    response_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\template_response.do'
+    kontrolle_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\template_kontrolle.do'
 
 my_logger.debug('master_do_file_template_path = "{0}"'.format(master_do_file_template_path))
 my_logger.debug('history_do_file_template_path = "{0}"'.format(history_do_file_template_path))

@@ -21,6 +21,10 @@ global orig "${workdir}orig\\${version}\"
 global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
 global doc "${workdir}doc\"
 
+cd "${workdir}doc"
+cap log close
+log using log_response`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
+
 
 *____________Daten importieren____________________
 import delimited "${orig}data.csv", delimiter(comma) bindquote(strict) clear 
@@ -34,7 +38,7 @@ gen double contact= clock(firstcontact, "DM20Y hm")
 format contact %-tc
 
 *________timestamp konvertieren________
-gen str ts = substr(firstcontact, 1 , 8)
+gen str ts = substr(firstcontact, 1 , 10)
 
 gen double date = date(ts, "DM20Y")
 format date %-td
@@ -130,3 +134,5 @@ graph twoway line teiln fin date ,  ///
 
 graph save Graph "${doc}Rücklauf_Graph_date.gph", replace 
 graph export "${doc}Rücklauf_Graph_date.png", as(png) replace 
+
+log close

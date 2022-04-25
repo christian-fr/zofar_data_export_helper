@@ -10,7 +10,7 @@ global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
 
 cd "${workdir}doc"
 cap log close
-log using log_`: di %tdCY-N-D daily("$S_DATE", "DMY")', replace
+log using log_kontrolle`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 
 
 ****************************************************************************
@@ -75,17 +75,41 @@ foreach n of numlist 1/200 {
 
 
 *____________Paradaten ________________________________
-tostring width, generate(width_t)
-tostring height, generate(height_t)
 
-gen screen=height_t + "x" + width_t
-label var screen "Bildschirmgröße: Höhe x Breite"
 
-tab1 jscheck ismobile screen, miss
+cap confirm variable width // assert that variable width is present
+if !_rc {
+	di "variable width exists"
+	tostring width, generate(width_t)
+	cap confirm variable height // assert that variable height is present
+	if !_rc {
+		di "variable height exists"
+		tostring height, generate(height_t)
 
-tab1 width height if screen==""
+		gen screen=height_t + "x" + width_t
+		label var screen "Bildschirmgröße: Höhe x Breite"
 
-tabout screen using "${out}doc\screen-size.xls", dpcomma oneway replace cells(col)
+		tab1 jscheck ismobile screen, miss
+
+		tab1 width height if screen==""
+
+		tabout screen using "${out}doc\screen-size.xls", dpcomma oneway replace cells(col)
+	}
+	else {
+		di as error "variable height does not exist" // error message
+	}
+}
+else {
+	di as error "variable width does not exist" // error message
+	cap confirm variable height
+	if !_rc {
+		di "variable height exists" // debug message
+	}
+	else {
+		di as error "variable height does not exist" // error message
+	}
+}
+
 
 *drop url jscheck ismobile width height screen width_t height_t
 

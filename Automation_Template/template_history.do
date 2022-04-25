@@ -11,6 +11,11 @@ global orig "${workdir}orig\\${version}\"
 global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
 global doc "${workdir}doc\"
 
+cd "${workdir}doc"
+cap log close
+log using log_history`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
+
+
 
 ****************************************************************************
 ** Projekt/ Studie:        XXX__PROJECTNAME__XXX
@@ -163,7 +168,8 @@ label var dauer_sd "Verweildauer: Standardabweichung"
 
 
 *_______________________________________________________________
-log using "XXX__PROJECT_BASE_DIR__XXX\XXX__PROJECTNAME_SHORT__XXX_abbrecher-verwdauer_${version}.smcl", replace
+cap log close
+log using "XXX__PROJECT_BASE_DIR__XXX\XXX__PROJECTNAME_SHORT__XXX_abbrecher-verwdauer_${version}.smcl", append
 
 *******************************************************************************
 ********************* Auswertungen Abbrüche und Verweildauern **********************
@@ -223,7 +229,8 @@ XXX__MAXPAGE_LABEL__XXX
 label val maxpage maxpagelb
 
 *_______________________________________________________________
-log using "XXX__PROJECT_DOC_DIR__XXX\XXX__PROJECTNAME_SHORT__XXX_verweildauer_${version}.smcl", replace
+cap log close
+log using "XXX__PROJECT_DOC_DIR__XXX\XXX__PROJECTNAME_SHORT__XXX_verweildauer_${version}.smcl", append
 
 *************************************************************************
 ************************** Auswertungen *********************************

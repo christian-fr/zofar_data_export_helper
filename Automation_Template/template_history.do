@@ -169,7 +169,7 @@ label var dauer_sd "Verweildauer: Standardabweichung"
 
 *_______________________________________________________________
 cap log close
-log using "XXX__PROJECT_BASE_DIR__XXX\XXX__PROJECTNAME_SHORT__XXX_abbrecher-verwdauer_${version}.smcl", append
+log using "${doc}XXX__PROJECTNAME_SHORT__XXX_abbrecher-verwdauer_${version}.smcl", append
 
 *******************************************************************************
 ********************* Auswertungen Abbrüche und Verweildauern **********************
@@ -265,4 +265,4 @@ tabstat `varlist', statistic(n mean median min max sd) ///
 log close
 
 *___________Datensatz speichern _______________
-save "${data}history_collapsed.dta", replace
+save "${out}history_collapsed.dta", replace

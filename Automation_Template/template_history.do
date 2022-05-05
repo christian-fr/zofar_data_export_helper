@@ -269,7 +269,13 @@ log close
 *________Datensatz umwandeln: breites Format____
 // jede Befragte eine Zeile, jede Seite eine Variable,  Verweildauer in den Zellen
 *________überflüssige Variablen löschen___________
-drop seiteneing page allmiss abbrecher visitor dropout dropoutrate /* modul*/
+drop seiteneing page allmiss abbrecher visitor dropout dropoutrate
+cap drop modul
+cap drop modul_labeled
+cap drop moduln
+cap drop moduldauer
+cap drop moduldauer_minutes
+
 rename verwdauer p
 
 reshape wide p visit, i(participant_id) j(pagenum)

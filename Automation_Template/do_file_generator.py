@@ -254,18 +254,17 @@ print('*******************************')
 print('****************************** ')
 print('\n' * 3)
 
-
 assert len(os.listdir(project_lieferung_version_dir)) == 1
 zipfile_tmp_output_path = os.path.join(project_lieferung_version_dir, os.listdir(project_lieferung_version_dir)[0])
 
-for file_or_folder_path in [os.path.join(zipfile_tmp_output_path, file_or_folder) for file_or_folder in os.listdir(zipfile_tmp_output_path)]:
+for file_or_folder_path in [os.path.join(zipfile_tmp_output_path, file_or_folder) for file_or_folder in
+                            os.listdir(zipfile_tmp_output_path)]:
     shutil.move(file_or_folder_path, project_lieferung_version_dir)
 
 shutil.rmtree(zipfile_tmp_output_path)
 
 # check if "output" folder is present:
 lieferung_output_path = os.path.normpath(os.path.join(project_lieferung_version_dir, 'output'))
-
 
 if os.path.exists(os.path.join(lieferung_output_path)):
     # move recursively all subfolders to lieferung version folder
@@ -640,6 +639,11 @@ kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX'
 kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
                                                     history_csv_zip_file_modification_time_str)
 
+data_import_str = """* import delimited "$data\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcols({0})\n""".format(
+    ' '.join(list_of_csv_string_var_columns))
+
+kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__DATA_IMPORT__XXX', data_import_str)
+
 # save kontrolle do file
 my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))
 with open(kontrolle_do_file_path, 'w', encoding='utf-8') as file:
@@ -682,9 +686,6 @@ master_dofile_str += '\n' * 2
 # comment the line
 
 my_logger.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
-master_dofile_str += '* ToDo 2021-08-05 CF: this is just a snippet from "do_file_generator.py" - it needs to be moved somewhere else!\n'
-master_dofile_str += """* import delimited "$data\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcols({0})\n""".format(
-    ' '.join(list_of_csv_string_var_columns))
 
 # save master do file
 my_logger.debug('save master dofile as "{0}"'.format(history_do_file_path))

@@ -25,7 +25,7 @@ log using log_kontrolle`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 
 
 *____________Daten importieren____________________
-import delimited "${orig}data.csv", delimiter(comma) bindquote(strict) varnames(1) encoding(utf8) clear 
+XXX__DATA_IMPORT__XXX
 
 
 *******************************************************************************

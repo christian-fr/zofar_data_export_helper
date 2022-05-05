@@ -38,8 +38,7 @@ import delimited "${orig}history.csv", delimiter(comma) bindquote(strict) clear
 
 *____________Tester löschen____________________
 foreach t of numlist 1/200 {
-	quiet: drop if token=="tester`t'"
-	quiet: drop if token=="part`t'"
+	quiet: drop if token=="tester`t'" | token=="part`t'"
 }
 
 *_________Zeitstempel in numerische Variable umwandeln_______
@@ -119,7 +118,19 @@ drop id timestamp
 bysort participant_id page: gen allmiss=mi(verwdauer)
 
 *** Datensatz reduzieren
-collapse (sum) verwdauer (first) token /* modul */ pagenum seiteneing (max) allmiss visit (mean) maxpage lastpage, by(participant_id page)
+cap confirm modul
+if !_rc {
+    	di `"variable "modul" does not exist, hence it is omitted from collapse"'
+		collapse (sum) verwdauer (first) token pagenum          ///
+		seiteneing (max) allmiss visit (mean) maxpage lastpage, ///
+		by(participant_id page)
+	}
+	else {
+		di `"variable "modul" exists"'
+		collapse (sum) verwdauer (first) token modul pagenum    ///
+		seiteneing (max) allmiss visit (mean) maxpage lastpage, ///
+		by(participant_id page)
+}
 
 
 //Korrektur des automatischen Ersetzens von fehlenden Werten mit 0 

@@ -96,7 +96,8 @@ label var visit "Anzahl des Seitenaufrufes im Verlauf der Befragung"
 
 
 	/*
-	*__________Fragebogenseiten zu Modul zuordnen ___________
+	*__________Fragebogenseiten zu Modul zuordnen ____________________________
+	*     (siehe auch weiter unten: "Boxplot Bearbeitungsdauer nach Modul")
 	gen modul=""
 	replace modul="A" if page=="AXX01"
 	replace modul="B" if page=="BXX01"
@@ -166,6 +167,56 @@ label var dauer_max "Verweildauer: Maximum"
 egen dauer_sd=sd(verwdauer)
 label var dauer_sd "Verweildauer: Standardabweichung"
 
+
+
+
+*nach Modul
+bysort participant_id modul: egen moduldauer=total(verwdauer)
+label var moduldauer "Bearbeitungsdauer des Moduls pro Befragten"
+
+
+
+cap drop moduldauer_minutes
+gen moduldauer_minutes = moduldauer / 60
+lab var moduldauer_minutes "Bearbeitungsdauer pro Modul in Minuten"
+
+cap drop moduln
+bysort modul: egen moduln=count(participant_id)
+*table modul, contents(n moduln median time_modul min time_modul max time_modul)
+
+    /*
+    *_________Boxplot Bearbeitungsdauer nach Modul__________________________________
+    *  (siehe oben: "Fragebogenseiten zu Modul zuordnen" muss zuvor erledigt werden)
+
+        * Labels für Module vorbereiten
+        qui levelsof(modul)
+
+        local levelslist `r(levels)'
+
+        cap drop modul_labeled
+        gen modul_labeled = ""
+
+        foreach modul_name in `"`levelslist'"' {
+            qui levelsof participant_id if modul =="`modul_name'" // Anzahl Befragte im Modul
+            local part_count : word count `r(levels)'
+
+            qui levelsof page if modul =="`modul_name'" // Anzahl pages pro Modul (aus den history-Daten)
+            local page_count : word count `r(levels)'
+
+            replace modul_labeled=`"`modul_name' (n=`part_count', pages: `page_count')"' if modul ==`"`modul_name'"'
+            di `"`modul_name' `page_count' `part_count'"'
+        }
+
+
+    graph hbox moduldauer_minutes, over(modul_labeled, label(labsize(vsmall))) nooutsides ///
+        title("Bearbeitungsdauer nach Modul") ///
+        note("Nacaps (cohort 2020, wave 2)") ///
+        ytitle("Bearbeitungszeit in Minuten", size(small)) ///
+        ylabel( , labsize(vsmall))
+
+    graph save Graph "${doc}ResponseTime_nachModul.gph", replace
+    graph export "${doc}ResponseTime_nachModul.png", as(png) replace
+    */
 
 *_______________________________________________________________
 cap log close

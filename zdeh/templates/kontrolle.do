@@ -1,12 +1,12 @@
 *********************************************************************
-*_______________ XXX__PROJECTNAME__XXX ___________
+*_______________ {{ projectname }} ___________
 
 version 17
 
-global version "XXX__VERSION__XXX"
-global workdir "XXX__PROJECT_BASE_DIR__XXX\"
+global version "{{ version }}"
+global workdir "{{ project_base_dir }}\"
 global orig "${workdir}orig\\${version}\"
-global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
+global out "${workdir}lieferung\{{ projectname_short }}_export_\${version}\"
 
 cd "${workdir}doc"
 cap log close
@@ -14,18 +14,18 @@ log using log_kontrolle`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 
 
 ****************************************************************************
-** Projekt/ Studie:        XXX__PROJECTNAME__XXX
+** Projekt/ Studie:        {{ projectname }}
 ** Projektname kurz
-** (für Pfade/Dateinamen): XXX__PROJECTNAME_SHORT__XXX
-** Erstelldatum:           XXX__TIMESTAMP__XXX
-** History-Daten:          XXX__TIMESTAMPHISTORY__XXX
-** Datensatz:              XXX__TIMESTAMPDATASET__XXX
-** Bearbeitet von:         XXX__USER__XXX
+** (für Pfade/Dateinamen): {{ projectname_short }}
+** Erstelldatum:           {{ timestamp_str }}
+** History-Daten:          {{ history_csv_zip_file_modification_time_str }}
+** Datensatz:              {{ timestampdataset }}
+** Bearbeitet von:         {{ user }}
 ****************************************************************************
 
 
 *____________Daten importieren____________________
-XXX__DATA_IMPORT__XXX
+{{ data_import }}
 
 
 *******************************************************************************

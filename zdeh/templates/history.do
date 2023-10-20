@@ -1,14 +1,14 @@
 *********************************************************************
-*_______________ XXX__PROJECTNAME__XXX ___________
+*_______________ {{ projectname }} ___________
 
 version 17
 
-global version "XXX__VERSION__XXX"
+global version "{{ version }}"
 
-global workdir "XXX__PROJECT_BASE_DIR__XXX\"
+global workdir "{{ project_base_dir }}\"
 
 global orig "${workdir}orig\\${version}\"
-global out "${workdir}lieferung\XXX__PROJECTNAME_SHORT__XXX_export_\${version}\"
+global out "${workdir}lieferung\{{ projectname_short }}_export_\${version}\"
 global doc "${workdir}doc\"
 
 cd "${workdir}doc"
@@ -18,13 +18,13 @@ log using log_history`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 
 
 ****************************************************************************
-** Projekt/ Studie:        XXX__PROJECTNAME__XXX
+** Projekt/ Studie:        {{ projectname }}
 ** Projektname kurz
-** (für Pfade/Dateinamen): XXX__PROJECTNAME_SHORT__XXX
-** Erstelldatum:           XXX__TIMESTAMP__XXX
-** History-Daten:          XXX__TIMESTAMPHISTORY__XXX
-** Datensatz:              XXX__TIMESTAMPDATASET__XXX
-** Bearbeitet von:         XXX__USER__XXX
+** (für Pfade/Dateinamen): {{ projectname_short }}
+** Erstelldatum:           {{ timestamp_str }}
+** History-Daten:          {{ history_csv_zip_file_modification_time_str }}
+** Datensatz:              {{ timestampdataset }}
+** Bearbeitet von:         {{ user }}
 ****************************************************************************
 
 *_________________________________________________________________
@@ -32,8 +32,7 @@ log using log_history`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 *__________________________________________________________________
 
 *____________Daten importieren____________________
-// mit Postleitzahlen als String-Variablen
-import delimited "${orig}history.csv", delimiter(comma) bindquote(strict) clear 
+import delimited "${orig}history.csv", delimiter(comma) bindquote(strict) clear
 
 
 *____________Tester löschen____________________
@@ -64,7 +63,7 @@ replace verwdauer=1800 if verwdauer>1800 & verwdauer!=.
 // Seitennummerierung nach Reihenfolge im Fragebogen (QML)
 gen pagenum=.
 
-XXX__REPLACE_PAGENUM__XXX
+{{ replace_pagenum }}
 
 tab page if pagenum==.
 
@@ -120,20 +119,20 @@ bysort participant_id page: gen allmiss=mi(verwdauer)
 *** Datensatz reduzieren
 cap confirm modul
 if !_rc {
-    	di `"variable "modul" does not exist, hence it is omitted from collapse"'
-		collapse (sum) verwdauer (first) token pagenum          ///
+    	di `"variable "modul" exists"'
+		collapse (sum) verwdauer (first) token modul pagenum          ///
 		seiteneing (max) allmiss visit (mean) maxpage lastpage, ///
 		by(participant_id page)
 	}
 	else {
-		di `"variable "modul" exists"'
-		collapse (sum) verwdauer (first) token modul pagenum    ///
+		di `"variable "modul" does not exist, hence it is omitted from collapse"'
+		collapse (sum) verwdauer (first) token pagenum    ///
 		seiteneing (max) allmiss visit (mean) maxpage lastpage, ///
 		by(participant_id page)
 }
 
 
-//Korrektur des automatischen Ersetzens von fehlenden Werten mit 0 
+//Korrektur des automatischen Ersetzens von fehlenden Werten mit 0
 replace verwdauer=. if  allmiss
 
 
@@ -159,7 +158,7 @@ bysort pagenum: gen dropoutrate= dropout/visitor
 label var dropoutrate "Abbruchquote (Anz. Abbrecher im Verhältn. zu Seitenbesucher)"
 
 *________Anzahl der besuchten Seiten pro Befragten___________
-bysort participant_id: gen anzseiten= _N 
+bysort participant_id: gen anzseiten= _N
 label var anzseiten "Anzahl der besuchten Seiten pro Befragten"
 
 *________Durchschnittliche Bearbeitungsdauer___________
@@ -231,7 +230,7 @@ bysort modul: egen moduln=count(participant_id)
 
 *_______________________________________________________________
 cap log close
-log using "${doc}XXX__PROJECTNAME_SHORT__XXX_abbrecher-verwdauer_${version}.smcl", append
+log using "${doc}{{ projectname_short }}_abbrecher-verwdauer_${version}.smcl", append
 
 *******************************************************************************
 ********************* Auswertungen Abbrüche und Verweildauern **********************
@@ -241,13 +240,14 @@ log using "${doc}XXX__PROJECTNAME_SHORT__XXX_abbrecher-verwdauer_${version}.smcl
 table page, stat(n abbrecher) stat(mean dropoutrate) stat(n dropoutrate) nformat(%9.4f)
 
 
-quiet: tabout page using "XXX__PROJECTNAME_SHORT__XXX_abbrecher_${version}.xls", ///
+quiet: tabout page using "{{ projectname_short }}_abbrecher_${version}.xls", ///
 	c(count abbrecher mean dropoutrate count dropoutrate) ///
+	clab(Abbrecher Abbruchquote Seitenbesucher) ///
 	replace sum ///
 	f(0 4 0) ///
 	style(xlsx) ///
 	font(bold) dpcomma
-	
+
 
 *________Seitenverweildauer ____________________
 tabstat verwdauer, statistics(mean median min max sd)
@@ -255,8 +255,9 @@ tabstat verwdauer, statistics(mean median min max sd)
 *________Seitenverweildauer nach Seite ____________________
 table page, stat(n verwdauer) stat(mean verwdauer) stat(median verwdauer) stat(min verwdauer) stat(max verwdauer) nformat(%9.4f)
 
-quiet: tabout page using "XXX__PROJECTNAME_SHORT__XXX_verwdauer_${version}.xls", ///
+quiet: tabout page using "{{ projectname_short }}_verwdauer_${version}.xls", ///
 	c(count verwdauer mean verwdauer p50 verwdauer min verwdauer max verwdauer) ///
+	clab(N mean med min max) ///
 	replace sum ///
 	f(0 2 2) ///
 	style(xlsx) ///
@@ -269,7 +270,7 @@ log close
 *________Datensatz umwandeln: breites Format____
 // jede Befragte eine Zeile, jede Seite eine Variable,  Verweildauer in den Zellen
 *________überflüssige Variablen löschen___________
-drop seiteneing page allmiss abbrecher visitor dropout dropoutrate
+drop seiteneing page allmiss abbrecher visitor dropout dropoutrate /* modul*/
 cap drop modul
 cap drop modul_labeled
 cap drop moduln
@@ -282,55 +283,30 @@ reshape wide p visit, i(participant_id) j(pagenum)
 
 
 *________gesamte Bearbeitungsdauer / Verweildauer pro Befragten________
-/// 
-XXX__DAUER__XXX
+///
+{{ dauer_str }}
 
 order participant_id token dauer maxpage lastpage anzseiten dauer_mn dauer_med dauer_min dauer_max dauer_sd
 
 
 *________Variablen beschriften______________________
 *_______ [1] Seiten (Verweildauern mit page-ID)
-XXX__PAGE_LABEL__XXX
+{{ label_page_str }}
 
 
-XXX__MAXPAGE_LABEL__XXX
+{{ label_maxpage_str }}
 label val maxpage maxpagelb
 
 *_______________________________________________________________
 cap log close
-log using "XXX__PROJECT_DOC_DIR__XXX\XXX__PROJECTNAME_SHORT__XXX_verweildauer_${version}.smcl", append
+log using "XXX__PROJECT_DOC_DIR__XXX\{{ projectname_short }}_verweildauer_${version}.smcl", append
 
 *************************************************************************
 ************************** Auswertungen *********************************
 tabstat dauer, statistic(mean median min max sd)
 
-*Verweildauer bei abgeschlossenen Fragebögen
-XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX
-
-*tabstat dauer if maxpage==157, statistic(mean median min max sd) 
-*tabstatout dauer, s(n mean median min max sd) replace
-
-
-*_______________________Verweildauer pro Seite__________________
-*** Verweildauer pro Seite, wenn visit==1 um Summierung herauszurechnen
-/*foreach n of numlist 0/152 {
- 	tabstat p`n' if visit`n'==1, stat(mean min max sd med)
- 	}
-*/ 
-
-/*
-*XXXXXXXXX ToDo: varlist generieren lassen XXXXXXXXX
-local num "0" "1" "2"
-local varlist p`num'
-*local varlist "p0 p1 p2"
-local varlist "p0" "p1" "p2"
-tabstat `varlist', statistic(n mean median min max sd) ///
-	col(stat) ///
-	format(%9.3g)  ///
-	tf(table)
-*/
 
 log close
 
 *___________Datensatz speichern _______________
-save "${out}history_collapsed.dta", replace
+save "${doc}history_collapsed.dta", replace

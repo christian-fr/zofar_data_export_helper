@@ -45,11 +45,6 @@ def main(cli_args: argparse.Namespace):
     # set flag for debug
     flag_debug = cli_args.debug
 
-    # assert that optional debug flag is of boolean type
-    assert isinstance(cli_args.local, bool)
-    # set flag for debug
-    flag_local = cli_args.local
-
     # file search algorithm - return list of found files within given path, with absolute paths
     def find_all(name: str, path: str) -> list:
         result = []
@@ -97,9 +92,6 @@ def main(cli_args: argparse.Namespace):
         my_logger.info('starting up program')
         my_logger.debug('"flag_debug" is set to True!')
 
-    if flag_local:
-        my_logger.info('"flag_local" is set to True! does not work on the server!')
-
     time.sleep(.2)
 
     print(' ╔═════════════════════════════════════╗')
@@ -109,10 +101,13 @@ def main(cli_args: argparse.Namespace):
     print('authors: {0}'.format(__author__))
     print('version: {0}'.format(__version__))
 
-    while True:
-        projectname = input('Bitte Projektnamen angeben: ').strip()
-        if projectname != '':
-            break
+    if cli_args.project_name is not None:
+        projectname = cli_args.project_name
+    else:
+        while True:
+            projectname = input('Bitte Projektnamen angeben: ').strip()
+            if projectname != '':
+                break
 
     var_dict["projectname"] = projectname
 
@@ -600,39 +595,56 @@ def main(cli_args: argparse.Namespace):
 
     var_dict["version"] = version
 
-    x = history_template.render(**var_dict)
+    # x = history_template.render(**var_dict)
 
     try:
         outputText = history_template.render(**var_dict)
     except (UndefinedError) as err:
         print(err)
 
-    a = history_template.render(**var_dict)
+    try:
+        outputText = main_template.render(**var_dict)
+    except (UndefinedError) as err:
+        print(err)
 
-    s = env.loader.get_source(env, "history.do")
-    r = env.parse(s)
+    try:
+        outputText = kontrolle_template.render(**var_dict)
+    except (UndefinedError) as err:
+        print(err)
 
-    meta.find_undeclared_variables(r)
+    try:
+        outputText = response_template.render(**var_dict)
+    except (UndefinedError) as err:
+        print(err)
 
-    history_do_file_str = history_do_file_str.replace('XXX__REPLACE_PAGENUM__XXX', replace_pagenum)
-    history_do_file_str = history_do_file_str.replace('XXX__VERSION__XXX', version)
-    history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
-    history_do_file_str = history_do_file_str.replace('XXX__PROJECT_DOC_DIR__XXX', project_doc_dir)
-    history_do_file_str = history_do_file_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
-    history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME__XXX', projectname)
-    history_do_file_str = history_do_file_str.replace('XXX__USER__XXX', user)
-    history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
-    history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMPDATASET__XXX',
-                                                      data_csv_zip_file_modification_time_str)
-    history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-                                                      history_csv_zip_file_modification_time_str)
-    history_do_file_str = history_do_file_str.replace('XXX__DAUER__XXX', dauer_str)
-    history_do_file_str = history_do_file_str.replace('XXX__PAGE_LABEL__XXX', label_page_str)
-    history_do_file_str = history_do_file_str.replace('XXX__MAXPAGE_LABEL__XXX', label_maxpage_str)
+    # a = history_template.render(**var_dict)
+    #
+    # s = env.loader.get_source(env, "history.do")
+    # r = env.parse(s)
+    #
+    # meta.find_undeclared_variables(r)
 
-    history_do_file_str = history_do_file_str.replace('XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX',
-                                                      tabstat_verweildauer_finished_str)
-    history_do_file_str = history_do_file_str.replace('XXX__TABSTAT_VERWEILDAUER__XXX', tabstat_verweildauer_str)
+    # history_do_file_str = history_do_file_str.replace('XXX__REPLACE_PAGENUM__XXX', replace_pagenum)
+    # history_do_file_str = history_do_file_str.replace('XXX__VERSION__XXX', version)
+    # history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
+    # history_do_file_str = history_do_file_str.replace('XXX__PROJECT_DOC_DIR__XXX', project_doc_dir)
+    # history_do_file_str = history_do_file_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
+    # history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME__XXX', projectname)
+    # history_do_file_str = history_do_file_str.replace('XXX__USER__XXX', user)
+    # history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
+    # history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMPDATASET__XXX',
+    #                                                   data_csv_zip_file_modification_time_str)
+    # history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMPHISTORY__XXX',
+    #                                                   history_csv_zip_file_modification_time_str)
+    # history_do_file_str = history_do_file_str.replace('XXX__DAUER__XXX', dauer_str)
+    # history_do_file_str = history_do_file_str.replace('XXX__PAGE_LABEL__XXX', label_page_str)
+    # history_do_file_str = history_do_file_str.replace('XXX__MAXPAGE_LABEL__XXX', label_maxpage_str)
+    #
+    # history_do_file_str = history_do_file_str.replace('XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX',
+    #                                                   tabstat_verweildauer_finished_str)
+    # history_do_file_str = history_do_file_str.replace('XXX__TABSTAT_VERWEILDAUER__XXX', tabstat_verweildauer_str)
+
+    history_do_file_str = history_template.render(**var_dict)
 
     # save history do file
     my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))
@@ -648,22 +660,23 @@ def main(cli_args: argparse.Namespace):
     # load response dofile template
     my_logger.debug('load response dofile template')
     response_dofile = ''
-    with open(response_do_file_template_path, 'r', encoding='utf-8') as file:
-        response_dofile_str = file.read()
+    # with open(response_do_file_template_path, 'r', encoding='utf-8') as file:
+    #     response_dofile_str = file.read()
 
     # modify response dofile
     my_logger.debug('modifiy response dofile')
-    response_dofile_str = response_dofile_str.replace('', '')
-    response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
-    response_dofile_str = response_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
-    response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
-    response_dofile_str = response_dofile_str.replace('XXX__USER__XXX', user)
-    response_dofile_str = response_dofile_str.replace('XXX__VERSION__XXX', version)
-    response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
-    response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX',
-                                                      data_csv_zip_file_modification_time_str)
-    response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-                                                      history_csv_zip_file_modification_time_str)
+    # response_dofile_str = response_dofile_str.replace('', '')
+    # response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
+    # response_dofile_str = response_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
+    # response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
+    # response_dofile_str = response_dofile_str.replace('XXX__USER__XXX', user)
+    # response_dofile_str = response_dofile_str.replace('XXX__VERSION__XXX', version)
+    # response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
+    # response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX',
+    #                                                   data_csv_zip_file_modification_time_str)
+    # response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
+    #                                                   history_csv_zip_file_modification_time_str)
+    response_dofile_str = response_template.render(**var_dict)
 
     # save response do file
     my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))
@@ -679,27 +692,31 @@ def main(cli_args: argparse.Namespace):
     # load kontrolle dofile template
     my_logger.debug('load kontrolle dofile template')
     # kontrolle_dofile = ''
-    with open(kontrolle_do_file_template_path, 'r', encoding='utf-8') as file:
-        kontrolle_dofile_str = file.read()
+    # with open(kontrolle_do_file_template_path, 'r', encoding='utf-8') as file:
+    #     kontrolle_dofile_str = file.read()
 
     # modify kontrolle dofile
     my_logger.debug('modifiy kontrolle dofile')
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('', '')
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__USER__XXX', user)
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__VERSION__XXX', version)
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX',
-                                                        data_csv_zip_file_modification_time_str)
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-                                                        history_csv_zip_file_modification_time_str)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('', '')
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__USER__XXX', user)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__VERSION__XXX', version)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX',
+    #                                                     data_csv_zip_file_modification_time_str)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
+    #                                                     history_csv_zip_file_modification_time_str)
 
     data_import_str = """* import delimited "${{orig}}\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcols({0})\n""".format(
         ' '.join(list_of_csv_string_var_columns))
 
-    kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__DATA_IMPORT__XXX', data_import_str)
+    var_dict["data_import_str"] = data_import_str
+
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__DATA_IMPORT__XXX', data_import_str)
+
+    kontrolle_dofile_str = kontrolle_template.render(**var_dict)
 
     # save kontrolle do file
     my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))
@@ -715,40 +732,44 @@ def main(cli_args: argparse.Namespace):
     # load master dofile template
     my_logger.debug('load master dofile template')
     # master_dofile = ''
-    with open(master_do_file_template_path, 'r', encoding='utf-8') as file:
-        master_dofile_str = file.read()
+    # with open(master_do_file_template_path, 'r', encoding='utf-8') as file:
+    #     main_dofile_str = file.read()
 
     # modify master dofile
     my_logger.debug('modifiy master dofile')
 
-    master_dofile_str = master_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
-    master_dofile_str = master_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
-    master_dofile_str = master_dofile_str.replace('XXX__USER__XXX', user)
-    master_dofile_str = master_dofile_str.replace('XXX__VERSION__XXX', version)
-    master_dofile_str = master_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
-    master_dofile_str = master_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX', data_csv_zip_file_modification_time_str)
-    master_dofile_str = master_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-                                                  history_csv_zip_file_modification_time_str)
+    # main_dofile_str = main_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
+    # main_dofile_str = main_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
+    # main_dofile_str = main_dofile_str.replace('XXX__USER__XXX', user)
+    # main_dofile_str = main_dofile_str.replace('XXX__VERSION__XXX', version)
+    # main_dofile_str = main_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
+    # main_dofile_str = main_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX', data_csv_zip_file_modification_time_str)
+    # main_dofile_str = main_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
+    #                                          history_csv_zip_file_modification_time_str)
 
     # add to run history do file
-    master_dofile_str += 'do {0}\n'.format(history_do_file_path)
+    #main_dofile_str += 'do {0}\n'.format(history_do_file_path)
 
     # add to run response do file
-    master_dofile_str += 'do {0}\n'.format(response_do_file_path)
+    #main_dofile_str += 'do {0}\n'.format(response_do_file_path)
 
     # add to run kontrolle do file
-    master_dofile_str += 'do {0}\n'.format(kontrolle_do_file_path)
+    #main_dofile_str += 'do {0}\n'.format(kontrolle_do_file_path)
 
     # ToDo: strincolumn added to master do file - probably not the right place, needs to be rearranged and tested!
-    master_dofile_str += '\n' * 2
+    #main_dofile_str += '\n' * 2
     # comment the line
+
+    var_dict["do_files"] = f'do {history_do_file_path}\ndo {response_do_file_path}\ndo {kontrolle_do_file_path}\n'
+
+    main_dofile_str = main_template.render(**var_dict)
 
     my_logger.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
 
     # save master do file
     my_logger.debug('save master dofile as "{0}"'.format(history_do_file_path))
     with open(main_do_file_path, 'w', encoding='utf-8') as file:
-        file.write(master_dofile_str)
+        file.write(main_dofile_str)
 
     my_logger.info('Created master do file: "{0}"'.format(main_do_file_path))
 
@@ -759,7 +780,11 @@ def main(cli_args: argparse.Namespace):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Optionally set the debug flag for verbose output and debug logging.')
     parser.add_argument('--debug', action='store_true', help='enable verbose output and debug logging')
-    parser.add_argument('--local', action='store_true', help='set paths to local environment')
+    parser.add_argument('--project_name', action='store_const', help='')
+    parser.add_argument('--user', action='store_const', help='')
+    parser.add_argument('--project_version', action='store_const', help='')
+    parser.add_argument('--input_zip_file', action='store_const', help='')
+    parser.add_argument('--project_output_parent_dir', action='store_const', help='')
 
     args = parser.parse_args()
 

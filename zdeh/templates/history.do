@@ -23,7 +23,7 @@ log using log_history`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 ** (für Pfade/Dateinamen): {{ projectname_short }}
 ** Erstelldatum:           {{ timestamp_str }}
 ** History-Daten:          {{ history_csv_zip_file_modification_time_str }}
-** Datensatz:              {{ timestampdataset }}
+** Datensatz:              {{ data_csv_zip_file_modification_time_str }}
 ** Bearbeitet von:         {{ user }}
 ****************************************************************************
 

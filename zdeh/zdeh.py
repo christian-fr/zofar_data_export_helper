@@ -3,17 +3,15 @@ __version__ = "0.0.4"
 __author__ = "Christian Friedrich, Andrea Schulze"
 __status__ = "Prototype"
 
-import sys
 import time
 import os
 import sys
 from pathlib import Path
-# import argparse
 from tkinter import filedialog, Tk
 import shutil
 import xml
+from typing import Optional, Union
 from xml.etree import ElementTree
-import logging
 import argparse
 from collections import defaultdict
 import csv
@@ -22,7 +20,9 @@ from jinja2 import Environment, PackageLoader, select_autoescape, meta, Undefine
 import logging
 
 
-def main(cli_args: argparse.Namespace):
+def main(debug: bool = False, project_name: Optional[str] = None, user: Optional[str] = None,
+         project_version: Optional[str] = None, input_zip_file: Optional[str] = None,
+         project_output_parent_dir: Optional[str] = None, test_flag: bool = False):
     logging.basicConfig()
     logger = logging.getLogger('logger')
     LoggingUndefined = make_logging_undefined(logger=logger, base=Undefined)
@@ -32,7 +32,6 @@ def main(cli_args: argparse.Namespace):
         autoescape=select_autoescape(),
         undefined=LoggingUndefined
     )
-
     var_dict = {}
 
     main_template = env.get_template("main.do")
@@ -40,13 +39,8 @@ def main(cli_args: argparse.Namespace):
     history_template = env.get_template("history.do")
     kontrolle_template = env.get_template("kontrolle.do")
 
-    # assert that optional debug flag is of boolean type
-    assert isinstance(cli_args.debug, bool)
-    # set flag for debug
-    flag_debug = cli_args.debug
-
     # file search algorithm - return list of found files within given path, with absolute paths
-    def find_all(name: str, path: str) -> list:
+    def find_all_files(name: str, path: Union[str, Path]) -> list:
         result = []
         for root, dirs, files in os.walk(path):
             if name in files:
@@ -75,22 +69,22 @@ def main(cli_args: argparse.Namespace):
         fh.setFormatter(fh_format)
         logger.addHandler(fh)
 
-    # parser = argparse.ArgumentParser(description='Process the projectname.')
-    # parser.add_argument('projectname', action='store', type=str, help='projectname as a string')
+    # parser = argparse.ArgumentParser(description='Process the project_name.')
+    # parser.add_argument('project_name', action='store', type=str, help='project_name as a string')
     #
     # args = parser.parse_args()
-    # projectname = args.projectname.strip()
+    # project_name = args.project_name.strip()
 
     # start logger
     my_logger = logging.getLogger('debug')
 
-    if not flag_debug:
+    if not debug:
         startup_logger(logger=my_logger, log_level=logging.INFO)
         my_logger.info('starting up program')
     else:
         startup_logger(logger=my_logger, log_level=logging.DEBUG)
         my_logger.info('starting up program')
-        my_logger.debug('"flag_debug" is set to True!')
+        my_logger.debug('"debug" is set to True!')
 
     time.sleep(.2)
 
@@ -99,80 +93,86 @@ def main(cli_args: argparse.Namespace):
     print(' ╚═════════════════════════════════════╝\n\n\n')
 
     print('authors: {0}'.format(__author__))
-    print('version: {0}'.format(__version__))
+    print('project_version: {0}'.format(__version__))
 
-    if cli_args.project_name is not None:
-        projectname = cli_args.project_name
-    else:
+    if project_name is None:
         while True:
-            projectname = input('Bitte Projektnamen angeben: ').strip()
-            if projectname != '':
+            project_name = input('Bitte Projektnamen angeben: ').strip()
+            if project_name != '':
                 break
 
-    var_dict["projectname"] = projectname
+    var_dict["project_name"] = project_name
 
     str_of_chars_to_replace = '''"'!?,.;:*\\& '''
 
-    projectname_short = projectname
+    project_name_short = project_name
     for char in str_of_chars_to_replace:
-        projectname_short = projectname_short.replace(char, '_')
-    var_dict["projectname_short"] = projectname_short
+        project_name_short = project_name_short.replace(char, '_')
+    var_dict["project_name_short"] = project_name_short
 
     print()
-    print('Projektname_kurz: "{0}"'.format(projectname_short))
+    print('Projektname_kurz: "{0}"'.format(project_name_short))
     print()
 
-    default_user = "Christian Friedrich"
-    user = input(f'Bearbeiter*in (default is "{default_user}"): ') or default_user
+    if user is None:
+        default_user = "Christian Friedrich"
+        user = input(f'Bearbeiter*in (default is "{default_user}"): ') or default_user
     var_dict["user"] = user
 
     print('\n')
     print('Bearbeiter*in: "{0}"'.format(user))
-    print('Projektname:   "{0}"'.format(projectname))
-    print('Projektname_kurz: "{0}"'.format(projectname_short))
+    print('Projektname:   "{0}"'.format(project_name))
+    print('Projektname_kurz: "{0}"'.format(project_name_short))
 
     print('\n')
 
     # select zip file with export data
-    input('Bitte ZIP-Datei, die den Datenexport beinhaltet, auswählen.\n(weiter mit Enter)')
+    if input_zip_file is None:
+        input('Bitte ZIP-Datei, die den Datenexport beinhaltet, auswählen.\n(weiter mit Enter)')
 
-    initial_input_dir = Path(r'..\Automation_Input')
+        initial_input_dir = Path(r'..\Automation_Input')
 
-    if not initial_input_dir.exists():
-        initial_input_dir = os.path.split(os.getcwd())[0]
+        if not initial_input_dir.exists():
+            initial_input_dir = os.path.split(os.getcwd())[0]
 
-    root = Tk()
-    zipfile = os.path.normpath(filedialog.askopenfilename(initialdir=initial_input_dir,
-                                                          filetypes=(('zip files', '*.zip'), ('all files', '*.*')),
-                                                          title='Bitte ZIP-Datei, die den Datenexport beinhaltet, auswählen.'))
-    root.withdraw()
+        root = Tk()
+        input_zip_file = os.path.normpath(filedialog.askopenfilename(initialdir=initial_input_dir,
+                                                                     filetypes=(('zip files', '*.zip'), ('all files', '*.*')),
+                                                                     title='Bitte ZIP-Datei, die den Datenexport beinhaltet, auswählen.'))
+        root.withdraw()
 
-    print('\n')
-    print('Dateiname: "{0}"'.format(os.path.split(zipfile)[1]))
-    print('\n')
+        print('\n')
+        print('Dateiname: "{0}"'.format(os.path.split(input_zip_file)[1]))
+        print('\n')
 
-    version = input('Bitte Versionsnummer eingeben: ')
+        input_zip_file = input_zip_file
 
-    # select base dir
-    input('Bitte das Oberverzeichnis auswählen, innerhalb dessen das Projekt\nangelegt werden soll. (weiter mit Enter)')
+    if project_version is None:
+        project_version = input('Bitte Versionsnummer eingeben: ')
 
-    initial_output_dir = Path(r'P:\Zofar\Automation_Output')
 
-    if not initial_output_dir.exists():
-        initial_output_dir = os.path.split(os.getcwd())[0]
 
-    # set project_base_dir
-    project_base_dir = os.path.join(os.path.normpath(
-        filedialog.askdirectory(initialdir=initial_output_dir, title='Bitte Oberverzeichnis auswählen.')),
-        projectname_short)
-    var_dict["project_base_dir"] = project_base_dir
+    if project_output_parent_dir is None:
+        # select base dir
+        input('Bitte das Oberverzeichnis auswählen, innerhalb dessen das Projekt\nangelegt werden soll. (weiter mit Enter)')
+        initial_output_dir = Path(r'P:\Zofar\Automation_Output')
 
-    my_logger.debug('project_base_dir = "{0}"'.format(project_base_dir))
+        if not initial_output_dir.exists():
+            initial_output_dir = os.path.split(os.getcwd())[0]
+
+        # set project_output_parent_dir
+        project_output_parent_dir = os.path.join(os.path.normpath(
+            filedialog.askdirectory(initialdir=initial_output_dir, title='Bitte Oberverzeichnis auswählen.')),
+            project_name_short)
+
+    var_dict["project_output_parent_dir"] = project_output_parent_dir
+
+    my_logger.debug('project_output_parent_dir = "{0}"'.format(project_output_parent_dir))
 
     # create folder structure
-    project_orig_dir = Path(os.path.normpath(os.path.join(project_base_dir, 'orig')))
-    project_doc_dir = Path(os.path.normpath(os.path.join(project_base_dir, 'doc')))
-    project_lieferung_dir = Path(os.path.normpath(os.path.join(project_base_dir, 'lieferung')))
+    project_orig_dir = Path(os.path.normpath(os.path.join(project_output_parent_dir, 'orig')))
+    project_doc_dir = Path(os.path.normpath(os.path.join(project_output_parent_dir, 'doc')))
+    project_lieferung_dir = Path(os.path.normpath(os.path.join(project_output_parent_dir, 'lieferung')))
     var_dict["project_orig_dir"] = project_orig_dir.absolute()
     var_dict["project_doc_dir"] = project_doc_dir.absolute()
     var_dict["project_lieferung_dir"] = project_lieferung_dir.absolute()
@@ -207,11 +207,11 @@ def main(cli_args: argparse.Namespace):
         print('Verzeichnis "{0}" existiert bereits.'.format(project_lieferung_dir))
 
     # copy zip file with export data to project_orig_dir
-    shutil.copy(zipfile, project_orig_dir)
-    my_logger.debug('zip file "{0}" copied to "{1}"'.format(zipfile, project_orig_dir))
+    shutil.copy(input_zip_file, project_orig_dir)
+    my_logger.debug('zip file "{0}" copied to "{1}"'.format(input_zip_file, project_orig_dir))
 
     # set string variable for project_orig_version_dir (directory has yet to be created)
-    project_orig_version_dir = os.path.join(project_orig_dir, version)
+    project_orig_version_dir = os.path.join(project_orig_dir, project_version)
     my_logger.debug('project_orig_version_dir = "{0}"'.format(project_orig_version_dir))
 
     # create a folder project_orig_version_dir  - using "os.mkdir()" because top folder has been created in the last
@@ -222,7 +222,7 @@ def main(cli_args: argparse.Namespace):
 
     # set string variable for project_lieferung_version_dir (directory has yet to be created)
     project_lieferung_version_dir = Path(os.path.join(project_lieferung_dir,
-                                                      '{0}_export_{1}'.format(projectname_short, version)))
+                                                      '{0}_export_{1}'.format(project_name_short, project_version)))
     my_logger.debug('project_lieferung_version_dir = "{0}"'.format(project_lieferung_version_dir))
 
     # create a folder project_lieferung_version_dir  - using "os.mkdir()" because top folder has been created in the last
@@ -231,8 +231,8 @@ def main(cli_args: argparse.Namespace):
     my_logger.debug('os.mkdir({0})'.format(project_lieferung_version_dir))
 
     print('\n')
-    print('zipfile: {0}'.format(zipfile))
-    print('project_base_dir: {0}'.format(project_base_dir))
+    print('input_zip_file: {0}'.format(input_zip_file))
+    print('project_output_parent_dir: {0}'.format(project_output_parent_dir))
 
     # create variable "return_code" to store the return code of the 7zip archive unpacking command
     # a return_code of 0 means the unzip operation has been successful
@@ -254,21 +254,21 @@ def main(cli_args: argparse.Namespace):
 
     while return_code != 0:
         my_logger.debug('counter: "{0}"'.format(counter))
-        my_logger.debug(r'''running: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(zipfile,
+        my_logger.debug(r'''running: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(input_zip_file,
                                                                                                              project_lieferung_version_dir))
         return_code = os.system(
-            r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}'.format(zipfile, project_lieferung_version_dir))
+            r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}'.format(input_zip_file, project_lieferung_version_dir))
         my_logger.debug('return code: "{0}"'.format(return_code))
 
         counter += 1
         if counter == 10:
             my_logger.info(
                 r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
-                    zipfile, project_lieferung_version_dir))
+                    input_zip_file, project_lieferung_version_dir))
             my_logger.info('Exiting this program.')
             sys.exit(
                 r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
-                    zipfile, project_lieferung_version_dir))
+                    input_zip_file, project_lieferung_version_dir))
 
     print('*                            **')
     print('*******************************')
@@ -288,7 +288,7 @@ def main(cli_args: argparse.Namespace):
     lieferung_output_path = os.path.normpath(os.path.join(project_lieferung_version_dir, 'output'))
 
     if os.path.exists(os.path.join(lieferung_output_path)):
-        # move recursively all subfolders to lieferung version folder
+        # move recursively all subfolders to lieferung project_version folder
         for dir in os.listdir(lieferung_output_path):
             shutil.move(os.path.join(os.path.join(lieferung_output_path, dir)), project_lieferung_version_dir)
 
@@ -307,7 +307,7 @@ def main(cli_args: argparse.Namespace):
                     lieferung_output_path))
 
     # look for xml file within project_lieferung_version_dir
-    list_of_questionnaire_xml_files = find_all(name='questionnaire.xml', path=project_lieferung_version_dir)
+    list_of_questionnaire_xml_files = find_all_files(name='questionnaire.xml', path=project_lieferung_version_dir)
 
     print(list_of_questionnaire_xml_files)
 
@@ -321,7 +321,7 @@ def main(cli_args: argparse.Namespace):
         # read xml file
         input('Es wird nach der XML-Datei des Fragebogens gesucht ... ... ...')
 
-        xml_file_initial_path = os.path.join(project_lieferung_version_dir, version, 'output', 'instruction', 'QML')
+        xml_file_initial_path = os.path.join(project_lieferung_version_dir, project_version, 'output', 'instruction', 'QML')
 
         if os.path.exists(xml_file_initial_path):
             print(xml_file_initial_path + ' exists.')
@@ -368,7 +368,7 @@ def main(cli_args: argparse.Namespace):
             xmlfile = ''
 
     # look for history.csv.zip file within project_lieferung_version_dir
-    list_of_history_csv_zip_files = find_all(name='history.csv.zip', path=project_lieferung_version_dir)
+    list_of_history_csv_zip_files = find_all_files(name='history.csv.zip', path=project_lieferung_version_dir)
 
     print(list_of_history_csv_zip_files)
 
@@ -420,7 +420,7 @@ def main(cli_args: argparse.Namespace):
 
     # load data.csv.zip file and read modification time
     # look for history.csv.zip file within project_lieferung_version_dir
-    list_of_data_csv_zip_files = find_all(name='data.csv.zip', path=project_lieferung_version_dir)
+    list_of_data_csv_zip_files = find_all_files(name='data.csv.zip', path=project_lieferung_version_dir)
 
     print(list_of_data_csv_zip_files)
 
@@ -483,35 +483,14 @@ def main(cli_args: argparse.Namespace):
 
     var_dict["data_csv_zip_file_modification_time_str"] = data_csv_zip_file_modification_time_str
 
-    # ##########################
-    # # set paths of templates
-    # ##########################
-
-    # if flag_debug is not set
-    # if not flag_local:
-    #    master_do_file_template_path = r'P:\Zofar\Automation_Template\template_master.do'
-    #    history_do_file_template_path = r'P:\Zofar\Automation_Template\template_history.do'
-    #    response_do_file_template_path = r'P:\Zofar\Automation_Template\template_response.do'
-    #    kontrolle_do_file_template_path = r'P:\Zofar\Automation_Template\template_kontrolle.do'
-
-    # else:
-    #     master_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\template_master.do'
-    #     history_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\template_history.do'
-    #     response_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\template_response.do'
-    #     kontrolle_do_file_template_path = r'C:\Users\friedrich\PycharmProjects\zofar_data_export_helper\Automation_Template\template_kontrolle.do'
-
-    # my_logger.debug('master_do_file_template_path = "{0}"'.format(master_do_file_template_path))
-    # my_logger.debug('history_do_file_template_path = "{0}"'.format(history_do_file_template_path))
-    # my_logger.debug('response_do_file_template_path = "{0}"'.format(response_do_file_template_path))
-
     main_do_file_path = Path(os.path.normpath(
-        os.path.join(project_doc_dir, '00_master_' + projectname_short + '_' + version + '.do')))
+        os.path.join(project_doc_dir, '00_master_' + project_name_short + '_' + project_version + '.do')))
     history_do_file_path = Path(os.path.normpath(
-        os.path.join(project_doc_dir, '01_history_' + projectname_short + '_' + version + '.do')))
+        os.path.join(project_doc_dir, '01_history_' + project_name_short + '_' + project_version + '.do')))
     response_do_file_path = Path(os.path.normpath(
-        os.path.join(project_doc_dir, '02_response_' + projectname_short + '_' + version + '.do')))
+        os.path.join(project_doc_dir, '02_response_' + project_name_short + '_' + project_version + '.do')))
     kontrolle_do_file_path = Path(os.path.normpath(
-        os.path.join(project_doc_dir, '03_kontrolle_' + projectname_short + '_' + version + '.do')))
+        os.path.join(project_doc_dir, '03_kontrolle_' + project_name_short + '_' + project_version + '.do')))
 
     my_logger.debug('main_do_file_path = "{0}"'.format(main_do_file_path))
     my_logger.debug('history_do_file_path = "{0}"'.format(history_do_file_path))
@@ -521,13 +500,6 @@ def main(cli_args: argparse.Namespace):
     # ##################
     # # HISTORY DOFILE
     # ##################
-
-    # load history dofile template
-    # my_logger.debug('load history dofile template')
-
-    # history_do_file_str = ''
-    # with open(history_do_file_template_path, 'r', encoding='utf-8') as file:
-    #    history_do_file_str = file.read()
 
     # generate STATA code for pagenum replacement
     my_logger.debug('generate STATA code for pagenum replacement')
@@ -593,29 +565,17 @@ def main(cli_args: argparse.Namespace):
         len(page_list) - 1)
     var_dict["tabstat_verweildauer_str"] = tabstat_verweildauer_str
 
-    var_dict["version"] = version
+    var_dict["project_version"] = project_version
 
     # x = history_template.render(**var_dict)
 
+    time.sleep(.2)
+    print('history_do_file_path response_template')
     try:
-        outputText = history_template.render(**var_dict)
+        history_do_file_path.write_text(history_template.render(**var_dict), encoding='utf-8')
     except (UndefinedError) as err:
-        print(err)
+        raise UndefinedError(err)
 
-    try:
-        outputText = main_template.render(**var_dict)
-    except (UndefinedError) as err:
-        print(err)
-
-    try:
-        outputText = kontrolle_template.render(**var_dict)
-    except (UndefinedError) as err:
-        print(err)
-
-    try:
-        outputText = response_template.render(**var_dict)
-    except (UndefinedError) as err:
-        print(err)
 
     # a = history_template.render(**var_dict)
     #
@@ -625,11 +585,11 @@ def main(cli_args: argparse.Namespace):
     # meta.find_undeclared_variables(r)
 
     # history_do_file_str = history_do_file_str.replace('XXX__REPLACE_PAGENUM__XXX', replace_pagenum)
-    # history_do_file_str = history_do_file_str.replace('XXX__VERSION__XXX', version)
-    # history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
+    # history_do_file_str = history_do_file_str.replace('XXX__VERSION__XXX', project_version)
+    # history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME_SHORT__XXX', project_name_short)
     # history_do_file_str = history_do_file_str.replace('XXX__PROJECT_DOC_DIR__XXX', project_doc_dir)
-    # history_do_file_str = history_do_file_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
-    # history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME__XXX', projectname)
+    # history_do_file_str = history_do_file_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_output_parent_dir)
+    # history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME__XXX', project_name)
     # history_do_file_str = history_do_file_str.replace('XXX__USER__XXX', user)
     # history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
     # history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMPDATASET__XXX',
@@ -666,11 +626,11 @@ def main(cli_args: argparse.Namespace):
     # modify response dofile
     my_logger.debug('modifiy response dofile')
     # response_dofile_str = response_dofile_str.replace('', '')
-    # response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
-    # response_dofile_str = response_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
-    # response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
+    # response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', project_name_short)
+    # response_dofile_str = response_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_output_parent_dir)
+    # response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME__XXX', project_name)
     # response_dofile_str = response_dofile_str.replace('XXX__USER__XXX', user)
-    # response_dofile_str = response_dofile_str.replace('XXX__VERSION__XXX', version)
+    # response_dofile_str = response_dofile_str.replace('XXX__VERSION__XXX', project_version)
     # response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
     # response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX',
     #                                                   data_csv_zip_file_modification_time_str)
@@ -698,11 +658,11 @@ def main(cli_args: argparse.Namespace):
     # modify kontrolle dofile
     my_logger.debug('modifiy kontrolle dofile')
     # kontrolle_dofile_str = kontrolle_dofile_str.replace('', '')
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_base_dir)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', project_name_short)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME__XXX', project_name)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_output_parent_dir)
     # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__USER__XXX', user)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__VERSION__XXX', version)
+    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__VERSION__XXX', project_version)
     # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
     # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX',
     #                                                     data_csv_zip_file_modification_time_str)
@@ -720,13 +680,17 @@ def main(cli_args: argparse.Namespace):
 
     # save kontrolle do file
     my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))
-    with open(kontrolle_do_file_path, 'w', encoding='utf-8') as file:
-        file.write(kontrolle_dofile_str)
+    print('processing main_template')
+    try:
+        outputText = main_template.render(**var_dict)
+    except (UndefinedError) as err:
+        raise UndefinedError(err)
+
 
     my_logger.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path))
 
     # #################
-    # # MASTER DOFILE
+    # # MAIN DOFILE
     # #################
 
     # load master dofile template
@@ -738,70 +702,49 @@ def main(cli_args: argparse.Namespace):
     # modify master dofile
     my_logger.debug('modifiy master dofile')
 
-    # main_dofile_str = main_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', projectname_short)
-    # main_dofile_str = main_dofile_str.replace('XXX__PROJECTNAME__XXX', projectname)
-    # main_dofile_str = main_dofile_str.replace('XXX__USER__XXX', user)
-    # main_dofile_str = main_dofile_str.replace('XXX__VERSION__XXX', version)
-    # main_dofile_str = main_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
-    # main_dofile_str = main_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX', data_csv_zip_file_modification_time_str)
-    # main_dofile_str = main_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-    #                                          history_csv_zip_file_modification_time_str)
-
-    # add to run history do file
-    #main_dofile_str += 'do {0}\n'.format(history_do_file_path)
-
-    # add to run response do file
-    #main_dofile_str += 'do {0}\n'.format(response_do_file_path)
-
-    # add to run kontrolle do file
-    #main_dofile_str += 'do {0}\n'.format(kontrolle_do_file_path)
-
-    # ToDo: strincolumn added to master do file - probably not the right place, needs to be rearranged and tested!
-    #main_dofile_str += '\n' * 2
-    # comment the line
-
-    var_dict["do_files"] = f'do {history_do_file_path}\ndo {response_do_file_path}\ndo {kontrolle_do_file_path}\n'
-
-    main_dofile_str = main_template.render(**var_dict)
+    time.sleep(.2)
+    print('processing main_template')
+    try:
+        main_dofile_str = main_template.render(**var_dict)
+        main_do_file_path.write_text(main_dofile_str, encoding='utf-8')
+    except (UndefinedError) as err:
+        raise UndefinedError(err)
 
     my_logger.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
 
     # save master do file
-    my_logger.debug('save master dofile as "{0}"'.format(history_do_file_path))
-    with open(main_do_file_path, 'w', encoding='utf-8') as file:
-        file.write(main_dofile_str)
 
-    my_logger.info('Created master do file: "{0}"'.format(main_do_file_path))
-
-    input('Programm beendet! (weiter mit ENTER)')
-    sys.exit()
+    if not test_flag:
+        input('Programm beendet! (weiter mit ENTER)')
+        sys.exit()
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Optionally set the debug flag for verbose output and debug logging.')
     parser.add_argument('--debug', action='store_true', help='enable verbose output and debug logging')
-    parser.add_argument('--project_name', action='store_const', help='')
-    parser.add_argument('--user', action='store_const', help='')
-    parser.add_argument('--project_version', action='store_const', help='')
-    parser.add_argument('--input_zip_file', action='store_const', help='')
-    parser.add_argument('--project_output_parent_dir', action='store_const', help='')
+    parser.add_argument('--project_name', help='')
+    parser.add_argument('--user', help='')
+    parser.add_argument('--project_version', help='')
+    parser.add_argument('--test_flag', action='store_true', help='')
+    parser.add_argument('--input_zip_file', help='')
+    parser.add_argument('--project_output_parent_dir', help='')
 
     args = parser.parse_args()
 
-    main(args)
+    main(**args.__dict__)
     sys.exit(0)
 
-    if False:
-        var_dict = {'the': 'variables', 'go': 'here'}
-
-        try:
-            outputText = template.render(**var_dict)
-        except (UndefinedError) as err:
-            print(err)
-
-        a = template.render(**var_dict)
-
-        s = env.loader.get_source(env, "main.do")
-        r = env.parse(s)
-
-        meta.find_undeclared_variables(r)
+    # if False:
+    #    var_dict = {'the': 'variables', 'go': 'here'}
+    #
+    #    try:
+    #        outputText = template.render(**var_dict)
+    #    except (UndefinedError) as err:
+    #        print(err)
+    #
+    #    a = template.render(**var_dict)
+    #
+    #    s = env.loader.get_source(env, "main.do")
+    #    r = env.parse(s)
+    #
+    #    meta.find_undeclared_variables(r)

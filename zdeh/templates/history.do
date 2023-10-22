@@ -1,14 +1,14 @@
 *********************************************************************
-*_______________ {{ projectname }} ___________
+*_______________ {{ project_name }} ___________
 
 version 17
 
-global version "{{ version }}"
+global version "{{ project_version }}"
 
-global workdir "{{ project_base_dir }}\"
+global workdir "{{ project_output_parent_dir }}\"
 
 global orig "${workdir}orig\\${version}\"
-global out "${workdir}lieferung\{{ projectname_short }}_export_\${version}\"
+global out "${workdir}lieferung\{{ project_name_short }}_export_\${version}\"
 global doc "${workdir}doc\"
 
 cd "${workdir}doc"
@@ -18,9 +18,9 @@ log using log_history`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 
 
 ****************************************************************************
-** Projekt/ Studie:        {{ projectname }}
+** Projekt/ Studie:        {{ project_name }}
 ** Projektname kurz
-** (für Pfade/Dateinamen): {{ projectname_short }}
+** (für Pfade/Dateinamen): {{ project_name_short }}
 ** Erstelldatum:           {{ timestamp_str }}
 ** History-Daten:          {{ history_csv_zip_file_modification_time_str }}
 ** Datensatz:              {{ data_csv_zip_file_modification_time_str }}
@@ -230,7 +230,7 @@ bysort modul: egen moduln=count(participant_id)
 
 *_______________________________________________________________
 cap log close
-log using "${doc}{{ projectname_short }}_abbrecher-verwdauer_${version}.smcl", append
+log using "${doc}{{ project_name_short }}_abbrecher-verwdauer_${version}.smcl", append
 
 *******************************************************************************
 ********************* Auswertungen Abbrüche und Verweildauern **********************
@@ -240,7 +240,7 @@ log using "${doc}{{ projectname_short }}_abbrecher-verwdauer_${version}.smcl", a
 table page, stat(n abbrecher) stat(mean dropoutrate) stat(n dropoutrate) nformat(%9.4f)
 
 
-quiet: tabout page using "{{ projectname_short }}_abbrecher_${version}.xls", ///
+quiet: tabout page using "{{ project_name_short }}_abbrecher_${version}.xls", ///
 	c(count abbrecher mean dropoutrate count dropoutrate) ///
 	clab(Abbrecher Abbruchquote Seitenbesucher) ///
 	replace sum ///
@@ -255,7 +255,7 @@ tabstat verwdauer, statistics(mean median min max sd)
 *________Seitenverweildauer nach Seite ____________________
 table page, stat(n verwdauer) stat(mean verwdauer) stat(median verwdauer) stat(min verwdauer) stat(max verwdauer) nformat(%9.4f)
 
-quiet: tabout page using "{{ projectname_short }}_verwdauer_${version}.xls", ///
+quiet: tabout page using "{{ project_name_short }}_verwdauer_${version}.xls", ///
 	c(count verwdauer mean verwdauer p50 verwdauer min verwdauer max verwdauer) ///
 	clab(N mean med min max) ///
 	replace sum ///
@@ -299,7 +299,7 @@ label val maxpage maxpagelb
 
 *_______________________________________________________________
 cap log close
-log using "XXX__PROJECT_DOC_DIR__XXX\{{ projectname_short }}_verweildauer_${version}.smcl", append
+log using "XXX__PROJECT_DOC_DIR__XXX\{{ project_name_short }}_verweildauer_${version}.smcl", append
 
 *************************************************************************
 ************************** Auswertungen *********************************

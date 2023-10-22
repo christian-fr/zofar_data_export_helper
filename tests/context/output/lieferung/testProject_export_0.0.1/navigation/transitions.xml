@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:export date="2023-10-20T12:39:52.349+02:00" xmlns:exp="http://www.his.de/export/xml/export">
+    <exp:navigation>
+        <exp:transitionSet source="index">
+            <exp:transition target="index" condition="!consent.value and (!flag_index.value or (flag_index.value and !noconsent.value))"/>
+            <exp:transition target="end" condition="!consent.value and noconsent.value"/>
+            <exp:transition target="F00" condition="consent.value"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F00">
+            <exp:transition target="F02_SHK"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F01">
+            <exp:transition target="F03"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F02_SHK">
+            <exp:transition target="F01" condition="zofar.isMissing(f02shk)"/>
+            <exp:transition target="F03"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F03">
+            <exp:transition target="F03" condition="zofar.isMissing(f03) and !flag_f03.value"/>
+            <exp:transition target="cancel" condition="zofar.isMissing(f03) and flag_f03.value"/>
+            <exp:transition target="F04a" condition="zofar.asNumber(f03)==7"/>
+            <exp:transition target="F05"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F04a">
+            <exp:transition target="F04"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F04">
+            <exp:transition target="F08" condition="zofar.asNumber(f04)==1"/>
+            <exp:transition target="F05"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F05">
+            <exp:transition target="F06" condition="zofar.asNumber(f03)==1"/>
+            <exp:transition target="F10" condition="zofar.asNumber(f03)==4 or zofar.asNumber(f03)==5"/>
+            <exp:transition target="F08"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F06">
+            <exp:transition target="F07" condition="zofar.asNumber(f03)==1 and zofar.asNumber(f06)==2"/>
+            <exp:transition target="F37"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F07">
+            <exp:transition target="F12"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F08">
+            <exp:transition target="F09" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 7 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f08) == 1 or zofar.asNumber(f08) == 2)"/>
+            <exp:transition target="F11" condition="zofar.asNumber(f03) == 6 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08))"/>
+            <exp:transition target="F30" condition="zofar.asNumber(f03) == 2 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08))"/>
+            <exp:transition target="F29"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F09">
+            <exp:transition target="F10"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F10">
+            <exp:transition target="F14" condition="zofar.asNumber(f03) == 5"/>
+            <exp:transition target="F12" condition="zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F11"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F11">
+            <exp:transition target="F11" condition="zofar.asNumber(f11) == 1 and !zofar.isEmptyOrInRange(f11_str, 2, 9, sessionController.participant) and !f11x.value"/>
+            <exp:transition target="F12" condition="zofar.asNumber(f08) == 1 or (zofar.asNumber(f03) == 6 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08)))"/>
+            <exp:transition target="F15"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F12">
+            <exp:transition target="F13" condition="zofar.asNumber(f12) == 1"/>
+            <exp:transition target="F29" condition="zofar.asNumber(f03) == 6 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08))"/>
+            <exp:transition target="F16"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F13">
+            <exp:transition target="F13" condition="zofar.asNumber(f13) == 1 and !zofar.isEmptyOrInRange(f13a_str, 2, 100, sessionController.participant) and !f13x.value"/>
+            <exp:transition target="F14" condition="(zofar.asNumber(f13) == -98 or zofar.asNumber(f13) == -97 or zofar.asNumber(f13) lt 0 or zofar.isMissing(f13))"/>
+            <exp:transition target="F29" condition="zofar.asNumber(f03) == 6 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08))"/>
+            <exp:transition target="F16"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F14">
+            <exp:transition target="F14" condition="!zofar.isEmptyOrNumber(f14a_str, sessionController.participant) and !zofar.isEmptyOrNumber(f14b_str, sessionController.participant) and !f14x.value"/>
+            <exp:transition target="F29" condition="zofar.asNumber(f03) == 6 and zofar.asNumber(f08) == 3"/>
+            <exp:transition target="F16"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F15">
+            <exp:transition target="F15" condition="    (     (f15a.value and (!zofar.isEmptyOrNumber(f15a1_str, sessionController.participant) or !zofar.isEmptyOrNumber(f15a2_str, sessionController.participant)))     or                                                           (f15b.value and (!zofar.isEmptyOrNumber(f15b1_str, sessionController.participant) or !zofar.isEmptyOrNumber(f15b2_str, sessionController.participant)))     or      zofar.asNumber(f15a1_str) gt 100      or      zofar.asNumber(f15a2_str) gt 168      or      zofar.asNumber(f15b1_str) gt 100      or      zofar.asNumber(f15b1_str) gt 168     or      (zofar.asNumber(f15a1_str) + zofar.asNumber(f15b1_str)) gt 100     or      (zofar.asNumber(f15a2_str) + zofar.asNumber(f15b2_str)) gt 168    )    and !f15x.value"/>
+            <exp:transition target="F16"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F16">
+            <exp:transition target="F28" condition="zofar.asNumber(f03) == 1 and zofar.asNumber(f06) == 2"/>
+            <exp:transition target="F17"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F17">
+            <exp:transition target="F17" condition="!zofar.isEmptyOrInRange(f17_str, 0, 99, sessionController.participant) and !f17x.value"/>
+            <exp:transition target="F18" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3  or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 7 or zofar.asNumber(f03) == 8) and zofar.asNumber(f17_str) ge 6"/>
+            <exp:transition target="F22" condition="(zofar.asNumber(f17_str) lt 2 and zofar.asNumber(f17_str) != 0) or f17_str.value.trim() == '0'"/>
+            <exp:transition target="F21"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F18">
+            <exp:transition target="F19" condition="zofar.asNumber(f18) == 1"/>
+            <exp:transition target="F21"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F19">
+            <exp:transition target="F21"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F21">
+            <exp:transition target="F21" condition="    (     !zofar.isEmptyOrInRange(f21_str, 0, 99, sessionController.participant)      or      (      zofar.isNumber(f21_str, sessionController.participant) and       zofar.isNumber(f17_str, sessionController.participant) and       zofar.asNumber(f21_str) gt zofar.asNumber(f17_str)     )    )     and     !f21x.value"/>
+            <exp:transition target="F22" condition="zofar.asNumber(f21_str) le 6 or ((     !zofar.isEmptyOrInRange(f21_str, 0, 99, sessionController.participant)      or      (      zofar.isNumber(f21_str, sessionController.participant) and       zofar.isNumber(f17_str, sessionController.participant) and       zofar.asNumber(f21_str) gt zofar.asNumber(f17_str)     )    )     and     f21x.value)"/>
+            <exp:transition target="F26"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F22">
+            <exp:transition target="F22" condition="zofar.asNumber(f22) == 2 and !zofar.isEmptyOrNumber(f22_str, sessionController.participant) and !f22x.value"/>
+            <exp:transition target="F26" condition="zofar.asNumber(f22) == 3 or zofar.isMissing(f22)"/>
+            <exp:transition target="F23" condition="zofar.asNumber(f22) == 1 and (zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 7 or zofar.asNumber(f03) == 8)"/>
+            <exp:transition target="F23" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 7 or zofar.asNumber(f03) == 8) and zofar.asNumber(f22_str) ge 6"/>
+            <exp:transition target="F30" condition="zofar.asNumber(f03) == 2"/>
+            <exp:transition target="F29"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F23">
+            <exp:transition target="F24" condition="zofar.asNumber(f23) == 1"/>
+            <exp:transition target="F30" condition="zofar.asNumber(f03) == 2"/>
+            <exp:transition target="F29"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F24">
+            <exp:transition target="F30" condition="zofar.asNumber(f03) == 2"/>
+            <exp:transition target="F29"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F26">
+            <exp:transition target="F27" condition="zofar.asNumber(f26) == 1"/>
+            <exp:transition target="F28"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F27">
+            <exp:transition target="F27" condition="zofar.asNumber(f27) == 2 and !zofar.isEmptyOrNumber(f27_str, sessionController.participant) and !f27x.value"/>
+            <exp:transition target="F28"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F28">
+            <exp:transition target="F30" condition="zofar.asNumber(f03) == 2"/>
+            <exp:transition target="F32" condition="zofar.asNumber(f03) == 1 and zofar.asNumber(f06) == 2"/>
+            <exp:transition target="F29"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F29">
+            <exp:transition target="F30" condition="zofar.asNumber(f29) == 2 or zofar.asNumber(f29) == 3 or zofar.asNumber(f29) == 4 or zofar.isMissing(f29)"/>
+            <exp:transition target="F39"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F30">
+            <exp:transition target="F32" condition="zofar.asNumber(f30) == 1 or zofar.isMissing(f30)"/>
+            <exp:transition target="F31" condition="zofar.asNumber(f30) == 2"/>
+            <exp:transition target="F39" condition="(zofar.asNumber(f03) == 5 or zofar.asNumber(f03) == 7) and zofar.asNumber(f30) == 3"/>
+            <exp:transition target="F33"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F31">
+            <exp:transition target="F33"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F32">
+            <exp:transition target="F37" condition="zofar.asNumber(f03) == 1 and zofar.asNumber(f06) == 2"/>
+            <exp:transition target="F39" condition="(zofar.asNumber(f03) == 5 or zofar.asNumber(f03) == 7) and (zofar.asNumber(f32) == 1 or zofar.asNumber(f32) == 3 or zofar.isMissing(f32))"/>
+            <exp:transition target="F33"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F33">
+            <exp:transition target="F39" condition="(zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 5 or zofar.asNumber(f03) == 7) and (zofar.asNumber(f33) == 2 or zofar.asNumber(f33) == -98 or zofar.isMissing(f33))"/>
+            <exp:transition target="F34"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F34">
+            <exp:transition target="F35" condition="zofar.asNumber(f34) == 1 or zofar.asNumber(f34) == 2"/>
+            <exp:transition target="F37" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f34) == 3 or zofar.isMissing(f34))"/>
+            <exp:transition target="F39"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F35">
+            <exp:transition target="F35" condition="zofar.asNumber(f35) == 1 and !zofar.isEmptyOrInRange(f35_str, 0, 100, sessionController.participant) and !f35x.value"/>
+            <exp:transition target="F36"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F36">
+            <exp:transition target="F36" condition="zofar.asNumber(f36) == 1 and !zofar.isEmptyOrInRange(f36_str, 0, 100, sessionController.participant) and !f36x.value"/>
+            <exp:transition target="F39" condition="zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 5 or zofar.asNumber(f03) == 7"/>
+            <exp:transition target="F37"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F37">
+            <exp:transition target="F37" condition="    (     !zofar.isEmptyOrInRange(f37a_str, 0, 100, sessionController.participant) or     !zofar.isEmptyOrInRange(f37b_str, 0, 100, sessionController.participant) or     !zofar.isEmptyOrInRange(f37c_str, 0, 100, sessionController.participant) or     !zofar.isEmptyOrInRange(f37d_str, 0, 100, sessionController.participant) or     !zofar.isEmptyOrInRange(f37e_str, 0, 100, sessionController.participant) or     !zofar.isEmptyOrInRange(f37v_str, 0, 100, sessionController.participant) or     (zofar.asNumber(f37a_str) + zofar.asNumber(f37b_str) + zofar.asNumber(f37c_str) + zofar.asNumber(f37d_str) + zofar.asNumber(f37e_str) + zofar.asNumber(f37v_str)) gt 100    )    and !f37x.value"/>
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 1 and (zofar.asNumber(f06) == 1 or zofar.isMissing(f06))"/>
+            <exp:transition target="F38" condition="zofar.asNumber(f03) == 6"/>
+            <exp:transition target="F39"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F38">
+            <exp:transition target="F38" condition="    (     !zofar.isEmptyOrInRange(f38a_str, 0, 100, sessionController.participant) or     !zofar.isEmptyOrInRange(f38b_str, 0, 100, sessionController.participant) or     !zofar.isEmptyOrInRange(f38c_str, 0, 100, sessionController.participant) or     !zofar.isEmptyOrInRange(f38v_str, 0, 100, sessionController.participant) or     (zofar.asNumber(f38a_str) + zofar.asNumber(f38b_str) + zofar.asNumber(f38c_str) + zofar.asNumber(f38v_str)) gt 100    )    and !f38x.value"/>
+            <exp:transition target="F39"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F39">
+            <exp:transition target="F40"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F40">
+            <exp:transition target="F57" condition="zofar.asNumber(f03) == 1 and (zofar.asNumber(f07) == 1 or zofar.asNumber(f07) == 2 or zofar.asNumber(f07) == 3)"/>
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 1 and (zofar.asNumber(f07) == 4 or zofar.isMissing(f07))"/>
+            <exp:transition target="F41" condition="zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 5"/>
+            <exp:transition target="F60" condition="zofar.asNumber(f08) == 3 or zofar.isMissing(f08)"/>
+            <exp:transition target="F41"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F41">
+            <exp:transition target="F51" condition="(zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 5) and (zofar.asNumber(f41) == 1 or zofar.isMissing(f41))"/>
+            <exp:transition target="F53" condition="zofar.asNumber(f33) == 1 and (zofar.asNumber(f41) == 1 or zofar.isMissing(f41))"/>
+            <exp:transition target="F53" condition="(zofar.asNumber(f41) == 1 or zofar.isMissing(f41)) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2)"/>
+            <exp:transition target="F60" condition="zofar.asNumber(f41) == 1 or zofar.isMissing(f41)"/>
+            <exp:transition target="F45" condition="zofar.asNumber(f03) == 5 and zofar.asNumber(f41) == 2"/>
+            <exp:transition target="F42"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F42">
+            <exp:transition target="F43"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F43">
+            <exp:transition target="F44" condition="zofar.asNumber(f43) == 2"/>
+            <exp:transition target="F45" condition="zofar.asNumber(f43) == 1"/>
+            <exp:transition target="F51" condition="zofar.asNumber(f03) == 4 and (zofar.asNumber(f43) == 3 or zofar.isMissing(f43))"/>
+            <exp:transition target="F53" condition="zofar.asNumber(f33) == 1 and (zofar.asNumber(f43) == 3 or zofar.isMissing(f43)) and (zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8)"/>
+            <exp:transition target="F53" condition="(zofar.asNumber(f43) == 3 or zofar.isMissing(f43)) and (zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2)"/>
+            <exp:transition target="F60"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F44">
+            <exp:transition target="F45"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F45">
+            <exp:transition target="F45" condition="!zofar.isEmptyOrInRange(f45_str, 2, 99, sessionController.participant) and !f45x.value"/>
+            <exp:transition target="F51" condition="zofar.asNumber(f03) == 5"/>
+            <exp:transition target="F46"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F46">
+            <exp:transition target="F46" condition="(!zofar.isEmptyOrInRange(f46_m, 1, 12, sessionController.participant) or !zofar.isEmptyOrInRange(f46_y, 1950, 2023, sessionController.participant) ) and !f46x.value"/>
+            <exp:transition target="F47"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F47">
+            <exp:transition target="F47" condition="!zofar.isEmptyOrInRange(f47_str, 0, 99, sessionController.participant) and !f47x.value"/>
+            <exp:transition target="F51" condition="zofar.asNumber(f03) == 4 and (zofar.isMissing(f47_str) or (zofar.asNumber(f47_str) == 0 and f47_str.value.trim() == '0'))"/>
+            <exp:transition target="F53" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f33) == 1 and (zofar.isMissing(f47_str) or (zofar.asNumber(f47_str) == 0 and f47_str.value.trim() == '0'))"/>
+            <exp:transition target="F53" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.isMissing(f47_str) or (zofar.asNumber(f47_str) == 0 and f47_str.value.trim() == '0')) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2)"/>
+            <exp:transition target="F60" condition="(zofar.isMissing(f47_str) or zofar.asNumber(f47_str) == 0 and f47_str.value.trim() == '0')"/>
+            <exp:transition target="F48"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F48">
+            <exp:transition target="F48" condition="!zofar.isEmptyOrInRange(f48_y, 2017, 2023, sessionController.participant) and !f48x.value"/>
+            <exp:transition target="F49"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F49">
+            <exp:transition target="F49" condition="zofar.asNumber(f49) == 1 and !zofar.isEmptyOrNumber(f49_str, sessionController.participant) and !f49x.value"/>
+            <exp:transition target="F50" condition="zofar.asNumber(f49) == 1"/>
+            <exp:transition target="F51" condition="zofar.asNumber(f03) == 4 and (zofar.asNumber(f49) == 2 or zofar.isMissing(f49))"/>
+            <exp:transition target="F53" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f33) == 1 and (zofar.asNumber(f49) == 2 or zofar.isMissing(f49))"/>
+            <exp:transition target="F53" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f49) == 2 or zofar.isMissing(f49)) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2)"/>
+            <exp:transition target="F60"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F50">
+            <exp:transition target="F50" condition="!zofar.isEmptyOrInRange(f50_str, 1, 99, sessionController.participant) and !f50x.value"/>
+            <exp:transition target="F51" condition="zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F53" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f33) == 1"/>
+            <exp:transition target="F53" condition="(zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2)"/>
+            <exp:transition target="F60"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F51">
+            <exp:transition target="F52" condition="zofar.asNumber(f51c) == 1 or zofar.asNumber(f51c) == 2"/>
+            <exp:transition target="F53" condition="zofar.asNumber(f03) == 4 and zofar.asNumber(f33) == 1 and (zofar.asNumber(f51c) == 3 or zofar.isMissing(f51c) )"/>
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F68"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F52">
+            <exp:transition target="F53" condition="zofar.asNumber(f03) == 4 and zofar.asNumber(f33) == 1"/>
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F68"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F53">
+            <exp:transition target="F54" condition="zofar.asNumber(f53) == 1"/>
+            <exp:transition target="F55" condition="(zofar.asNumber(f31) == 1 or zofar.asNumber(f31) == 2) and (zofar.asNumber(f53) == 2 or zofar.asNumber(f53) == 3 or zofar.isMissing(f53))"/>
+            <exp:transition target="F57" condition="zofar.asNumber(f03) == 2"/>
+            <exp:transition target="F57" condition="(zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f30) == 1 and zofar.asNumber(f33) == 1 and (zofar.asNumber(f31) == 3 or zofar.asNumber(f31) == -98 or zofar.isMissing(f31) )"/>
+            <exp:transition target="F58" condition="zofar.asNumber(f09) == 1"/>
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F60"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F54">
+            <exp:transition target="F55" condition="zofar.asNumber(f31) == 1 or zofar.asNumber(f31) == 2"/>
+            <exp:transition target="F57" condition="zofar.asNumber(f03) == 2 and (zofar.asNumber(f31) == 3 or zofar.asNumber(f31) == -98 or zofar.isMissing(f31))"/>
+            <exp:transition target="F57" condition="(zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f30) == 1 and zofar.asNumber(f33) == 1 and (zofar.asNumber(f31) == 3 or zofar.asNumber(f31) == -98 or zofar.isMissing(f31) )"/>
+            <exp:transition target="F58" condition="zofar.asNumber(f09) == 1"/>
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F60"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F55">
+            <exp:transition target="F56"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F56">
+            <exp:transition target="F57" condition="zofar.asNumber(f03) == 2"/>
+            <exp:transition target="F57" condition="(zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f30) == 1 and zofar.asNumber(f33) == 1"/>
+            <exp:transition target="F58" condition="zofar.asNumber(f09) == 1"/>
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F60"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F57">
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 1 or zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F58" condition="zofar.asNumber(f33) == 1 and zofar.asNumber(f09) == 1"/>
+            <exp:transition target="F60"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F58">
+            <exp:transition target="F59" condition="f58d.value"/>
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F60"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F59">
+            <exp:transition target="F66" condition="zofar.asNumber(f03) == 4"/>
+            <exp:transition target="F60"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F60">
+            <exp:transition target="F61" condition="zofar.asNumber(f60) == 1"/>
+            <exp:transition target="F66"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F61">
+            <exp:transition target="F62" condition="zofar.asNumber(f61) == 1"/>
+            <exp:transition target="F66"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F62">
+            <exp:transition target="F63"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F63">
+            <exp:transition target="F64a" condition="zofar.asNumber(f63) == 1"/>
+            <exp:transition target="F64c"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F64a">
+            <exp:transition target="F64b"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F64b">
+            <exp:transition target="F64c"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F64c">
+            <exp:transition target="F65"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F65">
+            <exp:transition target="F66"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F66">
+            <exp:transition target="F68" condition="zofar.asNumber(f03) == 1 and zofar.asNumber(f06) == 1"/>
+            <exp:transition target="F67"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F67">
+            <exp:transition target="F68"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F68">
+            <exp:transition target="F69" condition="zofar.asNumber(f68) == 1"/>
+            <exp:transition target="F73" condition="zofar.asNumber(f03) == 1 or zofar.asNumber(f03) == 7"/>
+            <exp:transition target="F70"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F69">
+            <exp:transition target="F73" condition="zofar.asNumber(f03) == 1 or zofar.asNumber(f03) == 7"/>
+            <exp:transition target="F70"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F70">
+            <exp:transition target="F71"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F71">
+            <exp:transition target="F72" condition="(zofar.asNumber(f70a) == 1 or zofar.asNumber(f70b) == 1 or zofar.asNumber(f70c) == 1 or zofar.asNumber(f70d) == 1 or zofar.asNumber(f70e) == 1 or zofar.asNumber(f70f) == 1 or zofar.asNumber(f70v) == 1) and (f71a.value or f71b.value or f71c.value or f71d.value or f71e.value or f71f.value or f71g.value or f71h.value or f71i.value or f71j.value or f71k.value or f71v.value)"/>
+            <exp:transition target="F73"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F72">
+            <exp:transition target="F73"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F73">
+            <exp:transition target="F73" condition="!zofar.isEmptyOrInRange(f73_y, 1000, 9999, sessionController.participant) and !f73x.value"/>
+            <exp:transition target="F75"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="F75">
+            <exp:transition target="end"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="cancel">
+            <exp:transition target="end"/>
+        </exp:transitionSet>
+        <exp:transitionSet source="end"/>
+    </exp:navigation>
+</exp:export>

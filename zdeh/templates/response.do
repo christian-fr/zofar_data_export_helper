@@ -1,10 +1,10 @@
 *********************************************************************
-*_______________ {{ projectname }} ___________
+*_______________ {{ project_name }} ___________
 *
 ****************************************************************************
-** Projekt/ Studie:        {{ projectname }}
+** Projekt/ Studie:        {{ project_name }}
 ** Projektname kurz
-** (für Pfade/Dateinamen): {{ projectname_short }}
+** (für Pfade/Dateinamen): {{ project_name_short }}
 ** Erstelldatum:           {{ timestamp_str }}
 ** History-Daten:          {{ history_csv_zip_file_modification_time_str }}
 ** Datensatz:              {{ data_csv_zip_file_modification_time_str }}
@@ -13,12 +13,12 @@
 
 version 17
 
-global version "{{ version }}"
+global version "{{ project_version }}"
 
-global workdir "{{ project_base_dir }}\"
+global workdir "{{ project_output_parent_dir }}\"
 
 global orig "${workdir}orig\\${version}\"
-global out "${workdir}lieferung\{{ projectname_short }}_export_\${version}\"
+global out "${workdir}lieferung\{{ project_name_short }}_export_\${version}\"
 global doc "${workdir}doc\"
 
 cd "${workdir}doc"
@@ -92,7 +92,7 @@ graph twoway line teiln fin day ,  ///
 	ylabel(`teiln_min' (`teiln_interval') `teiln_max', gmin angle(horizontal) labsize(vsmall)) ///
 	xlabel(0 5 10 15 20(10)50 `day_range', labsize(small)) ///
 	legend(label(1 "first access") label(2 "finished") col(1) rowgap(.5) forces size(vsmall)) ///
-	note("Project: {{ projectname_short }}", size(tiny))
+	note("Project: {{ project_name_short }}", size(tiny))
 
 
 graph save Graph "${doc}Rücklauf_Graph_day.gph", replace
@@ -136,7 +136,7 @@ graph twoway line teiln fin date ,  ///
 	ylabel(`teiln_min' (`teiln_interval') `teiln_max', gmin angle(horizontal) labsize(vsmall)) ///
 	xlabel(`date_min' (`date_range_interval') `date_max', angle(35) labsize(vsmall)) ///
 	legend(label(1 "first access") label(2 "finished") size(vsmall)) ///
-	note("Project: {{ projectname_short }}", size(tiny))
+	note("Project: {{ project_name_short }}", size(tiny))
 
 
 graph save Graph "${doc}Rücklauf_Graph_date.gph", replace 

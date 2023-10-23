@@ -25,7 +25,7 @@ log using log_kontrolle`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 
 
 *____________Daten importieren____________________
-{{ data_import }}
+{{ data_import_str }}
 
 
 *******************************************************************************

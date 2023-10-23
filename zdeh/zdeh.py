@@ -137,7 +137,8 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
         root = Tk()
         input_zip_file = os.path.normpath(filedialog.askopenfilename(initialdir=initial_input_dir,
-                                                                     filetypes=(('zip files', '*.zip'), ('all files', '*.*')),
+                                                                     filetypes=(
+                                                                         ('zip files', '*.zip'), ('all files', '*.*')),
                                                                      title='Bitte ZIP-Datei, die den Datenexport beinhaltet, auswählen.'))
         root.withdraw()
 
@@ -150,11 +151,10 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     if project_version is None:
         project_version = input('Bitte Versionsnummer eingeben: ')
 
-
-
     if project_output_parent_dir is None:
         # select base dir
-        input('Bitte das Oberverzeichnis auswählen, innerhalb dessen das Projekt\nangelegt werden soll. (weiter mit Enter)')
+        input(
+            'Bitte das Oberverzeichnis auswählen, innerhalb dessen das Projekt\nangelegt werden soll. (weiter mit Enter)')
         initial_output_dir = Path(r'P:\Zofar\Automation_Output')
 
         if not initial_output_dir.exists():
@@ -170,55 +170,38 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     my_logger.debug('project_output_parent_dir = "{0}"'.format(project_output_parent_dir))
 
     # create folder structure
-    project_orig_dir = Path(os.path.normpath(os.path.join(project_output_parent_dir, 'orig')))
-    project_doc_dir = Path(os.path.normpath(os.path.join(project_output_parent_dir, 'doc')))
+    project_orig_version_dir = Path(project_output_parent_dir, 'orig', project_version)
     project_lieferung_dir = Path(os.path.normpath(os.path.join(project_output_parent_dir, 'lieferung')))
-    var_dict["project_orig_dir"] = project_orig_dir.absolute()
-    var_dict["project_doc_dir"] = project_doc_dir.absolute()
+    [sub_dir.mkdir(exist_ok=True, parents=True) for sub_dir in [project_orig_version_dir, project_lieferung_dir]]
+
+
+    var_dict["project_orig_version_dir"] = project_orig_version_dir.absolute()
     var_dict["project_lieferung_dir"] = project_lieferung_dir.absolute()
 
-    for d in [project_orig_dir, project_doc_dir, project_lieferung_dir]:
+    for d in [project_orig_version_dir,
+              project_lieferung_dir]:
         assert isinstance(d, Path)
         d.mkdir(exist_ok=True, parents=True)
 
-    my_logger.debug('project_orig_dir = "{0}"'.format(project_orig_dir))
-    my_logger.debug('project_doc_dir = "{0}"'.format(project_doc_dir))
+    my_logger.debug('project_orig_version_dir = "{0}"'.format(project_orig_version_dir))
     my_logger.debug('project_lieferung_dir = "{0}"'.format(project_lieferung_dir))
-
-    # creating "orig" subdirectory - using "os.system('md ...')" instead of os.mkdir because it automatically creates
-    #  more than one level of subfolders if needed
-    my_logger.debug('md {0}'.format(project_orig_dir))
-    return_md_orig = os.system('md {0}'.format(project_orig_dir))
-    if return_md_orig == 1:
-        print('Verzeichnis "{0}" existiert bereits.'.format(project_orig_dir))
-
-    # creating "doc" subdirectory - using "os.system('md ...')" instead of os.mkdir because it automatically creates
-    #  more than one level of subfolders if needed
-    my_logger.debug('md {0}'.format(project_doc_dir))
-    return_md_doc = os.system('md {0}'.format(project_doc_dir))
-    if return_md_doc == 1:
-        print('Verzeichnis "{0}" existiert bereits.'.format(project_doc_dir))
 
     # creating "lieferung" subdirectory - using "os.system('md ...')" instead of os.mkdir because it automatically creates
     #  more than one level of subfolders if needed
-    my_logger.debug('md {0}'.format(project_lieferung_dir))
-    return_md_lieferung = os.system('md {0}'.format(project_lieferung_dir))
-    if return_md_lieferung == 1:
-        print('Verzeichnis "{0}" existiert bereits.'.format(project_lieferung_dir))
+    project_lieferung_dir.mkdir(parents=True, exist_ok=True)
 
     # copy zip file with export data to project_orig_dir
-    shutil.copy(input_zip_file, project_orig_dir)
-    my_logger.debug('zip file "{0}" copied to "{1}"'.format(input_zip_file, project_orig_dir))
+    shutil.copy(input_zip_file, project_orig_version_dir)
+    # set readme file with timestamp
+    Path(project_orig_version_dir, 'README.md').write_text(f'Created at: {timestamp()}', encoding='utf-8')
+    my_logger.debug('zip file "{0}" copied to "{1}"'.format(input_zip_file, project_orig_version_dir))
 
-    # set string variable for project_orig_version_dir (directory has yet to be created)
-    project_orig_version_dir = os.path.join(project_orig_dir, project_version)
-    my_logger.debug('project_orig_version_dir = "{0}"'.format(project_orig_version_dir))
 
     # create a folder project_orig_version_dir  - using "os.mkdir()" because top folder has been created in the last
     #  step
     if not os.path.exists(project_orig_version_dir):
         os.mkdir(project_orig_version_dir)
-    my_logger.debug('os.mkdir({0})'.format(project_doc_dir))
+    # my_logger.debug('os.mkdir({0})'.format(project_doc_dir))
 
     # set string variable for project_lieferung_version_dir (directory has yet to be created)
     project_lieferung_version_dir = Path(os.path.join(project_lieferung_dir,
@@ -254,8 +237,9 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
     while return_code != 0:
         my_logger.debug('counter: "{0}"'.format(counter))
-        my_logger.debug(r'''running: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(input_zip_file,
-                                                                                                             project_lieferung_version_dir))
+        my_logger.debug(
+            r'''running: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(input_zip_file,
+                                                                                                 project_lieferung_version_dir))
         return_code = os.system(
             r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}'.format(input_zip_file, project_lieferung_version_dir))
         my_logger.debug('return code: "{0}"'.format(return_code))
@@ -278,7 +262,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     assert len(os.listdir(project_lieferung_version_dir)) == 1
     zipfile_tmp_output_path = os.path.join(project_lieferung_version_dir, os.listdir(project_lieferung_version_dir)[0])
 
-    for file_or_folder_path in [os.path.join(zipfile_tmp_output_path, file_or_folder) for file_or_folder in
+    for file_or_folder_path in [Path(zipfile_tmp_output_path, file_or_folder) for file_or_folder in
                                 os.listdir(zipfile_tmp_output_path)]:
         shutil.move(file_or_folder_path, project_lieferung_version_dir)
 
@@ -321,7 +305,8 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         # read xml file
         input('Es wird nach der XML-Datei des Fragebogens gesucht ... ... ...')
 
-        xml_file_initial_path = os.path.join(project_lieferung_version_dir, project_version, 'output', 'instruction', 'QML')
+        xml_file_initial_path = os.path.join(project_lieferung_version_dir, project_version, 'output', 'instruction',
+                                             'QML')
 
         if os.path.exists(xml_file_initial_path):
             print(xml_file_initial_path + ' exists.')
@@ -404,17 +389,17 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         history_csv_zip_file_modification_localtime = time.localtime(os.path.getmtime(history_csv_zip_file_str))
         history_csv_zip_file_modification_time_str = timestamp(history_csv_zip_file_modification_localtime)
         history_csv_zip_return_code = os.system(
-            r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(history_csv_zip_file_str, project_orig_version_dir))
+            r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(history_csv_zip_file_str, Path(project_lieferung_version_dir, 'csv').absolute()))
         if history_csv_zip_return_code != 0:
             print('\nKonnte ZIP-Datei {0} nicht entpacken.\n'.format(history_csv_zip_file_str))
         else:
             print('\nZIP-Datei {0} erfolgreich entpackt.\n'.format(history_csv_zip_file_str))
-            try:
-                shutil.move(history_csv_zip_file_str, project_orig_version_dir)
-            except PermissionError:
-                print(
-                    '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
-                        history_csv_zip_file_str, project_orig_version_dir))
+            #try:
+            #    shutil.copy(history_csv_zip_file_str, project_orig_version_dir)
+            #except PermissionError:
+            #    print(
+            #        '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
+            #            history_csv_zip_file_str, project_orig_version_dir))
 
     var_dict["history_csv_zip_file_modification_time_str"] = history_csv_zip_file_modification_time_str
 
@@ -448,7 +433,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         data_csv_zip_file_modification_time_str = timestamp(data_csv_zip_file_modification_localtime)
 
         data_csv_zip_return_code = os.system(
-            r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(data_csv_zip_file_str, project_orig_version_dir))
+            r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(data_csv_zip_file_str, Path(project_lieferung_version_dir, 'csv').absolute()))
         if data_csv_zip_return_code != 0:
             print('\nKonnte ZIP-Datei {0} nicht entpacken.\n'.format(data_csv_zip_file_str))
         else:
@@ -458,7 +443,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
             # ToDo: check if path is correct!
             my_logger.debug('CSV header ist geladen, Variablennamen erfasst.')
 
-            data_csv_file_str = os.path.join(project_orig_version_dir, 'data.csv')
+            data_csv_file_str = os.path.join(project_lieferung_version_dir, 'csv', 'data.csv')
             my_logger.debug('Lade CSV-Datei: {0}'.format(data_csv_file_str))
 
             with open(data_csv_file_str, encoding='utf-8') as csv_file:
@@ -474,23 +459,32 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
                         list_of_csv_string_var_columns.append(str(index + 1))
             print('Liste mit Spaltennummern für Stringvariablen wurde erstellt.')
 
-            try:
-                shutil.move(data_csv_zip_file_str, project_orig_version_dir)
-            except PermissionError:
-                print(
-                    '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
-                        data_csv_zip_file_str, project_orig_version_dir))
+            #try:
+            #    shutil.copy(data_csv_zip_file_str, project_orig_version_dir)
+            #except PermissionError:
+            #    print(
+            #        '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
+            #            data_csv_zip_file_str, project_orig_version_dir))
 
     var_dict["data_csv_zip_file_modification_time_str"] = data_csv_zip_file_modification_time_str
 
-    main_do_file_path = Path(os.path.normpath(
-        os.path.join(project_doc_dir, '00_master_' + project_name_short + '_' + project_version + '.do')))
-    history_do_file_path = Path(os.path.normpath(
-        os.path.join(project_doc_dir, '01_history_' + project_name_short + '_' + project_version + '.do')))
-    response_do_file_path = Path(os.path.normpath(
-        os.path.join(project_doc_dir, '02_response_' + project_name_short + '_' + project_version + '.do')))
-    kontrolle_do_file_path = Path(os.path.normpath(
-        os.path.join(project_doc_dir, '03_kontrolle_' + project_name_short + '_' + project_version + '.do')))
+    #main_do_file_path = Path(os.path.normpath(
+    #    os.path.join(project_lieferung_version_dir, 'Doc',
+    #                 '00_main_' + project_name_short + '_' + project_version + '.do')))
+    #history_do_file_path = Path(os.path.normpath(
+    #    os.path.join(project_lieferung_version_dir, 'Doc',
+    #                 '01_history_' + project_name_short + '_' + project_version + '.do')))
+    #response_do_file_path = Path(os.path.normpath(
+    #    os.path.join(project_lieferung_version_dir, 'Doc',
+    #                 '02_response_' + project_name_short + '_' + project_version + '.do')))
+    #kontrolle_do_file_path = Path(os.path.normpath(
+    #    os.path.join(project_lieferung_version_dir, 'Doc',
+    #                 '03_kontrolle_' + project_name_short + '_' + project_version + '.do')))
+
+    main_do_file_path, history_do_file_path, response_do_file_path, kontrolle_do_file_path = [
+        Path(project_lieferung_version_dir, 'Doc',
+             f'{i}'.zfill(2) + '_' + file_name + '_' + project_name_short + '_' + project_version + '.do') for i, file_name in
+        enumerate(['main', 'history', 'response', 'kontrolle'])]
 
     my_logger.debug('main_do_file_path = "{0}"'.format(main_do_file_path))
     my_logger.debug('history_do_file_path = "{0}"'.format(history_do_file_path))
@@ -567,49 +561,11 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
     var_dict["project_version"] = project_version
 
-    # x = history_template.render(**var_dict)
-
-    time.sleep(.2)
-    print('history_do_file_path response_template')
+    my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))
     try:
         history_do_file_path.write_text(history_template.render(**var_dict), encoding='utf-8')
     except (UndefinedError) as err:
         raise UndefinedError(err)
-
-
-    # a = history_template.render(**var_dict)
-    #
-    # s = env.loader.get_source(env, "history.do")
-    # r = env.parse(s)
-    #
-    # meta.find_undeclared_variables(r)
-
-    # history_do_file_str = history_do_file_str.replace('XXX__REPLACE_PAGENUM__XXX', replace_pagenum)
-    # history_do_file_str = history_do_file_str.replace('XXX__VERSION__XXX', project_version)
-    # history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME_SHORT__XXX', project_name_short)
-    # history_do_file_str = history_do_file_str.replace('XXX__PROJECT_DOC_DIR__XXX', project_doc_dir)
-    # history_do_file_str = history_do_file_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_output_parent_dir)
-    # history_do_file_str = history_do_file_str.replace('XXX__PROJECTNAME__XXX', project_name)
-    # history_do_file_str = history_do_file_str.replace('XXX__USER__XXX', user)
-    # history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
-    # history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMPDATASET__XXX',
-    #                                                   data_csv_zip_file_modification_time_str)
-    # history_do_file_str = history_do_file_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-    #                                                   history_csv_zip_file_modification_time_str)
-    # history_do_file_str = history_do_file_str.replace('XXX__DAUER__XXX', dauer_str)
-    # history_do_file_str = history_do_file_str.replace('XXX__PAGE_LABEL__XXX', label_page_str)
-    # history_do_file_str = history_do_file_str.replace('XXX__MAXPAGE_LABEL__XXX', label_maxpage_str)
-    #
-    # history_do_file_str = history_do_file_str.replace('XXX__TABSTAT_VERWEILDAUER_FINISHED__XXX',
-    #                                                   tabstat_verweildauer_finished_str)
-    # history_do_file_str = history_do_file_str.replace('XXX__TABSTAT_VERWEILDAUER__XXX', tabstat_verweildauer_str)
-
-    history_do_file_str = history_template.render(**var_dict)
-
-    # save history do file
-    my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))
-    with open(history_do_file_path, 'w', encoding='utf-8') as file:
-        file.write(history_do_file_str)
 
     my_logger.info('Created history do file: "{0}"'.format(history_do_file_path))
 
@@ -619,23 +575,9 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
     # load response dofile template
     my_logger.debug('load response dofile template')
-    response_dofile = ''
-    # with open(response_do_file_template_path, 'r', encoding='utf-8') as file:
-    #     response_dofile_str = file.read()
 
     # modify response dofile
     my_logger.debug('modifiy response dofile')
-    # response_dofile_str = response_dofile_str.replace('', '')
-    # response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', project_name_short)
-    # response_dofile_str = response_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_output_parent_dir)
-    # response_dofile_str = response_dofile_str.replace('XXX__PROJECTNAME__XXX', project_name)
-    # response_dofile_str = response_dofile_str.replace('XXX__USER__XXX', user)
-    # response_dofile_str = response_dofile_str.replace('XXX__VERSION__XXX', project_version)
-    # response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
-    # response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX',
-    #                                                   data_csv_zip_file_modification_time_str)
-    # response_dofile_str = response_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-    #                                                   history_csv_zip_file_modification_time_str)
     response_dofile_str = response_template.render(**var_dict)
 
     # save response do file
@@ -649,43 +591,21 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     # # KONTROLLE DOFILE
     # ###################
 
-    # load kontrolle dofile template
-    my_logger.debug('load kontrolle dofile template')
-    # kontrolle_dofile = ''
-    # with open(kontrolle_do_file_template_path, 'r', encoding='utf-8') as file:
-    #     kontrolle_dofile_str = file.read()
-
     # modify kontrolle dofile
     my_logger.debug('modifiy kontrolle dofile')
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('', '')
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME_SHORT__XXX', project_name_short)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECTNAME__XXX', project_name)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__PROJECT_BASE_DIR__XXX', project_output_parent_dir)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__USER__XXX', user)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__VERSION__XXX', project_version)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMP__XXX', timestamp_str)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPDATASET__XXX',
-    #                                                     data_csv_zip_file_modification_time_str)
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__TIMESTAMPHISTORY__XXX',
-    #                                                     history_csv_zip_file_modification_time_str)
 
     data_import_str = """* import delimited "${{orig}}\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcols({0})\n""".format(
         ' '.join(list_of_csv_string_var_columns))
 
     var_dict["data_import_str"] = data_import_str
 
-    # kontrolle_dofile_str = kontrolle_dofile_str.replace('XXX__DATA_IMPORT__XXX', data_import_str)
-
-    kontrolle_dofile_str = kontrolle_template.render(**var_dict)
-
     # save kontrolle do file
-    my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))
-    print('processing main_template')
+    my_logger.debug('save kontrolle dofile as "{0}"'.format(kontrolle_do_file_path))
     try:
-        outputText = main_template.render(**var_dict)
+        kontrolle_do_file_path.write_text(kontrolle_template.render(**var_dict), encoding='utf-8')
     except (UndefinedError) as err:
+        time.sleep(.1)
         raise UndefinedError(err)
-
 
     my_logger.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path))
 
@@ -693,26 +613,20 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     # # MAIN DOFILE
     # #################
 
-    # load master dofile template
-    my_logger.debug('load master dofile template')
-    # master_dofile = ''
-    # with open(master_do_file_template_path, 'r', encoding='utf-8') as file:
-    #     main_dofile_str = file.read()
+    do_files_list = [history_do_file_path, response_do_file_path, kontrolle_do_file_path]
+    do_files = '\n'.join([f'do {do_file}' for do_file in do_files_list])
+    if all([do_file.is_relative_to(main_do_file_path.parent) for do_file in do_files_list]):
+        do_files = '\n'.join([f'do {do_file.relative_to(main_do_file_path.parent)}' for do_file in do_files_list])
+    else:
+        do_files = '\n'.join([f'do {do_file}' for do_file in do_files_list])
+    var_dict["do_files"] = do_files
 
-    # modify master dofile
-    my_logger.debug('modifiy master dofile')
-
-    time.sleep(.2)
-    print('processing main_template')
+    my_logger.info('processing main_template')
     try:
-        main_dofile_str = main_template.render(**var_dict)
-        main_do_file_path.write_text(main_dofile_str, encoding='utf-8')
+        main_do_file_path.write_text(main_template.render(**var_dict), encoding='utf-8')
     except (UndefinedError) as err:
         raise UndefinedError(err)
-
     my_logger.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
-
-    # save master do file
 
     if not test_flag:
         input('Programm beendet! (weiter mit ENTER)')

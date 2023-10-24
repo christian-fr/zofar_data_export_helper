@@ -1,0 +1,40 @@
+Missings im Export
+-------------------
+
+NICHT BEANTWORTET
+NOT ANSWERED = -9990
+
+SEITE NICHT BESUCHT
+NOT VISITED = -9991
+
+NICHT GESEHEN
+UNSELECTED, EMPTY, UNSET, NOT CALCULATED = -9992
+
+STEUERUNGSVARIABLE FEHLT
+INITFORGET1, INITFORGET2 = -9995
+
+DEFAULT = -9999
+
+--------------------
+
+Legende
+
+NICHT BEANTWORTET: Item wurde gesehen, aber nicht beantwortet
+
+SEITE NICHT BESUCHT: Seite, auf der sich das Item befindet, wurde gemäß Fragebogensteuerung oder aufgrund eines vorherigen Befragungsabbruches nicht besucht
+UNSELECTED für Einfachauswahl
+UNSET für Mehrfachauswahl
+EMPTY für offene Fragen
+NOT CALCULATED für nicht berechnete Variablen
+
+NICHT GESEHEN: Item wurde gemäß Fragebogensteuerung nicht angezeigt oder befindet sich auf der Seite des Befragungsabbruches
+UNSELECTED für Einfachauswahl
+UNSET für Mehrfachauswahl
+EMPTY für offene Fragen
+NOT CALCULATED für nicht berechnete Variablen
+
+STEUERUNGSVARIABLE FEHLT: Variable wurde nicht erhoben (-9991 oder -9992), jedoch für die Fragebogensteuerung verwendet
+INITFORGET1 für SEITE NICHT BESUCHT
+INITFORGET2 für NICHT GESEHEN
+
+DEFAULT: voreingestellte Missing-Werte, insbesondere bei technischen Variablen

@@ -1,0 +1,1522 @@
+[consent] Ich habe die Datenschutzerklärung gelesen und bin damit einverstanden, dass meine Angaben elektronisch gesichert und in anonymisierter Form zu Forschungszwecken genutzt werden. 
+	(true) Ja ==> 52
+	(false) Nein ==> 6
+------------------------------------
+[noconsent] Ich habe den Hinweis verstanden und möchte nicht teilnehmen. 
+	(true) Ja ==> 2
+	(false) Nein ==> 18
+------------------------------------
+[flag_index]
+------------------------------------
+[f01] Würden Sie uns zumindest mitteilen, an welcher Hochschulart Sie beschäftigt sind?
+	(10) Universität ==> 2
+	(20) Hochschule für angewandte Wissenschaft / University of Applied Sciences ==> 0
+	(30) Kunst- oder Musikhochschule ==> 0
+------------------------------------
+[f02shk] Bitte sagen Sie uns zunächst, über welche Hochschule Sie zu dieser Befragung eingeladen wurden.
+	(11) Technische Universität Chemnitz ==> 5
+	(12) Technische Universität Dresden ==> 3
+	(13) Technische Universität Bergakademie Freiberg ==> 4
+	(14) Universität Leipzig ==> 7
+	(21) Hochschule für Technik und Wirtschaft Dresden ==> 5
+	(22) Hochschule für Technik, Wirtschaft und Kultur Leipzig ==> 3
+	(23) Hochschule Mittweida ==> 3
+	(24) Hochschule Zittau/Görlitz ==> 0
+	(25) Westsächsische Hochschule Zwickau ==> 6
+	(31) Hochschule für Musik Carl Maria von Weber Dresden ==> 1
+	(32) Hochschule für Bildende Künste Dresden ==> 0
+	(33) Palucca Hochschule für Tanz Dresden ==> 2
+	(34) Hochschule für Grafik und Buchkunst Leipzig ==> 1
+	(35) Hochschule für Musik und Theater Felix Mendelssohn Bartholdy Leipzig ==> 1
+------------------------------------
+[f03] Welcher Personalkategorie ordnen Sie sich selbst zu?
+	(1) Professor*innen ==> 5
+	(2) Akademische Assistent*innen ==> 6
+	(3) Wissenschaftliche/künstlerische Mitarbeiter*innen ==> 7
+	(4) Wissenschaftliche/künstlerische Hilfskräfte ==> 6
+	(5) Studentische Hilfskräfte ==> 5
+	(6) Lehrkräfte für besondere Aufgaben (LfbA) ==> 6
+	(7) Mitarbeiter*innen in Service, Technik und Verwaltung (Wissenschaftsunterstützendes Personal) ==> 8
+	(8) Sonstiges, und zwar: ==> 4
+------------------------------------
+[f03str] Welcher Personalkategorie ordnen Sie sich selbst zu?
+	(OPEN)  ==> 2
+	(OPEN) Bananenbieger ==> 1
+	(OPEN) Tester ==> 1
+------------------------------------
+[flag_f03]
+------------------------------------
+[f04a] Welcher beruflichen Stellung oder Laufbahngruppe ordnen Sie sich zu bzw. welche Tätigkeit üben Sie aus?
+	(1) Leitende Angestellte / Meister*innen / Tätigkeit mit umfassenden Führungsaufgaben ==> 0
+	(2) Qualifizierte Angestellte mit mittlerer Leitungsfunktion / hoch qualifizierte Tätigkeit ==> 0
+	(3) Qualifizierte Angestellte ohne Leitungsfunktion / Facharbeiter*innen (mit Lehre) / qualifizierte Tätigkeit ==> 0
+	(4) Ausführende Angestellte / Un- und angelernte Arbeiter*innen / Auszubildende / einfache Tätigkeit ==> 0
+	(5) Beamte im höheren Dienst ==> 1
+	(6) Beamte im gehobenen Dienst ==> 2
+	(7) Beamte im mittleren Dienst ==> 0
+	(8) Beamte im einfachen Dienst ==> 0
+------------------------------------
+[f04] Sind Sie als Mitarbeiter*in in Service, Technik und Verwaltung (wissenschaftsunterstützendes Personal) zentral oder dezentral beschäftigt?
+	(1) zentral (z. B. Verwaltung, Technik in Dezernaten oder Referaten, hochschulweites Service-Angebot) ==> 5
+	(2) dezentral (z. B. in einem Fachbereich/Institut oder an einer Fakultät) ==> 2
+	(3) sowohl zentral, als auch dezentral ==> 0
+------------------------------------
+[f05] Welcher Fächergruppe ist Ihre Stelle am ehesten zugehörig?
+	(1) Geisteswissenschaften ==> 3
+	(2) Rechts-, Wirtschafts- und Sozialwissenschaften ==> 4
+	(3) Mathematik, Naturwissenschaften ==> 3
+	(4) Humanmedizin/Gesundheitswissenschaften ==> 7
+	(5) Sport ==> 3
+	(6) Agrar-, Forst- und Ernährungswissenschaften, Veterinärmedizin ==> 5
+	(7) Ingenieurwissenschaften ==> 3
+	(8) Kunst/Kunstwissenschaften, Musik/Musikwissenschaft, Darstellende Kunst, Gestaltung u. ä. ==> 2
+	(-90) Überwiegende Zuordnung nicht möglich, da zu gleichen Teilen in mehreren Bereichen beschäftigt ==> 1
+	(-91) Außerhalb der Fächersystematik (z. B. zentrale Verwaltung, technischer Bereich) ==> 3
+------------------------------------
+[f06] Ist Ihre Professur unbefristet?
+	(1) ja ==> 2
+	(2) nein, befristet ==> 4
+------------------------------------
+[f07] Um was für eine befristete Professur handelt es sich?
+	(1) Juniorprofessur mit Tenure Track ==> 3
+	(2) Juniorprofessur ohne Tenure Track ==> 1
+	(3) sonstige Professur mit Tenure Track ==> 0
+	(4) sonstige Professur (z. B. Stiftungsprofessur) ==> 1
+------------------------------------
+[f08] Sind Sie (ganz oder teilweise) befristet beschäftigt?
+	(1) ja, ausschließlich befristet ==> 17
+	(2) ja, teilweise befristet ==> 5
+	(3) nein, ausschließlich unbefristet ==> 8
+------------------------------------
+[f09] Auf welcher gesetzlichen Grundlage sind Sie befristet beschäftigt?
+	(1) nach Wissenschaftszeitvertragsgesetz (WissZeitVG) ==> 16
+	(2) nach Teilzeit- und Befristungsgesetz (TzBfG) ==> 5
+	(3) andere Grundlage, und zwar: ==> 0
+	(-98) weiß nicht ==> 2
+------------------------------------
+[f09_str] Auf welcher gesetzlichen Grundlage sind Sie befristet beschäftigt?
+	(OPEN)  ==> 1
+------------------------------------
+[f10a] Die Vertragslaufzeit ist an die Projektlaufzeit gekoppelt. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 6
+	(false) Nein ==> 28
+------------------------------------
+[f10b] Stelle ist eine Vertretung (z. B. wegen Krankheit, Elternzeit). Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 5
+	(false) Nein ==> 29
+------------------------------------
+[f10c] Studien- oder Promotionsabschluss steht bevor. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 7
+	(false) Nein ==> 23
+------------------------------------
+[f10d] Befristungsgrenze des Wissenschaftszeitvertragsgesetzes greift. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 5
+	(false) Nein ==> 25
+------------------------------------
+[f10e] Finanzierung läuft aus, mehr Mittel stehen nicht zur Verfügung. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 0
+	(false) Nein ==> 30
+------------------------------------
+[f10f] Die Vertragslaufzeit ist an die Vorlesungs- oder Semesterzeit gekoppelt. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 5
+	(false) Nein ==> 25
+------------------------------------
+[f10g] Überbrückung, Zwischenfinanzierung, z. B. bis neues Projekt beginnt. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 3
+	(false) Nein ==> 27
+------------------------------------
+[f10h] Bevorstehende Förderung aus anderen Quellen (z. B. Stipendium). Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 6
+	(false) Nein ==> 24
+------------------------------------
+[f10i] Vertrag ist an eine bestimmte Aufgabe geknüpft. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 3
+	(false) Nein ==> 27
+------------------------------------
+[f10j] Der Bedarf an der Arbeitsleistung besteht nur vorübergehend. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 2
+	(false) Nein ==> 8
+------------------------------------
+[f10k] Die Befristung erfolgt im Anschluss an eine Ausbildung oder ein Studium, um den Übergang in eine Anschlussbeschäftigung zu erleichtern. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 0
+	(false) Nein ==> 10
+------------------------------------
+[f10l] Die Eigenart der Arbeitsleistung begründet die Befristung. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 2
+	(false) Nein ==> 8
+------------------------------------
+[f10m] Die Befristung dient der Erprobung. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 2
+	(false) Nein ==> 8
+------------------------------------
+[f10n] Die Vergütung ist haushaltsrechtlich nur für eine befristete Beschäftigung bestimmt. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 0
+	(false) Nein ==> 10
+------------------------------------
+[f10o] Die Befristung beruht auf einem gerichtlichen Vergleich. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 0
+	(false) Nein ==> 10
+------------------------------------
+[f10p] Befristung erfolgt sachgrundlos (z. B. bei Neueinstellung). Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 0
+	(false) Nein ==> 10
+------------------------------------
+[f10q] Mein*e Vorgesetzte*r hat es so entschieden. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 4
+	(false) Nein ==> 30
+------------------------------------
+[f10r] Eigener Wunsch, persönliche Gründe. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 1
+	(false) Nein ==> 33
+------------------------------------
+[f10s] Auslaufende Aufenthaltsgenehmigung. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 0
+	(false) Nein ==> 34
+------------------------------------
+[f10v] Anderer Grund, und zwar: Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 1
+	(false) Nein ==> 33
+------------------------------------
+[f10v_str] Welche Befristungsgründe treffen auf Sie zu?
+	(OPEN)  ==> 1
+	(OPEN) Augsburger Puppenkiste ==> 1
+------------------------------------
+[f10w] Weiß nicht. / Mir wurde kein Grund angegeben. Welche Befristungsgründe treffen auf Sie zu?
+	(true) Ja ==> 3
+	(false) Nein ==> 31
+------------------------------------
+[f11] Haben Sie mehr als eine*n unmittelbare*n Vorgesetzte*n?
+	(1) Ja, ich habe mehrere unmittelbare Vorgesetzte, und zwar: ==> 4
+	(2) Nein ==> 16
+------------------------------------
+[f11_str] Haben Sie mehr als eine*n unmittelbare*n Vorgesetzte*n?
+	(OPEN)  ==> 2
+	(OPEN) 3 ==> 1
+	(OPEN) 4 ==> 1
+------------------------------------
+[f11x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 28
+------------------------------------
+[f12] Sind Sie an Ihrer Hochschule in Teilzeit oder in Vollzeit beschäftigt?
+	(1) in Teilzeit ==> 19
+	(2) in Vollzeit ==> 9
+------------------------------------
+[f13] In welchem Stellenanteil sind Sie derzeit an Ihrer Hochschule insgesamt beschäftigt?
+	(1) mit ==> 17
+	(-98) weiß nicht ==> 4
+	(-97) Frage trifft nicht zu, da kein Stellenanteil vereinbart wurde. ==> 1
+------------------------------------
+[f13a_str] % einer Vollzeitstelle In welchem Stellenanteil sind Sie derzeit an Ihrer Hochschule insgesamt beschäftigt?
+	(OPEN) 101 ==> 1
+	(OPEN)  ==> 1
+	(OPEN) 66 ==> 1
+	(OPEN) 23 ==> 1
+	(OPEN) 59 ==> 1
+	(OPEN) 33 ==> 1
+	(OPEN) 100 ==> 1
+	(OPEN) 30 ==> 1
+	(OPEN) 50 ==> 1
+	(OPEN) 45 ==> 1
+	(OPEN) 80 ==> 1
+	(OPEN) 70 ==> 1
+------------------------------------
+[f13x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 3
+	(false) Nein ==> 20
+------------------------------------
+[f14] Können Sie Angaben zur vereinbarten Wochenarbeitszeit oder der vereinbarten Gesamtarbeitszeit machen? Über wie viele Stunden pro Woche bzw. wie viele Stunden insgesamt läuft Ihr gegenwärtiger Arbeitsvertrag?
+	(1) Es sind durchschnittlich ==> 4
+	(1) Es wurden ==> 2
+	(-97) Nein, eine Stundenzahl wurde nicht vereinbart. ==> 3
+	(-98) Weiß nicht. ==> 5
+------------------------------------
+[f14a_str] Stunden pro Woche vereinbart. Können Sie Angaben zur vereinbarten Wochenarbeitszeit oder der vereinbarten Gesamtarbeitszeit machen? Über wie viele Stunden pro Woche bzw. wie viele Stunden insgesamt läuft Ihr gegenwärtiger Arbeitsvertrag?
+	(OPEN)  ==> 1
+	(OPEN) 56 ==> 1
+	(OPEN) 9 ==> 1
+	(OPEN) 999 ==> 1
+	(OPEN) 15 ==> 1
+------------------------------------
+[f14b_str] Arbeitsstunden insgesamt vereinbart. Können Sie Angaben zur vereinbarten Wochenarbeitszeit oder der vereinbarten Gesamtarbeitszeit machen? Über wie viele Stunden pro Woche bzw. wie viele Stunden insgesamt läuft Ihr gegenwärtiger Arbeitsvertrag?
+	(OPEN)  ==> 1
+	(OPEN) 35 ==> 1
+	(OPEN) 40 ==> 1
+------------------------------------
+[f14x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 19
+------------------------------------
+[f15a] befristet mit In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?
+	(true) Ja ==> 5
+	(false) Nein ==> 4
+------------------------------------
+[f15a1_str] % einer Vollzeitstelle bzw. In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?
+	(OPEN)  ==> 1
+	(OPEN) ac ==> 1
+	(OPEN) 66 ==> 1
+	(OPEN) 75 ==> 1
+	(OPEN) 99 ==> 1
+------------------------------------
+[f15a2_str] Stunden pro Woche In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?
+	(OPEN)  ==> 1
+	(OPEN) 100 ==> 1
+	(OPEN) 30 ==> 1
+	(OPEN) abc ==> 1
+------------------------------------
+[f15b] unbefristet mit In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?
+	(true) Ja ==> 5
+	(false) Nein ==> 4
+------------------------------------
+[f15b1_str] % einer Vollzeitstelle bzw. In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?
+	(OPEN)  ==> 1
+	(OPEN) 101 ==> 1
+	(OPEN) 33 ==> 1
+	(OPEN) 25 ==> 1
+	(OPEN) 2 ==> 1
+	(OPEN) 1 ==> 1
+------------------------------------
+[f15b2_str] Stunden pro Woche In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?
+	(OPEN)  ==> 1
+	(OPEN) 169 ==> 1
+	(OPEN) 68 ==> 1
+	(OPEN) 10 ==> 1
+------------------------------------
+[f15x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 14
+------------------------------------
+[f16] Wie ist Ihre Stelle bzw. der befristete Anteil Ihrer Stelle finanziert?
+	(1) vollständig/überwiegend durch Haushaltsmittel ==> 10
+	(2) vollständig/überwiegend durch Dritt- oder Sondermittel ==> 5
+	(3) zu etwa gleichen Teilen durch Haushaltsmittel und Dritt/-Sondermittel ==> 6
+	(4) anders finanziert, und zwar: ==> 3
+	(-98) weiß nicht ==> 3
+------------------------------------
+[f16_str] Wie ist Ihre Stelle bzw. der befristete Anteil Ihrer Stelle finanziert?
+	(OPEN)  ==> 1
+	(OPEN) 1234567890123456789012345678 ==> 1
+	(OPEN) Lot ==> 1
+	(OPEN) saaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkdddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddd ==> 1
+------------------------------------
+[f17_str] Monate Welche Gesamtlaufzeit (in Monaten) hat Ihr gegenwärtiger Vertrag?
+	(OPEN)  ==> 1
+	(OPEN) 7 ==> 1
+	(OPEN) 6 ==> 1
+	(OPEN) 20 ==> 1
+	(OPEN) 12 ==> 1
+	(OPEN) a ==> 1
+	(OPEN) 8 ==> 1
+	(OPEN) 45 ==> 1
+	(OPEN) 1 ==> 1
+	(OPEN) 36 ==> 1
+	(OPEN) 4 ==> 1
+	(OPEN) 5 ==> 1
+	(OPEN) 24 ==> 1
+	(OPEN) 15 ==> 1
+	(OPEN) 11 ==> 1
+	(OPEN) 9 ==> 1
+	(OPEN) 99 ==> 1
+------------------------------------
+[f17x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 33
+------------------------------------
+[f18] War die Stelle Ihres gegenwärtigen Vertrags ausgeschrieben?
+	(1) ja ==> 8
+	(2) nein ==> 5
+	(-98) weiß nicht ==> 1
+------------------------------------
+[f19] Wurde bei der Ausschreibung angegeben, in welche Entgeltgruppe Sie voraussichtlich eingruppiert werden?
+	(1) ja ==> 4
+	(2) nein ==> 4
+	(-98) weiß nicht ==> 1
+------------------------------------
+[f21_str] Monate Wie lange läuft Ihr gegenwärtiger Arbeitsvertrag noch?
+	(OPEN)  ==> 1
+	(OPEN) 9 ==> 1
+	(OPEN) 3 ==> 1
+	(OPEN) 5 ==> 1
+	(OPEN) 10 ==> 1
+	(OPEN) 2 ==> 1
+	(OPEN) 6 ==> 1
+	(OPEN) 56 ==> 1
+	(OPEN) 20 ==> 1
+	(OPEN) 4 ==> 1
+	(OPEN) 35 ==> 1
+	(OPEN) 19 ==> 1
+	(OPEN) 1 ==> 1
+------------------------------------
+[f21x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 2
+	(false) Nein ==> 28
+------------------------------------
+[f22] Haben Sie bereits einen Folgevertrag unterschrieben?
+	(1) Ja, und zwar unbefristet. ==> 1
+	(2) Ja, und zwar mit einer Laufzeit von ==> 13
+	(3) Nein. ==> 8
+------------------------------------
+[f22_str] Monaten. Haben Sie bereits einen Folgevertrag unterschrieben?
+	(OPEN)  ==> 1
+	(OPEN) 456567678 ==> 1
+	(OPEN) 4 ==> 1
+	(OPEN) 12 ==> 1
+	(OPEN) 8 ==> 1
+	(OPEN) 26 ==> 1
+	(OPEN) 6 ==> 1
+	(OPEN) 15 ==> 1
+------------------------------------
+[f22x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 28
+------------------------------------
+[f23] War die Stelle Ihres Folgevertrags ausgeschrieben?
+	(1) ja ==> 4
+	(2) nein ==> 4
+	(-98) weiß nicht ==> 2
+------------------------------------
+[f24] Wurde bei dieser Ausschreibung angegeben, in welche Entgeltgruppe Sie voraussichtlich eingruppiert werden?
+	(1) ja ==> 3
+	(2) nein ==> 1
+	(-98) weiß nicht ==> 1
+------------------------------------
+[f26] Wurden Sie seit Beginn des gegenwärtigen Arbeitsvertrags darüber informiert, ob es eine Anschlussbeschäftigung geben oder nicht geben wird?
+	(1) ja ==> 3
+	(2) nein ==> 7
+------------------------------------
+[f27] Wie lange ist das ungefähr her?
+	(1) Die Information wurde mir innerhalb der letzten vier Wochen gegeben. ==> 1
+	(2) Die Information wurde mir vor etwa ==> 4
+	(-98) weiß nicht ==> 1
+------------------------------------
+[f27_str] Monaten gegeben. Wie lange ist das ungefähr her?
+	(OPEN)  ==> 1
+	(OPEN) 8 ==> 1
+	(OPEN) 9999 ==> 1
+	(OPEN) 78 ==> 1
+------------------------------------
+[f27x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 1
+	(false) Nein ==> 8
+------------------------------------
+[f28a] Eine Fortführung des gegenwärtigen Vertrags ist vorgesehen. Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 4
+	(false) Nein ==> 19
+------------------------------------
+[f28b] Ich habe eine unbefristete Stelle in Aussicht. Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 2
+	(false) Nein ==> 21
+------------------------------------
+[f28c] Ich würde gerne weiter an der Hochschule arbeiten, aber die Perspektive ist derzeit unsicher/unklar. Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 3
+	(false) Nein ==> 20
+------------------------------------
+[f28d] Ich habe eine Förderung aus anderen Quellen (z. B. Stipendium) in Aussicht. Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 2
+	(false) Nein ==> 21
+------------------------------------
+[f28e] Ich plane eine Stelle an einer (anderen) wissenschaftlichen Einrichtung zu suchen oder anzunehmen. Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 2
+	(false) Nein ==> 21
+------------------------------------
+[f28f] Ich plane eine Stelle an einer nicht-wissenschaftlichen Einrichtung zu suchen oder anzunehmen. Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 0
+	(false) Nein ==> 23
+------------------------------------
+[f28g] Ich plane eine freiberufliche oder selbstständige Tätigkeit auszuüben. Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 1
+	(false) Nein ==> 22
+------------------------------------
+[f28h] Ich werde mich erst einmal auf mein Studium/meine Qualifizierung konzentrieren. Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 0
+	(false) Nein ==> 23
+------------------------------------
+[f28v] Sonstiges, und zwar: Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 2
+	(false) Nein ==> 21
+------------------------------------
+[f28v_str] Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(OPEN)  ==> 1
+	(OPEN) asdgfdgj ==> 1
+	(OPEN) Taxi ==> 1
+------------------------------------
+[f28w] Ich habe noch keine Vorstellungen. Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?
+	(true) Ja ==> 1
+	(false) Nein ==> 22
+------------------------------------
+[f29] Nach diesen Fragen zu Ihrer derzeitigen Beschäftigung haben wir nun einige Fragen zu Ihren Qualifikations- und Karrierezielen. Zunächst: Welchen höchsten Studienabschluss haben Sie erworben?
+	(1) (noch) keinen ==> 1
+	(2) Bachelor ==> 9
+	(3) Master/Staatsexamen/Diplom/Magister ==> 15
+	(4) Sonstiges, und zwar: ==> 4
+------------------------------------
+[f29_str] Nach diesen Fragen zu Ihrer derzeitigen Beschäftigung haben wir nun einige Fragen zu Ihren Qualifikations- und Karrierezielen. Zunächst: Welchen höchsten Studienabschluss haben Sie erworben?
+	(OPEN)  ==> 1
+	(OPEN) Das ist kein Studieabschluss im eigentlichen Sinne, aber ich arbeite gerade an meinem Jodeldiplom im zweiten Futur bei Sonnenaufgang und dieses Textfeld ist wirklich ziemlich klein und ich frage mich, wieviel Platz ich eigentlich habe um hier etwas reinzuschreiben, dieser Satz ist ja nun shcon wirklich sehr sehr lang und es ist überhaupt kein Ende absehbar ==> 1
+	(OPEN) keinen ==> 1
+	(OPEN) Jodeldiplom ==> 1
+------------------------------------
+[f30] Sind Sie promoviert?
+	(1) Ja. ==> 7
+	(2) Nein, aber ich promoviere derzeit. ==> 17
+	(3) Nein, und ich promoviere (derzeit) auch nicht. ==> 8
+------------------------------------
+[f31] Werden Sie in Ihrer Promotion von Ihrer/Ihrem Dienstvorgesetzten betreut?
+	(1) Ja. ==> 6
+	(2) Nein, aber eine andere Person betreut mich. ==> 9
+	(3) Nein, ich habe derzeit (noch) keine Betreuung. ==> 2
+	(-98) Weiß nicht. ==> 0
+------------------------------------
+[f32] Sind Sie habilitiert?
+	(1) Ja, ich bin habilitiert. ==> 4
+	(2) Nein, aber ich befinde mich im Habilitationsprozess. ==> 6
+	(3) Nein, ich bin nicht habilitiert und befinde mich auch nicht im Habilitationsprozess. ==> 2
+------------------------------------
+[f33] Gehört die wissenschaftliche oder künstlerische Weiterqualifizierung laut Arbeitsvertrag zu Ihren Dienstaufgaben?
+	(1) ja ==> 14
+	(2) nein ==> 16
+	(-98) weiß nicht ==> 0
+------------------------------------
+[f34] Und ist Ihnen ein Teil Ihrer Arbeitszeit zur wissenschaftlichen oder künstlerischen Qualifizierung belassen? Und ist Ihnen trotzdem ein Teil Ihrer Arbeitszeit zur wissenschaftlichen oder künstlerischen Qualifizierung belassen?
+	(1) ja, schriftlich vereinbart ==> 5
+	(2) ja, aber nur mündlich vereinbart ==> 12
+	(3) nein ==> 8
+------------------------------------
+[f35] Wie hoch ist dieser vereinbarte Anteil Ihrer Arbeitszeit, der Ihnen zur Qualifizierung belassen ist?
+	(1) Der vereinbarte Anteil beträgt: ==> 15
+	(2) Es ist kein genauer Anteil festgelegt. ==> 2
+------------------------------------
+[f35_str] Prozent Wie hoch ist dieser vereinbarte Anteil Ihrer Arbeitszeit, der Ihnen zur Qualifizierung belassen ist?
+	(OPEN)  ==> 1
+	(OPEN) 77 ==> 1
+	(OPEN) 33 ==> 1
+	(OPEN) 50 ==> 1
+	(OPEN) 20 ==> 1
+	(OPEN) 40 ==> 1
+	(OPEN) 15 ==> 1
+	(OPEN) 35 ==> 1
+	(OPEN) 10 ==> 1
+------------------------------------
+[f35x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 20
+------------------------------------
+[f36_str] Der Anteil beträgt im Durchschnitt etwa Prozent Und wie hoch ist nach Ihrer Einschätzung der Anteil der Arbeitszeit, den Sie in etwa zur Qualifizierung nutzen können?
+	(OPEN)  ==> 1
+	(OPEN) 50 ==> 1
+	(OPEN) 5 ==> 1
+	(OPEN) 33 ==> 1
+	(OPEN) 10 ==> 1
+	(OPEN) 15 ==> 1
+	(OPEN) 30 ==> 1
+	(OPEN) 40 ==> 1
+	(OPEN) 20 ==> 1
+------------------------------------
+[f36x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 21
+------------------------------------
+[f37a_str] % Forschung (inkl. Publikationen und wissenschaftliche Vorträge)
+	(OPEN)  ==> 1
+	(OPEN) 100 ==> 1
+	(OPEN) 50 ==> 1
+	(OPEN) 1 ==> 1
+	(OPEN) 20 ==> 1
+	(OPEN) 0 ==> 1
+	(OPEN) 60 ==> 1
+	(OPEN) 10 ==> 1
+	(OPEN) 5 ==> 1
+	(OPEN) 30 ==> 1
+	(OPEN) 40 ==> 1
+	(OPEN) 23 ==> 1
+------------------------------------
+[f37b_str] % Drittmittelakquise
+	(OPEN)  ==> 1
+	(OPEN) 10 ==> 1
+	(OPEN) 2 ==> 1
+	(OPEN) 20 ==> 1
+	(OPEN) 100 ==> 1
+	(OPEN) 80 ==> 1
+	(OPEN) 5 ==> 1
+	(OPEN) 0 ==> 1
+	(OPEN) 40 ==> 1
+------------------------------------
+[f37c_str] % Lehre (inkl. Studierenden-/Doktorand*innenbetreuung und Prüfungen)
+	(OPEN)  ==> 1
+	(OPEN) 10 ==> 1
+	(OPEN) 3 ==> 1
+	(OPEN) 20 ==> 1
+	(OPEN) 40 ==> 1
+	(OPEN) 15 ==> 1
+	(OPEN) 80 ==> 1
+	(OPEN) 0 ==> 1
+	(OPEN) 50 ==> 1
+------------------------------------
+[f37d_str] % Akademische Selbstverwaltung, Gremien, Berufungskommissionen
+	(OPEN)  ==> 1
+	(OPEN) 10 ==> 1
+	(OPEN) 4 ==> 1
+	(OPEN) 0 ==> 1
+	(OPEN) 20 ==> 1
+	(OPEN) 30 ==> 1
+	(OPEN) 5 ==> 1
+------------------------------------
+[f37e_str] % Transfertätigkeiten (z. B. Veranstaltungen, Technikvermittlung, Third Mission)
+	(OPEN)  ==> 1
+	(OPEN) 10 ==> 1
+	(OPEN) 5 ==> 1
+	(OPEN) 20 ==> 1
+	(OPEN) 0 ==> 1
+------------------------------------
+[f37v_str] % Sonstige Tätigkeiten
+	(OPEN)  ==> 1
+	(OPEN) 10 ==> 1
+	(OPEN) 6 ==> 1
+	(OPEN) 20 ==> 1
+	(OPEN) 45 ==> 1
+	(OPEN) 0 ==> 1
+	(OPEN) 70 ==> 1
+	(OPEN) 34 ==> 1
+------------------------------------
+[f37x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 24
+------------------------------------
+[f38a_str] % Vermittlung praktischer Fertigkeiten (insbesondere sprach-, sport- oder laborpraktisch)
+	(OPEN)  ==> 1
+	(OPEN) 1 ==> 1
+	(OPEN) 60 ==> 1
+	(OPEN) 0 ==> 1
+	(OPEN) 30 ==> 1
+------------------------------------
+[f38b_str] % Vermittlung wissenschaftlicher/künstlerischer Methoden
+	(OPEN)  ==> 1
+	(OPEN) 23 ==> 1
+	(OPEN) 50 ==> 1
+	(OPEN) 60 ==> 1
+	(OPEN) 10 ==> 1
+------------------------------------
+[f38c_str] % Forschungsbezogene Lehre (z. B. in den gleichen Modulen wie Wissenschaftliche Mitarbeiter*innen)
+	(OPEN)  ==> 1
+	(OPEN) 45 ==> 1
+	(OPEN) 50 ==> 1
+	(OPEN) 40 ==> 1
+	(OPEN) 60 ==> 1
+------------------------------------
+[f38v_str] % Anderes
+	(OPEN)  ==> 1
+	(OPEN) 31 ==> 1
+	(OPEN) 0 ==> 1
+------------------------------------
+[f38x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 9
+------------------------------------
+[f39a] im Hochschulbereich Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(true) Ja ==> 9
+	(false) Nein ==> 29
+------------------------------------
+[f39b] außerhalb des Hochschulbereichs Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(true) Ja ==> 5
+	(false) Nein ==> 33
+------------------------------------
+[f39c] im Bereich Forschung Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(true) Ja ==> 5
+	(false) Nein ==> 33
+------------------------------------
+[f39d] im Bereich Lehre Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(true) Ja ==> 7
+	(false) Nein ==> 31
+------------------------------------
+[f39e] im Bereich Wissenschaftsmanagement Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(true) Ja ==> 9
+	(false) Nein ==> 29
+------------------------------------
+[f39f] im Bereich Technik, Service und Verwaltung Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(true) Ja ==> 4
+	(false) Nein ==> 34
+------------------------------------
+[f39g] im künstlerischen, kulturellen Bereich Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(true) Ja ==> 2
+	(false) Nein ==> 36
+------------------------------------
+[f39v] Sonstiges, und zwar: Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(true) Ja ==> 2
+	(false) Nein ==> 36
+------------------------------------
+[f39v_str] Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(OPEN)  ==> 1
+	(OPEN) Film ==> 1
+------------------------------------
+[f39w] weiß nicht Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?
+	(true) Ja ==> 2
+	(false) Nein ==> 36
+------------------------------------
+[f40] Und welche Position entspricht am ehesten Ihrer langfristigen Vorstellung?
+	(1) Lebenszeitprofessur ==> 6
+	(2) (andere) Leitungsposition ==> 6
+	(3) Lehrkraft für besondere Aufgaben ==> 6
+	(4) entfristete Mittelbaustelle ==> 3
+	(5) (andere) Position ohne Leitungsfunktion ==> 0
+	(6) Selbstständigkeit/Freiberufliche Tätigkeit ==> 2
+	(7) andere Position, und zwar: ==> 1
+	(-98) weiß nicht ==> 2
+------------------------------------
+[f40_str] Und welche Position entspricht am ehesten Ihrer langfristigen Vorstellung?
+	(OPEN)  ==> 1
+	(OPEN) Präsident ==> 1
+------------------------------------
+[f41] Kommen wir noch einmal kurz zurück zu Ihrer Berufsbiografie an sächsischen Hochschulen. Handelt es sich bei Ihrem derzeitigen Arbeitsvertrag um den ersten Arbeitsvertrag an einer staatlichen Hochschule in Sachsen?
+	(1) ja ==> 6
+	(2) nein ==> 18
+------------------------------------
+[f42] Waren Sie zuvor als studentische Hilfskraft an einer staatlichen Hochschule in Sachsen tätig?
+	(1) ja ==> 9
+	(2) nein ==> 8
+------------------------------------
+[f43] Gab es weitere Vorbeschäftigungen an einer staatlichen Hochschule in Sachsen?
+	(1) ja, in der gleichen Personalkategorie wie derzeit ==> 8
+	(2) ja, (auch) in einer anderen Personalkategorie als derzeit ==> 6
+	(3) nein ==> 4
+------------------------------------
+[f44a] (Junior)Professor*in In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 6
+------------------------------------
+[f44b] Akademische*r Assistent*in In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 6
+------------------------------------
+[f44c] Wissenschaftliche*r/künstlerischer*r Mitarbeiter*in In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?
+	(true) Ja ==> 1
+	(false) Nein ==> 5
+------------------------------------
+[f44d] Wissenschaftliche/künstlerischer Hilfskraft In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?
+	(true) Ja ==> 1
+	(false) Nein ==> 5
+------------------------------------
+[f44e] Lehrkraft für besondere Aufgaben (LfbA) In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 6
+------------------------------------
+[f44f] Mitarbeiter*in in Service, Technik und Verwaltung (Wissenschaftsunterstützendes Personal) In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?
+	(true) Ja ==> 1
+	(false) Nein ==> 5
+------------------------------------
+[f44v] Andere, und zwar: In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 6
+------------------------------------
+[f44_str] In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?
+	(OPEN)  ==> 1
+	(OPEN) Lehrbeauftragter ==> 1
+------------------------------------
+[f45_str] Anzahl: (inkl. des derzeitigen Vertrags) Wie viele Arbeitsverträge hatten Sie insgesamt als studentische Hilfskraft an einer staatlichen Hochschule in Sachsen? Wie viele Arbeitsverträge hatten Sie insgesamt an einer staatlichen Hochschule in Sachsen? Wie viele Arbeitsverträge hatten Sie, abgesehen von Verträgen als studentische Hilfskraft, insgesamt an einer staatlichen Hochschule in Sachsen?
+	(OPEN) 3 ==> 1
+	(OPEN)  ==> 1
+	(OPEN) 2 ==> 1
+	(OPEN) 4 ==> 1
+	(OPEN) 5 ==> 1
+------------------------------------
+[f45x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 17
+------------------------------------
+[f46_m] Monat: Wann haben Sie erstmals eine Beschäftigung an einer staatlichen Hochschule in Sachsen aufgenommen?
+	(OPEN)  ==> 1
+	(OPEN) 5 ==> 1
+	(OPEN) 12 ==> 1
+	(OPEN) 2 ==> 1
+	(OPEN) 8 ==> 1
+	(OPEN) 6 ==> 1
+	(OPEN) 10 ==> 1
+	(OPEN) 9 ==> 1
+------------------------------------
+[f46_y] Jahr: (vierstellig) 
+	(OPEN)  ==> 1
+	(OPEN) 2018 ==> 1
+	(OPEN) 2010 ==> 1
+	(OPEN) 2023 ==> 1
+	(OPEN) 2012 ==> 1
+	(OPEN) 2015 ==> 1
+	(OPEN) 2019 ==> 1
+	(OPEN) 2021 ==> 1
+	(OPEN) 1999 ==> 1
+------------------------------------
+[f46x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 14
+------------------------------------
+[f47_str] Mal Wenn Sie nun jenseits von SHK-Verträgen an die Zeit Ihrer Beschäftigung an einer staatlichen Hochschule in Sachsen seit 2017 denken: Wenn Sie nun jenseits von SHK-Verträgen an die gesamte Zeit Ihrer Beschäftigung an einer staatlichen Hochschule in Sachsen denken: Wie oft hatten Sie drei Monate vor Ablauf Ihres Vertrags noch keinen Anschlussvertrag, so dass Sie sich bei der Bundesagentur für Arbeit als arbeitssuchend hätten melden müssen oder gemeldet haben?
+	(OPEN)  ==> 1
+	(OPEN) 2 ==> 1
+	(OPEN) 1 ==> 1
+	(OPEN) 3 ==> 1
+	(OPEN) 0 ==> 1
+------------------------------------
+[f47x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 2
+	(false) Nein ==> 14
+------------------------------------
+[f48_y] im Jahr: Wann war das zuletzt?
+	(OPEN)  ==> 1
+	(OPEN) 2015 ==> 1
+	(OPEN) 2017 ==> 1
+	(OPEN) 1923 ==> 1
+	(OPEN) 2018 ==> 1
+	(OPEN) 2019 ==> 1
+	(OPEN) 2021 ==> 1
+	(OPEN) 2022 ==> 1
+------------------------------------
+[f48x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 2
+	(false) Nein ==> 8
+------------------------------------
+[f49] Und gab es in dieser Zeit tatsächliche, ungewollte Beschäftigungslücken, d. h. Zeiten ohne Arbeitsvertrag? Und wenn ja, wie viele?
+	(1) Ja, insgesamt gab es: ==> 7
+	(2) Nein, es gab keine ungewollten Beschäftigungslücken. ==> 4
+------------------------------------
+[f49_str] Beschäftigungslücke(n) Und gab es in dieser Zeit tatsächliche, ungewollte Beschäftigungslücken, d. h. Zeiten ohne Arbeitsvertrag? Und wenn ja, wie viele?
+	(OPEN)  ==> 2
+	(OPEN) 1 ==> 1
+	(OPEN) 4 ==> 1
+	(OPEN) 2 ==> 1
+------------------------------------
+[f49x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 12
+------------------------------------
+[f50_str] insgesamt Monate Wie viele Monate waren Sie insgesamt ungewollt ohne Beschäftigung?
+	(OPEN) 1 ==> 1
+	(OPEN) 3 ==> 1
+	(OPEN)  ==> 2
+	(OPEN) 7 ==> 1
+------------------------------------
+[f50x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 0
+	(false) Nein ==> 9
+------------------------------------
+[f51a] Unmittelbare Unterstützung und Zuarbeiten im Bereich Forschung (z. B. Literaturrecherche, Korrekturlesen, Datenerhebung/-aufbereitung, …)
+	(1) Das mache ich überwiegend/häufig. ==> 1
+	(2) Das mache ich gelegentlich. ==> 3
+	(3) Das mache ich üblicherweise nicht. ==> 0
+------------------------------------
+[f51b] Unmittelbare Unterstützung und Zuarbeiten im Bereich Lehre und Prüfungen (z. B. Vorbereitung von Seminaren, Klausuraufsicht, Betreuung von Studierenden, Tutorien, …)
+	(1) Das mache ich überwiegend/häufig. ==> 2
+	(2) Das mache ich gelegentlich. ==> 1
+	(3) Das mache ich üblicherweise nicht. ==> 0
+------------------------------------
+[f51c] Sonstige Unterstützung und Zuarbeiten, die sich nicht unmittelbar den Bereichen Forschung und Lehre zuordnen lassen (z. B. Bibliotheksaufsicht, Korrespondenz, Catering, IT-Support, Pflege von Musikinstrumenten, …)
+	(1) Das mache ich überwiegend/häufig. ==> 0
+	(2) Das mache ich gelegentlich. ==> 1
+	(3) Das mache ich üblicherweise nicht. ==> 2
+------------------------------------
+[f52a] Allgemeine Labor- oder Atelierarbeiten (z. B. Vorbereitung, Aufräumen) Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52b] Überwachung und Pflege von Messgeräten Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 1
+	(false) Nein ==> 2
+------------------------------------
+[f52c] Pflege oder Ausgabe von (Musik-)Instrumenten oder Arbeitsmaterialen Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52d] Organisation von Reisen Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52e] Aufsicht und Katalogisierung in einer Bibliothek Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 1
+	(false) Nein ==> 2
+------------------------------------
+[f52f] Sekretariatsarbeiten, Korrespondenz Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52g] Service, Catering Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52h] Netzwerk-/IT-Administration und Support (Hard- und Software) Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52i] Webmastertätigkeiten, Social Media Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52j] Medizinische Überwachung/Betreuung von Patient*innen Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52k] (Tier-)pflegerische Tätigkeiten Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 1
+	(false) Nein ==> 2
+------------------------------------
+[f52l] Private Aufgaben für Vorgesetzte Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52v] Sonstiges, und zwar: Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(true) Ja ==> 0
+	(false) Nein ==> 3
+------------------------------------
+[f52v_str] Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?
+	(OPEN)  ==> 1
+------------------------------------
+[f53] Nachdem wir nun viele Fragen zu Ihrer Beschäftigung gestellt haben, geht es auf den folgenden Seiten um Ihre Qualifizierung. Haben Sie im Rahmen Ihrer gegenwärtigen Qualifizierungsphase eine Betreuungsvereinbarung abgeschlossen?
+	(1) ja ==> 5
+	(2) nein, aber der Abschluss einer Vereinbarung ist in Vorbereitung ==> 1
+	(3) nein ==> 1
+------------------------------------
+[f54a] das angestrebte Qualifikationsziel Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 2
+	(false) Nein ==> 6
+------------------------------------
+[f54b] Art und Umfang der Betreuung Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 1
+	(false) Nein ==> 7
+------------------------------------
+[f54c] Qualifikationsform (z. B. kumulativ, Monografie) Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 1
+	(false) Nein ==> 7
+------------------------------------
+[f54d] Zeitplanung/Zeitliche Ressourcen für die Qualifizierung Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 1
+	(false) Nein ==> 7
+------------------------------------
+[f54e] Verfahren in Konfliktfällen Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 1
+	(false) Nein ==> 7
+------------------------------------
+[f54f] regelmäßiger Bericht zum Stand der Qualifikation Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 1
+	(false) Nein ==> 7
+------------------------------------
+[f54g] Art und Form zu erbringender Leistungen Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 2
+	(false) Nein ==> 6
+------------------------------------
+[f54h] Infrastruktur, die zur Verfügung gestellt wird Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 0
+	(false) Nein ==> 8
+------------------------------------
+[f54i] Regeln guter wissenschaftlicher Praxis Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 0
+	(false) Nein ==> 8
+------------------------------------
+[f54j] finanzielle Ressourcen, z. B. für Reisen oder Publikationen Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 0
+	(false) Nein ==> 8
+------------------------------------
+[f54k] Registrierungs-/Immatrikulationspflicht Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 0
+	(false) Nein ==> 8
+------------------------------------
+[f54v] Sonstiges, und zwar: Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 0
+	(false) Nein ==> 8
+------------------------------------
+[f54v_str] Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(OPEN)  ==> 1
+------------------------------------
+[f54w] weiß nicht Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?
+	(true) Ja ==> 0
+	(false) Nein ==> 8
+------------------------------------
+[f55a] …spricht mit Ihnen über Ihre Zukunftspläne im Allgemeinen. Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in …
+	(true) Ja ==> 1
+	(false) Nein ==> 5
+------------------------------------
+[f55b] …spricht mit Ihnen über den Verlauf der Qualifikationsphase. Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in …
+	(true) Ja ==> 1
+	(false) Nein ==> 5
+------------------------------------
+[f55c] …spricht mit Ihnen über die zu erbringenden Leistungen. Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in …
+	(true) Ja ==> 0
+	(false) Nein ==> 6
+------------------------------------
+[f55d] …berät Sie zu geeigneten Fort-/Weiterbildungen. Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in …
+	(true) Ja ==> 2
+	(false) Nein ==> 4
+------------------------------------
+[f55e] …berät Sie gezielt im Hinblick auf eine wiss. Karriere. Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in …
+	(true) Ja ==> 1
+	(false) Nein ==> 5
+------------------------------------
+[f55f] …berät Sie gezielt im Hinblick auf eine Karriere außerhalb der Wissenschaft. Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in …
+	(true) Ja ==> 0
+	(false) Nein ==> 6
+------------------------------------
+[f56a] …sichert die finanziellen Ressourcen für Fortbildungen, Reisen und Publikationen im Rahmen Ihrer Qualifikationsphase. Welche weiteren Unterstützungsleistungen können Sie berichten? Ihr*e Betreuer*in …
+	(true) Ja ==> 2
+	(false) Nein ==> 4
+------------------------------------
+[f56b] …kümmert sich um Ihre Finanzierung in der Qualifikationsphase (z. B. durch Drittmittelanträge und Referenzschreiben etwa zur Beantragung von Stipendien). Welche weiteren Unterstützungsleistungen können Sie berichten? Ihr*e Betreuer*in …
+	(true) Ja ==> 0
+	(false) Nein ==> 6
+------------------------------------
+[f56c] …nutzt seine/ihre wissenschaftlichen Kontakte, um Sie voranzubringen. Welche weiteren Unterstützungsleistungen können Sie berichten? Ihr*e Betreuer*in …
+	(true) Ja ==> 0
+	(false) Nein ==> 6
+------------------------------------
+[f56d] …fördert Ihre Vernetzung durch das Herstellen von Kontakten und Austauschgelegenheiten. Welche weiteren Unterstützungsleistungen können Sie berichten? Ihr*e Betreuer*in …
+	(true) Ja ==> 1
+	(false) Nein ==> 5
+------------------------------------
+[f57a] Wissenschaftliches Arbeiten und Forschung
+	(1) sehr wichtig ==> 2
+	(2) eher wichtig ==> 0
+	(3) weniger wichtig ==> 0
+	(4) nicht wichtig ==> 1
+------------------------------------
+[f57b] Berufliche Orientierung und Karriereplanung
+	(1) sehr wichtig ==> 0
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 1
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57c] Lehre und Betreuung
+	(1) sehr wichtig ==> 1
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 0
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57d] (Personal-)Führung und Leitung
+	(1) sehr wichtig ==> 1
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 0
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57e] Wissenschafts-, Projekt-, Kunstmanagement
+	(1) sehr wichtig ==> 1
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 0
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57f] Einwerbung von Drittmitteln
+	(1) sehr wichtig ==> 0
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 1
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57g] Gremienarbeit
+	(1) sehr wichtig ==> 1
+	(2) eher wichtig ==> 0
+	(3) weniger wichtig ==> 0
+	(4) nicht wichtig ==> 1
+------------------------------------
+[f57h] Wissenschaftskommunikation
+	(1) sehr wichtig ==> 0
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 1
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57i] Netzwerke knüpfen, pflegen und nutzen
+	(1) sehr wichtig ==> 1
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 0
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57j] Internationale Zusammenarbeit
+	(1) sehr wichtig ==> 1
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 0
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57k] Interdisziplinäre Zusammenarbeit
+	(1) sehr wichtig ==> 1
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 0
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57l] Gutachtertätigkeit
+	(1) sehr wichtig ==> 0
+	(2) eher wichtig ==> 1
+	(3) weniger wichtig ==> 1
+	(4) nicht wichtig ==> 0
+------------------------------------
+[f57v] Sonstiges, und zwar:
+	(1) sehr wichtig ==> 1
+	(2) eher wichtig ==> 0
+	(3) weniger wichtig ==> 0
+	(4) nicht wichtig ==> 1
+------------------------------------
+[f57v_str]
+	(OPEN)  ==> 1
+------------------------------------
+[f58a] ja, aufgrund der Betreuung von Kindern unter 18 Jahren oder gesundheitlichen Beeinträchtigungen Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 8
+------------------------------------
+[f58b] ja, aufgrund der Corona-Sonderregelungen Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?
+	(true) Ja ==> 3
+	(false) Nein ==> 5
+------------------------------------
+[f58c] ja, aus anderem Grund, und zwar: Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 8
+------------------------------------
+[f58c_str] Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?
+	(OPEN)  ==> 1
+------------------------------------
+[f58d] nein Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?
+	(true) Ja ==> 3
+	(false) Nein ==> 5
+------------------------------------
+[f59a] Die Grenze des Befristungsrahmens ist noch so weit weg, dass sie für mich bislang kein Thema war. Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 5
+------------------------------------
+[f59b] Ich werde mein Qualifikationsziel voraussichtlich ohne Vertragsverlängerung erreichen. Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 5
+------------------------------------
+[f59c] Die Voraussetzungen (Kinderbetreuung oder gesundheitliche Beeinträchtigungen) treffen für mich aktuell nicht zu. Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(true) Ja ==> 1
+	(false) Nein ==> 4
+------------------------------------
+[f59d] Ich befürchte Nachteile, wenn ich auf eine Verlängerung hinwirke. Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 5
+------------------------------------
+[f59e] Ich weiß nicht, an wen ich mich wenden soll. Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(true) Ja ==> 1
+	(false) Nein ==> 4
+------------------------------------
+[f59f] Das Projekt, in dem ich arbeite, bietet keine Option einer Verlängerung. Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(true) Ja ==> 1
+	(false) Nein ==> 4
+------------------------------------
+[f59g] Eine Verzögerung der Fertigstellung der Qualifikationsarbeit aufgrund der Coronapandemie wurde mir nicht anerkannt. Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 5
+------------------------------------
+[f59h] Eine Verzögerung der Fertigstellung der Qualifikationsarbeit aufgrund persönlicher und/oder familiärer Bedingungen wurde mir nicht anerkannt. Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 5
+------------------------------------
+[f59v] Sonstiges, und zwar: Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(true) Ja ==> 0
+	(false) Nein ==> 5
+------------------------------------
+[f59v_str] Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?
+	(OPEN)  ==> 1
+------------------------------------
+[f60] Im Folgenden geht es um jährliche Gespräche, die mit Ihrer/Ihrem Dienstvorgesetzten stattfinden sollen. Wurde Ihnen in den letzten 18 Monaten ein solches Jahresgespräch/Mitarbeiter-Vorgesetzen-Gespräch angeboten?
+	(1) Ja, und ich habe angenommen. ==> 10
+	(2) Ja, und ich habe abgelehnt. ==> 7
+	(3) Nein, mir wurde kein Gespräch angeboten. ==> 4
+------------------------------------
+[f61] Hat dieses Gespräch stattgefunden?
+	(1) Ja ==> 9
+	(2) Nein ==> 1
+------------------------------------
+[f62] Haben Sie im Rahmen des Jahresgespräches Feedback über Ihre Leistungen und Ihre erbrachte Arbeit erhalten?
+	(1) Ja ==> 5
+	(2) Nein ==> 4
+	(-98) Kann ich nicht beurteilen. ==> 0
+------------------------------------
+[f63] Haben Sie im Rahmen des mit Ihnen geführten Jahresgesprächs mit Ihrer bzw. Ihrem Vorgesetzten Vereinbarungen bezüglich der Zukunftsplanung/Zielvereinbarung getroffen?
+	(1) Ja ==> 4
+	(2) Nein ==> 6
+	(-98) Kann ich nicht beurteilen. ==> 0
+------------------------------------
+[f64a] Wie beurteilen Sie die nachfolgende Aussage zu dem mit Ihnen geführten Jahresgespräch? Im Rahmen des Jahresgespräches wurden Vereinbarungen bezüglich der Zukunftsplanung/Zielvereinbarung getroffen und ich bin mit den getroffenen Vereinbarungen zufrieden.
+	(1) trifft voll zu ==> 1
+	(2) trifft eher zu ==> 0
+	(3) trifft eher nicht zu ==> 0
+	(4) trifft nicht zu ==> 0
+------------------------------------
+[f64b] Wie beurteilen Sie die nachfolgende Aussage zu dem mit Ihnen geführten Jahresgespräch? Die im Rahmen des mit mir geführten Jahresgesprächs getroffenen Vereinbarungen wurden innerhalb der darauffolgenden 18 Monate umgesetzt.
+	(1) trifft voll zu ==> 0
+	(2) trifft eher zu ==> 1
+	(3) trifft eher nicht zu ==> 1
+	(4) trifft nicht zu ==> 0
+	(-98) kann ich nicht beurteilen ==> 0
+------------------------------------
+[f64c] Wie beurteilen Sie die nachfolgende Aussage zu dem mit Ihnen geführten Jahresgespräch? Mit der Qualität des mit mir geführten Jahresgespräches bin ich zufrieden.
+	(1) trifft voll zu ==> 1
+	(2) trifft eher zu ==> 3
+	(3) trifft eher nicht zu ==> 3
+	(4) trifft nicht zu ==> 0
+------------------------------------
+[f65a] Durch das Gespräch hat sich die Kommunikation mit meiner Führungskraft verbessert. Welche Wirkungen hatte das Jahresgespräch auf Sie?
+	(true) Ja ==> 2
+	(false) Nein ==> 8
+------------------------------------
+[f65b] Durch das Gespräch hat sich die Zusammenarbeit in meinem Arbeitsbereich verbessert. Welche Wirkungen hatte das Jahresgespräch auf Sie?
+	(true) Ja ==> 3
+	(false) Nein ==> 7
+------------------------------------
+[f65c] Das Gespräch hat sich positiv auf meine Motivation ausgewirkt. Welche Wirkungen hatte das Jahresgespräch auf Sie?
+	(true) Ja ==> 3
+	(false) Nein ==> 7
+------------------------------------
+[f65d] Durch das Gespräch habe ich ein besseres Verständnis für die Ziele in meinem Arbeitsbereich entwickelt. Welche Wirkungen hatte das Jahresgespräch auf Sie?
+	(true) Ja ==> 4
+	(false) Nein ==> 6
+------------------------------------
+[f65e] Das Gespräch hatte keine Wirkungen auf mich. Welche Wirkungen hatte das Jahresgespräch auf Sie?
+	(true) Ja ==> 5
+	(false) Nein ==> 5
+------------------------------------
+[f65f] Das Gespräch hat zu Spannungen zwischen mir und meiner Führungskraft geführt. Welche Wirkungen hatte das Jahresgespräch auf Sie?
+	(true) Ja ==> 2
+	(false) Nein ==> 8
+------------------------------------
+[f65g] Das Gespräch hat zu Spannungen in meinem Arbeitsbereich geführt. Welche Wirkungen hatte das Jahresgespräch auf Sie?
+	(true) Ja ==> 1
+	(false) Nein ==> 9
+------------------------------------
+[f66a] Verhältnis zu Kolleg*innen
+	(1) sehr zufrieden ==> 9
+	(2) eher zufrieden ==> 6
+	(3) eher unzufrieden ==> 2
+	(4) sehr unzufrieden ==> 1
+	(-97) trifft nicht zu ==> 3
+------------------------------------
+[f66b] Verhältnis zu Vorgesetzten
+	(1) sehr zufrieden ==> 1
+	(2) eher zufrieden ==> 6
+	(3) eher unzufrieden ==> 6
+	(4) sehr unzufrieden ==> 5
+	(-97) trifft nicht zu ==> 0
+------------------------------------
+[f66c] eigene Lehrtätigkeit
+	(1) sehr zufrieden ==> 1
+	(2) eher zufrieden ==> 4
+	(3) eher unzufrieden ==> 11
+	(4) sehr unzufrieden ==> 1
+	(-97) trifft nicht zu ==> 1
+------------------------------------
+[f66d] eigene Forschungstätigkeit
+	(1) sehr zufrieden ==> 2
+	(2) eher zufrieden ==> 6
+	(3) eher unzufrieden ==> 2
+	(4) sehr unzufrieden ==> 7
+	(-97) trifft nicht zu ==> 2
+------------------------------------
+[f66e] Beschäftigungssicherheit
+	(1) sehr zufrieden ==> 3
+	(2) eher zufrieden ==> 6
+	(3) eher unzufrieden ==> 3
+	(4) sehr unzufrieden ==> 2
+	(-97) trifft nicht zu ==> 4
+------------------------------------
+[f66f] berufliche Perspektiven
+	(1) sehr zufrieden ==> 1
+	(2) eher zufrieden ==> 6
+	(3) eher unzufrieden ==> 7
+	(4) sehr unzufrieden ==> 4
+	(-97) trifft nicht zu ==> 2
+------------------------------------
+[f66g] Verwirklichung eigener Ideen
+	(1) sehr zufrieden ==> 5
+	(2) eher zufrieden ==> 1
+	(3) eher unzufrieden ==> 8
+	(4) sehr unzufrieden ==> 4
+	(-97) trifft nicht zu ==> 1
+------------------------------------
+[f66h] erreichte berufliche Position
+	(1) sehr zufrieden ==> 0
+	(2) eher zufrieden ==> 9
+	(3) eher unzufrieden ==> 3
+	(4) sehr unzufrieden ==> 3
+	(-97) trifft nicht zu ==> 4
+------------------------------------
+[f66i] berufliche Situation insgesamt
+	(1) sehr zufrieden ==> 5
+	(2) eher zufrieden ==> 7
+	(3) eher unzufrieden ==> 1
+	(4) sehr unzufrieden ==> 1
+	(-97) trifft nicht zu ==> 5
+------------------------------------
+[f67a] Meine Karriereperspektiven sind zu unsicher.
+	(1) trifft voll zu ==> 9
+	(2) trifft eher zu ==> 3
+	(3) trifft eher nicht zu ==> 2
+	(4) trifft nicht zu ==> 1
+	(-97) kann ich nicht beurteilen ==> 3
+------------------------------------
+[f67b] Meine Entwicklungsmöglichkeiten entsprechen dem, wovon ich ausgegangen bin.
+	(1) trifft voll zu ==> 2
+	(2) trifft eher zu ==> 9
+	(3) trifft eher nicht zu ==> 3
+	(4) trifft nicht zu ==> 2
+	(-97) kann ich nicht beurteilen ==> 1
+------------------------------------
+[f67c] Ich werde im Hinblick auf Karrierewege in der Wissenschaft unterstützt.
+	(1) trifft voll zu ==> 1
+	(2) trifft eher zu ==> 4
+	(3) trifft eher nicht zu ==> 9
+	(4) trifft nicht zu ==> 3
+	(-97) kann ich nicht beurteilen ==> 1
+------------------------------------
+[f67d] Ich werde im Hinblick auf Karrierewege außerhalb der Wissenschaft unterstützt.
+	(1) trifft voll zu ==> 4
+	(2) trifft eher zu ==> 4
+	(3) trifft eher nicht zu ==> 2
+	(4) trifft nicht zu ==> 8
+	(-97) kann ich nicht beurteilen ==> 0
+------------------------------------
+[f67e] Ich wünsche mir mehr Beratung im Hinblick auf Karrierewege in der Wissenschaft.
+	(1) trifft voll zu ==> 3
+	(2) trifft eher zu ==> 3
+	(3) trifft eher nicht zu ==> 4
+	(4) trifft nicht zu ==> 4
+	(-97) kann ich nicht beurteilen ==> 4
+------------------------------------
+[f67f] Ich wünsche mir mehr Beratung im Hinblick auf Karrierewege außerhalb der Wissenschaft.
+	(1) trifft voll zu ==> 3
+	(2) trifft eher zu ==> 5
+	(3) trifft eher nicht zu ==> 3
+	(4) trifft nicht zu ==> 5
+	(-97) kann ich nicht beurteilen ==> 2
+------------------------------------
+[f67g] Weiterbildungs- und Qualifizierungsangebote im Hinblick auf Karrierewege an der Hochschule empfinde ich als ausreichend.
+	(1) trifft voll zu ==> 1
+	(2) trifft eher zu ==> 5
+	(3) trifft eher nicht zu ==> 7
+	(4) trifft nicht zu ==> 6
+	(-97) kann ich nicht beurteilen ==> 0
+------------------------------------
+[f67h] Weiterbildungs- und Qualifizierungsangebote im Hinblick auf Karrierewege außerhalb von Hochschulen empfinde ich als ausreichend.
+	(1) trifft voll zu ==> 2
+	(2) trifft eher zu ==> 9
+	(3) trifft eher nicht zu ==> 3
+	(4) trifft nicht zu ==> 2
+	(-97) kann ich nicht beurteilen ==> 2
+------------------------------------
+[f67i] Die Laufzeit meines Vertrags ist für mich nachvollziehbar.
+	(1) trifft voll zu ==> 2
+	(2) trifft eher zu ==> 3
+	(3) trifft eher nicht zu ==> 2
+	(4) trifft nicht zu ==> 1
+	(-97) kann ich nicht beurteilen ==> 1
+------------------------------------
+[f67j] Die Tatsache, dass mein Arbeitsvertrag befristet ist, stellt für mich eine Belastung dar.
+	(1) trifft voll zu ==> 3
+	(2) trifft eher zu ==> 3
+	(3) trifft eher nicht zu ==> 0
+	(4) trifft nicht zu ==> 4
+	(-97) kann ich nicht beurteilen ==> 0
+------------------------------------
+[f67k] Das Bemühen meiner Hochschule um eine befristete Anschlussbeschäftigung empfinde ich als ausreichend.
+	(1) trifft voll zu ==> 1
+	(2) trifft eher zu ==> 2
+	(3) trifft eher nicht zu ==> 5
+	(4) trifft nicht zu ==> 0
+	(-97) kann ich nicht beurteilen ==> 1
+------------------------------------
+[f67l] Das Bemühen meiner Hochschule, Perspektiven für eine dauerhafte Anschlussbeschäftigung zu bieten, empfinde ich als ausreichend.
+	(1) trifft voll zu ==> 1
+	(2) trifft eher zu ==> 4
+	(3) trifft eher nicht zu ==> 1
+	(4) trifft nicht zu ==> 3
+	(-97) kann ich nicht beurteilen ==> 0
+------------------------------------
+[f68] Kennen Sie den „Rahmenkodex über den Umgang mit befristeter Beschäftigung und die Förderung von Karriereperspektiven an den Hochschulen im Freistaat Sachsen“?
+	(1) Ja, die Inhalte sind mir bekannt. ==> 8
+	(2) Davon habe ich schon mal gehört, aber ich kenne die Inhalte nicht oder nicht genau. ==> 11
+	(3) Nein, davon habe ich noch nicht gehört. ==> 7
+------------------------------------
+[f69a_str] Wie beurteilen Sie den Rahmenkodex? Größte Stärken:
+	(OPEN)  ==> 1
+	(OPEN) Formulierung ==> 1
+	(OPEN) Text ==> 1
+	(OPEN) Die Benennung von Problemen ==> 1
+	(OPEN) Idee ==> 1
+------------------------------------
+[f69b_str] Dringendster Handlungsbedarf:
+	(OPEN)  ==> 1
+	(OPEN) 1234 ==> 1
+	(OPEN) Format ==> 1
+	(OPEN) Text ==> 1
+	(OPEN) Vieles ==> 1
+	(OPEN) Umsetzung ==> 1
+------------------------------------
+[f70a] …gegen die Regeln guter wissenschaftlicher Praxis verstießen?
+	(1) ja ==> 10
+	(2) nein ==> 5
+	(-98) weiß nicht ==> 2
+------------------------------------
+[f70b] …gegen Regeln des Arbeits- oder Dienstrechts verstießen?
+	(1) ja ==> 3
+	(2) nein ==> 12
+	(-98) weiß nicht ==> 1
+------------------------------------
+[f70c] …strafrechtlich relevant waren?
+	(1) ja ==> 5
+	(2) nein ==> 6
+	(-98) weiß nicht ==> 4
+------------------------------------
+[f70d] …als Mobbing/Bossing gelten können?
+	(1) ja ==> 3
+	(2) nein ==> 13
+	(-98) weiß nicht ==> 0
+------------------------------------
+[f70e] …als Diskriminierung gelten können?
+	(1) ja ==> 8
+	(2) nein ==> 4
+	(-98) weiß nicht ==> 4
+------------------------------------
+[f70f] …als sexuelle Belästigung gelten können?
+	(1) ja ==> 1
+	(2) nein ==> 9
+	(-98) weiß nicht ==> 4
+------------------------------------
+[f70v] Sonstiges, und zwar:
+	(1) ja ==> 7
+	(2) nein ==> 7
+	(-98) weiß nicht ==> 3
+------------------------------------
+[f70v_str]
+	(OPEN)  ==> 1
+	(OPEN) Er hat geguckt ==> 1
+	(OPEN) x ==> 1
+	(OPEN) Hat Tanzschuhe geklaut ==> 1
+	(OPEN) zivilrechtlich relevant waren ==> 1
+------------------------------------
+[f71a] Ombudsstelle / Beauftragte*r für gute wissenschaftliche Praxis Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 6
+	(false) Nein ==> 22
+------------------------------------
+[f71b] Gleichstellungsbeauftragte*r Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 7
+	(false) Nein ==> 21
+------------------------------------
+[f71c] Diversitätsbeauftragte*r Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 6
+	(false) Nein ==> 22
+------------------------------------
+[f71d] Personalabteilung Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 9
+	(false) Nein ==> 19
+------------------------------------
+[f71e] Justiziariat Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 11
+	(false) Nein ==> 17
+------------------------------------
+[f71f] Studienberatung Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 4
+	(false) Nein ==> 24
+------------------------------------
+[f71g] Studiendekan*in Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 7
+	(false) Nein ==> 21
+------------------------------------
+[f71h] Hochschulleitung Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 6
+	(false) Nein ==> 22
+------------------------------------
+[f71i] Beauftragte*r der Dienststelle für Konflikt- und Mobbingsituationen Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 7
+	(false) Nein ==> 21
+------------------------------------
+[f71j] Personalrat/ Ansprechperson des Personalrats für Konflikt- und Mobbingsituationen Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 5
+	(false) Nein ==> 23
+------------------------------------
+[f71k] Beschwerdestelle laut Allgemeinem Gleichbehandlungsgesetz (AGG) Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 6
+	(false) Nein ==> 22
+------------------------------------
+[f71v] Andere, und zwar: Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(true) Ja ==> 5
+	(false) Nein ==> 23
+------------------------------------
+[f71v_str] Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?
+	(OPEN)  ==> 1
+	(OPEN) Käsetheke ==> 1
+	(OPEN) tester2 ==> 1
+	(OPEN) f ==> 1
+	(OPEN) hupsi ==> 1
+------------------------------------
+[f72a] Ombudsstelle / Beauftragte*r für gute wissenschaftliche Praxis
+	(1) genutzt ==> 2
+	(2) nicht genutzt ==> 3
+------------------------------------
+[f72b] Gleichstellungsbeauftragte*r
+	(1) genutzt ==> 1
+	(2) nicht genutzt ==> 3
+------------------------------------
+[f72c] Diversitätsbeauftragte*r
+	(1) genutzt ==> 1
+	(2) nicht genutzt ==> 3
+------------------------------------
+[f72d] Personalabteilung
+	(1) genutzt ==> 4
+	(2) nicht genutzt ==> 3
+------------------------------------
+[f72e] Justiziariat
+	(1) genutzt ==> 3
+	(2) nicht genutzt ==> 3
+------------------------------------
+[f72f] Studienberatung
+	(1) genutzt ==> 0
+	(2) nicht genutzt ==> 3
+------------------------------------
+[f72g] Studiendekan*in
+	(1) genutzt ==> 2
+	(2) nicht genutzt ==> 1
+------------------------------------
+[f72h] Hochschulleitung
+	(1) genutzt ==> 2
+	(2) nicht genutzt ==> 3
+------------------------------------
+[f72i] Beauftragte*r der Dienststelle für Konflikt- und Mobbingsituationen
+	(1) genutzt ==> 3
+	(2) nicht genutzt ==> 2
+------------------------------------
+[f72j] Personalrat/ Ansprechperson des Personalrats für Konflikt- und Mobbingsituationen
+	(1) genutzt ==> 1
+	(2) nicht genutzt ==> 2
+------------------------------------
+[f72k] Beschwerdestelle laut Allgemeinem Gleichbehandlungsgesetz (AGG)
+	(1) genutzt ==> 2
+	(2) nicht genutzt ==> 2
+------------------------------------
+[f72v] Andere Andere: #{f71v_str.value}
+	(1) genutzt ==> 0
+	(2) nicht genutzt ==> 1
+------------------------------------
+[f73_y] Geburtsjahr: (vierstellig) Wir sind nun fast am Ende der Befragung angekommen und bitten auf dieser Seite noch um wenige Angaben zu Ihrer Person. Wir weisen an dieser Stelle gesondert darauf hin, dass auch diese Angaben freiwillig sind. Bitte nennen Sie uns Ihr Geburtsjahr.
+	(OPEN)  ==> 1
+	(OPEN) 1990 ==> 1
+	(OPEN) 46 ==> 1
+	(OPEN) 1075 ==> 1
+	(OPEN) 1995 ==> 1
+	(OPEN) 1984 ==> 1
+	(OPEN) 2001 ==> 1
+	(OPEN) 1966 ==> 1
+	(OPEN) 1977 ==> 1
+	(OPEN) 1960 ==> 1
+	(OPEN) 1978 ==> 1
+	(OPEN) 2000 ==> 1
+	(OPEN) 1975 ==> 1
+	(OPEN) 2004 ==> 1
+	(OPEN) 1992 ==> 1
+	(OPEN) 1985 ==> 1
+	(OPEN) 1980 ==> 1
+	(OPEN) 1988 ==> 1
+	(OPEN) ASD ==> 1
+------------------------------------
+[f73x] Ich habe den Hinweis verstanden und möchte dennoch fortfahren. 
+	(true) Ja ==> 1
+	(false) Nein ==> 25
+------------------------------------
+[f74] Bitte nennen Sie uns Ihr Geschlecht.
+	(1) männlich ==> 6
+	(2) weiblich ==> 11
+	(3) divers ==> 1
+	(-98) Ich möchte hierzu keine Angabe machen. ==> 2
+------------------------------------
+[f75_str] Zum Abschluss dieser Befragung danken wir Ihnen sehr für Ihre Teilnahme. Wenn Sie uns noch etwas mitteilen möchten, haben Sie im nachfolgenden Kommentarfeld die Gelegenheit dazu. Mit einem Klick auf „Weiter“ senden Sie diesen Kommentar ab und beenden die Befragung.
+	(OPEN)  ==> 1
+------------------------------------
+[cncl_str] Bitte beachten Sie, dass Sie die Befragung nur fortführen können, wenn Sie eine Angabe zu der vorangegangenen Frage machen. Sofern Sie doch noch Interesse an der Teilnahme an der Studie haben, klicken Sie bitte unten auf den Button „Zurück“ und beantworten Sie die Frage zur Personalkategorie. Ansonsten können Sie uns gern Kommentare und Anregungen zur Studie zukommen lassen. Mit einem Klick auf „Weiter“ senden Sie diesen Kommentar ab und beenden die Befragung.
+	(OPEN)  ==> 1
+------------------------------------

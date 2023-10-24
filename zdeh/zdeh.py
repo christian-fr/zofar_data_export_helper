@@ -19,9 +19,11 @@ from jinja2 import Environment, PackageLoader, select_autoescape, meta, Undefine
     Undefined
 import logging
 
+from zdeh.util import unzip_folder
+
 
 def main(debug: bool = False, project_name: Optional[str] = None, user: Optional[str] = None,
-         project_version: Optional[str] = None, input_zip_file: Optional[str] = None,
+         project_version: Optional[str] = None, input_zip_file: Union[str, Path, None] = None,
          project_output_parent_dir: Optional[str] = None, test_flag: bool = False):
     logging.basicConfig()
     logger = logging.getLogger('logger')
@@ -174,7 +176,6 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     project_lieferung_dir = Path(os.path.normpath(os.path.join(project_output_parent_dir, 'lieferung')))
     [sub_dir.mkdir(exist_ok=True, parents=True) for sub_dir in [project_orig_version_dir, project_lieferung_dir]]
 
-
     var_dict["project_orig_version_dir"] = project_orig_version_dir.absolute()
     var_dict["project_lieferung_dir"] = project_lieferung_dir.absolute()
 
@@ -196,16 +197,16 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     Path(project_orig_version_dir, 'README.md').write_text(f'Created at: {timestamp()}', encoding='utf-8')
     my_logger.debug('zip file "{0}" copied to "{1}"'.format(input_zip_file, project_orig_version_dir))
 
-
     # create a folder project_orig_version_dir  - using "os.mkdir()" because top folder has been created in the last
-    #  step
     if not os.path.exists(project_orig_version_dir):
         os.mkdir(project_orig_version_dir)
-    # my_logger.debug('os.mkdir({0})'.format(project_doc_dir))
 
     # set string variable for project_lieferung_version_dir (directory has yet to be created)
     project_lieferung_version_dir = Path(os.path.join(project_lieferung_dir,
                                                       '{0}_export_{1}'.format(project_name_short, project_version)))
+    [Path(project_lieferung_version_dir, 'Stata', d).mkdir(exist_ok=True, parents=True)
+     for d in ["do", "out", "log", "data"]]
+
     my_logger.debug('project_lieferung_version_dir = "{0}"'.format(project_lieferung_version_dir))
 
     # create a folder project_lieferung_version_dir  - using "os.mkdir()" because top folder has been created in the last
@@ -232,63 +233,51 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     #  just start the unzipping again and also prompt for the password again
     #  we are using the "counter" variable to make sure that we do a maximum of 10 loops
 
-    # set counter variable to initial value
-    counter = 0
+    try:
+        # set counter variable to initial value
+        counter = 0
+        unzip_folder(input_zip_file, project_lieferung_version_dir, overwrite=True)
+    except NotImplementedError:
+        my_logger.info("Unzipping unsuccessful, using 7z as fallback option.")
+        while return_code != 0:
+            my_logger.debug('counter: "{0}"'.format(counter))
+            my_logger.debug(
+                r'''running: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(input_zip_file,
+                                                                                                     project_lieferung_version_dir))
+            return_code = os.system(
+                r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}'.format(input_zip_file, project_lieferung_version_dir))
+            my_logger.debug('return code: "{0}"'.format(return_code))
 
-    while return_code != 0:
-        my_logger.debug('counter: "{0}"'.format(counter))
-        my_logger.debug(
-            r'''running: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(input_zip_file,
-                                                                                                 project_lieferung_version_dir))
-        return_code = os.system(
-            r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}'.format(input_zip_file, project_lieferung_version_dir))
-        my_logger.debug('return code: "{0}"'.format(return_code))
+            counter += 1
+            if counter == 10:
+                my_logger.info(
+                    r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
+                        input_zip_file, project_lieferung_version_dir))
+                my_logger.info('Exiting this program.')
+                sys.exit(
+                    r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
+                        input_zip_file, project_lieferung_version_dir))
 
-        counter += 1
-        if counter == 10:
-            my_logger.info(
-                r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
-                    input_zip_file, project_lieferung_version_dir))
-            my_logger.info('Exiting this program.')
-            sys.exit(
-                r'''Could not successfully run: """os.system(r'"C:\Program Files\7-Zip\7z.exe" x {0} -o{1}"""'''.format(
-                    input_zip_file, project_lieferung_version_dir))
+        print('*                            **')
+        print('*******************************')
+        print('****************************** ')
+        print('\n' * 3)
 
-    print('*                            **')
-    print('*******************************')
-    print('****************************** ')
-    print('\n' * 3)
-
-    assert len(os.listdir(project_lieferung_version_dir)) == 1
-    zipfile_tmp_output_path = os.path.join(project_lieferung_version_dir, os.listdir(project_lieferung_version_dir)[0])
-
-    for file_or_folder_path in [Path(zipfile_tmp_output_path, file_or_folder) for file_or_folder in
-                                os.listdir(zipfile_tmp_output_path)]:
-        shutil.move(file_or_folder_path, project_lieferung_version_dir)
-
-    shutil.rmtree(zipfile_tmp_output_path)
-
-    # check if "output" folder is present:
-    lieferung_output_path = os.path.normpath(os.path.join(project_lieferung_version_dir, 'output'))
-
-    if os.path.exists(os.path.join(lieferung_output_path)):
-        # move recursively all subfolders to lieferung project_version folder
-        for dir in os.listdir(lieferung_output_path):
-            shutil.move(os.path.join(os.path.join(lieferung_output_path, dir)), project_lieferung_version_dir)
-
-        # delete (now empty) output folder
-        try:
-            if len(os.listdir(lieferung_output_path)) == 0:
-                time.sleep(2)
-                os.remove(lieferung_output_path)
-            else:
-                print(
-                    '\n\nFolder "{0}" is not empty and has not been deleted - please check and clean up manually.\n\n'.format(
-                        lieferung_output_path))
-        except PermissionError:
-            print(
-                '\n\nNo access permission to Folder "{0}" - it therefore has not been deleted, please check and clean up manually.\n\n'.format(
-                    lieferung_output_path))
+    # move subfolders to appropriate levels
+    # find "csv" subfolder
+    csv_folders = [(w, d, f) for w, d, f in os.walk(project_lieferung_version_dir) if 'csv' in d]
+    assert len(csv_folders) == 1
+    csv_folder = Path(csv_folders[0][0], 'csv')
+    # declare parent of "csv" folder to root_folder
+    root_folder = csv_folder.parent
+    if root_folder != project_lieferung_version_dir:
+        # move subdirectories and files to project_lieferung_version_dir
+        for dir in os.listdir(root_folder):
+            shutil.move(Path(root_folder, dir), project_lieferung_version_dir)
+        # check that old root_folder is empty
+        assert len(os.listdir(root_folder)) == 0
+        # delete old root_folder
+        shutil.rmtree(root_folder)
 
     # look for xml file within project_lieferung_version_dir
     list_of_questionnaire_xml_files = find_all_files(name='questionnaire.xml', path=project_lieferung_version_dir)
@@ -388,18 +377,23 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     else:
         history_csv_zip_file_modification_localtime = time.localtime(os.path.getmtime(history_csv_zip_file_str))
         history_csv_zip_file_modification_time_str = timestamp(history_csv_zip_file_modification_localtime)
-        history_csv_zip_return_code = os.system(
-            r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(history_csv_zip_file_str, Path(project_lieferung_version_dir, 'csv').absolute()))
-        if history_csv_zip_return_code != 0:
-            print('\nKonnte ZIP-Datei {0} nicht entpacken.\n'.format(history_csv_zip_file_str))
-        else:
-            print('\nZIP-Datei {0} erfolgreich entpackt.\n'.format(history_csv_zip_file_str))
-            #try:
-            #    shutil.copy(history_csv_zip_file_str, project_orig_version_dir)
-            #except PermissionError:
-            #    print(
-            #        '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
-            #            history_csv_zip_file_str, project_orig_version_dir))
+
+        unzip_folder(Path(history_csv_zip_file_str), Path(history_csv_zip_file_str).parent, overwrite=True)
+
+        # history_csv_zip_return_code = os.system(
+        #    r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(history_csv_zip_file_str,
+        #                                                          Path(project_lieferung_version_dir,
+        #                                                               'csv').absolute()))
+        # if history_csv_zip_return_code != 0:
+        #    print('\nKonnte ZIP-Datei {0} nicht entpacken.\n'.format(history_csv_zip_file_str))
+        # else:
+        #    print('\nZIP-Datei {0} erfolgreich entpackt.\n'.format(history_csv_zip_file_str))
+        # try:
+        #    shutil.copy(history_csv_zip_file_str, project_orig_version_dir)
+        # except PermissionError:
+        #    print(
+        #        '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
+        #            history_csv_zip_file_str, project_orig_version_dir))
 
     var_dict["history_csv_zip_file_modification_time_str"] = history_csv_zip_file_modification_time_str
 
@@ -432,58 +426,62 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         data_csv_zip_file_modification_localtime = time.localtime(os.path.getmtime(data_csv_zip_file_str))
         data_csv_zip_file_modification_time_str = timestamp(data_csv_zip_file_modification_localtime)
 
-        data_csv_zip_return_code = os.system(
-            r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(data_csv_zip_file_str, Path(project_lieferung_version_dir, 'csv').absolute()))
-        if data_csv_zip_return_code != 0:
-            print('\nKonnte ZIP-Datei {0} nicht entpacken.\n'.format(data_csv_zip_file_str))
-        else:
-            print('\nZIP-Datei {0} erfolgreich entpackt.\n'.format(data_csv_zip_file_str))
+        unzip_folder(Path(data_csv_zip_file_str), Path(data_csv_zip_file_str).parent, overwrite=True)
+        # data_csv_zip_return_code = os.system(
+        #    r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(data_csv_zip_file_str,
+        #                                                          Path(project_lieferung_version_dir,
+        #                                                               'csv').absolute()))
+        # if data_csv_zip_return_code != 0:
+        #    print('\nKonnte ZIP-Datei {0} nicht entpacken.\n'.format(data_csv_zip_file_str))
+        # else:
+        #    print('\nZIP-Datei {0} erfolgreich entpackt.\n'.format(data_csv_zip_file_str))
 
-            # read variablenames from csv header
-            # ToDo: check if path is correct!
-            my_logger.debug('CSV header ist geladen, Variablennamen erfasst.')
+        # read variablenames from csv header
+        # ToDo: check if path is correct!
+        my_logger.debug('CSV header ist geladen, Variablennamen erfasst.')
 
-            data_csv_file_str = os.path.join(project_lieferung_version_dir, 'csv', 'data.csv')
-            my_logger.debug('Lade CSV-Datei: {0}'.format(data_csv_file_str))
+        data_csv_file_str = os.path.join(project_lieferung_version_dir, 'csv', 'data.csv')
+        my_logger.debug('Lade CSV-Datei: {0}'.format(data_csv_file_str))
 
-            with open(data_csv_file_str, encoding='utf-8') as csv_file:
-                reader = csv.reader(csv_file)
-                list_of_all_varnames = next(reader)
+        with open(data_csv_file_str, encoding='utf-8') as csv_file:
+            reader = csv.reader(csv_file)
+            list_of_all_varnames = next(reader)
 
-            print('CSV header ist geladen, Variablennamen erfasst.')
+        print('CSV header ist geladen, Variablennamen erfasst.')
 
-            # check if zofar_var_dict does contain a key "string"
-            if zofar_var_dict['string']:
-                for index, varname in enumerate(list_of_all_varnames):
-                    if varname in zofar_var_dict['string']:
-                        list_of_csv_string_var_columns.append(str(index + 1))
-            print('Liste mit Spaltennummern für Stringvariablen wurde erstellt.')
+        # check if zofar_var_dict does contain a key "string"
+        if zofar_var_dict['string']:
+            for index, varname in enumerate(list_of_all_varnames):
+                if varname in zofar_var_dict['string']:
+                    list_of_csv_string_var_columns.append(str(index + 1))
+        print('Liste mit Spaltennummern für Stringvariablen wurde erstellt.')
 
-            #try:
-            #    shutil.copy(data_csv_zip_file_str, project_orig_version_dir)
-            #except PermissionError:
-            #    print(
-            #        '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
-            #            data_csv_zip_file_str, project_orig_version_dir))
+        # try:
+        #    shutil.copy(data_csv_zip_file_str, project_orig_version_dir)
+        # except PermissionError:
+        #    print(
+        #        '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
+        #            data_csv_zip_file_str, project_orig_version_dir))
 
     var_dict["data_csv_zip_file_modification_time_str"] = data_csv_zip_file_modification_time_str
 
-    #main_do_file_path = Path(os.path.normpath(
+    # main_do_file_path = Path(os.path.normpath(
     #    os.path.join(project_lieferung_version_dir, 'Doc',
     #                 '00_main_' + project_name_short + '_' + project_version + '.do')))
-    #history_do_file_path = Path(os.path.normpath(
+    # history_do_file_path = Path(os.path.normpath(
     #    os.path.join(project_lieferung_version_dir, 'Doc',
     #                 '01_history_' + project_name_short + '_' + project_version + '.do')))
-    #response_do_file_path = Path(os.path.normpath(
+    # response_do_file_path = Path(os.path.normpath(
     #    os.path.join(project_lieferung_version_dir, 'Doc',
     #                 '02_response_' + project_name_short + '_' + project_version + '.do')))
-    #kontrolle_do_file_path = Path(os.path.normpath(
+    # kontrolle_do_file_path = Path(os.path.normpath(
     #    os.path.join(project_lieferung_version_dir, 'Doc',
     #                 '03_kontrolle_' + project_name_short + '_' + project_version + '.do')))
 
     main_do_file_path, history_do_file_path, response_do_file_path, kontrolle_do_file_path = [
-        Path(project_lieferung_version_dir, 'Doc',
-             f'{i}'.zfill(2) + '_' + file_name + '_' + project_name_short + '_' + project_version + '.do') for i, file_name in
+        Path(project_lieferung_version_dir, 'Stata', 'do',
+             f'{i}'.zfill(2) + '_' + file_name + '_' + project_name_short + '_' + project_version + '.do') for
+        i, file_name in
         enumerate(['main', 'history', 'response', 'kontrolle'])]
 
     my_logger.debug('main_do_file_path = "{0}"'.format(main_do_file_path))

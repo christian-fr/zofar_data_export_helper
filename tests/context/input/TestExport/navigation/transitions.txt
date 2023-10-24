@@ -1,0 +1,362 @@
+Source : index
+	 =(!consent.value and (!flag_index.value or (flag_index.value and !noconsent.value)))=> index 
+	 =(!consent.value and noconsent.value)=> end 
+	 =(consent.value)=> F00 
+
+Source : F00
+	 ==> F02_SHK 
+
+Source : F01
+	 ==> F03 
+
+Source : F02_SHK
+	 =(zofar.isMissing(f02shk))=> F01 
+	 ==> F03 
+
+Source : F03
+	 =(zofar.isMissing(f03) and !flag_f03.value)=> F03 
+	 =(zofar.isMissing(f03) and flag_f03.value)=> cancel 
+	 =(zofar.asNumber(f03)==7)=> F04a 
+	 ==> F05 
+
+Source : F04a
+	 ==> F04 
+
+Source : F04
+	 =(zofar.asNumber(f04)==1)=> F08 
+	 ==> F05 
+
+Source : F05
+	 =(zofar.asNumber(f03)==1)=> F06 
+	 =(zofar.asNumber(f03)==4 or zofar.asNumber(f03)==5)=> F10 
+	 ==> F08 
+
+Source : F06
+	 =(zofar.asNumber(f03)==1 and zofar.asNumber(f06)==2)=> F07 
+	 ==> F37 
+
+Source : F07
+	 ==> F12 
+
+Source : F08
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 7 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f08) == 1 or zofar.asNumber(f08) == 2))=> F09 
+	 =(zofar.asNumber(f03) == 6 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08)))=> F11 
+	 =(zofar.asNumber(f03) == 2 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08)))=> F30 
+	 ==> F29 
+
+Source : F09
+	 ==> F10 
+
+Source : F10
+	 =(zofar.asNumber(f03) == 5)=> F14 
+	 =(zofar.asNumber(f03) == 4)=> F12 
+	 ==> F11 
+
+Source : F11
+	 =(zofar.asNumber(f11) == 1 and !zofar.isEmptyOrInRange(f11_str, 2, 9, sessionController.participant) and !f11x.value)=> F11 
+	 =(zofar.asNumber(f08) == 1 or (zofar.asNumber(f03) == 6 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08))))=> F12 
+	 ==> F15 
+
+Source : F12
+	 =(zofar.asNumber(f12) == 1)=> F13 
+	 =(zofar.asNumber(f03) == 6 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08)))=> F29 
+	 ==> F16 
+
+Source : F13
+	 =(zofar.asNumber(f13) == 1 and !zofar.isEmptyOrInRange(f13a_str, 2, 100, sessionController.participant) and !f13x.value)=> F13 
+	 =((zofar.asNumber(f13) == -98 or zofar.asNumber(f13) == -97 or zofar.asNumber(f13) lt 0 or zofar.isMissing(f13)))=> F14 
+	 =(zofar.asNumber(f03) == 6 and (zofar.asNumber(f08) == 3 or zofar.isMissing(f08)))=> F29 
+	 ==> F16 
+
+Source : F14
+	 =(!zofar.isEmptyOrNumber(f14a_str, sessionController.participant) and !zofar.isEmptyOrNumber(f14b_str, sessionController.participant) and !f14x.value)=> F14 
+	 =(zofar.asNumber(f03) == 6 and zofar.asNumber(f08) == 3)=> F29 
+	 ==> F16 
+
+Source : F15
+	 =( ( (f15a.value and (!zofar.isEmptyOrNumber(f15a1_str, sessionController.participant) or !zofar.isEmptyOrNumber(f15a2_str, sessionController.participant))) or (f15b.value and (!zofar.isEmptyOrNumber(f15b1_str, sessionController.participant) or !zofar.isEmptyOrNumber(f15b2_str, sessionController.participant))) or zofar.asNumber(f15a1_str) gt 100 or zofar.asNumber(f15a2_str) gt 168 or zofar.asNumber(f15b1_str) gt 100 or zofar.asNumber(f15b1_str) gt 168 or (zofar.asNumber(f15a1_str) + zofar.asNumber(f15b1_str)) gt 100 or (zofar.asNumber(f15a2_str) + zofar.asNumber(f15b2_str)) gt 168 ) and !f15x.value)=> F15 
+	 ==> F16 
+
+Source : F16
+	 =(zofar.asNumber(f03) == 1 and zofar.asNumber(f06) == 2)=> F28 
+	 ==> F17 
+
+Source : F17
+	 =(!zofar.isEmptyOrInRange(f17_str, 0, 99, sessionController.participant) and !f17x.value)=> F17 
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 7 or zofar.asNumber(f03) == 8) and zofar.asNumber(f17_str) ge 6)=> F18 
+	 =((zofar.asNumber(f17_str) lt 2 and zofar.asNumber(f17_str) != 0) or f17_str.value.trim() == '0')=> F22 
+	 ==> F21 
+
+Source : F18
+	 =(zofar.asNumber(f18) == 1)=> F19 
+	 ==> F21 
+
+Source : F19
+	 ==> F21 
+
+Source : F21
+	 =( ( !zofar.isEmptyOrInRange(f21_str, 0, 99, sessionController.participant) or ( zofar.isNumber(f21_str, sessionController.participant) and zofar.isNumber(f17_str, sessionController.participant) and zofar.asNumber(f21_str) gt zofar.asNumber(f17_str) ) ) and !f21x.value)=> F21 
+	 =(zofar.asNumber(f21_str) le 6 or (( !zofar.isEmptyOrInRange(f21_str, 0, 99, sessionController.participant) or ( zofar.isNumber(f21_str, sessionController.participant) and zofar.isNumber(f17_str, sessionController.participant) and zofar.asNumber(f21_str) gt zofar.asNumber(f17_str) ) ) and f21x.value))=> F22 
+	 ==> F26 
+
+Source : F22
+	 =(zofar.asNumber(f22) == 2 and !zofar.isEmptyOrNumber(f22_str, sessionController.participant) and !f22x.value)=> F22 
+	 =(zofar.asNumber(f22) == 3 or zofar.isMissing(f22))=> F26 
+	 =(zofar.asNumber(f22) == 1 and (zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 7 or zofar.asNumber(f03) == 8))=> F23 
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 7 or zofar.asNumber(f03) == 8) and zofar.asNumber(f22_str) ge 6)=> F23 
+	 =(zofar.asNumber(f03) == 2)=> F30 
+	 ==> F29 
+
+Source : F23
+	 =(zofar.asNumber(f23) == 1)=> F24 
+	 =(zofar.asNumber(f03) == 2)=> F30 
+	 ==> F29 
+
+Source : F24
+	 =(zofar.asNumber(f03) == 2)=> F30 
+	 ==> F29 
+
+Source : F26
+	 =(zofar.asNumber(f26) == 1)=> F27 
+	 ==> F28 
+
+Source : F27
+	 =(zofar.asNumber(f27) == 2 and !zofar.isEmptyOrNumber(f27_str, sessionController.participant) and !f27x.value)=> F27 
+	 ==> F28 
+
+Source : F28
+	 =(zofar.asNumber(f03) == 2)=> F30 
+	 =(zofar.asNumber(f03) == 1 and zofar.asNumber(f06) == 2)=> F32 
+	 ==> F29 
+
+Source : F29
+	 =(zofar.asNumber(f29) == 2 or zofar.asNumber(f29) == 3 or zofar.asNumber(f29) == 4 or zofar.isMissing(f29))=> F30 
+	 ==> F39 
+
+Source : F30
+	 =(zofar.asNumber(f30) == 1 or zofar.isMissing(f30))=> F32 
+	 =(zofar.asNumber(f30) == 2)=> F31 
+	 =((zofar.asNumber(f03) == 5 or zofar.asNumber(f03) == 7) and zofar.asNumber(f30) == 3)=> F39 
+	 ==> F33 
+
+Source : F31
+	 ==> F33 
+
+Source : F32
+	 =(zofar.asNumber(f03) == 1 and zofar.asNumber(f06) == 2)=> F37 
+	 =((zofar.asNumber(f03) == 5 or zofar.asNumber(f03) == 7) and (zofar.asNumber(f32) == 1 or zofar.asNumber(f32) == 3 or zofar.isMissing(f32)))=> F39 
+	 ==> F33 
+
+Source : F33
+	 =((zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 5 or zofar.asNumber(f03) == 7) and (zofar.asNumber(f33) == 2 or zofar.asNumber(f33) == -98 or zofar.isMissing(f33)))=> F39 
+	 ==> F34 
+
+Source : F34
+	 =(zofar.asNumber(f34) == 1 or zofar.asNumber(f34) == 2)=> F35 
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f34) == 3 or zofar.isMissing(f34)))=> F37 
+	 ==> F39 
+
+Source : F35
+	 =(zofar.asNumber(f35) == 1 and !zofar.isEmptyOrInRange(f35_str, 0, 100, sessionController.participant) and !f35x.value)=> F35 
+	 ==> F36 
+
+Source : F36
+	 =(zofar.asNumber(f36) == 1 and !zofar.isEmptyOrInRange(f36_str, 0, 100, sessionController.participant) and !f36x.value)=> F36 
+	 =(zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 5 or zofar.asNumber(f03) == 7)=> F39 
+	 ==> F37 
+
+Source : F37
+	 =( ( !zofar.isEmptyOrInRange(f37a_str, 0, 100, sessionController.participant) or !zofar.isEmptyOrInRange(f37b_str, 0, 100, sessionController.participant) or !zofar.isEmptyOrInRange(f37c_str, 0, 100, sessionController.participant) or !zofar.isEmptyOrInRange(f37d_str, 0, 100, sessionController.participant) or !zofar.isEmptyOrInRange(f37e_str, 0, 100, sessionController.participant) or !zofar.isEmptyOrInRange(f37v_str, 0, 100, sessionController.participant) or (zofar.asNumber(f37a_str) + zofar.asNumber(f37b_str) + zofar.asNumber(f37c_str) + zofar.asNumber(f37d_str) + zofar.asNumber(f37e_str) + zofar.asNumber(f37v_str)) gt 100 ) and !f37x.value)=> F37 
+	 =(zofar.asNumber(f03) == 1 and (zofar.asNumber(f06) == 1 or zofar.isMissing(f06)))=> F66 
+	 =(zofar.asNumber(f03) == 6)=> F38 
+	 ==> F39 
+
+Source : F38
+	 =( ( !zofar.isEmptyOrInRange(f38a_str, 0, 100, sessionController.participant) or !zofar.isEmptyOrInRange(f38b_str, 0, 100, sessionController.participant) or !zofar.isEmptyOrInRange(f38c_str, 0, 100, sessionController.participant) or !zofar.isEmptyOrInRange(f38v_str, 0, 100, sessionController.participant) or (zofar.asNumber(f38a_str) + zofar.asNumber(f38b_str) + zofar.asNumber(f38c_str) + zofar.asNumber(f38v_str)) gt 100 ) and !f38x.value)=> F38 
+	 ==> F39 
+
+Source : F39
+	 ==> F40 
+
+Source : F40
+	 =(zofar.asNumber(f03) == 1 and (zofar.asNumber(f07) == 1 or zofar.asNumber(f07) == 2 or zofar.asNumber(f07) == 3))=> F57 
+	 =(zofar.asNumber(f03) == 1 and (zofar.asNumber(f07) == 4 or zofar.isMissing(f07)))=> F66 
+	 =(zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 5)=> F41 
+	 =(zofar.asNumber(f08) == 3 or zofar.isMissing(f08))=> F60 
+	 ==> F41 
+
+Source : F41
+	 =((zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 5) and (zofar.asNumber(f41) == 1 or zofar.isMissing(f41)))=> F51 
+	 =(zofar.asNumber(f33) == 1 and (zofar.asNumber(f41) == 1 or zofar.isMissing(f41)))=> F53 
+	 =((zofar.asNumber(f41) == 1 or zofar.isMissing(f41)) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2))=> F53 
+	 =(zofar.asNumber(f41) == 1 or zofar.isMissing(f41))=> F60 
+	 =(zofar.asNumber(f03) == 5 and zofar.asNumber(f41) == 2)=> F45 
+	 ==> F42 
+
+Source : F42
+	 ==> F43 
+
+Source : F43
+	 =(zofar.asNumber(f43) == 2)=> F44 
+	 =(zofar.asNumber(f43) == 1)=> F45 
+	 =(zofar.asNumber(f03) == 4 and (zofar.asNumber(f43) == 3 or zofar.isMissing(f43)))=> F51 
+	 =(zofar.asNumber(f33) == 1 and (zofar.asNumber(f43) == 3 or zofar.isMissing(f43)) and (zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8))=> F53 
+	 =((zofar.asNumber(f43) == 3 or zofar.isMissing(f43)) and (zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2))=> F53 
+	 ==> F60 
+
+Source : F44
+	 ==> F45 
+
+Source : F45
+	 =(!zofar.isEmptyOrInRange(f45_str, 2, 99, sessionController.participant) and !f45x.value)=> F45 
+	 =(zofar.asNumber(f03) == 5)=> F51 
+	 ==> F46 
+
+Source : F46
+	 =((!zofar.isEmptyOrInRange(f46_m, 1, 12, sessionController.participant) or !zofar.isEmptyOrInRange(f46_y, 1950, 2023, sessionController.participant) ) and !f46x.value)=> F46 
+	 ==> F47 
+
+Source : F47
+	 =(!zofar.isEmptyOrInRange(f47_str, 0, 99, sessionController.participant) and !f47x.value)=> F47 
+	 =(zofar.asNumber(f03) == 4 and (zofar.isMissing(f47_str) or (zofar.asNumber(f47_str) == 0 and f47_str.value.trim() == '0')))=> F51 
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f33) == 1 and (zofar.isMissing(f47_str) or (zofar.asNumber(f47_str) == 0 and f47_str.value.trim() == '0')))=> F53 
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.isMissing(f47_str) or (zofar.asNumber(f47_str) == 0 and f47_str.value.trim() == '0')) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2))=> F53 
+	 =((zofar.isMissing(f47_str) or zofar.asNumber(f47_str) == 0 and f47_str.value.trim() == '0'))=> F60 
+	 ==> F48 
+
+Source : F48
+	 =(!zofar.isEmptyOrInRange(f48_y, 2017, 2023, sessionController.participant) and !f48x.value)=> F48 
+	 ==> F49 
+
+Source : F49
+	 =(zofar.asNumber(f49) == 1 and !zofar.isEmptyOrNumber(f49_str, sessionController.participant) and !f49x.value)=> F49 
+	 =(zofar.asNumber(f49) == 1)=> F50 
+	 =(zofar.asNumber(f03) == 4 and (zofar.asNumber(f49) == 2 or zofar.isMissing(f49)))=> F51 
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f33) == 1 and (zofar.asNumber(f49) == 2 or zofar.isMissing(f49)))=> F53 
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f49) == 2 or zofar.isMissing(f49)) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2))=> F53 
+	 ==> F60 
+
+Source : F50
+	 =(!zofar.isEmptyOrInRange(f50_str, 1, 99, sessionController.participant) and !f50x.value)=> F50 
+	 =(zofar.asNumber(f03) == 4)=> F51 
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f33) == 1)=> F53 
+	 =((zofar.asNumber(f03) == 2 or zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and (zofar.asNumber(f30) == 2 or zofar.asNumber(f32) == 2))=> F53 
+	 ==> F60 
+
+Source : F51
+	 =(zofar.asNumber(f51c) == 1 or zofar.asNumber(f51c) == 2)=> F52 
+	 =(zofar.asNumber(f03) == 4 and zofar.asNumber(f33) == 1 and (zofar.asNumber(f51c) == 3 or zofar.isMissing(f51c) ))=> F53 
+	 =(zofar.asNumber(f03) == 4)=> F66 
+	 ==> F68 
+
+Source : F52
+	 =(zofar.asNumber(f03) == 4 and zofar.asNumber(f33) == 1)=> F53 
+	 =(zofar.asNumber(f03) == 4)=> F66 
+	 ==> F68 
+
+Source : F53
+	 =(zofar.asNumber(f53) == 1)=> F54 
+	 =((zofar.asNumber(f31) == 1 or zofar.asNumber(f31) == 2) and (zofar.asNumber(f53) == 2 or zofar.asNumber(f53) == 3 or zofar.isMissing(f53)))=> F55 
+	 =(zofar.asNumber(f03) == 2)=> F57 
+	 =((zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f30) == 1 and zofar.asNumber(f33) == 1 and (zofar.asNumber(f31) == 3 or zofar.asNumber(f31) == -98 or zofar.isMissing(f31) ))=> F57 
+	 =(zofar.asNumber(f09) == 1)=> F58 
+	 =(zofar.asNumber(f03) == 4)=> F66 
+	 ==> F60 
+
+Source : F54
+	 =(zofar.asNumber(f31) == 1 or zofar.asNumber(f31) == 2)=> F55 
+	 =(zofar.asNumber(f03) == 2 and (zofar.asNumber(f31) == 3 or zofar.asNumber(f31) == -98 or zofar.isMissing(f31)))=> F57 
+	 =((zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f30) == 1 and zofar.asNumber(f33) == 1 and (zofar.asNumber(f31) == 3 or zofar.asNumber(f31) == -98 or zofar.isMissing(f31) ))=> F57 
+	 =(zofar.asNumber(f09) == 1)=> F58 
+	 =(zofar.asNumber(f03) == 4)=> F66 
+	 ==> F60 
+
+Source : F55
+	 ==> F56 
+
+Source : F56
+	 =(zofar.asNumber(f03) == 2)=> F57 
+	 =((zofar.asNumber(f03) == 3 or zofar.asNumber(f03) == 4 or zofar.asNumber(f03) == 6 or zofar.asNumber(f03) == 8) and zofar.asNumber(f30) == 1 and zofar.asNumber(f33) == 1)=> F57 
+	 =(zofar.asNumber(f09) == 1)=> F58 
+	 =(zofar.asNumber(f03) == 4)=> F66 
+	 ==> F60 
+
+Source : F57
+	 =(zofar.asNumber(f03) == 1 or zofar.asNumber(f03) == 4)=> F66 
+	 =(zofar.asNumber(f33) == 1 and zofar.asNumber(f09) == 1)=> F58 
+	 ==> F60 
+
+Source : F58
+	 =(f58d.value)=> F59 
+	 =(zofar.asNumber(f03) == 4)=> F66 
+	 ==> F60 
+
+Source : F59
+	 =(zofar.asNumber(f03) == 4)=> F66 
+	 ==> F60 
+
+Source : F60
+	 =(zofar.asNumber(f60) == 1)=> F61 
+	 ==> F66 
+
+Source : F61
+	 =(zofar.asNumber(f61) == 1)=> F62 
+	 ==> F66 
+
+Source : F62
+	 ==> F63 
+
+Source : F63
+	 =(zofar.asNumber(f63) == 1)=> F64a 
+	 ==> F64c 
+
+Source : F64a
+	 ==> F64b 
+
+Source : F64b
+	 ==> F64c 
+
+Source : F64c
+	 ==> F65 
+
+Source : F65
+	 ==> F66 
+
+Source : F66
+	 =(zofar.asNumber(f03) == 1 and zofar.asNumber(f06) == 1)=> F68 
+	 ==> F67 
+
+Source : F67
+	 ==> F68 
+
+Source : F68
+	 =(zofar.asNumber(f68) == 1)=> F69 
+	 =(zofar.asNumber(f03) == 1 or zofar.asNumber(f03) == 7)=> F73 
+	 ==> F70 
+
+Source : F69
+	 =(zofar.asNumber(f03) == 1 or zofar.asNumber(f03) == 7)=> F73 
+	 ==> F70 
+
+Source : F70
+	 ==> F71 
+
+Source : F71
+	 =((zofar.asNumber(f70a) == 1 or zofar.asNumber(f70b) == 1 or zofar.asNumber(f70c) == 1 or zofar.asNumber(f70d) == 1 or zofar.asNumber(f70e) == 1 or zofar.asNumber(f70f) == 1 or zofar.asNumber(f70v) == 1) and (f71a.value or f71b.value or f71c.value or f71d.value or f71e.value or f71f.value or f71g.value or f71h.value or f71i.value or f71j.value or f71k.value or f71v.value))=> F72 
+	 ==> F73 
+
+Source : F72
+	 ==> F73 
+
+Source : F73
+	 =(!zofar.isEmptyOrInRange(f73_y, 1000, 9999, sessionController.participant) and !f73x.value)=> F73 
+	 ==> F75 
+
+Source : F75
+	 ==> end 
+
+Source : cancel
+	 ==> end 
+
+Source : end
+

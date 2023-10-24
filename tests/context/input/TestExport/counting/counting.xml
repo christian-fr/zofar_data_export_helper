@@ -1,0 +1,3188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exp:export date="2023-10-20T12:39:51.392+02:00" xmlns:exp="http://www.his.de/export/xml/export">
+    <exp:counting>
+        <exp:questionSet>
+            <exp:question variable="consent">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="52"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe die Datenschutzerklärung gelesen und bin damit einverstanden, dass meine Angaben elektronisch gesichert und in anonymisierter Form zu Forschungszwecken genutzt werden.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="noconsent">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="18"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte nicht teilnehmen.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="flag_index">
+                <exp:options/>
+                <exp:header/>
+            </exp:question>
+            <exp:question variable="f01">
+                <exp:options>
+                    <exp:option value="10" label="Universität" count="2"/>
+                    <exp:option value="20" label="Hochschule für angewandte Wissenschaft / University of Applied Sciences" count="0"/>
+                    <exp:option value="30" label="Kunst- oder Musikhochschule" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Würden Sie uns zumindest mitteilen, an welcher Hochschulart Sie beschäftigt sind?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f02shk">
+                <exp:options>
+                    <exp:option value="11" label="Technische Universität Chemnitz" count="5"/>
+                    <exp:option value="12" label="Technische Universität Dresden" count="3"/>
+                    <exp:option value="13" label="Technische Universität Bergakademie Freiberg" count="4"/>
+                    <exp:option value="14" label="Universität Leipzig" count="7"/>
+                    <exp:option value="21" label="Hochschule für Technik und Wirtschaft Dresden" count="5"/>
+                    <exp:option value="22" label="Hochschule für Technik, Wirtschaft und Kultur Leipzig" count="3"/>
+                    <exp:option value="23" label="Hochschule Mittweida" count="3"/>
+                    <exp:option value="24" label="Hochschule Zittau/Görlitz" count="0"/>
+                    <exp:option value="25" label="Westsächsische Hochschule Zwickau" count="6"/>
+                    <exp:option value="31" label="Hochschule für Musik Carl Maria von Weber Dresden" count="1"/>
+                    <exp:option value="32" label="Hochschule für Bildende Künste Dresden" count="0"/>
+                    <exp:option value="33" label="Palucca Hochschule für Tanz Dresden" count="2"/>
+                    <exp:option value="34" label="Hochschule für Grafik und Buchkunst Leipzig" count="1"/>
+                    <exp:option value="35" label="Hochschule für Musik und Theater Felix Mendelssohn Bartholdy Leipzig" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Bitte sagen Sie uns zunächst, über welche Hochschule Sie zu dieser Befragung eingeladen wurden.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f03">
+                <exp:options>
+                    <exp:option value="1" label="Professor*innen" count="5"/>
+                    <exp:option value="2" label="Akademische Assistent*innen" count="6"/>
+                    <exp:option value="3" label="Wissenschaftliche/künstlerische Mitarbeiter*innen" count="7"/>
+                    <exp:option value="4" label="Wissenschaftliche/künstlerische Hilfskräfte" count="6"/>
+                    <exp:option value="5" label="Studentische Hilfskräfte" count="5"/>
+                    <exp:option value="6" label="Lehrkräfte für besondere Aufgaben (LfbA)" count="6"/>
+                    <exp:option value="7" label="Mitarbeiter*innen in Service, Technik und Verwaltung (Wissenschaftsunterstützendes Personal)" count="8"/>
+                    <exp:option value="8" label="Sonstiges, und zwar:" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Welcher Personalkategorie ordnen Sie sich selbst zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f03str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="2"/>
+                    <exp:option value="OPEN" label="Bananenbieger" count="1"/>
+                    <exp:option value="OPEN" label="Tester" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Welcher Personalkategorie ordnen Sie sich selbst zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="flag_f03">
+                <exp:options/>
+                <exp:header/>
+            </exp:question>
+            <exp:question variable="f04a">
+                <exp:options>
+                    <exp:option value="1" label="Leitende Angestellte / Meister*innen / Tätigkeit mit umfassenden Führungsaufgaben" count="0"/>
+                    <exp:option value="2" label="Qualifizierte Angestellte mit mittlerer Leitungsfunktion / hoch qualifizierte Tätigkeit" count="0"/>
+                    <exp:option value="3" label="Qualifizierte Angestellte ohne Leitungsfunktion / Facharbeiter*innen (mit Lehre) / qualifizierte Tätigkeit" count="0"/>
+                    <exp:option value="4" label="Ausführende Angestellte / Un- und angelernte Arbeiter*innen / Auszubildende / einfache Tätigkeit" count="0"/>
+                    <exp:option value="5" label="Beamte im höheren Dienst" count="1"/>
+                    <exp:option value="6" label="Beamte im gehobenen Dienst" count="2"/>
+                    <exp:option value="7" label="Beamte im mittleren Dienst" count="0"/>
+                    <exp:option value="8" label="Beamte im einfachen Dienst" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Welcher beruflichen Stellung oder Laufbahngruppe ordnen Sie sich zu bzw. welche Tätigkeit üben Sie aus?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f04">
+                <exp:options>
+                    <exp:option value="1" label="zentral (z. B. Verwaltung, Technik in Dezernaten oder Referaten, hochschulweites Service-Angebot)" count="5"/>
+                    <exp:option value="2" label="dezentral (z. B. in einem Fachbereich/Institut oder an einer Fakultät)" count="2"/>
+                    <exp:option value="3" label="sowohl zentral, als auch dezentral" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sind Sie als Mitarbeiter*in in Service, Technik und Verwaltung (wissenschaftsunterstützendes Personal) zentral oder dezentral beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f05">
+                <exp:options>
+                    <exp:option value="1" label="Geisteswissenschaften" count="3"/>
+                    <exp:option value="2" label="Rechts-, Wirtschafts- und Sozialwissenschaften" count="4"/>
+                    <exp:option value="3" label="Mathematik, Naturwissenschaften" count="3"/>
+                    <exp:option value="4" label="Humanmedizin/Gesundheitswissenschaften" count="7"/>
+                    <exp:option value="5" label="Sport" count="3"/>
+                    <exp:option value="6" label="Agrar-, Forst- und Ernährungswissenschaften, Veterinärmedizin" count="5"/>
+                    <exp:option value="7" label="Ingenieurwissenschaften" count="3"/>
+                    <exp:option value="8" label="Kunst/Kunstwissenschaften, Musik/Musikwissenschaft, Darstellende Kunst, Gestaltung u. ä." count="2"/>
+                    <exp:option value="-90" label="Überwiegende Zuordnung nicht möglich, da zu gleichen Teilen in mehreren Bereichen beschäftigt" count="1"/>
+                    <exp:option value="-91" label="Außerhalb der Fächersystematik (z. B. zentrale Verwaltung, technischer Bereich)" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Welcher Fächergruppe ist Ihre Stelle am ehesten zugehörig?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f06">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="2"/>
+                    <exp:option value="2" label="nein, befristet" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ist Ihre Professur unbefristet?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f07">
+                <exp:options>
+                    <exp:option value="1" label="Juniorprofessur mit Tenure Track" count="3"/>
+                    <exp:option value="2" label="Juniorprofessur ohne Tenure Track" count="1"/>
+                    <exp:option value="3" label="sonstige Professur mit Tenure Track" count="0"/>
+                    <exp:option value="4" label="sonstige Professur (z. B. Stiftungsprofessur)" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Um was für eine befristete Professur handelt es sich?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f08">
+                <exp:options>
+                    <exp:option value="1" label="ja, ausschließlich befristet" count="17"/>
+                    <exp:option value="2" label="ja, teilweise befristet" count="5"/>
+                    <exp:option value="3" label="nein, ausschließlich unbefristet" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sind Sie (ganz oder teilweise) befristet beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f09">
+                <exp:options>
+                    <exp:option value="1" label="nach Wissenschaftszeitvertragsgesetz (WissZeitVG)" count="16"/>
+                    <exp:option value="2" label="nach Teilzeit- und Befristungsgesetz (TzBfG)" count="5"/>
+                    <exp:option value="3" label="andere Grundlage, und zwar:" count="0"/>
+                    <exp:option value="-98" label="weiß nicht" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Auf welcher gesetzlichen Grundlage sind Sie befristet beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f09_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Auf welcher gesetzlichen Grundlage sind Sie befristet beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="6"/>
+                    <exp:option value="false" label="Nein" count="28"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Vertragslaufzeit ist an die Projektlaufzeit gekoppelt.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="29"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Stelle ist eine Vertretung (z. B. wegen Krankheit, Elternzeit).</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="7"/>
+                    <exp:option value="false" label="Nein" count="23"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Studien- oder Promotionsabschluss steht bevor.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="25"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Befristungsgrenze des Wissenschaftszeitvertragsgesetzes greift.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="30"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Finanzierung läuft aus, mehr Mittel stehen nicht zur Verfügung.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="25"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Vertragslaufzeit ist an die Vorlesungs- oder Semesterzeit gekoppelt.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10g">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="3"/>
+                    <exp:option value="false" label="Nein" count="27"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Überbrückung, Zwischenfinanzierung, z. B. bis neues Projekt beginnt.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10h">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="6"/>
+                    <exp:option value="false" label="Nein" count="24"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Bevorstehende Förderung aus anderen Quellen (z. B. Stipendium).</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10i">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="3"/>
+                    <exp:option value="false" label="Nein" count="27"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Vertrag ist an eine bestimmte Aufgabe geknüpft.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10j">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Der Bedarf an der Arbeitsleistung besteht nur vorübergehend.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10k">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="10"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Befristung erfolgt im Anschluss an eine Ausbildung oder ein Studium, um den Übergang in eine Anschlussbeschäftigung zu erleichtern.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10l">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Eigenart der Arbeitsleistung begründet die Befristung.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10m">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Befristung dient der Erprobung.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10n">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="10"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Vergütung ist haushaltsrechtlich nur für eine befristete Beschäftigung bestimmt.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10o">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="10"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Befristung beruht auf einem gerichtlichen Vergleich.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10p">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="10"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Befristung erfolgt sachgrundlos (z. B. bei Neueinstellung).</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10q">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="4"/>
+                    <exp:option value="false" label="Nein" count="30"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Mein*e Vorgesetzte*r hat es so entschieden.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10r">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="33"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Eigener Wunsch, persönliche Gründe.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10s">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="34"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Auslaufende Aufenthaltsgenehmigung.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10v">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="33"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Anderer Grund, und zwar:</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="Augsburger Puppenkiste" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f10w">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="3"/>
+                    <exp:option value="false" label="Nein" count="31"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Weiß nicht. / Mir wurde kein Grund angegeben.</exp:item>
+                    <exp:item>Welche Befristungsgründe treffen auf Sie zu?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f11">
+                <exp:options>
+                    <exp:option value="1" label="Ja, ich habe mehrere unmittelbare Vorgesetzte, und zwar:" count="4"/>
+                    <exp:option value="2" label="Nein" count="16"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Haben Sie mehr als eine*n unmittelbare*n Vorgesetzte*n?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f11_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="2"/>
+                    <exp:option value="OPEN" label="3" count="1"/>
+                    <exp:option value="OPEN" label="4" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Haben Sie mehr als eine*n unmittelbare*n Vorgesetzte*n?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f11x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="28"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f12">
+                <exp:options>
+                    <exp:option value="1" label="in Teilzeit" count="19"/>
+                    <exp:option value="2" label="in Vollzeit" count="9"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sind Sie an Ihrer Hochschule in Teilzeit oder in Vollzeit beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f13">
+                <exp:options>
+                    <exp:option value="1" label="mit" count="17"/>
+                    <exp:option value="-98" label="weiß nicht" count="4"/>
+                    <exp:option value="-97" label="Frage trifft nicht zu, da kein Stellenanteil vereinbart wurde." count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>In welchem Stellenanteil sind Sie derzeit an Ihrer Hochschule insgesamt beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f13a_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="101" count="1"/>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="66" count="1"/>
+                    <exp:option value="OPEN" label="23" count="1"/>
+                    <exp:option value="OPEN" label="59" count="1"/>
+                    <exp:option value="OPEN" label="33" count="1"/>
+                    <exp:option value="OPEN" label="100" count="1"/>
+                    <exp:option value="OPEN" label="30" count="1"/>
+                    <exp:option value="OPEN" label="50" count="1"/>
+                    <exp:option value="OPEN" label="45" count="1"/>
+                    <exp:option value="OPEN" label="80" count="1"/>
+                    <exp:option value="OPEN" label="70" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>% einer Vollzeitstelle</exp:item>
+                    <exp:item>In welchem Stellenanteil sind Sie derzeit an Ihrer Hochschule insgesamt beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f13x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="3"/>
+                    <exp:option value="false" label="Nein" count="20"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f14">
+                <exp:options>
+                    <exp:option value="1" label="Es sind durchschnittlich" count="4"/>
+                    <exp:option value="1" label="Es wurden" count="2"/>
+                    <exp:option value="-97" label="Nein, eine Stundenzahl wurde nicht vereinbart." count="3"/>
+                    <exp:option value="-98" label="Weiß nicht." count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Können Sie Angaben zur vereinbarten Wochenarbeitszeit oder der vereinbarten Gesamtarbeitszeit machen? Über wie viele Stunden pro Woche bzw. wie viele Stunden insgesamt läuft Ihr gegenwärtiger Arbeitsvertrag?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f14a_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="56" count="1"/>
+                    <exp:option value="OPEN" label="9" count="1"/>
+                    <exp:option value="OPEN" label="999" count="1"/>
+                    <exp:option value="OPEN" label="15" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Stunden pro Woche vereinbart.</exp:item>
+                    <exp:item>Können Sie Angaben zur vereinbarten Wochenarbeitszeit oder der vereinbarten Gesamtarbeitszeit machen? Über wie viele Stunden pro Woche bzw. wie viele Stunden insgesamt läuft Ihr gegenwärtiger Arbeitsvertrag?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f14b_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="35" count="1"/>
+                    <exp:option value="OPEN" label="40" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Arbeitsstunden insgesamt vereinbart.</exp:item>
+                    <exp:item>Können Sie Angaben zur vereinbarten Wochenarbeitszeit oder der vereinbarten Gesamtarbeitszeit machen? Über wie viele Stunden pro Woche bzw. wie viele Stunden insgesamt läuft Ihr gegenwärtiger Arbeitsvertrag?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f14x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="19"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f15a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>befristet mit</exp:item>
+                    <exp:item>In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f15a1_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="ac" count="1"/>
+                    <exp:option value="OPEN" label="66" count="1"/>
+                    <exp:option value="OPEN" label="75" count="1"/>
+                    <exp:option value="OPEN" label="99" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>% einer Vollzeitstelle bzw.</exp:item>
+                    <exp:item>In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f15a2_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="100" count="1"/>
+                    <exp:option value="OPEN" label="30" count="1"/>
+                    <exp:option value="OPEN" label="abc" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Stunden pro Woche</exp:item>
+                    <exp:item>In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f15b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>unbefristet mit</exp:item>
+                    <exp:item>In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f15b1_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="101" count="1"/>
+                    <exp:option value="OPEN" label="33" count="1"/>
+                    <exp:option value="OPEN" label="25" count="1"/>
+                    <exp:option value="OPEN" label="2" count="1"/>
+                    <exp:option value="OPEN" label="1" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>% einer Vollzeitstelle bzw.</exp:item>
+                    <exp:item>In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f15b2_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="169" count="1"/>
+                    <exp:option value="OPEN" label="68" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Stunden pro Woche</exp:item>
+                    <exp:item>In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f15x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="14"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f16">
+                <exp:options>
+                    <exp:option value="1" label="vollständig/überwiegend durch Haushaltsmittel" count="10"/>
+                    <exp:option value="2" label="vollständig/überwiegend durch Dritt- oder Sondermittel" count="5"/>
+                    <exp:option value="3" label="zu etwa gleichen Teilen durch Haushaltsmittel und Dritt/-Sondermittel" count="6"/>
+                    <exp:option value="4" label="anders finanziert, und zwar:" count="3"/>
+                    <exp:option value="-98" label="weiß nicht" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wie ist Ihre Stelle bzw. der befristete Anteil Ihrer Stelle finanziert?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f16_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="1234567890123456789012345678" count="1"/>
+                    <exp:option value="OPEN" label="Lot" count="1"/>
+                    <exp:option value="OPEN" label="saaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkdddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkksaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddddddd" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wie ist Ihre Stelle bzw. der befristete Anteil Ihrer Stelle finanziert?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f17_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="7" count="1"/>
+                    <exp:option value="OPEN" label="6" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                    <exp:option value="OPEN" label="12" count="1"/>
+                    <exp:option value="OPEN" label="a" count="1"/>
+                    <exp:option value="OPEN" label="8" count="1"/>
+                    <exp:option value="OPEN" label="45" count="1"/>
+                    <exp:option value="OPEN" label="1" count="1"/>
+                    <exp:option value="OPEN" label="36" count="1"/>
+                    <exp:option value="OPEN" label="4" count="1"/>
+                    <exp:option value="OPEN" label="5" count="1"/>
+                    <exp:option value="OPEN" label="24" count="1"/>
+                    <exp:option value="OPEN" label="15" count="1"/>
+                    <exp:option value="OPEN" label="11" count="1"/>
+                    <exp:option value="OPEN" label="9" count="1"/>
+                    <exp:option value="OPEN" label="99" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Monate</exp:item>
+                    <exp:item>Welche Gesamtlaufzeit (in Monaten) hat Ihr gegenwärtiger Vertrag?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f17x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="33"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f18">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="8"/>
+                    <exp:option value="2" label="nein" count="5"/>
+                    <exp:option value="-98" label="weiß nicht" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>War die Stelle Ihres gegenwärtigen Vertrags ausgeschrieben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f19">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="4"/>
+                    <exp:option value="2" label="nein" count="4"/>
+                    <exp:option value="-98" label="weiß nicht" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wurde bei der Ausschreibung angegeben, in welche Entgeltgruppe Sie voraussichtlich eingruppiert werden?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f21_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="9" count="1"/>
+                    <exp:option value="OPEN" label="3" count="1"/>
+                    <exp:option value="OPEN" label="5" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                    <exp:option value="OPEN" label="2" count="1"/>
+                    <exp:option value="OPEN" label="6" count="1"/>
+                    <exp:option value="OPEN" label="56" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                    <exp:option value="OPEN" label="4" count="1"/>
+                    <exp:option value="OPEN" label="35" count="1"/>
+                    <exp:option value="OPEN" label="19" count="1"/>
+                    <exp:option value="OPEN" label="1" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Monate</exp:item>
+                    <exp:item>Wie lange läuft Ihr gegenwärtiger Arbeitsvertrag noch?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f21x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="28"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f22">
+                <exp:options>
+                    <exp:option value="1" label="Ja, und zwar unbefristet." count="1"/>
+                    <exp:option value="2" label="Ja, und zwar mit einer Laufzeit von" count="13"/>
+                    <exp:option value="3" label="Nein." count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Haben Sie bereits einen Folgevertrag unterschrieben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f22_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="456567678" count="1"/>
+                    <exp:option value="OPEN" label="4" count="1"/>
+                    <exp:option value="OPEN" label="12" count="1"/>
+                    <exp:option value="OPEN" label="8" count="1"/>
+                    <exp:option value="OPEN" label="26" count="1"/>
+                    <exp:option value="OPEN" label="6" count="1"/>
+                    <exp:option value="OPEN" label="15" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Monaten.</exp:item>
+                    <exp:item>Haben Sie bereits einen Folgevertrag unterschrieben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f22x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="28"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f23">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="4"/>
+                    <exp:option value="2" label="nein" count="4"/>
+                    <exp:option value="-98" label="weiß nicht" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>War die Stelle Ihres Folgevertrags ausgeschrieben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f24">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="3"/>
+                    <exp:option value="2" label="nein" count="1"/>
+                    <exp:option value="-98" label="weiß nicht" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wurde bei dieser Ausschreibung angegeben, in welche Entgeltgruppe Sie voraussichtlich eingruppiert werden?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f26">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="3"/>
+                    <exp:option value="2" label="nein" count="7"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wurden Sie seit Beginn des gegenwärtigen Arbeitsvertrags darüber informiert, ob es eine Anschlussbeschäftigung geben oder nicht geben wird?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f27">
+                <exp:options>
+                    <exp:option value="1" label="Die Information wurde mir innerhalb der letzten vier Wochen gegeben." count="1"/>
+                    <exp:option value="2" label="Die Information wurde mir vor etwa" count="4"/>
+                    <exp:option value="-98" label="weiß nicht" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wie lange ist das ungefähr her?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f27_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="8" count="1"/>
+                    <exp:option value="OPEN" label="9999" count="1"/>
+                    <exp:option value="OPEN" label="78" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Monaten gegeben.</exp:item>
+                    <exp:item>Wie lange ist das ungefähr her?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f27x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="4"/>
+                    <exp:option value="false" label="Nein" count="19"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Eine Fortführung des gegenwärtigen Vertrags ist vorgesehen.</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="21"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe eine unbefristete Stelle in Aussicht.</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="3"/>
+                    <exp:option value="false" label="Nein" count="20"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich würde gerne weiter an der Hochschule arbeiten, aber die Perspektive ist derzeit unsicher/unklar.</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="21"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe eine Förderung aus anderen Quellen (z. B. Stipendium) in Aussicht.</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="21"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich plane eine Stelle an einer (anderen) wissenschaftlichen Einrichtung zu suchen oder anzunehmen.</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="23"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich plane eine Stelle an einer nicht-wissenschaftlichen Einrichtung zu suchen oder anzunehmen.</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28g">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="22"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich plane eine freiberufliche oder selbstständige Tätigkeit auszuüben.</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28h">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="23"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich werde mich erst einmal auf mein Studium/meine Qualifizierung konzentrieren.</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28v">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="21"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sonstiges, und zwar:</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="asdgfdgj" count="1"/>
+                    <exp:option value="OPEN" label="Taxi" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f28w">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="22"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe noch keine Vorstellungen.</exp:item>
+                    <exp:item>Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f29">
+                <exp:options>
+                    <exp:option value="1" label="(noch) keinen" count="1"/>
+                    <exp:option value="2" label="Bachelor" count="9"/>
+                    <exp:option value="3" label="Master/Staatsexamen/Diplom/Magister" count="15"/>
+                    <exp:option value="4" label="Sonstiges, und zwar:" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Nach diesen Fragen zu Ihrer derzeitigen Beschäftigung haben wir nun einige Fragen zu Ihren Qualifikations- und Karrierezielen. Zunächst: Welchen höchsten Studienabschluss haben Sie erworben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f29_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="Das ist kein Studieabschluss im eigentlichen Sinne, aber ich arbeite gerade an meinem Jodeldiplom im zweiten Futur bei Sonnenaufgang und dieses Textfeld ist wirklich ziemlich klein und ich frage mich, wieviel Platz ich eigentlich habe um hier etwas reinzuschreiben, dieser Satz ist ja nun shcon wirklich sehr sehr lang und es ist überhaupt kein Ende absehbar" count="1"/>
+                    <exp:option value="OPEN" label="keinen" count="1"/>
+                    <exp:option value="OPEN" label="Jodeldiplom" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Nach diesen Fragen zu Ihrer derzeitigen Beschäftigung haben wir nun einige Fragen zu Ihren Qualifikations- und Karrierezielen. Zunächst: Welchen höchsten Studienabschluss haben Sie erworben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f30">
+                <exp:options>
+                    <exp:option value="1" label="Ja." count="7"/>
+                    <exp:option value="2" label="Nein, aber ich promoviere derzeit." count="17"/>
+                    <exp:option value="3" label="Nein, und ich promoviere (derzeit) auch nicht." count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sind Sie promoviert?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f31">
+                <exp:options>
+                    <exp:option value="1" label="Ja." count="6"/>
+                    <exp:option value="2" label="Nein, aber eine andere Person betreut mich." count="9"/>
+                    <exp:option value="3" label="Nein, ich habe derzeit (noch) keine Betreuung." count="2"/>
+                    <exp:option value="-98" label="Weiß nicht." count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Werden Sie in Ihrer Promotion von Ihrer/Ihrem Dienstvorgesetzten betreut?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f32">
+                <exp:options>
+                    <exp:option value="1" label="Ja, ich bin habilitiert." count="4"/>
+                    <exp:option value="2" label="Nein, aber ich befinde mich im Habilitationsprozess." count="6"/>
+                    <exp:option value="3" label="Nein, ich bin nicht habilitiert und befinde mich auch nicht im Habilitationsprozess." count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sind Sie habilitiert?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f33">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="14"/>
+                    <exp:option value="2" label="nein" count="16"/>
+                    <exp:option value="-98" label="weiß nicht" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Gehört die wissenschaftliche oder künstlerische Weiterqualifizierung laut Arbeitsvertrag zu Ihren Dienstaufgaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f34">
+                <exp:options>
+                    <exp:option value="1" label="ja, schriftlich vereinbart" count="5"/>
+                    <exp:option value="2" label="ja, aber nur mündlich vereinbart" count="12"/>
+                    <exp:option value="3" label="nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Und ist Ihnen ein Teil Ihrer Arbeitszeit zur wissenschaftlichen oder künstlerischen Qualifizierung belassen?</exp:item>
+                    <exp:item>Und ist Ihnen trotzdem ein Teil Ihrer Arbeitszeit zur wissenschaftlichen oder künstlerischen Qualifizierung belassen?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f35">
+                <exp:options>
+                    <exp:option value="1" label="Der vereinbarte Anteil beträgt:" count="15"/>
+                    <exp:option value="2" label="Es ist kein genauer Anteil festgelegt." count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wie hoch ist dieser vereinbarte Anteil Ihrer Arbeitszeit, der Ihnen zur Qualifizierung belassen ist?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f35_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="77" count="1"/>
+                    <exp:option value="OPEN" label="33" count="1"/>
+                    <exp:option value="OPEN" label="50" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                    <exp:option value="OPEN" label="40" count="1"/>
+                    <exp:option value="OPEN" label="15" count="1"/>
+                    <exp:option value="OPEN" label="35" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Prozent</exp:item>
+                    <exp:item>Wie hoch ist dieser vereinbarte Anteil Ihrer Arbeitszeit, der Ihnen zur Qualifizierung belassen ist?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f35x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="20"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f36_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="50" count="1"/>
+                    <exp:option value="OPEN" label="5" count="1"/>
+                    <exp:option value="OPEN" label="33" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                    <exp:option value="OPEN" label="15" count="1"/>
+                    <exp:option value="OPEN" label="30" count="1"/>
+                    <exp:option value="OPEN" label="40" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Der Anteil beträgt im Durchschnitt etwa</exp:item>
+                    <exp:item>Prozent</exp:item>
+                    <exp:item>Und wie hoch ist nach Ihrer Einschätzung der Anteil der Arbeitszeit, den Sie in etwa zur Qualifizierung nutzen können?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f36x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="21"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f37a_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="100" count="1"/>
+                    <exp:option value="OPEN" label="50" count="1"/>
+                    <exp:option value="OPEN" label="1" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                    <exp:option value="OPEN" label="0" count="1"/>
+                    <exp:option value="OPEN" label="60" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                    <exp:option value="OPEN" label="5" count="1"/>
+                    <exp:option value="OPEN" label="30" count="1"/>
+                    <exp:option value="OPEN" label="40" count="1"/>
+                    <exp:option value="OPEN" label="23" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Forschung (inkl. Publikationen und wissenschaftliche Vorträge)</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f37b_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                    <exp:option value="OPEN" label="2" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                    <exp:option value="OPEN" label="100" count="1"/>
+                    <exp:option value="OPEN" label="80" count="1"/>
+                    <exp:option value="OPEN" label="5" count="1"/>
+                    <exp:option value="OPEN" label="0" count="1"/>
+                    <exp:option value="OPEN" label="40" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Drittmittelakquise</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f37c_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                    <exp:option value="OPEN" label="3" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                    <exp:option value="OPEN" label="40" count="1"/>
+                    <exp:option value="OPEN" label="15" count="1"/>
+                    <exp:option value="OPEN" label="80" count="1"/>
+                    <exp:option value="OPEN" label="0" count="1"/>
+                    <exp:option value="OPEN" label="50" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Lehre (inkl. Studierenden-/Doktorand*innenbetreuung und Prüfungen)</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f37d_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                    <exp:option value="OPEN" label="4" count="1"/>
+                    <exp:option value="OPEN" label="0" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                    <exp:option value="OPEN" label="30" count="1"/>
+                    <exp:option value="OPEN" label="5" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Akademische Selbstverwaltung, Gremien, Berufungskommissionen</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f37e_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                    <exp:option value="OPEN" label="5" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                    <exp:option value="OPEN" label="0" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Transfertätigkeiten (z. B. Veranstaltungen, Technikvermittlung, Third Mission)</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f37v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                    <exp:option value="OPEN" label="6" count="1"/>
+                    <exp:option value="OPEN" label="20" count="1"/>
+                    <exp:option value="OPEN" label="45" count="1"/>
+                    <exp:option value="OPEN" label="0" count="1"/>
+                    <exp:option value="OPEN" label="70" count="1"/>
+                    <exp:option value="OPEN" label="34" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Sonstige Tätigkeiten</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f37x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="24"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f38a_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="1" count="1"/>
+                    <exp:option value="OPEN" label="60" count="1"/>
+                    <exp:option value="OPEN" label="0" count="1"/>
+                    <exp:option value="OPEN" label="30" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Vermittlung praktischer Fertigkeiten (insbesondere sprach-, sport- oder laborpraktisch)</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f38b_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="23" count="1"/>
+                    <exp:option value="OPEN" label="50" count="1"/>
+                    <exp:option value="OPEN" label="60" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Vermittlung wissenschaftlicher/künstlerischer Methoden</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f38c_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="45" count="1"/>
+                    <exp:option value="OPEN" label="50" count="1"/>
+                    <exp:option value="OPEN" label="40" count="1"/>
+                    <exp:option value="OPEN" label="60" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Forschungsbezogene Lehre (z. B. in den gleichen Modulen wie Wissenschaftliche Mitarbeiter*innen)</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f38v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="31" count="1"/>
+                    <exp:option value="OPEN" label="0" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>%</exp:item>
+                    <exp:item>Anderes</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f38x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="9"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="9"/>
+                    <exp:option value="false" label="Nein" count="29"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>im Hochschulbereich</exp:item>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="33"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>außerhalb des Hochschulbereichs</exp:item>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="33"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>im Bereich Forschung</exp:item>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="7"/>
+                    <exp:option value="false" label="Nein" count="31"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>im Bereich Lehre</exp:item>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="9"/>
+                    <exp:option value="false" label="Nein" count="29"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>im Bereich Wissenschaftsmanagement</exp:item>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="4"/>
+                    <exp:option value="false" label="Nein" count="34"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>im Bereich Technik, Service und Verwaltung</exp:item>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39g">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="36"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>im künstlerischen, kulturellen Bereich</exp:item>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39v">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="36"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sonstiges, und zwar:</exp:item>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="Film" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f39w">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="36"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>weiß nicht</exp:item>
+                    <exp:item>Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f40">
+                <exp:options>
+                    <exp:option value="1" label="Lebenszeitprofessur" count="6"/>
+                    <exp:option value="2" label="(andere) Leitungsposition" count="6"/>
+                    <exp:option value="3" label="Lehrkraft für besondere Aufgaben" count="6"/>
+                    <exp:option value="4" label="entfristete Mittelbaustelle" count="3"/>
+                    <exp:option value="5" label="(andere) Position ohne Leitungsfunktion" count="0"/>
+                    <exp:option value="6" label="Selbstständigkeit/Freiberufliche Tätigkeit" count="2"/>
+                    <exp:option value="7" label="andere Position, und zwar:" count="1"/>
+                    <exp:option value="-98" label="weiß nicht" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Und welche Position entspricht am ehesten Ihrer langfristigen Vorstellung?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f40_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="Präsident" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Und welche Position entspricht am ehesten Ihrer langfristigen Vorstellung?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f41">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="6"/>
+                    <exp:option value="2" label="nein" count="18"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Kommen wir noch einmal kurz zurück zu Ihrer Berufsbiografie an sächsischen Hochschulen. Handelt es sich bei Ihrem derzeitigen Arbeitsvertrag um den ersten Arbeitsvertrag an einer staatlichen Hochschule in Sachsen?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f42">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="9"/>
+                    <exp:option value="2" label="nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Waren Sie zuvor als studentische Hilfskraft an einer staatlichen Hochschule in Sachsen tätig?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f43">
+                <exp:options>
+                    <exp:option value="1" label="ja, in der gleichen Personalkategorie wie derzeit" count="8"/>
+                    <exp:option value="2" label="ja, (auch) in einer anderen Personalkategorie als derzeit" count="6"/>
+                    <exp:option value="3" label="nein" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Gab es weitere Vorbeschäftigungen an einer staatlichen Hochschule in Sachsen?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f44a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>(Junior)Professor*in</exp:item>
+                    <exp:item>In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f44b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Akademische*r Assistent*in</exp:item>
+                    <exp:item>In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f44c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wissenschaftliche*r/künstlerischer*r Mitarbeiter*in</exp:item>
+                    <exp:item>In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f44d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wissenschaftliche/künstlerischer Hilfskraft</exp:item>
+                    <exp:item>In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f44e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Lehrkraft für besondere Aufgaben (LfbA)</exp:item>
+                    <exp:item>In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f44f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Mitarbeiter*in in Service, Technik und Verwaltung (Wissenschaftsunterstützendes Personal)</exp:item>
+                    <exp:item>In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f44v">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Andere, und zwar:</exp:item>
+                    <exp:item>In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f44_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="Lehrbeauftragter" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f45_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="3" count="1"/>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="2" count="1"/>
+                    <exp:option value="OPEN" label="4" count="1"/>
+                    <exp:option value="OPEN" label="5" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Anzahl:</exp:item>
+                    <exp:item>(inkl. des derzeitigen Vertrags)</exp:item>
+                    <exp:item>Wie viele Arbeitsverträge hatten Sie insgesamt als studentische Hilfskraft an einer staatlichen Hochschule in Sachsen?</exp:item>
+                    <exp:item>Wie viele Arbeitsverträge hatten Sie insgesamt an einer staatlichen Hochschule in Sachsen?</exp:item>
+                    <exp:item>Wie viele Arbeitsverträge hatten Sie, abgesehen von Verträgen als studentische Hilfskraft, insgesamt an einer staatlichen Hochschule in Sachsen?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f45x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="17"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f46_m">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="5" count="1"/>
+                    <exp:option value="OPEN" label="12" count="1"/>
+                    <exp:option value="OPEN" label="2" count="1"/>
+                    <exp:option value="OPEN" label="8" count="1"/>
+                    <exp:option value="OPEN" label="6" count="1"/>
+                    <exp:option value="OPEN" label="10" count="1"/>
+                    <exp:option value="OPEN" label="9" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Monat:</exp:item>
+                    <exp:item>Wann haben Sie erstmals eine Beschäftigung an einer staatlichen Hochschule in Sachsen aufgenommen?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f46_y">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="2018" count="1"/>
+                    <exp:option value="OPEN" label="2010" count="1"/>
+                    <exp:option value="OPEN" label="2023" count="1"/>
+                    <exp:option value="OPEN" label="2012" count="1"/>
+                    <exp:option value="OPEN" label="2015" count="1"/>
+                    <exp:option value="OPEN" label="2019" count="1"/>
+                    <exp:option value="OPEN" label="2021" count="1"/>
+                    <exp:option value="OPEN" label="1999" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Jahr:</exp:item>
+                    <exp:item>(vierstellig)</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f46x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="14"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f47_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="2" count="1"/>
+                    <exp:option value="OPEN" label="1" count="1"/>
+                    <exp:option value="OPEN" label="3" count="1"/>
+                    <exp:option value="OPEN" label="0" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Mal</exp:item>
+                    <exp:item>Wenn Sie nun jenseits von SHK-Verträgen an die Zeit Ihrer Beschäftigung an einer staatlichen Hochschule in Sachsen seit 2017 denken:</exp:item>
+                    <exp:item>Wenn Sie nun jenseits von SHK-Verträgen an die gesamte Zeit Ihrer Beschäftigung an einer staatlichen Hochschule in Sachsen denken:</exp:item>
+                    <exp:item>Wie oft hatten Sie drei Monate vor Ablauf Ihres Vertrags noch keinen Anschlussvertrag, so dass Sie sich bei der Bundesagentur für Arbeit als arbeitssuchend hätten melden müssen oder gemeldet haben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f47x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="14"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f48_y">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="2015" count="1"/>
+                    <exp:option value="OPEN" label="2017" count="1"/>
+                    <exp:option value="OPEN" label="1923" count="1"/>
+                    <exp:option value="OPEN" label="2018" count="1"/>
+                    <exp:option value="OPEN" label="2019" count="1"/>
+                    <exp:option value="OPEN" label="2021" count="1"/>
+                    <exp:option value="OPEN" label="2022" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>im Jahr:</exp:item>
+                    <exp:item>Wann war das zuletzt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f48x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f49">
+                <exp:options>
+                    <exp:option value="1" label="Ja, insgesamt gab es:" count="7"/>
+                    <exp:option value="2" label="Nein, es gab keine ungewollten Beschäftigungslücken." count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Und gab es in dieser Zeit tatsächliche, ungewollte Beschäftigungslücken, d. h. Zeiten ohne Arbeitsvertrag? Und wenn ja, wie viele?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f49_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="2"/>
+                    <exp:option value="OPEN" label="1" count="1"/>
+                    <exp:option value="OPEN" label="4" count="1"/>
+                    <exp:option value="OPEN" label="2" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Beschäftigungslücke(n)</exp:item>
+                    <exp:item>Und gab es in dieser Zeit tatsächliche, ungewollte Beschäftigungslücken, d. h. Zeiten ohne Arbeitsvertrag? Und wenn ja, wie viele?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f49x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="12"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f50_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="1" count="1"/>
+                    <exp:option value="OPEN" label="3" count="1"/>
+                    <exp:option value="OPEN" label="" count="2"/>
+                    <exp:option value="OPEN" label="7" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>insgesamt</exp:item>
+                    <exp:item>Monate</exp:item>
+                    <exp:item>Wie viele Monate waren Sie insgesamt ungewollt ohne Beschäftigung?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f50x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="9"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f51a">
+                <exp:options>
+                    <exp:option value="1" label="Das mache ich überwiegend/häufig." count="1"/>
+                    <exp:option value="2" label="Das mache ich gelegentlich." count="3"/>
+                    <exp:option value="3" label="Das mache ich üblicherweise nicht." count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Unmittelbare Unterstützung und Zuarbeiten im Bereich Forschung (z. B. Literaturrecherche, Korrekturlesen, Datenerhebung/-aufbereitung, …)</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f51b">
+                <exp:options>
+                    <exp:option value="1" label="Das mache ich überwiegend/häufig." count="2"/>
+                    <exp:option value="2" label="Das mache ich gelegentlich." count="1"/>
+                    <exp:option value="3" label="Das mache ich üblicherweise nicht." count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Unmittelbare Unterstützung und Zuarbeiten im Bereich Lehre und Prüfungen (z. B. Vorbereitung von Seminaren, Klausuraufsicht, Betreuung von Studierenden, Tutorien, …)</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f51c">
+                <exp:options>
+                    <exp:option value="1" label="Das mache ich überwiegend/häufig." count="0"/>
+                    <exp:option value="2" label="Das mache ich gelegentlich." count="1"/>
+                    <exp:option value="3" label="Das mache ich üblicherweise nicht." count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sonstige Unterstützung und Zuarbeiten, die sich nicht unmittelbar den Bereichen Forschung und Lehre zuordnen lassen (z. B. Bibliotheksaufsicht, Korrespondenz, Catering, IT-Support, Pflege von Musikinstrumenten, …)</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Allgemeine Labor- oder Atelierarbeiten (z. B. Vorbereitung, Aufräumen)</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Überwachung und Pflege von Messgeräten</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Pflege oder Ausgabe von (Musik-)Instrumenten oder Arbeitsmaterialen</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Organisation von Reisen</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Aufsicht und Katalogisierung in einer Bibliothek</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sekretariatsarbeiten, Korrespondenz</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52g">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Service, Catering</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52h">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Netzwerk-/IT-Administration und Support (Hard- und Software)</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52i">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Webmastertätigkeiten, Social Media</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52j">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Medizinische Überwachung/Betreuung von Patient*innen</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52k">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>(Tier-)pflegerische Tätigkeiten</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52l">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Private Aufgaben für Vorgesetzte</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52v">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sonstiges, und zwar:</exp:item>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f52v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f53">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="5"/>
+                    <exp:option value="2" label="nein, aber der Abschluss einer Vereinbarung ist in Vorbereitung" count="1"/>
+                    <exp:option value="3" label="nein" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Nachdem wir nun viele Fragen zu Ihrer Beschäftigung gestellt haben, geht es auf den folgenden Seiten um Ihre Qualifizierung. Haben Sie im Rahmen Ihrer gegenwärtigen Qualifizierungsphase eine Betreuungsvereinbarung abgeschlossen?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>das angestrebte Qualifikationsziel</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="7"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Art und Umfang der Betreuung</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="7"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Qualifikationsform (z. B. kumulativ, Monografie)</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="7"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Zeitplanung/Zeitliche Ressourcen für die Qualifizierung</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="7"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Verfahren in Konfliktfällen</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="7"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>regelmäßiger Bericht zum Stand der Qualifikation</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54g">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Art und Form zu erbringender Leistungen</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54h">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Infrastruktur, die zur Verfügung gestellt wird</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54i">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Regeln guter wissenschaftlicher Praxis</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54j">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>finanzielle Ressourcen, z. B. für Reisen oder Publikationen</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54k">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Registrierungs-/Immatrikulationspflicht</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54v">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sonstiges, und zwar:</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f54w">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>weiß nicht</exp:item>
+                    <exp:item>Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f55a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…spricht mit Ihnen über Ihre Zukunftspläne im Allgemeinen.</exp:item>
+                    <exp:item>Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f55b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…spricht mit Ihnen über den Verlauf der Qualifikationsphase.</exp:item>
+                    <exp:item>Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f55c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…spricht mit Ihnen über die zu erbringenden Leistungen.</exp:item>
+                    <exp:item>Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f55d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…berät Sie zu geeigneten Fort-/Weiterbildungen.</exp:item>
+                    <exp:item>Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f55e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…berät Sie gezielt im Hinblick auf eine wiss. Karriere.</exp:item>
+                    <exp:item>Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f55f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…berät Sie gezielt im Hinblick auf eine Karriere außerhalb der Wissenschaft.</exp:item>
+                    <exp:item>Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f56a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…sichert die finanziellen Ressourcen für Fortbildungen, Reisen und Publikationen im Rahmen Ihrer Qualifikationsphase.</exp:item>
+                    <exp:item>Welche weiteren Unterstützungsleistungen können Sie berichten?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f56b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…kümmert sich um Ihre Finanzierung in der Qualifikationsphase (z. B. durch Drittmittelanträge und Referenzschreiben etwa zur Beantragung von Stipendien).</exp:item>
+                    <exp:item>Welche weiteren Unterstützungsleistungen können Sie berichten?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f56c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…nutzt seine/ihre wissenschaftlichen Kontakte, um Sie voranzubringen.</exp:item>
+                    <exp:item>Welche weiteren Unterstützungsleistungen können Sie berichten?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f56d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…fördert Ihre Vernetzung durch das Herstellen von Kontakten und Austauschgelegenheiten.</exp:item>
+                    <exp:item>Welche weiteren Unterstützungsleistungen können Sie berichten?</exp:item>
+                    <exp:item>Ihr*e Betreuer*in …</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57a">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="2"/>
+                    <exp:option value="2" label="eher wichtig" count="0"/>
+                    <exp:option value="3" label="weniger wichtig" count="0"/>
+                    <exp:option value="4" label="nicht wichtig" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wissenschaftliches Arbeiten und Forschung</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57b">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="0"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="1"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Berufliche Orientierung und Karriereplanung</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57c">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="1"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="0"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Lehre und Betreuung</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57d">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="1"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="0"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>(Personal-)Führung und Leitung</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57e">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="1"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="0"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wissenschafts-, Projekt-, Kunstmanagement</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57f">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="0"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="1"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Einwerbung von Drittmitteln</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57g">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="1"/>
+                    <exp:option value="2" label="eher wichtig" count="0"/>
+                    <exp:option value="3" label="weniger wichtig" count="0"/>
+                    <exp:option value="4" label="nicht wichtig" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Gremienarbeit</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57h">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="0"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="1"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wissenschaftskommunikation</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57i">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="1"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="0"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Netzwerke knüpfen, pflegen und nutzen</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57j">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="1"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="0"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Internationale Zusammenarbeit</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57k">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="1"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="0"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Interdisziplinäre Zusammenarbeit</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57l">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="0"/>
+                    <exp:option value="2" label="eher wichtig" count="1"/>
+                    <exp:option value="3" label="weniger wichtig" count="1"/>
+                    <exp:option value="4" label="nicht wichtig" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Gutachtertätigkeit</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57v">
+                <exp:options>
+                    <exp:option value="1" label="sehr wichtig" count="1"/>
+                    <exp:option value="2" label="eher wichtig" count="0"/>
+                    <exp:option value="3" label="weniger wichtig" count="0"/>
+                    <exp:option value="4" label="nicht wichtig" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sonstiges, und zwar:</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f57v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                </exp:options>
+                <exp:header/>
+            </exp:question>
+            <exp:question variable="f58a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>ja, aufgrund der Betreuung von Kindern unter 18 Jahren oder gesundheitlichen Beeinträchtigungen</exp:item>
+                    <exp:item>Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können.</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f58b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="3"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>ja, aufgrund der Corona-Sonderregelungen</exp:item>
+                    <exp:item>Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können.</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f58c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>ja, aus anderem Grund, und zwar:</exp:item>
+                    <exp:item>Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können.</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f58c_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können.</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f58d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="3"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>nein</exp:item>
+                    <exp:item>Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können.</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt?</exp:item>
+                    <exp:item>Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Grenze des Befristungsrahmens ist noch so weit weg, dass sie für mich bislang kein Thema war.</exp:item>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich werde mein Qualifikationsziel voraussichtlich ohne Vertragsverlängerung erreichen.</exp:item>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Voraussetzungen (Kinderbetreuung oder gesundheitliche Beeinträchtigungen) treffen für mich aktuell nicht zu.</exp:item>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich befürchte Nachteile, wenn ich auf eine Verlängerung hinwirke.</exp:item>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich weiß nicht, an wen ich mich wenden soll.</exp:item>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Das Projekt, in dem ich arbeite, bietet keine Option einer Verlängerung.</exp:item>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59g">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Eine Verzögerung der Fertigstellung der Qualifikationsarbeit aufgrund der Coronapandemie wurde mir nicht anerkannt.</exp:item>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59h">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Eine Verzögerung der Fertigstellung der Qualifikationsarbeit aufgrund persönlicher und/oder familiärer Bedingungen wurde mir nicht anerkannt.</exp:item>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59v">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="0"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sonstiges, und zwar:</exp:item>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f59v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f60">
+                <exp:options>
+                    <exp:option value="1" label="Ja, und ich habe angenommen." count="10"/>
+                    <exp:option value="2" label="Ja, und ich habe abgelehnt." count="7"/>
+                    <exp:option value="3" label="Nein, mir wurde kein Gespräch angeboten." count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Im Folgenden geht es um jährliche Gespräche, die mit Ihrer/Ihrem Dienstvorgesetzten stattfinden sollen. Wurde Ihnen in den letzten 18 Monaten ein solches Jahresgespräch/Mitarbeiter-Vorgesetzen-Gespräch angeboten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f61">
+                <exp:options>
+                    <exp:option value="1" label="Ja" count="9"/>
+                    <exp:option value="2" label="Nein" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Hat dieses Gespräch stattgefunden?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f62">
+                <exp:options>
+                    <exp:option value="1" label="Ja" count="5"/>
+                    <exp:option value="2" label="Nein" count="4"/>
+                    <exp:option value="-98" label="Kann ich nicht beurteilen." count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Haben Sie im Rahmen des Jahresgespräches Feedback über Ihre Leistungen und Ihre erbrachte Arbeit erhalten?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f63">
+                <exp:options>
+                    <exp:option value="1" label="Ja" count="4"/>
+                    <exp:option value="2" label="Nein" count="6"/>
+                    <exp:option value="-98" label="Kann ich nicht beurteilen." count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Haben Sie im Rahmen des mit Ihnen geführten Jahresgesprächs mit Ihrer bzw. Ihrem Vorgesetzten Vereinbarungen bezüglich der Zukunftsplanung/Zielvereinbarung getroffen?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f64a">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="1"/>
+                    <exp:option value="2" label="trifft eher zu" count="0"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="0"/>
+                    <exp:option value="4" label="trifft nicht zu" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wie beurteilen Sie die nachfolgende Aussage zu dem mit Ihnen geführten Jahresgespräch? Im Rahmen des Jahresgespräches wurden Vereinbarungen bezüglich der Zukunftsplanung/Zielvereinbarung getroffen und ich bin mit den getroffenen Vereinbarungen zufrieden.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f64b">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="0"/>
+                    <exp:option value="2" label="trifft eher zu" count="1"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="1"/>
+                    <exp:option value="4" label="trifft nicht zu" count="0"/>
+                    <exp:option value="-98" label="kann ich nicht beurteilen" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wie beurteilen Sie die nachfolgende Aussage zu dem mit Ihnen geführten Jahresgespräch? Die im Rahmen des mit mir geführten Jahresgesprächs getroffenen Vereinbarungen wurden innerhalb der darauffolgenden 18 Monate umgesetzt.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f64c">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="1"/>
+                    <exp:option value="2" label="trifft eher zu" count="3"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="3"/>
+                    <exp:option value="4" label="trifft nicht zu" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wie beurteilen Sie die nachfolgende Aussage zu dem mit Ihnen geführten Jahresgespräch? Mit der Qualität des mit mir geführten Jahresgespräches bin ich zufrieden.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f65a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Durch das Gespräch hat sich die Kommunikation mit meiner Führungskraft verbessert.</exp:item>
+                    <exp:item>Welche Wirkungen hatte das Jahresgespräch auf Sie?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f65b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="3"/>
+                    <exp:option value="false" label="Nein" count="7"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Durch das Gespräch hat sich die Zusammenarbeit in meinem Arbeitsbereich verbessert.</exp:item>
+                    <exp:item>Welche Wirkungen hatte das Jahresgespräch auf Sie?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f65c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="3"/>
+                    <exp:option value="false" label="Nein" count="7"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Das Gespräch hat sich positiv auf meine Motivation ausgewirkt.</exp:item>
+                    <exp:item>Welche Wirkungen hatte das Jahresgespräch auf Sie?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f65d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="4"/>
+                    <exp:option value="false" label="Nein" count="6"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Durch das Gespräch habe ich ein besseres Verständnis für die Ziele in meinem Arbeitsbereich entwickelt.</exp:item>
+                    <exp:item>Welche Wirkungen hatte das Jahresgespräch auf Sie?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f65e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Das Gespräch hatte keine Wirkungen auf mich.</exp:item>
+                    <exp:item>Welche Wirkungen hatte das Jahresgespräch auf Sie?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f65f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="2"/>
+                    <exp:option value="false" label="Nein" count="8"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Das Gespräch hat zu Spannungen zwischen mir und meiner Führungskraft geführt.</exp:item>
+                    <exp:item>Welche Wirkungen hatte das Jahresgespräch auf Sie?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f65g">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="9"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Das Gespräch hat zu Spannungen in meinem Arbeitsbereich geführt.</exp:item>
+                    <exp:item>Welche Wirkungen hatte das Jahresgespräch auf Sie?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f66a">
+                <exp:options>
+                    <exp:option value="1" label="sehr zufrieden" count="9"/>
+                    <exp:option value="2" label="eher zufrieden" count="6"/>
+                    <exp:option value="3" label="eher unzufrieden" count="2"/>
+                    <exp:option value="4" label="sehr unzufrieden" count="1"/>
+                    <exp:option value="-97" label="trifft nicht zu" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Verhältnis zu Kolleg*innen</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f66b">
+                <exp:options>
+                    <exp:option value="1" label="sehr zufrieden" count="1"/>
+                    <exp:option value="2" label="eher zufrieden" count="6"/>
+                    <exp:option value="3" label="eher unzufrieden" count="6"/>
+                    <exp:option value="4" label="sehr unzufrieden" count="5"/>
+                    <exp:option value="-97" label="trifft nicht zu" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Verhältnis zu Vorgesetzten</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f66c">
+                <exp:options>
+                    <exp:option value="1" label="sehr zufrieden" count="1"/>
+                    <exp:option value="2" label="eher zufrieden" count="4"/>
+                    <exp:option value="3" label="eher unzufrieden" count="11"/>
+                    <exp:option value="4" label="sehr unzufrieden" count="1"/>
+                    <exp:option value="-97" label="trifft nicht zu" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>eigene Lehrtätigkeit</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f66d">
+                <exp:options>
+                    <exp:option value="1" label="sehr zufrieden" count="2"/>
+                    <exp:option value="2" label="eher zufrieden" count="6"/>
+                    <exp:option value="3" label="eher unzufrieden" count="2"/>
+                    <exp:option value="4" label="sehr unzufrieden" count="7"/>
+                    <exp:option value="-97" label="trifft nicht zu" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>eigene Forschungstätigkeit</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f66e">
+                <exp:options>
+                    <exp:option value="1" label="sehr zufrieden" count="3"/>
+                    <exp:option value="2" label="eher zufrieden" count="6"/>
+                    <exp:option value="3" label="eher unzufrieden" count="3"/>
+                    <exp:option value="4" label="sehr unzufrieden" count="2"/>
+                    <exp:option value="-97" label="trifft nicht zu" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Beschäftigungssicherheit</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f66f">
+                <exp:options>
+                    <exp:option value="1" label="sehr zufrieden" count="1"/>
+                    <exp:option value="2" label="eher zufrieden" count="6"/>
+                    <exp:option value="3" label="eher unzufrieden" count="7"/>
+                    <exp:option value="4" label="sehr unzufrieden" count="4"/>
+                    <exp:option value="-97" label="trifft nicht zu" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>berufliche Perspektiven</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f66g">
+                <exp:options>
+                    <exp:option value="1" label="sehr zufrieden" count="5"/>
+                    <exp:option value="2" label="eher zufrieden" count="1"/>
+                    <exp:option value="3" label="eher unzufrieden" count="8"/>
+                    <exp:option value="4" label="sehr unzufrieden" count="4"/>
+                    <exp:option value="-97" label="trifft nicht zu" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Verwirklichung eigener Ideen</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f66h">
+                <exp:options>
+                    <exp:option value="1" label="sehr zufrieden" count="0"/>
+                    <exp:option value="2" label="eher zufrieden" count="9"/>
+                    <exp:option value="3" label="eher unzufrieden" count="3"/>
+                    <exp:option value="4" label="sehr unzufrieden" count="3"/>
+                    <exp:option value="-97" label="trifft nicht zu" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>erreichte berufliche Position</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f66i">
+                <exp:options>
+                    <exp:option value="1" label="sehr zufrieden" count="5"/>
+                    <exp:option value="2" label="eher zufrieden" count="7"/>
+                    <exp:option value="3" label="eher unzufrieden" count="1"/>
+                    <exp:option value="4" label="sehr unzufrieden" count="1"/>
+                    <exp:option value="-97" label="trifft nicht zu" count="5"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>berufliche Situation insgesamt</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67a">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="9"/>
+                    <exp:option value="2" label="trifft eher zu" count="3"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="2"/>
+                    <exp:option value="4" label="trifft nicht zu" count="1"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Meine Karriereperspektiven sind zu unsicher.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67b">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="2"/>
+                    <exp:option value="2" label="trifft eher zu" count="9"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="3"/>
+                    <exp:option value="4" label="trifft nicht zu" count="2"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Meine Entwicklungsmöglichkeiten entsprechen dem, wovon ich ausgegangen bin.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67c">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="1"/>
+                    <exp:option value="2" label="trifft eher zu" count="4"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="9"/>
+                    <exp:option value="4" label="trifft nicht zu" count="3"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich werde im Hinblick auf Karrierewege in der Wissenschaft unterstützt.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67d">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="4"/>
+                    <exp:option value="2" label="trifft eher zu" count="4"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="2"/>
+                    <exp:option value="4" label="trifft nicht zu" count="8"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich werde im Hinblick auf Karrierewege außerhalb der Wissenschaft unterstützt.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67e">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="3"/>
+                    <exp:option value="2" label="trifft eher zu" count="3"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="4"/>
+                    <exp:option value="4" label="trifft nicht zu" count="4"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich wünsche mir mehr Beratung im Hinblick auf Karrierewege in der Wissenschaft.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67f">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="3"/>
+                    <exp:option value="2" label="trifft eher zu" count="5"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="3"/>
+                    <exp:option value="4" label="trifft nicht zu" count="5"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich wünsche mir mehr Beratung im Hinblick auf Karrierewege außerhalb der Wissenschaft.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67g">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="1"/>
+                    <exp:option value="2" label="trifft eher zu" count="5"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="7"/>
+                    <exp:option value="4" label="trifft nicht zu" count="6"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Weiterbildungs- und Qualifizierungsangebote im Hinblick auf Karrierewege an der Hochschule empfinde ich als ausreichend.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67h">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="2"/>
+                    <exp:option value="2" label="trifft eher zu" count="9"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="3"/>
+                    <exp:option value="4" label="trifft nicht zu" count="2"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Weiterbildungs- und Qualifizierungsangebote im Hinblick auf Karrierewege außerhalb von Hochschulen empfinde ich als ausreichend.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67i">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="2"/>
+                    <exp:option value="2" label="trifft eher zu" count="3"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="2"/>
+                    <exp:option value="4" label="trifft nicht zu" count="1"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Laufzeit meines Vertrags ist für mich nachvollziehbar.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67j">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="3"/>
+                    <exp:option value="2" label="trifft eher zu" count="3"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="0"/>
+                    <exp:option value="4" label="trifft nicht zu" count="4"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Die Tatsache, dass mein Arbeitsvertrag befristet ist, stellt für mich eine Belastung dar.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67k">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="1"/>
+                    <exp:option value="2" label="trifft eher zu" count="2"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="5"/>
+                    <exp:option value="4" label="trifft nicht zu" count="0"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Das Bemühen meiner Hochschule um eine befristete Anschlussbeschäftigung empfinde ich als ausreichend.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f67l">
+                <exp:options>
+                    <exp:option value="1" label="trifft voll zu" count="1"/>
+                    <exp:option value="2" label="trifft eher zu" count="4"/>
+                    <exp:option value="3" label="trifft eher nicht zu" count="1"/>
+                    <exp:option value="4" label="trifft nicht zu" count="3"/>
+                    <exp:option value="-97" label="kann ich nicht beurteilen" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Das Bemühen meiner Hochschule, Perspektiven für eine dauerhafte Anschlussbeschäftigung zu bieten, empfinde ich als ausreichend.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f68">
+                <exp:options>
+                    <exp:option value="1" label="Ja, die Inhalte sind mir bekannt." count="8"/>
+                    <exp:option value="2" label="Davon habe ich schon mal gehört, aber ich kenne die Inhalte nicht oder nicht genau." count="11"/>
+                    <exp:option value="3" label="Nein, davon habe ich noch nicht gehört." count="7"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Kennen Sie den „Rahmenkodex über den Umgang mit befristeter Beschäftigung und die Förderung von Karriereperspektiven an den Hochschulen im Freistaat Sachsen“?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f69a_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="Formulierung" count="1"/>
+                    <exp:option value="OPEN" label="Text" count="1"/>
+                    <exp:option value="OPEN" label="Die Benennung von Problemen" count="1"/>
+                    <exp:option value="OPEN" label="Idee" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Wie beurteilen Sie den Rahmenkodex?</exp:item>
+                    <exp:item>Größte Stärken:</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f69b_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="1
+2
+3
+4" count="1"/>
+                    <exp:option value="OPEN" label="Format" count="1"/>
+                    <exp:option value="OPEN" label="Text" count="1"/>
+                    <exp:option value="OPEN" label="Vieles" count="1"/>
+                    <exp:option value="OPEN" label="Umsetzung" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Dringendster Handlungsbedarf:</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f70a">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="10"/>
+                    <exp:option value="2" label="nein" count="5"/>
+                    <exp:option value="-98" label="weiß nicht" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…gegen die Regeln guter wissenschaftlicher Praxis verstießen?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f70b">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="3"/>
+                    <exp:option value="2" label="nein" count="12"/>
+                    <exp:option value="-98" label="weiß nicht" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…gegen Regeln des Arbeits- oder Dienstrechts verstießen?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f70c">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="5"/>
+                    <exp:option value="2" label="nein" count="6"/>
+                    <exp:option value="-98" label="weiß nicht" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…strafrechtlich relevant waren?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f70d">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="3"/>
+                    <exp:option value="2" label="nein" count="13"/>
+                    <exp:option value="-98" label="weiß nicht" count="0"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…als Mobbing/Bossing gelten können?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f70e">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="8"/>
+                    <exp:option value="2" label="nein" count="4"/>
+                    <exp:option value="-98" label="weiß nicht" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…als Diskriminierung gelten können?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f70f">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="1"/>
+                    <exp:option value="2" label="nein" count="9"/>
+                    <exp:option value="-98" label="weiß nicht" count="4"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>…als sexuelle Belästigung gelten können?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f70v">
+                <exp:options>
+                    <exp:option value="1" label="ja" count="7"/>
+                    <exp:option value="2" label="nein" count="7"/>
+                    <exp:option value="-98" label="weiß nicht" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Sonstiges, und zwar:</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f70v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="Er hat geguckt" count="1"/>
+                    <exp:option value="OPEN" label="x" count="1"/>
+                    <exp:option value="OPEN" label="Hat Tanzschuhe geklaut" count="1"/>
+                    <exp:option value="OPEN" label="zivilrechtlich relevant waren" count="1"/>
+                </exp:options>
+                <exp:header/>
+            </exp:question>
+            <exp:question variable="f71a">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="6"/>
+                    <exp:option value="false" label="Nein" count="22"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ombudsstelle / Beauftragte*r für gute wissenschaftliche Praxis</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71b">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="7"/>
+                    <exp:option value="false" label="Nein" count="21"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Gleichstellungsbeauftragte*r</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71c">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="6"/>
+                    <exp:option value="false" label="Nein" count="22"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Diversitätsbeauftragte*r</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71d">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="9"/>
+                    <exp:option value="false" label="Nein" count="19"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Personalabteilung</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71e">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="11"/>
+                    <exp:option value="false" label="Nein" count="17"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Justiziariat</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71f">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="4"/>
+                    <exp:option value="false" label="Nein" count="24"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Studienberatung</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71g">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="7"/>
+                    <exp:option value="false" label="Nein" count="21"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Studiendekan*in</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71h">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="6"/>
+                    <exp:option value="false" label="Nein" count="22"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Hochschulleitung</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71i">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="7"/>
+                    <exp:option value="false" label="Nein" count="21"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Beauftragte*r der Dienststelle für Konflikt- und Mobbingsituationen</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71j">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="23"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Personalrat/ Ansprechperson des Personalrats für Konflikt- und Mobbingsituationen</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71k">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="6"/>
+                    <exp:option value="false" label="Nein" count="22"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Beschwerdestelle laut Allgemeinem Gleichbehandlungsgesetz (AGG)</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71v">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="5"/>
+                    <exp:option value="false" label="Nein" count="23"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Andere, und zwar:</exp:item>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f71v_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="Käsetheke" count="1"/>
+                    <exp:option value="OPEN" label="tester2" count="1"/>
+                    <exp:option value="OPEN" label="f" count="1"/>
+                    <exp:option value="OPEN" label="hupsi" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben?</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72a">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="2"/>
+                    <exp:option value="2" label="nicht genutzt" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ombudsstelle / Beauftragte*r für gute wissenschaftliche Praxis</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72b">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="1"/>
+                    <exp:option value="2" label="nicht genutzt" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Gleichstellungsbeauftragte*r</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72c">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="1"/>
+                    <exp:option value="2" label="nicht genutzt" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Diversitätsbeauftragte*r</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72d">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="4"/>
+                    <exp:option value="2" label="nicht genutzt" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Personalabteilung</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72e">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="3"/>
+                    <exp:option value="2" label="nicht genutzt" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Justiziariat</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72f">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="0"/>
+                    <exp:option value="2" label="nicht genutzt" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Studienberatung</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72g">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="2"/>
+                    <exp:option value="2" label="nicht genutzt" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Studiendekan*in</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72h">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="2"/>
+                    <exp:option value="2" label="nicht genutzt" count="3"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Hochschulleitung</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72i">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="3"/>
+                    <exp:option value="2" label="nicht genutzt" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Beauftragte*r der Dienststelle für Konflikt- und Mobbingsituationen</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72j">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="1"/>
+                    <exp:option value="2" label="nicht genutzt" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Personalrat/ Ansprechperson des Personalrats für Konflikt- und Mobbingsituationen</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72k">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="2"/>
+                    <exp:option value="2" label="nicht genutzt" count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Beschwerdestelle laut Allgemeinem Gleichbehandlungsgesetz (AGG)</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f72v">
+                <exp:options>
+                    <exp:option value="1" label="genutzt" count="0"/>
+                    <exp:option value="2" label="nicht genutzt" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Andere</exp:item>
+                    <exp:item>Andere: #{f71v_str.value}</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f73_y">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                    <exp:option value="OPEN" label="1990" count="1"/>
+                    <exp:option value="OPEN" label="46" count="1"/>
+                    <exp:option value="OPEN" label="1075" count="1"/>
+                    <exp:option value="OPEN" label="1995" count="1"/>
+                    <exp:option value="OPEN" label="1984" count="1"/>
+                    <exp:option value="OPEN" label="2001" count="1"/>
+                    <exp:option value="OPEN" label="1966" count="1"/>
+                    <exp:option value="OPEN" label="1977" count="1"/>
+                    <exp:option value="OPEN" label="1960" count="1"/>
+                    <exp:option value="OPEN" label="1978" count="1"/>
+                    <exp:option value="OPEN" label="2000" count="1"/>
+                    <exp:option value="OPEN" label="1975" count="1"/>
+                    <exp:option value="OPEN" label="2004" count="1"/>
+                    <exp:option value="OPEN" label="1992" count="1"/>
+                    <exp:option value="OPEN" label="1985" count="1"/>
+                    <exp:option value="OPEN" label="1980" count="1"/>
+                    <exp:option value="OPEN" label="1988" count="1"/>
+                    <exp:option value="OPEN" label="ASD" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Geburtsjahr:</exp:item>
+                    <exp:item>(vierstellig)</exp:item>
+                    <exp:item>Wir sind nun fast am Ende der Befragung angekommen und bitten auf dieser Seite noch um wenige Angaben zu Ihrer Person. Wir weisen an dieser Stelle gesondert darauf hin, dass auch diese Angaben freiwillig sind. Bitte nennen Sie uns Ihr Geburtsjahr.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f73x">
+                <exp:options>
+                    <exp:option value="true" label="Ja" count="1"/>
+                    <exp:option value="false" label="Nein" count="25"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Ich habe den Hinweis verstanden und möchte dennoch fortfahren.</exp:item>
+                    <exp:item/>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f74">
+                <exp:options>
+                    <exp:option value="1" label="männlich" count="6"/>
+                    <exp:option value="2" label="weiblich" count="11"/>
+                    <exp:option value="3" label="divers" count="1"/>
+                    <exp:option value="-98" label="Ich möchte hierzu keine Angabe machen." count="2"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Bitte nennen Sie uns Ihr Geschlecht.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="f75_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Zum Abschluss dieser Befragung danken wir Ihnen sehr für Ihre Teilnahme. Wenn Sie uns noch etwas mitteilen möchten, haben Sie im nachfolgenden Kommentarfeld die Gelegenheit dazu. Mit einem Klick auf „Weiter“ senden Sie diesen Kommentar ab und beenden die Befragung.</exp:item>
+                </exp:header>
+            </exp:question>
+            <exp:question variable="cncl_str">
+                <exp:options>
+                    <exp:option value="OPEN" label="" count="1"/>
+                </exp:options>
+                <exp:header>
+                    <exp:item>Bitte beachten Sie, dass Sie die Befragung nur fortführen können, wenn Sie eine Angabe zu der vorangegangenen Frage machen. Sofern Sie doch noch Interesse an der Teilnahme an der Studie haben, klicken Sie bitte unten auf den Button „Zurück“ und beantworten Sie die Frage zur Personalkategorie. Ansonsten können Sie uns gern Kommentare und Anregungen zur Studie zukommen lassen. Mit einem Klick auf „Weiter“ senden Sie diesen Kommentar ab und beenden die Befragung.</exp:item>
+                </exp:header>
+            </exp:question>
+        </exp:questionSet>
+    </exp:counting>
+</exp:export>

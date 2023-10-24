@@ -30,9 +30,8 @@ def unzip_folder(zip_file: Path, target_path: Path, overwrite: bool = False):
             zip_ref.extractall(target_path)
         else:
             password_str = getpass.getpass('Zip Passwort eingeben:')
-            passwdord_bytes = password_str.encode(sys.stdin.encoding)
-            zip_ref.extractall(target_path, pwd=passwdord_bytes)
-
+            password_bytes = password_str.encode(sys.stdin.encoding)
+            zip_ref.extractall(target_path, pwd=password_bytes)
 
 
 def zip_folder(source_folder, output_path, debug_zofar_top_level: bool = False, overwrite: bool = False):

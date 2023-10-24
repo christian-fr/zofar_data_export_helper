@@ -4,7 +4,8 @@ from hashlib import sha256, sha512
 from pathlib import Path
 from typing import List, Optional, Tuple
 import filecmp
-from zdeh.util import flatten
+from util import flatten
+# from zdeh.util import flatten
 
 
 def sha512sum(in_file: Path) -> str:
@@ -25,8 +26,8 @@ def diff_files(file1: Path, file2: Path) -> str:
     return '\n'.join(result)
 
 
-def get_all_file_paths(input_dir: Path, ignore_prefixes: Optional[List[str]] = None, relative: bool = False) -> List[
-    Path]:
+def get_all_file_paths(input_dir: Path, ignore_prefixes: Optional[List[str]] = None,
+                       relative: bool = False) -> List[Path]:
     if ignore_prefixes is None:
         result = flatten([[Path(d, f) for f in fl] for d, _, fl in os.walk(input_dir)])
     else:
@@ -41,8 +42,8 @@ def get_all_file_paths(input_dir: Path, ignore_prefixes: Optional[List[str]] = N
         return result
 
 
-def diff_dirs(dir1: Path, dir2: Path, ignore_prefixes: Optional[List[str]] = None) -> Tuple[
-    List[Path], List[Path], List[Path], List[Tuple[Path, Path, Path, str]]]:
+def diff_dirs(dir1: Path, dir2: Path, ignore_prefixes: Optional[List[str]] = None) -> \
+        Tuple[List[Path], List[Path], List[Path], List[Tuple[Path, Path, Path, str]]]:
     files1 = get_all_file_paths(dir1, ignore_prefixes, relative=True)
     files2 = get_all_file_paths(dir2, ignore_prefixes, relative=True)
 
@@ -82,7 +83,7 @@ if __name__ == '__main__':
     # create sha512 sums for test input & output data
 
     for folder in ['input', 'output']:
-        files_list = get_all_file_paths(Path(f'tests/context/{folder}'))
+        files_list = get_all_file_paths(Path(f'tests/context/{folder}'), ignore_prefixes=['.old', '.gitignore'])
         sha_sum_data = '\n'.join(
             [f'{sha512sum(p)}  {str(p.relative_to(Path("tests", "context")))}' for p in files_list])
         Path('tests', 'context', f'{folder}.sha512').write_text(sha_sum_data, encoding='utf-8')
@@ -90,4 +91,4 @@ if __name__ == '__main__':
     _, _, _, file_diffs_list = diff_dirs(Path('tests/context/input/TestExport/TestExport'),
                                          Path('tests/context/output/testProject_export_0.0.1'),
                                          ignore_prefixes=['.gitignore', '.old'])
-    pass
+

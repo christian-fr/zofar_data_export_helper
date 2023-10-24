@@ -15,10 +15,9 @@ from xml.etree import ElementTree
 import argparse
 from collections import defaultdict
 import csv
-from jinja2 import Environment, PackageLoader, select_autoescape, meta, UndefinedError, make_logging_undefined, \
+from jinja2 import Environment, PackageLoader, select_autoescape, UndefinedError, make_logging_undefined, \
     Undefined
 import logging
-
 from zdeh.util import unzip_folder
 
 
@@ -26,13 +25,13 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
          project_version: Optional[str] = None, input_zip_file: Union[str, Path, None] = None,
          project_output_parent_dir: Optional[str] = None, test_flag: bool = False):
     logging.basicConfig()
-    logger = logging.getLogger('logger')
-    LoggingUndefined = make_logging_undefined(logger=logger, base=Undefined)
+    my_logger = logging.getLogger('logger')
+    logging_undefined = make_logging_undefined(logger=my_logger, base=Undefined)
 
     env = Environment(
         loader=PackageLoader("zdeh"),
         autoescape=select_autoescape(),
-        undefined=LoggingUndefined
+        undefined=logging_undefined
     )
     var_dict = {}
 
@@ -44,9 +43,9 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     # file search algorithm - return list of found files within given path, with absolute paths
     def find_all_files(name: str, path: Union[str, Path]) -> list:
         result = []
-        for root, dirs, files in os.walk(path):
+        for root_dir, dirs, files in os.walk(path):
             if name in files:
-                result.append(os.path.join(root, name))
+                result.append(os.path.join(root_dir, name))
         return result
 
     # return a timestamp string
@@ -272,8 +271,8 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     root_folder = csv_folder.parent
     if root_folder != project_lieferung_version_dir:
         # move subdirectories and files to project_lieferung_version_dir
-        for dir in os.listdir(root_folder):
-            shutil.move(Path(root_folder, dir), project_lieferung_version_dir)
+        for directory in os.listdir(root_folder):
+            shutil.move(Path(root_folder, directory), project_lieferung_version_dir)
         # check that old root_folder is empty
         assert len(os.listdir(root_folder)) == 0
         # delete old root_folder
@@ -287,7 +286,6 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     # check if returned file list has exactly one match
     if len(list_of_questionnaire_xml_files) == 1:
         xmlfile = list_of_questionnaire_xml_files[0]
-
 
     # if there are less or more than one match, display a filedialog to manually choose a file
     else:
@@ -339,7 +337,6 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
         except xml.etree.ElementTree.ParseError:
             print('XML Datei ist nicht lesbar, wird übersprungen.\n\n')
-            xmlfile = ''
 
     # look for history.csv.zip file within project_lieferung_version_dir
     list_of_history_csv_zip_files = find_all_files(name='history.csv.zip', path=project_lieferung_version_dir)
@@ -370,7 +367,6 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
                                                                                    ('all files', '*.*')),
                                                                                title='Bitte die history.csv.zip-Datei auswählen.'))
 
-    csv_zip_files_folder_str = os.path.normpath(os.path.split(history_csv_zip_file_str)[0])
     if not os.path.isfile(history_csv_zip_file_str):
         history_csv_zip_file_modification_time_str = input('Keine history.csv.zip-Datei geladen. Manuelle Eingabe \n'
                                                            'des Timestamps (kann leer gelassen werden): ')
@@ -379,21 +375,6 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         history_csv_zip_file_modification_time_str = timestamp(history_csv_zip_file_modification_localtime)
 
         unzip_folder(Path(history_csv_zip_file_str), Path(history_csv_zip_file_str).parent, overwrite=True)
-
-        # history_csv_zip_return_code = os.system(
-        #    r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(history_csv_zip_file_str,
-        #                                                          Path(project_lieferung_version_dir,
-        #                                                               'csv').absolute()))
-        # if history_csv_zip_return_code != 0:
-        #    print('\nKonnte ZIP-Datei {0} nicht entpacken.\n'.format(history_csv_zip_file_str))
-        # else:
-        #    print('\nZIP-Datei {0} erfolgreich entpackt.\n'.format(history_csv_zip_file_str))
-        # try:
-        #    shutil.copy(history_csv_zip_file_str, project_orig_version_dir)
-        # except PermissionError:
-        #    print(
-        #        '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
-        #            history_csv_zip_file_str, project_orig_version_dir))
 
     var_dict["history_csv_zip_file_modification_time_str"] = history_csv_zip_file_modification_time_str
 
@@ -427,16 +408,6 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         data_csv_zip_file_modification_time_str = timestamp(data_csv_zip_file_modification_localtime)
 
         unzip_folder(Path(data_csv_zip_file_str), Path(data_csv_zip_file_str).parent, overwrite=True)
-        # data_csv_zip_return_code = os.system(
-        #    r'"C:\Program Files\7-Zip\7z.exe" e {0} -o{1}'.format(data_csv_zip_file_str,
-        #                                                          Path(project_lieferung_version_dir,
-        #                                                               'csv').absolute()))
-        # if data_csv_zip_return_code != 0:
-        #    print('\nKonnte ZIP-Datei {0} nicht entpacken.\n'.format(data_csv_zip_file_str))
-        # else:
-        #    print('\nZIP-Datei {0} erfolgreich entpackt.\n'.format(data_csv_zip_file_str))
-
-        # read variablenames from csv header
         # ToDo: check if path is correct!
         my_logger.debug('CSV header ist geladen, Variablennamen erfasst.')
 
@@ -456,27 +427,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
                     list_of_csv_string_var_columns.append(str(index + 1))
         print('Liste mit Spaltennummern für Stringvariablen wurde erstellt.')
 
-        # try:
-        #    shutil.copy(data_csv_zip_file_str, project_orig_version_dir)
-        # except PermissionError:
-        #    print(
-        #        '\n\nNo access permission to file "{0}" - it therefore has not been deleted.\nPlease move it manually to "{1}".\n\n'.format(
-        #            data_csv_zip_file_str, project_orig_version_dir))
-
     var_dict["data_csv_zip_file_modification_time_str"] = data_csv_zip_file_modification_time_str
-
-    # main_do_file_path = Path(os.path.normpath(
-    #    os.path.join(project_lieferung_version_dir, 'Doc',
-    #                 '00_main_' + project_name_short + '_' + project_version + '.do')))
-    # history_do_file_path = Path(os.path.normpath(
-    #    os.path.join(project_lieferung_version_dir, 'Doc',
-    #                 '01_history_' + project_name_short + '_' + project_version + '.do')))
-    # response_do_file_path = Path(os.path.normpath(
-    #    os.path.join(project_lieferung_version_dir, 'Doc',
-    #                 '02_response_' + project_name_short + '_' + project_version + '.do')))
-    # kontrolle_do_file_path = Path(os.path.normpath(
-    #    os.path.join(project_lieferung_version_dir, 'Doc',
-    #                 '03_kontrolle_' + project_name_short + '_' + project_version + '.do')))
 
     main_do_file_path, history_do_file_path, response_do_file_path, kontrolle_do_file_path = [
         Path(project_lieferung_version_dir, 'Stata', 'do',
@@ -562,8 +513,8 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))
     try:
         history_do_file_path.write_text(history_template.render(**var_dict), encoding='utf-8')
-    except (UndefinedError) as err:
-        raise UndefinedError(err)
+    except UndefinedError as err:
+        raise UndefinedError(err.message)
 
     my_logger.info('Created history do file: "{0}"'.format(history_do_file_path))
 
@@ -601,9 +552,9 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     my_logger.debug('save kontrolle dofile as "{0}"'.format(kontrolle_do_file_path))
     try:
         kontrolle_do_file_path.write_text(kontrolle_template.render(**var_dict), encoding='utf-8')
-    except (UndefinedError) as err:
+    except UndefinedError as err:
         time.sleep(.1)
-        raise UndefinedError(err)
+        raise UndefinedError(err.message)
 
     my_logger.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path))
 
@@ -612,7 +563,6 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     # #################
 
     do_files_list = [history_do_file_path, response_do_file_path, kontrolle_do_file_path]
-    do_files = '\n'.join([f'do {do_file}' for do_file in do_files_list])
     if all([do_file.is_relative_to(main_do_file_path.parent) for do_file in do_files_list]):
         do_files = '\n'.join([f'do {do_file.relative_to(main_do_file_path.parent)}' for do_file in do_files_list])
     else:
@@ -622,8 +572,8 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     my_logger.info('processing main_template')
     try:
         main_do_file_path.write_text(main_template.render(**var_dict), encoding='utf-8')
-    except (UndefinedError) as err:
-        raise UndefinedError(err)
+    except UndefinedError as err:
+        raise UndefinedError(err.message)
     my_logger.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
 
     if not test_flag:
@@ -645,18 +595,3 @@ if __name__ == '__main__':
 
     main(**args.__dict__)
     sys.exit(0)
-
-    # if False:
-    #    var_dict = {'the': 'variables', 'go': 'here'}
-    #
-    #    try:
-    #        outputText = template.render(**var_dict)
-    #    except (UndefinedError) as err:
-    #        print(err)
-    #
-    #    a = template.render(**var_dict)
-    #
-    #    s = env.loader.get_source(env, "main.do")
-    #    r = env.parse(s)
-    #
-    #    meta.find_undeclared_variables(r)

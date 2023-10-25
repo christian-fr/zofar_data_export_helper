@@ -1,19 +1,21 @@
 *********************************************************************
 *_______________ {{ project_name }} ___________
+di "processing do file: label"
 
 version 17
 
-global version "{{ project_version }}"
-
-global workdir "{{ project_output_parent_dir }}\"
-
-global orig "${workdir}orig\\${version}\"
-global out "${workdir}lieferung\{{ project_name_short }}_export_\${version}\"
-global doc "${workdir}doc\"
-
-cd "${workdir}doc"
 cap log close
-log using log_label_`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
+log using `"${log_dir}log_label_`: di %tdCY-N-D daily("$S_DATE", "DMY")'.smcl"', append
+
+di "global macros:"
+di "do_dir: ${do_dir}"
+di "log_dir: ${log_dir}"
+di "data_dir: ${data_dir}"
+di "csv_dir: ${csv_dir}"
+di "version: ${version}"
+
+assert "${version}" == "{{ project_version }}"
+
 
 
 ****************************************************************************
@@ -30,9 +32,11 @@ log using log_label_`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 ** Do-File zum Labeln des Datensatzes
 *__________________________________________________________________
 
+use "${data_dir}csv\data_unlabeled.dta", clear
+
 {{ data_label_str }}
 
 log close
 
 *___________Datensatz speichern _______________
-save "${data_dir}data_labeled.dta", replace
+save "${data_dir}csv\data_labeled.dta", replace

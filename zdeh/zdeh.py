@@ -3,6 +3,7 @@ __version__ = "0.0.4"
 __author__ = "Christian Friedrich, Andrea Schulze"
 __status__ = "Prototype"
 
+import re
 import time
 import os
 import sys
@@ -10,15 +11,26 @@ from pathlib import Path
 from tkinter import filedialog, Tk
 import shutil
 import xml
-from typing import Optional, Union
+from typing import Optional, Union, Dict, Set
 from xml.etree import ElementTree
 import argparse
 from collections import defaultdict
 import csv
 from jinja2 import Environment, PackageLoader, select_autoescape, UndefinedError, make_logging_undefined, \
-    Undefined
+    Undefined, meta, Template
 import logging
 from zdeh.util import unzip_folder
+
+
+def find_all_variables(env: Environment, template: Template) -> Set[str]:
+    s = env.loader.get_source(env, template.name)
+    r = env.parse(s)
+    return meta.find_undeclared_variables(r)
+
+
+def missing_vars(env: Environment, var_dict: Dict[str, str], template: Template) -> Set[str]:
+    all_vars = find_all_variables(env, template)
+    return all_vars.difference(var_dict.keys())
 
 
 def main(debug: bool = False, project_name: Optional[str] = None, user: Optional[str] = None,
@@ -39,6 +51,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     response_template = env.get_template("response.do")
     history_template = env.get_template("history.do")
     kontrolle_template = env.get_template("kontrolle.do")
+    label_template = env.get_template("label.do")
 
     # file search algorithm - return list of found files within given path, with absolute paths
     def find_all_files(name: str, path: Union[str, Path]) -> list:
@@ -429,11 +442,11 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
     var_dict["data_csv_zip_file_modification_time_str"] = data_csv_zip_file_modification_time_str
 
-    main_do_file_path, history_do_file_path, response_do_file_path, kontrolle_do_file_path = [
+    main_do_file_path, history_do_file_path, response_do_file_path, kontrolle_do_file_path, label_do_file_path = [
         Path(project_lieferung_version_dir, 'Stata', 'do',
              f'{i}'.zfill(2) + '_' + file_name + '_' + project_name_short + '_' + project_version + '.do') for
         i, file_name in
-        enumerate(['main', 'history', 'response', 'kontrolle'])]
+        enumerate(['main', 'history', 'response', 'kontrolle', 'label'])]
 
     my_logger.debug('main_do_file_path = "{0}"'.format(main_do_file_path))
     my_logger.debug('history_do_file_path = "{0}"'.format(history_do_file_path))
@@ -446,17 +459,22 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
     # generate STATA code for pagenum replacement
     my_logger.debug('generate STATA code for pagenum replacement')
-    replace_pagenum = ''
+    replace_pagenum_list = []
+    label_visit_list = []
     if page_list:
         for i in range(len(page_list)):
-            replace_pagenum += 'replace pagenum={0} if page=="{1}"\n'.format(i, page_list[i])
-
+            replace_pagenum_list.append(f'replace pagenum={i} if page=="{page_list[i]}"')
+            label_visit_list.append(f'cap label var visit{i} "Anzahl Aufrufe von {page_list[i]}"')
     else:
         print(
             'Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
-        replace_pagenum += '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
-        replace_pagenum += 'replace pagenum=0 if page=="index"\n'
-        replace_pagenum += 'replace pagenum=1 if page=="offer"\n'
+        replace_pagenum_list.append('* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX')
+        replace_pagenum_list.append('replace pagenum=0 if page=="index"')
+        replace_pagenum_list.append('replace pagenum=1 if page=="offer"')
+
+        label_visit_list.append(f'* XXXXXXXXXX Platzhalter für LABEL_VISIT XXXXXXXXX')
+        label_visit_list.append(f'* cap label var visit0 "Anzahl Aufrufe von index"')
+        label_visit_list.append(f'* cap label var visit1 "Anzahl Aufrufe von offer"')
 
     # generate STATA code for dauer generate
     dauer_str = 'egen dauer=rowtotal(p0-p{0})'.format(len(page_list) - 1)
@@ -478,9 +496,9 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     else:
         print(
             'Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
-        replace_pagenum = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
-        replace_pagenum += 'label var p0 "Verweildauer auf index (in Sekunden)"\n'
-        replace_pagenum += 'label var p1 "Verweildauer auf offer (in Sekunden)"\n'
+        replace_pagenum_list.append('* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX')
+        replace_pagenum_list.append('label var p0 "Verweildauer auf index (in Sekunden)"')
+        replace_pagenum_list.append('label var p1 "Verweildauer auf offer (in Sekunden)"')
 
     # generate STATA code for labeling maxpage
     label_maxpage_str = 'label define maxpagelb '
@@ -493,9 +511,13 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         print(
             'Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \nkeine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
         # replace_pagenum = '* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX\n'
-        replace_pagenum += 'label define maxpagelb 0 "index" 1 "offer"'
+        replace_pagenum_list.append('label define maxpagelb 0 "index" 1 "offer"')
 
+    replace_pagenum = '\n'.join(replace_pagenum_list)
     var_dict["replace_pagenum"] = replace_pagenum
+
+    label_visit = '\n'.join(label_visit_list)
+    var_dict['label_visit'] = label_visit
 
     # generate STATA code for Tabout Verweildauer with finished questionnaires
     tabstat_verweildauer_finished_str = 'tabstatout dauer if maxpage=={0}, s(n mean median min max sd) tf(verwdauer_gesamt_nurBeendet) format(%9.4g) replace\n'.format(
@@ -511,7 +533,13 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     var_dict["project_version"] = project_version
 
     my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))
+
     try:
+        try:
+            assert not missing_vars(env, var_dict, history_template)
+        except AssertionError:
+            raise AssertionError(
+                'Missing variables: ' + str(sorted(list(missing_vars(env, var_dict, history_template)))))
         history_do_file_path.write_text(history_template.render(**var_dict), encoding='utf-8')
     except UndefinedError as err:
         raise UndefinedError(err.message)
@@ -551,7 +579,42 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     # save kontrolle do file
     my_logger.debug('save kontrolle dofile as "{0}"'.format(kontrolle_do_file_path))
     try:
+        try:
+            assert not missing_vars(env, var_dict, kontrolle_template)
+        except AssertionError:
+            raise AssertionError(
+                'Missing variables: ' + str(sorted(list(missing_vars(env, var_dict, kontrolle_template)))))
         kontrolle_do_file_path.write_text(kontrolle_template.render(**var_dict), encoding='utf-8')
+    except UndefinedError as err:
+        time.sleep(.1)
+        raise UndefinedError(err.message)
+
+    my_logger.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path))
+
+    # #################
+    # # LABEL DOFILE
+    # #################
+
+    # modify label dofile
+    my_logger.debug('modifiy label dofile')
+
+    data_do = Path(project_lieferung_version_dir, 'instruction', 'Stata', 'data.do').read_text('utf-8').split('\n')
+    obsolete_stata_commands = ['import', 'version', 'save', 'clear', 'set']
+    # comment out commands: import, version, save, clear,
+    data_label_str = '\t' + '\n\t'.join(
+        [re.sub(f'^(({")|(".join(obsolete_stata_commands)}))', r'* \1', s) for s in data_do])
+
+    var_dict['data_label_str'] = data_label_str
+
+    # save kontrolle do file
+    my_logger.debug('save label dofile as "{0}"'.format(label_do_file_path))
+    try:
+        try:
+            assert not missing_vars(env, var_dict, label_template)
+        except AssertionError:
+            raise AssertionError(
+                'Missing variables: ' + str(sorted(list(missing_vars(env, var_dict, label_template)))))
+        label_do_file_path.write_text(label_template.render(**var_dict), encoding='utf-8')
     except UndefinedError as err:
         time.sleep(.1)
         raise UndefinedError(err.message)
@@ -562,15 +625,20 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     # # MAIN DOFILE
     # #################
 
-    do_files_list = [history_do_file_path, response_do_file_path, kontrolle_do_file_path]
+    do_files_list = [history_do_file_path, response_do_file_path, kontrolle_do_file_path, label_do_file_path]
     if all([do_file.is_relative_to(main_do_file_path.parent) for do_file in do_files_list]):
-        do_files = '\n'.join([f'do {do_file.relative_to(main_do_file_path.parent)}' for do_file in do_files_list])
+        do_files = '\n'.join([f'include {do_file.relative_to(main_do_file_path.parent)}' for do_file in do_files_list])
     else:
-        do_files = '\n'.join([f'do {do_file}' for do_file in do_files_list])
+        do_files = '\n'.join([f'include {do_file}' for do_file in do_files_list])
     var_dict["do_files"] = do_files
 
     my_logger.info('processing main_template')
     try:
+        try:
+            assert not missing_vars(env, var_dict, main_template)
+        except AssertionError:
+            raise AssertionError(
+                'Missing variables: ' + str(sorted(list(missing_vars(env, var_dict, main_template)))))
         main_do_file_path.write_text(main_template.render(**var_dict), encoding='utf-8')
     except UndefinedError as err:
         raise UndefinedError(err.message)

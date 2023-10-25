@@ -308,7 +308,7 @@ if !_rc {
 	}
 
 
-	qui graph hbox moduldauer_minutes, over(modul_labeled, label(labsize(vsmall))) nooutsides ///
+    graph hbox moduldauer_minutes, over(modul_labeled, label(labsize(vsmall))) nooutsides ///
 		title("Bearbeitungsdauer nach Modul") ///
 		note("Nacaps (cohort 2020, wave 2)") ///
 		ytitle("Bearbeitungszeit in Minuten", size(small)) ///

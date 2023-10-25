@@ -1,20 +1,20 @@
 *********************************************************************
 *_______________ {{ project_name }} ___________
+di "processing do file: history"
 
 version 17
 
-global version "{{ project_version }}"
-
-global workdir "{{ project_output_parent_dir }}\"
-
-global orig "${workdir}orig\\${version}\"
-global out "${workdir}lieferung\{{ project_name_short }}_export_\${version}\"
-global doc "${workdir}doc\"
-
-cd "${workdir}doc"
 cap log close
-log using log_history`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
+log using `"${log_dir}log_history_`: di %tdCY-N-D daily("$S_DATE", "DMY")'.smcl"', append
 
+di "global macros:"
+di "do_dir: ${do_dir}"
+di "log_dir: ${log_dir}"
+di "data_dir: ${data_dir}"
+di "csv_dir: ${csv_dir}"
+di "version: ${version}"
+
+assert "${version}" == "{{ project_version }}"
 
 
 ****************************************************************************
@@ -32,7 +32,8 @@ log using log_history`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
 *__________________________________________________________________
 
 *____________Daten importieren____________________
-import delimited "${orig}history.csv", delimiter(comma) bindquote(strict) clear
+di "Versuche Datei '${csv_dir}history.csv' zu laden."
+import delimited "${csv_dir}history.csv", delimiter(comma) bindquote(strict) clear
 
 
 *____________Tester löschen____________________
@@ -66,6 +67,10 @@ gen pagenum=.
 {{ replace_pagenum }}
 
 tab page if pagenum==.
+* make sure that there are no cases with missing values on "pagenum"
+*   (if the program returns here "assertion is false"
+*    -> check the "history.csv" for pages that do not exist in the QML file )
+assert _N == 0 if pagenum == .
 
 label var pagenum "Fragebogenseite"
 tab pagenum, miss
@@ -92,6 +97,7 @@ sort participant_id pagenum, stable
 by participant_id pagenum: gen visit=_N
 label var visit "Anzahl des Seitenaufrufes im Verlauf der Befragung"
 
+{{ label_visit }}
 
 	/*
 	*__________Fragebogenseiten zu Modul zuordnen ____________________________
@@ -179,6 +185,11 @@ label var dauer_sd "Verweildauer: Standardabweichung"
 
 
 
+* Bearbeitungsdauer nach Modul
+cap confirm variable width // assert that variable modul is present
+if !_rc {
+	di "variable 'modul' exists, processing"
+
 
 *nach Modul
 bysort participant_id modul: egen moduldauer=total(verwdauer)
@@ -192,9 +203,8 @@ lab var moduldauer_minutes "Bearbeitungsdauer pro Modul in Minuten"
 
 cap drop moduln
 bysort modul: egen moduln=count(participant_id)
-*table modul, contents(n moduln median time_modul min time_modul max time_modul)
+	table modul, contents(n moduln median time_modul min time_modul max time_modul)
 
-    /*
     *_________Boxplot Bearbeitungsdauer nach Modul__________________________________
     *  (siehe oben: "Fragebogenseiten zu Modul zuordnen" muss zuvor erledigt werden)
 
@@ -224,13 +234,21 @@ bysort modul: egen moduln=count(participant_id)
         ytitle("Bearbeitungszeit in Minuten", size(small)) ///
         ylabel( , labsize(vsmall))
 
-    graph save Graph "${doc}ResponseTime_nachModul.gph", replace
-    graph export "${doc}ResponseTime_nachModul.png", as(png) replace
-    */
+	graph save Graph "${out_dir}ResponseTime_nachModul.gph", replace
+	graph export "${out_dir}ResponseTime_nachModul.png", as(png) replace
+
+	
+	}
+	else {
+		di as error "variable 'modul' does not exist, skipped processing" // error message
+	}
+
+
 
 *_______________________________________________________________
 cap log close
-log using "${doc}{{ project_name_short }}_abbrecher-verwdauer_${version}.smcl", append
+
+log using `"${log_dir}log_history_abbrecher-verwdauer_`: di %tdCY-N-D daily("$S_DATE", "DMY")'.smcl"', append
 
 *******************************************************************************
 ********************* Auswertungen Abbrüche und Verweildauern **********************
@@ -240,7 +258,7 @@ log using "${doc}{{ project_name_short }}_abbrecher-verwdauer_${version}.smcl", 
 table page, stat(n abbrecher) stat(mean dropoutrate) stat(n dropoutrate) nformat(%9.4f)
 
 
-quiet: tabout page using "{{ project_name_short }}_abbrecher_${version}.xls", ///
+quiet: tabout page using "${out_dir}testProject_abbrecher_${version}.xlsx", ///
 	c(count abbrecher mean dropoutrate count dropoutrate) ///
 	clab(Abbrecher Abbruchquote Seitenbesucher) ///
 	replace sum ///
@@ -255,7 +273,7 @@ tabstat verwdauer, statistics(mean median min max sd)
 *________Seitenverweildauer nach Seite ____________________
 table page, stat(n verwdauer) stat(mean verwdauer) stat(median verwdauer) stat(min verwdauer) stat(max verwdauer) nformat(%9.4f)
 
-quiet: tabout page using "{{ project_name_short }}_verwdauer_${version}.xls", ///
+quiet: tabout page using "${out_dir}testProject_verwdauer_${version}.xlsx", ///
 	c(count verwdauer mean verwdauer p50 verwdauer min verwdauer max verwdauer) ///
 	clab(N mean med min max) ///
 	replace sum ///
@@ -276,15 +294,17 @@ cap drop modul_labeled
 cap drop moduln
 cap drop moduldauer
 cap drop moduldauer_minutes
+cap drop pagedauer*
 
-rename verwdauer p
+rename verwdauer pagedauer
 
-reshape wide p visit, i(participant_id) j(pagenum)
+reshape wide pagedauer visit, i(participant_id) j(pagenum)
 
 
 *________gesamte Bearbeitungsdauer / Verweildauer pro Befragten________
 ///
-{{ dauer_str }}
+cap drop dauer
+egen dauer=rowtotal(pagedauer*)
 
 order participant_id token dauer maxpage lastpage anzseiten dauer_mn dauer_med dauer_min dauer_max dauer_sd
 
@@ -299,14 +319,12 @@ label val maxpage maxpagelb
 
 *_______________________________________________________________
 cap log close
-log using "XXX__PROJECT_DOC_DIR__XXX\{{ project_name_short }}_verweildauer_${version}.smcl", append
+log using `"${log_dir}log_history_verweildauer_`: di %tdCY-N-D daily("$S_DATE", "DMY")'.smcl"', append
 
 *************************************************************************
 ************************** Auswertungen *********************************
 tabstat dauer, statistic(mean median min max sd)
 
-
-log close
-
 *___________Datensatz speichern _______________
-save "${doc}history_collapsed.dta", replace
+save "${data_dir}history_collapsed.dta", replace
+log close

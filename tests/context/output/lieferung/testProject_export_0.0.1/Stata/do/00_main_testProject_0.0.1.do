@@ -1,8 +1,7 @@
 *********************************************************************
 *_______________ testProject ___________
-
-pause on
 set graphics off
+set more off
 
 clear all
 
@@ -23,12 +22,10 @@ global out_dir "${root_dir}/Stata/out/"
 global label_do_dir "${root_dir}/Stata/label/"
 global csv_dir "${root_dir}/csv/"
 cd "${initial_dir}"
-a
 
 cap log close
 log using `"${log_dir}log_main_`: di %tdCY-N-D daily("$S_DATE", "DMY")'"', append
-
-
+di "`c(pwd)'"
 
 ****************************************************************************
 ** Projekt/ Studie:        testProject

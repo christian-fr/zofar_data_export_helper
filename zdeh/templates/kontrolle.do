@@ -1,16 +1,20 @@
 *********************************************************************
 *_______________ {{ project_name }} ___________
+di "processing do file: kontrolle"
 
 version 17
 
-global version "{{ project_version }}"
-global workdir "{{ project_output_parent_dir }}\"
-global orig "${workdir}orig\\${version}\"
-global out "${workdir}lieferung\{{ project_name_short }}_export_\${version}\"
-
-cd "${workdir}doc"
 cap log close
-log using log_kontrolle`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
+log using `"${log_dir}log_kontrolle_`: di %tdCY-N-D daily("$S_DATE", "DMY")'.smcl"', append
+
+di "global macros:"
+di "do_dir: ${do_dir}"
+di "log_dir: ${log_dir}"
+di "data_dir: ${data_dir}"
+di "csv_dir: ${csv_dir}"
+di "version: ${version}"
+
+assert "${version}" == "{{ project_version }}"
 
 
 ****************************************************************************
@@ -111,10 +115,19 @@ else {
 }
 
 
-*drop url jscheck ismobile width height screen width_t height_t
+cap drop url 
+cap drop jscheck
+cap drop ismobile
+cap drop width
+cap drop height
+cap drop screen
+cap drop width_t
+cap drop height_t
 
 
 *____________Daten exportieren____________________
-save "${out}csv\data.dta", replace
-*export delimited using "${out}csv\data.csv", replace
+*export delimited using "${data_dir}data_unlabeled.csv", replace
+
+save "${data_dir}data_unlabeled.dta", replace
+
 log close

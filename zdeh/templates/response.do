@@ -1,6 +1,22 @@
 *********************************************************************
 *_______________ {{ project_name }} ___________
-*
+di "processing do file: response"
+
+version 17
+
+cap log close
+log using `"${log_dir}log_response_`: di %tdCY-N-D daily("$S_DATE", "DMY")'"', append
+
+di "global macros:"
+di "do_dir: ${do_dir}"
+di "log_dir: ${log_dir}"
+di "data_dir: ${data_dir}"
+di "csv_dir: ${csv_dir}"
+di "version: ${version}"
+
+assert "${version}" == "{{ project_version }}"
+
+
 ****************************************************************************
 ** Projekt/ Studie:        {{ project_name }}
 ** Projektname kurz
@@ -11,23 +27,8 @@
 ** Bearbeitet von:         {{ user }}
 ****************************************************************************
 
-version 17
-
-global version "{{ project_version }}"
-
-global workdir "{{ project_output_parent_dir }}\"
-
-global orig "${workdir}orig\\${version}\"
-global out "${workdir}lieferung\{{ project_name_short }}_export_\${version}\"
-global doc "${workdir}doc\"
-
-cd "${workdir}doc"
-cap log close
-log using log_response`: di %tdCY-N-D daily("$S_DATE", "DMY")', append
-
-
 *____________Daten importieren____________________
-import delimited "${orig}data.csv", delimiter(comma) bindquote(strict) encoding("utf-8") clear
+import delimited "${csv_dir}data.csv", delimiter(comma) bindquote(strict) encoding("utf-8") clear
 foreach n of numlist 1/200 {
 	drop if token=="tester`n'"
 	drop if token=="part`n'"
@@ -95,8 +96,8 @@ graph twoway line teiln fin day ,  ///
 	note("Project: {{ project_name_short }}", size(tiny))
 
 
-graph save Graph "${doc}Rücklauf_Graph_day.gph", replace
-graph export "${doc}Rücklauf_Graph_day.png", as(png) replace
+graph save Graph "${out_dir}Rücklauf_Graph_day.gph", replace
+graph export "${out_dir}Rücklauf_Graph_day.png", as(png) replace
 
 qui sum date
 local date_min = r(min)
@@ -139,7 +140,7 @@ graph twoway line teiln fin date ,  ///
 	note("Project: {{ project_name_short }}", size(tiny))
 
 
-graph save Graph "${doc}Rücklauf_Graph_date.gph", replace 
-graph export "${doc}Rücklauf_Graph_date.png", as(png) replace 
+graph save Graph "${out_dir}Rücklauf_Graph_date.gph", replace 
+graph export "${out_dir}Rücklauf_Graph_date.png", as(png) replace 
 
 log close

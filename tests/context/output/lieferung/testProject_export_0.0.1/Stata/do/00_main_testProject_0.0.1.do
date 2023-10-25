@@ -31,18 +31,15 @@ di "`c(pwd)'"
 ** Projekt/ Studie:        testProject
 ** Projektname kurz
 ** (für Pfade/Dateinamen): testProject
-** Erstelldatum:           2023-10-23_13-19-17
-** History-Daten:          2023-10-20_12-39-52
-** Datensatz:              2023-10-20_12-39-52
+** Erstelldatum:           2023-10-25_20-18-41
+** History-Daten:          2023-10-25_20-18-41
+** Datensatz:              2023-10-25_20-18-41
 ** Bearbeitet von:         Test User
 ****************************************************************************
 
 *________________________________________________________________
 ** Master-Do-File zur Datenaufbereitung
-do "${do_dir}label/data.do"
-use "${csv_dir}arbeitsdaten.dta", clear
-save "${data_dir}arbeitsdaten.dta", replace
-include "${do_dir}01_history_testProject_0.0.1.do"
-include "${do_dir}02_response_testProject_0.0.1.do"
-include "${do_dir}03_kontrolle_testProject_0.0.1.do"
-
+include 01_history_testProject_0.0.1.do
+include 02_response_testProject_0.0.1.do
+include 03_kontrolle_testProject_0.0.1.do
+include 04_label_testProject_0.0.1.do

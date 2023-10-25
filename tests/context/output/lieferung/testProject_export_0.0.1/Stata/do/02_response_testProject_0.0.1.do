@@ -1,6 +1,5 @@
 *********************************************************************
 *_______________ testProject ___________
-
 di "processing do file: response"
 
 version 17
@@ -8,7 +7,6 @@ version 17
 cap log close
 log using `"${log_dir}log_response_`: di %tdCY-N-D daily("$S_DATE", "DMY")'"', append
 
-di "processing: response do file"
 di "global macros:"
 di "do_dir: ${do_dir}"
 di "log_dir: ${log_dir}"
@@ -18,16 +16,16 @@ di "version: ${version}"
 
 assert "${version}" == "0.0.1"
 
+
 ****************************************************************************
 ** Projekt/ Studie:        testProject
 ** Projektname kurz
 ** (für Pfade/Dateinamen): testProject
-** Erstelldatum:           2023-10-23_13-19-17
-** History-Daten:          2023-10-20_12-39-52
-** Datensatz:              2023-10-20_12-39-52
+** Erstelldatum:           2023-10-25_20-18-41
+** History-Daten:          2023-10-25_20-18-41
+** Datensatz:              2023-10-25_20-18-41
 ** Bearbeitet von:         Test User
 ****************************************************************************
-
 
 *____________Daten importieren____________________
 import delimited "${csv_dir}data.csv", delimiter(comma) bindquote(strict) encoding("utf-8") clear
@@ -83,7 +81,7 @@ local day_range =  `day_max' - `day_min'
 
 set scheme s2color
 
-qui graph twoway line teiln fin day ,  ///
+graph twoway line teiln fin day ,  ///
 	graphregion(fcolor(white) lcolor(black)) ///
 	lpattern(dash solid) ///
 	lstyle(foreground) ///
@@ -126,7 +124,8 @@ local date_range_interval = ceil(10^`date_range_order_of_magnitude'/`scale_value
 *
  **********************************
 
-qui graph twoway line teiln fin date ,  ///
+
+graph twoway line teiln fin date ,  ///
 	graphregion(fcolor(white) lcolor(black)) ///
 	lpattern(dash solid) ///
 	lstyle(foreground) ///

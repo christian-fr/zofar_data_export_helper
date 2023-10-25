@@ -1,6 +1,5 @@
 *********************************************************************
 *_______________ testProject ___________
-
 di "processing do file: kontrolle"
 
 version 17
@@ -8,7 +7,6 @@ version 17
 cap log close
 log using `"${log_dir}log_kontrolle_`: di %tdCY-N-D daily("$S_DATE", "DMY")'.smcl"', append
 
-di "processing: response do file"
 di "global macros:"
 di "do_dir: ${do_dir}"
 di "log_dir: ${log_dir}"
@@ -19,29 +17,20 @@ di "version: ${version}"
 assert "${version}" == "0.0.1"
 
 
-
 ****************************************************************************
 ** Projekt/ Studie:        testProject
 ** Projektname kurz
 ** (für Pfade/Dateinamen): testProject
-** Erstelldatum:           2023-10-23_13-19-17
-** History-Daten:          2023-10-20_12-39-52
-** Datensatz:              2023-10-20_12-39-52
+** Erstelldatum:           2023-10-25_20-18-41
+** History-Daten:          2023-10-25_20-18-41
+** Datensatz:              2023-10-25_20-18-41
 ** Bearbeitet von:         Test User
 ****************************************************************************
 
 
 *____________Daten importieren____________________
+* import delimited "${orig}\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcols(7 14 23 44 47 51 54 55 58 59 61 62 65 66 70 73 79 90 93 100 102 104 105 106 107 108 109 111 112 113 114 124 127 138 139 141 142 144 146 149 151 169 183 208 212 223 260 261 269 282 295 298 299 300 303 304 311 319)
 
-import delimited "${csv_dir}data.csv", bindquote(strict) encoding(utf8) delimiter(comma) clear stringcols(7 14 23 44 47 51 54 55 58 59 61 62 65 66 70 73 79 90 93 100 102 104 105 106 107 108 109 111 112 113 114 124 127 138 139 141 142 144 146 149 151 169 183 208 212 223 260 261 269 282 295 298 299 300 303 304 311 319)
-foreach n of numlist 1/200 {
-	drop if token=="tester`n'"
-	drop if token=="part`n'"
-}
-
-*____________Variablen labeln____________________
-
-* ToDo: hier kommt ein Ausschnitt aus label.do rein*
 
 
 *******************************************************************************
@@ -138,6 +127,8 @@ cap drop height_t
 
 
 *____________Daten exportieren____________________
-save "${data_dir}kontrolle_data.dta", replace
-*export delimited using "${out}csv\data.csv", replace
+*export delimited using "${data_dir}data_unlabeled.csv", replace
+
+save "${data_dir}data_unlabeled.dta", replace
+
 log close

@@ -32,11 +32,11 @@ assert "${version}" == "{{ project_version }}"
 ** Do-File zum Labeln des Datensatzes
 *__________________________________________________________________
 
-use "${data_dir}csv\data_unlabeled.dta", clear
+use "${data_dir}data_unlabeled.dta", clear
 
 {{ data_label_str }}
 
 log close
 
 *___________Datensatz speichern _______________
-save "${data_dir}csv\data_labeled.dta", replace
+save "${data_dir}data_labeled.dta", replace

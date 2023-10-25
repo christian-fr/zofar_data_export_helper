@@ -1,5 +1,8 @@
 import getpass
+import logging
+import re
 import sys
+import time
 import zipfile
 import difflib
 import os
@@ -7,6 +10,20 @@ from hashlib import sha256, sha512
 from pathlib import Path
 from typing import List, Optional, Tuple
 import filecmp
+
+
+class UuidFilter(logging.Filter):
+    """
+    This will add the uuid to the logger
+    """
+
+    def __init__(self, uuid_str: str):
+        super().__init__()
+        self.uuid = uuid_str
+
+    def filter(self, record):
+        record.uuid = self.uuid
+        return record
 
 
 def sha512sum(in_file: Path) -> str:
@@ -17,9 +34,17 @@ def sha256sum(in_file: Path) -> str:
     return sha256(in_file.read_bytes()).hexdigest()
 
 
-def diff_files(file1: Path, file2: Path) -> str:
-    lines1 = file1.read_text(encoding='utf-8').split('\n')
-    lines2 = file2.read_text(encoding='utf-8').split('\n')
+def diff_files(file1: Path, file2: Path, ignore_patterns: List[re.Pattern]) -> str:
+    str1 = file1.read_text(encoding='utf-8')
+    str2 = file2.read_text(encoding='utf-8')
+
+    for ignore_pattern in ignore_patterns:
+        str1 = ignore_pattern.sub('TIMESTAMP', str1)
+        str2 = ignore_pattern.sub('TIMESTAMP', str2)
+
+    lines1 = str1.split('\n')
+    lines2 = str2.split('\n')
+
     result = []
     for line in difflib.unified_diff(lines1, lines2, fromfile=str(file1), tofile=str(file2), lineterm=''):
         result.append(line)
@@ -68,7 +93,19 @@ def diff_dirs(dir1: Path, dir2: Path, ignore_prefixes: Optional[List[str]] = Non
         if filecmp.cmp(full_path1, full_path2, shallow=False):
             files_identical.append(p)
         else:
-            file_diffs.append((p, dir1, dir2, diff_files(full_path1, full_path2)))
+            ignore_patterns = [
+                re.compile(r'([0-9]{2}\.){2}[0-9]{4}'),
+                re.compile(r'([0-9]{2}\.){2}[0-9]{4}'),
+                re.compile(r'([0-9]{2}-){2}[0-9]{4}'),
+                re.compile(r'[0-9]{4}(-[0-9]{2}){2}'),
+                re.compile(r'[0-9]{2}(-[0-9]{2}){2}'),
+                re.compile(r'[0-9]{2}(:[0-9]{2}){2}'),
+            ]
+            diff_result = diff_files(full_path1, full_path2, ignore_patterns)
+            if diff_result:
+                file_diffs.append((p, dir1, dir2, diff_result))
+            else:
+                files_identical.append(p)
 
     files_identical.sort()
     file_diffs.sort(key=lambda k: k[0])
@@ -126,7 +163,6 @@ if __name__ == '__main__':
                debug_zofar_top_level=True, overwrite=True)
 
     # create sha512 sums for test input & output data
-
     for folder in ['input', 'output']:
         files_list = get_all_file_paths(Path(f'tests/context/{folder}'), ignore_prefixes=['.old', '.gitignore'])
         sha_sum_data = '\n'.join(
@@ -136,3 +172,27 @@ if __name__ == '__main__':
     _, _, _, file_diffs_list = diff_dirs(Path('tests/context/input/TestExport/TestExport'),
                                          Path('tests/context/output/testProject_export_0.0.1'),
                                          ignore_prefixes=['.gitignore', '.old'])
+
+
+def timestamp(time_localtime_object: time.localtime = None) -> str:
+    if time_localtime_object is None:
+        t = time.localtime()
+
+    else:
+        t = time_localtime_object
+
+    return time.strftime('%Y-%m-%d_%H-%M-%S', t)
+
+
+def startup_logger(logger: logging.Logger, uuid_str: str = '', log_level=logging.DEBUG):
+    """
+    CRITICAL: 50, ERROR: 40, WARNING: 30, INFO: 20, DEBUG: 10, NOTSET: 0
+    """
+    logging.basicConfig(level=log_level)
+    fh = logging.FileHandler("{0}.log".format('log_' + __name__))
+    fh.addFilter(UuidFilter(uuid_str))
+    fh.setLevel(log_level)
+    fh_format = logging.Formatter('%(name)s\t%(module)s\t%(funcName)s\t%(uuid)s\t%(asctime)s\t%(lineno)d\t'
+                                  '%(levelname)-8s\t%(message)s')
+    fh.setFormatter(fh_format)
+    logger.addHandler(fh)

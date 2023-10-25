@@ -97,8 +97,6 @@ sort participant_id pagenum, stable
 by participant_id pagenum: gen visit=_N
 label var visit "Anzahl des Seitenaufrufes im Verlauf der Befragung"
 
-{{ label_visit }}
-
 	/*
 	*__________Fragebogenseiten zu Modul zuordnen ____________________________
 	*     (siehe auch weiter unten: "Boxplot Bearbeitungsdauer nach Modul")
@@ -299,6 +297,10 @@ cap drop pagedauer*
 rename verwdauer pagedauer
 
 reshape wide pagedauer visit, i(participant_id) j(pagenum)
+
+{{ label_visit }}
+{{ label_pagedauer }}
+
 
 
 *________gesamte Bearbeitungsdauer / Verweildauer pro Befragten________

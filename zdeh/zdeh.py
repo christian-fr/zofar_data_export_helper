@@ -24,6 +24,15 @@ from zdeh.util import unzip_folder, timestamp, startup_logger
 
 UUID = uuid.uuid4().hex
 
+LOGGER = logging.getLogger('__name__')
+
+
+def handle_exception(exc_type, exc_value, exc_traceback):
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc_value, exc_traceback)
+        return
+    LOGGER.critical("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
+
 
 def render_dofile(env: Environment, template: Template, var_dict: Dict[str, str], do_file_path: Path,
                   encoding: str = 'utf-8') -> None:
@@ -57,8 +66,17 @@ def find_all_files(name: str, path: Union[str, Path]) -> list:
 def main(debug: bool = False, project_name: Optional[str] = None, user: Optional[str] = None,
          project_version: Optional[str] = None, input_zip_file: Union[str, Path, None] = None,
          project_output_parent_dir: Optional[str] = None, test_flag: bool = False):
-    my_logger = logging.getLogger('logger')
-    logging_undefined = make_logging_undefined(logger=my_logger, base=Undefined)
+    sys.excepthook = handle_exception
+
+    if not debug:
+        startup_logger(logger=LOGGER, log_level=logging.INFO, uuid_str=UUID)
+        LOGGER.info('starting up program')
+    else:
+        startup_logger(logger=LOGGER, log_level=logging.DEBUG, uuid_str=UUID)
+        LOGGER.info('starting up program')
+        LOGGER.debug('"debug" is set to True!')
+
+    logging_undefined = make_logging_undefined(logger=LOGGER, base=Undefined)
 
     env = Environment(
         loader=PackageLoader("zdeh"),
@@ -73,22 +91,14 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     kontrolle_template = env.get_template("kontrolle.do")
     label_template = env.get_template("label.do")
 
-    if not debug:
-        startup_logger(logger=my_logger, log_level=logging.INFO, uuid_str=UUID)
-        my_logger.info('starting up program')
-    else:
-        startup_logger(logger=my_logger, log_level=logging.DEBUG, uuid_str=UUID)
-        my_logger.info('starting up program')
-        my_logger.debug('"debug" is set to True!')
-
     time.sleep(.2)
 
     print(' ╔═════════════════════════════════════╗')
     print(' ║  Zofar Automation - Datenlieferung  ║')
     print(' ╚═════════════════════════════════════╝' + '\n' * 3)
 
-    my_logger.debug('authors: {0}'.format(__author__))
-    my_logger.debug('project_version: {0}'.format(__version__))
+    LOGGER.debug('authors: {0}'.format(__author__))
+    LOGGER.debug('project_version: {0}'.format(__version__))
 
     if project_name is None:
         while True:
@@ -105,20 +115,20 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         project_name_short = project_name_short.replace(char, '_')
     var_dict["project_name_short"] = project_name_short
 
-    my_logger.debug('Projektname_kurz: "{0}"'.format(project_name_short))
+    LOGGER.debug('Projektname_kurz: "{0}"'.format(project_name_short))
 
     if user is None:
         default_user = "Christian Friedrich"
         user = input(f'Bearbeiter*in (default is "{default_user}"): ') or default_user
     var_dict["user"] = user
 
-    my_logger.debug('Bearbeiter*in: "{0}"'.format(user))
-    my_logger.debug('Projektname:   "{0}"'.format(project_name))
-    my_logger.debug('Projektname_kurz: "{0}"'.format(project_name_short))
+    LOGGER.debug('Bearbeiter*in: "{0}"'.format(user))
+    LOGGER.debug('Projektname:   "{0}"'.format(project_name))
+    LOGGER.debug('Projektname_kurz: "{0}"'.format(project_name_short))
 
     # select zip file with export data
     if input_zip_file is None:
-        my_logger.debug('Bitte ZIP-Datei, die den Datenexport beinhaltet, auswählen.\n(weiter mit Enter)')
+        LOGGER.debug('Bitte ZIP-Datei, die den Datenexport beinhaltet, auswählen.\n(weiter mit Enter)')
 
         initial_input_dir = Path(r'..\Automation_Input')
 
@@ -132,7 +142,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
                                        title='Bitte ZIP-Datei, die den Datenexport beinhaltet, auswählen.'))
         root.withdraw()
 
-        my_logger.debug('Dateiname: "{0}"'.format(os.path.split(input_zip_file)[1]))
+        LOGGER.debug('Dateiname: "{0}"'.format(os.path.split(input_zip_file)[1]))
 
         input_zip_file = input_zip_file
 
@@ -155,7 +165,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
     var_dict["project_output_parent_dir"] = project_output_parent_dir
 
-    my_logger.debug('project_output_parent_dir = "{0}"'.format(project_output_parent_dir))
+    LOGGER.debug('project_output_parent_dir = "{0}"'.format(project_output_parent_dir))
 
     # create folder structure
     project_orig_version_dir = Path(project_output_parent_dir, 'orig', project_version)
@@ -170,8 +180,8 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         assert isinstance(d, Path)
         d.mkdir(exist_ok=True, parents=True)
 
-    my_logger.debug('project_orig_version_dir = "{0}"'.format(project_orig_version_dir))
-    my_logger.debug('project_lieferung_dir = "{0}"'.format(project_lieferung_dir))
+    LOGGER.debug('project_orig_version_dir = "{0}"'.format(project_orig_version_dir))
+    LOGGER.debug('project_lieferung_dir = "{0}"'.format(project_lieferung_dir))
 
     # creating "lieferung" subdirectory - using "os.system('md ...')" instead of os.mkdir because it automatically
     #  creates more than one level of subfolders if needed
@@ -181,7 +191,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     shutil.copy(input_zip_file, project_orig_version_dir)
     # set readme file with timestamp
     Path(project_orig_version_dir, 'README.md').write_text(f'Created at: {timestamp()}', encoding='utf-8')
-    my_logger.debug('zip file "{0}" copied to "{1}"'.format(input_zip_file, project_orig_version_dir))
+    LOGGER.debug('zip file "{0}" copied to "{1}"'.format(input_zip_file, project_orig_version_dir))
 
     # create a folder project_orig_version_dir  - using "os.mkdir()" because top folder has been created in the last
     if not os.path.exists(project_orig_version_dir):
@@ -193,15 +203,15 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     [Path(project_lieferung_version_dir, 'Stata', d).mkdir(exist_ok=True, parents=True)
      for d in ["do", "out", "log", "data"]]
 
-    my_logger.debug('project_lieferung_version_dir = "{0}"'.format(project_lieferung_version_dir))
+    LOGGER.debug('project_lieferung_version_dir = "{0}"'.format(project_lieferung_version_dir))
 
     # create a folder project_lieferung_version_dir  - using "os.mkdir()" because top folder has been created in the last
     #  step
     project_lieferung_version_dir.mkdir(exist_ok=True, parents=True)
-    my_logger.debug('os.mkdir({0})'.format(project_lieferung_version_dir))
+    LOGGER.debug('os.mkdir({0})'.format(project_lieferung_version_dir))
 
-    my_logger.debug('input_zip_file: {0}'.format(input_zip_file))
-    my_logger.debug('project_output_parent_dir: {0}'.format(project_output_parent_dir))
+    LOGGER.debug('input_zip_file: {0}'.format(input_zip_file))
+    LOGGER.debug('project_output_parent_dir: {0}'.format(project_output_parent_dir))
 
     # create variable "return_code" to store the return code of the 7zip archive unpacking command
     # a return_code of 0 means the unzip operation has been successful
@@ -217,20 +227,20 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         # set counter variable to initial value
         counter = 0
         unzip_folder(input_zip_file, project_lieferung_version_dir, overwrite=True)
-        my_logger.debug("Unzipping successful")
+        LOGGER.debug("Unzipping successful")
     except NotImplementedError:
-        my_logger.info("Unzipping unsuccessful, using 7z as fallback option.")
+        LOGGER.info("Unzipping unsuccessful, using 7z as fallback option.")
         while return_code != 0:
-            my_logger.debug('counter: "{0}"'.format(counter))
+            LOGGER.debug('counter: "{0}"'.format(counter))
             cmd = f'"C:\\Program Files\\7-Zip\\7z.exe" x {input_zip_file} -o{project_lieferung_version_dir}'
-            my_logger.debug(f'running: {cmd}')
+            LOGGER.debug(f'running: {cmd}')
             return_code = os.system(cmd)
-            my_logger.debug('return code: "{0}"'.format(return_code))
+            LOGGER.debug('return code: "{0}"'.format(return_code))
 
             counter += 1
             if counter == 10:
-                my_logger.info(f'Could not successfully run: {cmd}')
-                my_logger.info('Exiting this program.')
+                LOGGER.info(f'Could not successfully run: {cmd}')
+                LOGGER.info('Exiting this program.')
                 sys.exit(f'Could not successfully run: {cmd}')
 
     # move subfolders to appropriate levels
@@ -252,7 +262,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     # look for xml file within project_lieferung_version_dir
     list_of_questionnaire_xml_files = find_all_files(name='questionnaire.xml', path=project_lieferung_version_dir)
 
-    my_logger.debug(list_of_questionnaire_xml_files)
+    LOGGER.debug(list_of_questionnaire_xml_files)
 
     # check if returned file list has exactly one match
     if len(list_of_questionnaire_xml_files) == 1:
@@ -267,7 +277,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
                                              'QML')
 
         if os.path.exists(xml_file_initial_path):
-            my_logger.debug(xml_file_initial_path + ' exists.')
+            LOGGER.debug(xml_file_initial_path + ' exists.')
         else:
             print(xml_file_initial_path + ' does not exist.')
             xml_file_initial_path = project_lieferung_version_dir
@@ -278,7 +288,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
     page_list = []
     if not os.path.isfile(xmlfile):
-        my_logger.debug('Keine XML-Datei ausgewählt! Seitenreihenfolge kann \nnicht bestimmt werden.')
+        LOGGER.debug('Keine XML-Datei ausgewählt! Seitenreihenfolge kann \nnicht bestimmt werden.')
     else:
         try:
             # create page list
@@ -289,7 +299,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
                         if 'uid' in element.attrib:
                             page_list.append(element.attrib['uid'])
 
-            my_logger.debug('Seitenreihenfolge:' + str(page_list))
+            LOGGER.debug('Seitenreihenfolge:' + str(page_list))
 
             zofar_var_dict = defaultdict(list)
             # create page list
@@ -302,15 +312,15 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
                                 if 'name' in child_element.attrib and 'type' in child_element.attrib:
                                     zofar_var_dict[child_element.attrib['type']].append(child_element.attrib['name'])
 
-            my_logger.debug('Variablentypen:' + str(zofar_var_dict))
+            LOGGER.debug('Variablentypen:' + str(zofar_var_dict))
 
         except xml.etree.ElementTree.ParseError:
-            my_logger.debug('XML Datei ist nicht lesbar, wird übersprungen.\n\n')
+            LOGGER.debug('XML Datei ist nicht lesbar, wird übersprungen.\n\n')
 
     # look for history.csv.zip file within project_lieferung_version_dir
     list_of_history_csv_zip_files = find_all_files(name='history.csv.zip', path=project_lieferung_version_dir)
 
-    my_logger.debug(list_of_history_csv_zip_files)
+    LOGGER.debug(list_of_history_csv_zip_files)
 
     # load history.csv.zip file and read modification time
 
@@ -324,9 +334,9 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
         csv_zip_files_initial_path = os.path.join(project_lieferung_version_dir, 'output', 'csv')
         if os.path.isfile(csv_zip_files_initial_path):
-            my_logger.debug(csv_zip_files_initial_path + ' exists.')
+            LOGGER.debug(csv_zip_files_initial_path + ' exists.')
         else:
-            my_logger.debug(csv_zip_files_initial_path + ' does not exist.')
+            LOGGER.debug(csv_zip_files_initial_path + ' does not exist.')
             csv_zip_files_initial_path = project_orig_version_dir
 
         history_csv_zip_file_str = os.path.normpath(
@@ -351,7 +361,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     # look for history.csv.zip file within project_lieferung_version_dir
     list_of_data_csv_zip_files = find_all_files(name='data.csv.zip', path=project_lieferung_version_dir)
 
-    my_logger.debug(list_of_data_csv_zip_files)
+    LOGGER.debug(list_of_data_csv_zip_files)
 
     # load history.csv.zip file and read modification time
 
@@ -378,23 +388,23 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
         unzip_folder(Path(data_csv_zip_file_str), Path(data_csv_zip_file_str).parent, overwrite=True)
         # ToDo: check if path is correct!
-        my_logger.debug('CSV header ist geladen, Variablennamen erfasst.')
+        LOGGER.debug('CSV header ist geladen, Variablennamen erfasst.')
 
         data_csv_file_str = os.path.join(project_lieferung_version_dir, 'csv', 'data.csv')
-        my_logger.debug('Lade CSV-Datei: {0}'.format(data_csv_file_str))
+        LOGGER.debug('Lade CSV-Datei: {0}'.format(data_csv_file_str))
 
         with open(data_csv_file_str, encoding='utf-8') as csv_file:
             reader = csv.reader(csv_file)
             list_of_all_varnames = next(reader)
 
-        my_logger.debug('CSV header ist geladen, Variablennamen erfasst.')
+        LOGGER.debug('CSV header ist geladen, Variablennamen erfasst.')
 
         # check if zofar_var_dict does contain a key "string"
         if zofar_var_dict['string']:
             for index, varname in enumerate(list_of_all_varnames):
                 if varname in zofar_var_dict['string']:
                     list_of_csv_string_var_columns.append(str(index + 1))
-        my_logger.debug(
+        LOGGER.debug(
             'Liste mit Spaltennummern für Stringvariablen wurde erstellt: ' + str(list_of_csv_string_var_columns))
 
     var_dict["data_csv_zip_file_modification_time_str"] = data_csv_zip_file_modification_time_str
@@ -405,17 +415,17 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         i, file_name in
         enumerate(['main', 'history', 'response', 'kontrolle', 'label'])]
 
-    my_logger.debug('main_do_file_path = "{0}"'.format(main_do_file_path))
-    my_logger.debug('history_do_file_path = "{0}"'.format(history_do_file_path))
-    my_logger.debug('response_do_file_path = "{0}"'.format(response_do_file_path))
-    my_logger.debug('kontrolle_do_file_path = "{0}"'.format(kontrolle_do_file_path))
+    LOGGER.debug('main_do_file_path = "{0}"'.format(main_do_file_path))
+    LOGGER.debug('history_do_file_path = "{0}"'.format(history_do_file_path))
+    LOGGER.debug('response_do_file_path = "{0}"'.format(response_do_file_path))
+    LOGGER.debug('kontrolle_do_file_path = "{0}"'.format(kontrolle_do_file_path))
 
     # ##################
     # # HISTORY DOFILE
     # ##################
 
     # generate STATA code for pagenum replacement
-    my_logger.debug('generate STATA code for pagenum replacement')
+    LOGGER.debug('generate STATA code for pagenum replacement')
     replace_pagenum_list = []
     label_visit_list = []
     label_pagedauer_list = []
@@ -425,8 +435,8 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
             label_visit_list.append(f'cap label var visit{i} "Anzahl Aufrufe von {page_list[i]}"')
             label_pagedauer_list.append(f'cap label var pagedauer{i} "Verweildauer auf {page_list[i]} [s]"')
     else:
-        my_logger.debug('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \n'
-                        'keine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
+        LOGGER.debug('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \n'
+                     'keine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
         replace_pagenum_list.append('* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX')
         replace_pagenum_list.append('replace pagenum=0 if page=="index"')
         replace_pagenum_list.append('replace pagenum=1 if page=="offer"')
@@ -444,7 +454,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     var_dict["dauer_str"] = dauer_str
 
     # replace strings in history_file
-    my_logger.debug('modifiy history dofile')
+    LOGGER.debug('modifiy history dofile')
 
     timestamp_str = timestamp()
     var_dict["timestamp_str"] = timestamp_str
@@ -457,8 +467,8 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         var_dict["label_page_str"] = label_page_str
 
     else:
-        my_logger.debug('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \n'
-                        'keine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
+        LOGGER.debug('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \n'
+                     'keine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
         replace_pagenum_list.append('* XXXXXXXXXX Platzhalter für PAGENUM XXXXXXXXX')
         replace_pagenum_list.append('label var p0 "Verweildauer auf index (in Sekunden)"')
         replace_pagenum_list.append('label var p1 "Verweildauer auf offer (in Sekunden)"')
@@ -471,8 +481,8 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         var_dict["label_maxpage_str"] = label_maxpage_str
 
     else:
-        my_logger.debug('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \n'
-                        'keine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
+        LOGGER.debug('Es wurde zuvor keine XML-Datei ausgewählt oder es wurden \n'
+                     'keine Pages gefunden. Platzhalter wird im History-Dofile eingefügt.\n')
         replace_pagenum_list.append('label define maxpagelb 0 "index" 1 "offer"')
 
     replace_pagenum = '\n'.join(replace_pagenum_list)
@@ -497,39 +507,39 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
 
     var_dict["project_version"] = project_version
 
-    my_logger.debug('save history dofile as "{0}"'.format(history_do_file_path))
+    LOGGER.debug('save history dofile as "{0}"'.format(history_do_file_path))
 
     try:
         render_dofile(env, history_template, var_dict, history_do_file_path, 'utf-8')
     except UndefinedError as err:
         raise UndefinedError(err.message)
 
-    my_logger.info('Created history do file: "{0}"'.format(history_do_file_path))
+    LOGGER.info('Created history do file: "{0}"'.format(history_do_file_path))
 
     # ###################
     # # RESPONSE DOFILE
     # ###################
 
     # load response dofile template
-    my_logger.debug('load response dofile template')
+    LOGGER.debug('load response dofile template')
 
     # modify response dofile
-    my_logger.debug('modifiy response dofile')
+    LOGGER.debug('modifiy response dofile')
     response_dofile_str = response_template.render(**var_dict)
 
     # save response do file
-    my_logger.debug('save response dofile as "{0}"'.format(history_do_file_path))
+    LOGGER.debug('save response dofile as "{0}"'.format(history_do_file_path))
     with open(response_do_file_path, 'w', encoding='utf-8') as file:
         file.write(response_dofile_str)
 
-    my_logger.info('Created response do file: "{0}"'.format(response_do_file_path))
+    LOGGER.info('Created response do file: "{0}"'.format(response_do_file_path))
 
     # ###################
     # # KONTROLLE DOFILE
     # ###################
 
     # modify kontrolle dofile
-    my_logger.debug('modifiy kontrolle dofile')
+    LOGGER.debug('modifiy kontrolle dofile')
 
     data_import_str = ('* import delimited "${{orig}}\data.csv", bindquote(strict) encoding(utf8) delimiter(comma) '
                        'clear stringcols({0})\n').format(' '.join(list_of_csv_string_var_columns))
@@ -537,21 +547,21 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     var_dict["data_import_str"] = data_import_str
 
     # save kontrolle do file
-    my_logger.debug('save kontrolle dofile as "{0}"'.format(kontrolle_do_file_path))
+    LOGGER.debug('save kontrolle dofile as "{0}"'.format(kontrolle_do_file_path))
     try:
         render_dofile(env, kontrolle_template, var_dict, kontrolle_do_file_path, 'utf-8')
     except UndefinedError as err:
         time.sleep(.1)
         raise UndefinedError(err.message)
 
-    my_logger.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path))
+    LOGGER.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path))
 
     # #################
     # # LABEL DOFILE
     # #################
 
     # modify label dofile
-    my_logger.debug('modifiy label dofile')
+    LOGGER.debug('modifiy label dofile')
 
     data_do = Path(project_lieferung_version_dir, 'instruction', 'Stata', 'data.do').read_text('utf-8').split('\n')
     obsolete_stata_commands = ['import', 'version', 'save', 'clear', 'set']
@@ -565,7 +575,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
     var_dict['data_label_str'] = data_label_str
 
     # save kontrolle do file
-    my_logger.debug('save label dofile as "{0}"'.format(label_do_file_path))
+    LOGGER.debug('save label dofile as "{0}"'.format(label_do_file_path))
 
     try:
         render_dofile(env, label_template, var_dict, label_do_file_path, 'utf-8')
@@ -573,7 +583,7 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         time.sleep(.1)
         raise UndefinedError(err.message)
 
-    my_logger.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path))
+    LOGGER.info('Created kontrolle do file: "{0}"'.format(kontrolle_do_file_path))
 
     # #################
     # # MAIN DOFILE
@@ -586,12 +596,12 @@ def main(debug: bool = False, project_name: Optional[str] = None, user: Optional
         do_files = '\n'.join([f'include {do_file}' for do_file in do_files_list])
     var_dict["do_files"] = do_files
 
-    my_logger.info('processing main_template')
+    LOGGER.info('processing main_template')
     try:
         render_dofile(env, main_template, var_dict, main_do_file_path, 'utf-8')
     except UndefinedError as err:
         raise UndefinedError(err.message)
-    my_logger.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
+    LOGGER.debug('list of csv string variable columns: {0}'.format(list_of_csv_string_var_columns))
 
     if not test_flag:
         input('Programm beendet! (weiter mit ENTER)')

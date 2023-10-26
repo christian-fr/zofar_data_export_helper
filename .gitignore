@@ -2,8 +2,5 @@
 /venv*/
 /.idea/
 *.log
-*.zip
-*.csv
-*.dta
 *.xls
 *.xlsx

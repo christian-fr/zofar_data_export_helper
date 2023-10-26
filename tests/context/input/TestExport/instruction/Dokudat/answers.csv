@@ -1,0 +1,654 @@
+consent     1                     ja
+consent     0                     nein
+noconsent   1                     ja
+noconsent   0                     nein
+f01         10                    Universität
+f01         20                    Hochschule für angewandte Wissenschaft / University of Applied Sciences
+f01         30                    Kunst- oder Musikhochschule
+f02shk      11                    Technische Universität Chemnitz
+f02shk      12                    Technische Universität Dresden
+f02shk      13                    Technische Universität Bergakademie Freiberg
+f02shk      14                    Universität Leipzig
+f02shk      21                    Hochschule für Technik und Wirtschaft Dresden
+f02shk      22                    Hochschule für Technik, Wirtschaft und Kultur Leipzig
+f02shk      23                    Hochschule Mittweida
+f02shk      24                    Hochschule Zittau/Görlitz
+f02shk      25                    Westsächsische Hochschule Zwickau
+f02shk      31                    Hochschule für Musik Carl Maria von Weber Dresden
+f02shk      32                    Hochschule für Bildende Künste Dresden
+f02shk      33                    Palucca Hochschule für Tanz Dresden
+f02shk      34                    Hochschule für Grafik und Buchkunst Leipzig
+f02shk      35                    Hochschule für Musik und Theater Felix Mendelssohn Bartholdy Leipzig
+f03         1                     Professor*innen
+f03         2                     Akademische Assistent*innen
+f03         3                     Wissenschaftliche/künstlerische Mitarbeiter*innen
+f03         4                     Wissenschaftliche/künstlerische Hilfskräfte
+f03         5                     Studentische Hilfskräfte
+f03         6                     Lehrkräfte für besondere Aufgaben (LfbA)
+f03         7                     Mitarbeiter*innen in Service, Technik und Verwaltung (Wissenschaftsunterstützendes Personal)
+f03         8                     Sonstiges, und zwar:
+f04a        1                     Leitende Angestellte / Meister*innen / Tätigkeit mit umfassenden Führungsaufgaben
+f04a        2                     Qualifizierte Angestellte mit mittlerer Leitungsfunktion / hoch qualifizierte Tätigkeit
+f04a        3                     Qualifizierte Angestellte ohne Leitungsfunktion / Facharbeiter*innen (mit Lehre) / qualifizierte Tätigkeit
+f04a        4                     Ausführende Angestellte / Un- und angelernte Arbeiter*innen / Auszubildende / einfache Tätigkeit
+f04a        5                     Beamte im höheren Dienst
+f04a        6                     Beamte im gehobenen Dienst
+f04a        7                     Beamte im mittleren Dienst
+f04a        8                     Beamte im einfachen Dienst
+f04         1                     zentral (z. B. Verwaltung, Technik in Dezernaten oder Referaten, hochschulweites Service-Angebot)
+f04         2                     dezentral (z. B. in einem Fachbereich/Institut oder an einer Fakultät)
+f04         3                     sowohl zentral, als auch dezentral
+f05         1                     Geisteswissenschaften
+f05         2                     Rechts-, Wirtschafts- und Sozialwissenschaften
+f05         3                     Mathematik, Naturwissenschaften
+f05         4                     Humanmedizin/Gesundheitswissenschaften
+f05         5                     Sport
+f05         6                     Agrar-, Forst- und Ernährungswissenschaften, Veterinärmedizin
+f05         7                     Ingenieurwissenschaften
+f05         8                     Kunst/Kunstwissenschaften, Musik/Musikwissenschaft, Darstellende Kunst, Gestaltung u. ä.
+f05         -90                   Überwiegende Zuordnung nicht möglich, da zu gleichen Teilen in mehreren Bereichen beschäftigt
+f05         -91                   Außerhalb der Fächersystematik (z. B. zentrale Verwaltung, technischer Bereich)
+f06         1                     ja
+f06         2                     nein, befristet
+f07         1                     Juniorprofessur mit Tenure Track
+f07         2                     Juniorprofessur ohne Tenure Track
+f07         3                     sonstige Professur mit Tenure Track
+f07         4                     sonstige Professur (z. B. Stiftungsprofessur)
+f08         1                     ja, ausschließlich befristet
+f08         2                     ja, teilweise befristet
+f08         3                     nein, ausschließlich unbefristet
+f09         1                     nach Wissenschaftszeitvertragsgesetz (WissZeitVG)
+f09         2                     nach Teilzeit- und Befristungsgesetz (TzBfG)
+f09         3                     andere Grundlage, und zwar:
+f09         -98                   weiß nicht
+f10a        1                     ja
+f10a        0                     nein
+f10b        1                     ja
+f10b        0                     nein
+f10c        1                     ja
+f10c        0                     nein
+f10d        1                     ja
+f10d        0                     nein
+f10e        1                     ja
+f10e        0                     nein
+f10f        1                     ja
+f10f        0                     nein
+f10g        1                     ja
+f10g        0                     nein
+f10h        1                     ja
+f10h        0                     nein
+f10i        1                     ja
+f10i        0                     nein
+f10j        1                     ja
+f10j        0                     nein
+f10k        1                     ja
+f10k        0                     nein
+f10l        1                     ja
+f10l        0                     nein
+f10m        1                     ja
+f10m        0                     nein
+f10n        1                     ja
+f10n        0                     nein
+f10o        1                     ja
+f10o        0                     nein
+f10p        1                     ja
+f10p        0                     nein
+f10q        1                     ja
+f10q        0                     nein
+f10r        1                     ja
+f10r        0                     nein
+f10s        1                     ja
+f10s        0                     nein
+f10v        1                     ja
+f10v        0                     nein
+f10w        1                     ja
+f10w        0                     nein
+f11         1                     Ja, ich habe mehrere unmittelbare Vorgesetzte, und zwar:
+f11         2                     Nein
+f11x        1                     ja
+f11x        0                     nein
+f12         1                     in Teilzeit
+f12         2                     in Vollzeit
+f13         1                     mit
+f13         -98                   weiß nicht
+f13         -97                   Frage trifft nicht zu, da kein Stellenanteil vereinbart wurde.
+f13x        1                     ja
+f13x        0                     nein
+f14         1                     Es wurden
+f14         -97                   Nein, eine Stundenzahl wurde nicht vereinbart.
+f14         -98                   Weiß nicht.
+f14x        1                     ja
+f14x        0                     nein
+f15a        1                     ja
+f15a        0                     nein
+f15b        1                     ja
+f15b        0                     nein
+f15x        1                     ja
+f15x        0                     nein
+f16         1                     vollständig/überwiegend durch Haushaltsmittel
+f16         2                     vollständig/überwiegend durch Dritt- oder Sondermittel
+f16         3                     zu etwa gleichen Teilen durch Haushaltsmittel und Dritt/-Sondermittel
+f16         4                     anders finanziert, und zwar:
+f16         -98                   weiß nicht
+f17x        1                     ja
+f17x        0                     nein
+f18         1                     ja
+f18         2                     nein
+f18         -98                   weiß nicht
+f19         1                     ja
+f19         2                     nein
+f19         -98                   weiß nicht
+f21x        1                     ja
+f21x        0                     nein
+f22         1                     Ja, und zwar unbefristet.
+f22         2                     Ja, und zwar mit einer Laufzeit von
+f22         3                     Nein.
+f22x        1                     ja
+f22x        0                     nein
+f23         1                     ja
+f23         2                     nein
+f23         -98                   weiß nicht
+f24         1                     ja
+f24         2                     nein
+f24         -98                   weiß nicht
+f26         1                     ja
+f26         2                     nein
+f27         1                     Die Information wurde mir innerhalb der letzten vier Wochen gegeben.
+f27         2                     Die Information wurde mir vor etwa
+f27         -98                   weiß nicht
+f27x        1                     ja
+f27x        0                     nein
+f28a        1                     ja
+f28a        0                     nein
+f28b        1                     ja
+f28b        0                     nein
+f28c        1                     ja
+f28c        0                     nein
+f28d        1                     ja
+f28d        0                     nein
+f28e        1                     ja
+f28e        0                     nein
+f28f        1                     ja
+f28f        0                     nein
+f28g        1                     ja
+f28g        0                     nein
+f28h        1                     ja
+f28h        0                     nein
+f28v        1                     ja
+f28v        0                     nein
+f28w        1                     ja
+f28w        0                     nein
+f29         1                     (noch) keinen
+f29         2                     Bachelor
+f29         3                     Master/Staatsexamen/Diplom/Magister
+f29         4                     Sonstiges, und zwar:
+f30         1                     Ja.
+f30         2                     Nein, aber ich promoviere derzeit.
+f30         3                     Nein, und ich promoviere (derzeit) auch nicht.
+f31         1                     Ja.
+f31         2                     Nein, aber eine andere Person betreut mich.
+f31         3                     Nein, ich habe derzeit (noch) keine Betreuung.
+f31         -98                   Weiß nicht.
+f32         1                     Ja, ich bin habilitiert.
+f32         2                     Nein, aber ich befinde mich im Habilitationsprozess.
+f32         3                     Nein, ich bin nicht habilitiert und befinde mich auch nicht im Habilitationsprozess.
+f33         1                     ja
+f33         2                     nein
+f33         -98                   weiß nicht
+f34         1                     ja, schriftlich vereinbart
+f34         2                     ja, aber nur mündlich vereinbart
+f34         3                     nein
+f35         1                     Der vereinbarte Anteil beträgt:
+f35         2                     Es ist kein genauer Anteil festgelegt.
+f35x        1                     ja
+f35x        0                     nein
+f36x        1                     ja
+f36x        0                     nein
+f37x        1                     ja
+f37x        0                     nein
+f38x        1                     ja
+f38x        0                     nein
+f39a        1                     ja
+f39a        0                     nein
+f39b        1                     ja
+f39b        0                     nein
+f39c        1                     ja
+f39c        0                     nein
+f39d        1                     ja
+f39d        0                     nein
+f39e        1                     ja
+f39e        0                     nein
+f39f        1                     ja
+f39f        0                     nein
+f39g        1                     ja
+f39g        0                     nein
+f39v        1                     ja
+f39v        0                     nein
+f39w        1                     ja
+f39w        0                     nein
+f40         1                     Lebenszeitprofessur
+f40         2                     (andere) Leitungsposition
+f40         3                     Lehrkraft für besondere Aufgaben
+f40         4                     entfristete Mittelbaustelle
+f40         5                     (andere) Position ohne Leitungsfunktion
+f40         6                     Selbstständigkeit/Freiberufliche Tätigkeit
+f40         7                     andere Position, und zwar:
+f40         -98                   weiß nicht
+f41         1                     ja
+f41         2                     nein
+f42         1                     ja
+f42         2                     nein
+f43         1                     ja, in der gleichen Personalkategorie wie derzeit
+f43         2                     ja, (auch) in einer anderen Personalkategorie als derzeit
+f43         3                     nein
+f44a        1                     ja
+f44a        0                     nein
+f44b        1                     ja
+f44b        0                     nein
+f44c        1                     ja
+f44c        0                     nein
+f44d        1                     ja
+f44d        0                     nein
+f44e        1                     ja
+f44e        0                     nein
+f44f        1                     ja
+f44f        0                     nein
+f44v        1                     ja
+f44v        0                     nein
+f45x        1                     ja
+f45x        0                     nein
+f46x        1                     ja
+f46x        0                     nein
+f47x        1                     ja
+f47x        0                     nein
+f48x        1                     ja
+f48x        0                     nein
+f49         1                     Ja, insgesamt gab es:
+f49         2                     Nein, es gab keine ungewollten Beschäftigungslücken.
+f49x        1                     ja
+f49x        0                     nein
+f50x        1                     ja
+f50x        0                     nein
+f51a        1                     Das mache ich überwiegend/häufig.
+f51a        2                     Das mache ich gelegentlich.
+f51a        3                     Das mache ich üblicherweise nicht.
+f51b        1                     Das mache ich überwiegend/häufig.
+f51b        2                     Das mache ich gelegentlich.
+f51b        3                     Das mache ich üblicherweise nicht.
+f51c        1                     Das mache ich überwiegend/häufig.
+f51c        2                     Das mache ich gelegentlich.
+f51c        3                     Das mache ich üblicherweise nicht.
+f52a        1                     ja
+f52a        0                     nein
+f52b        1                     ja
+f52b        0                     nein
+f52c        1                     ja
+f52c        0                     nein
+f52d        1                     ja
+f52d        0                     nein
+f52e        1                     ja
+f52e        0                     nein
+f52f        1                     ja
+f52f        0                     nein
+f52g        1                     ja
+f52g        0                     nein
+f52h        1                     ja
+f52h        0                     nein
+f52i        1                     ja
+f52i        0                     nein
+f52j        1                     ja
+f52j        0                     nein
+f52k        1                     ja
+f52k        0                     nein
+f52l        1                     ja
+f52l        0                     nein
+f52v        1                     ja
+f52v        0                     nein
+f53         1                     ja
+f53         2                     nein, aber der Abschluss einer Vereinbarung ist in Vorbereitung
+f53         3                     nein
+f54a        1                     ja
+f54a        0                     nein
+f54b        1                     ja
+f54b        0                     nein
+f54c        1                     ja
+f54c        0                     nein
+f54d        1                     ja
+f54d        0                     nein
+f54e        1                     ja
+f54e        0                     nein
+f54f        1                     ja
+f54f        0                     nein
+f54g        1                     ja
+f54g        0                     nein
+f54h        1                     ja
+f54h        0                     nein
+f54i        1                     ja
+f54i        0                     nein
+f54j        1                     ja
+f54j        0                     nein
+f54k        1                     ja
+f54k        0                     nein
+f54v        1                     ja
+f54v        0                     nein
+f54w        1                     ja
+f54w        0                     nein
+f55a        1                     ja
+f55a        0                     nein
+f55b        1                     ja
+f55b        0                     nein
+f55c        1                     ja
+f55c        0                     nein
+f55d        1                     ja
+f55d        0                     nein
+f55e        1                     ja
+f55e        0                     nein
+f55f        1                     ja
+f55f        0                     nein
+f56a        1                     ja
+f56a        0                     nein
+f56b        1                     ja
+f56b        0                     nein
+f56c        1                     ja
+f56c        0                     nein
+f56d        1                     ja
+f56d        0                     nein
+f57a        1                     sehr wichtig
+f57a        2                     eher wichtig
+f57a        3                     weniger wichtig
+f57a        4                     nicht wichtig
+f57b        1                     sehr wichtig
+f57b        2                     eher wichtig
+f57b        3                     weniger wichtig
+f57b        4                     nicht wichtig
+f57c        1                     sehr wichtig
+f57c        2                     eher wichtig
+f57c        3                     weniger wichtig
+f57c        4                     nicht wichtig
+f57d        1                     sehr wichtig
+f57d        2                     eher wichtig
+f57d        3                     weniger wichtig
+f57d        4                     nicht wichtig
+f57e        1                     sehr wichtig
+f57e        2                     eher wichtig
+f57e        3                     weniger wichtig
+f57e        4                     nicht wichtig
+f57f        1                     sehr wichtig
+f57f        2                     eher wichtig
+f57f        3                     weniger wichtig
+f57f        4                     nicht wichtig
+f57g        1                     sehr wichtig
+f57g        2                     eher wichtig
+f57g        3                     weniger wichtig
+f57g        4                     nicht wichtig
+f57h        1                     sehr wichtig
+f57h        2                     eher wichtig
+f57h        3                     weniger wichtig
+f57h        4                     nicht wichtig
+f57i        1                     sehr wichtig
+f57i        2                     eher wichtig
+f57i        3                     weniger wichtig
+f57i        4                     nicht wichtig
+f57j        1                     sehr wichtig
+f57j        2                     eher wichtig
+f57j        3                     weniger wichtig
+f57j        4                     nicht wichtig
+f57k        1                     sehr wichtig
+f57k        2                     eher wichtig
+f57k        3                     weniger wichtig
+f57k        4                     nicht wichtig
+f57l        1                     sehr wichtig
+f57l        2                     eher wichtig
+f57l        3                     weniger wichtig
+f57l        4                     nicht wichtig
+f57v        1                     sehr wichtig
+f57v        2                     eher wichtig
+f57v        3                     weniger wichtig
+f57v        4                     nicht wichtig
+f58a        1                     ja
+f58a        0                     nein
+f58b        1                     ja
+f58b        0                     nein
+f58c        1                     ja
+f58c        0                     nein
+f58d        1                     ja
+f58d        0                     nein
+f59a        1                     ja
+f59a        0                     nein
+f59b        1                     ja
+f59b        0                     nein
+f59c        1                     ja
+f59c        0                     nein
+f59d        1                     ja
+f59d        0                     nein
+f59e        1                     ja
+f59e        0                     nein
+f59f        1                     ja
+f59f        0                     nein
+f59g        1                     ja
+f59g        0                     nein
+f59h        1                     ja
+f59h        0                     nein
+f59v        1                     ja
+f59v        0                     nein
+f60         1                     Ja, und ich habe angenommen.
+f60         2                     Ja, und ich habe abgelehnt.
+f60         3                     Nein, mir wurde kein Gespräch angeboten.
+f61         1                     Ja
+f61         2                     Nein
+f62         1                     Ja
+f62         2                     Nein
+f62         -98                   Kann ich nicht beurteilen.
+f63         1                     Ja
+f63         2                     Nein
+f63         -98                   Kann ich nicht beurteilen.
+f64a        1                     trifft voll zu
+f64a        2                     trifft eher zu
+f64a        3                     trifft eher nicht zu
+f64a        4                     trifft nicht zu
+f64b        1                     trifft voll zu
+f64b        2                     trifft eher zu
+f64b        3                     trifft eher nicht zu
+f64b        4                     trifft nicht zu
+f64b        -98                   kann ich nicht beurteilen
+f64c        1                     trifft voll zu
+f64c        2                     trifft eher zu
+f64c        3                     trifft eher nicht zu
+f64c        4                     trifft nicht zu
+f65a        1                     ja
+f65a        0                     nein
+f65b        1                     ja
+f65b        0                     nein
+f65c        1                     ja
+f65c        0                     nein
+f65d        1                     ja
+f65d        0                     nein
+f65e        1                     ja
+f65e        0                     nein
+f65f        1                     ja
+f65f        0                     nein
+f65g        1                     ja
+f65g        0                     nein
+f66a        1                     sehr zufrieden
+f66a        2                     eher zufrieden
+f66a        3                     eher unzufrieden
+f66a        4                     sehr unzufrieden
+f66a        -97                   trifft nicht zu
+f66b        1                     sehr zufrieden
+f66b        2                     eher zufrieden
+f66b        3                     eher unzufrieden
+f66b        4                     sehr unzufrieden
+f66b        -97                   trifft nicht zu
+f66c        1                     sehr zufrieden
+f66c        2                     eher zufrieden
+f66c        3                     eher unzufrieden
+f66c        4                     sehr unzufrieden
+f66c        -97                   trifft nicht zu
+f66d        1                     sehr zufrieden
+f66d        2                     eher zufrieden
+f66d        3                     eher unzufrieden
+f66d        4                     sehr unzufrieden
+f66d        -97                   trifft nicht zu
+f66e        1                     sehr zufrieden
+f66e        2                     eher zufrieden
+f66e        3                     eher unzufrieden
+f66e        4                     sehr unzufrieden
+f66e        -97                   trifft nicht zu
+f66f        1                     sehr zufrieden
+f66f        2                     eher zufrieden
+f66f        3                     eher unzufrieden
+f66f        4                     sehr unzufrieden
+f66f        -97                   trifft nicht zu
+f66g        1                     sehr zufrieden
+f66g        2                     eher zufrieden
+f66g        3                     eher unzufrieden
+f66g        4                     sehr unzufrieden
+f66g        -97                   trifft nicht zu
+f66h        1                     sehr zufrieden
+f66h        2                     eher zufrieden
+f66h        3                     eher unzufrieden
+f66h        4                     sehr unzufrieden
+f66h        -97                   trifft nicht zu
+f66i        1                     sehr zufrieden
+f66i        2                     eher zufrieden
+f66i        3                     eher unzufrieden
+f66i        4                     sehr unzufrieden
+f66i        -97                   trifft nicht zu
+f67a        1                     trifft voll zu
+f67a        2                     trifft eher zu
+f67a        3                     trifft eher nicht zu
+f67a        4                     trifft nicht zu
+f67a        -97                   kann ich nicht beurteilen
+f67b        1                     trifft voll zu
+f67b        2                     trifft eher zu
+f67b        3                     trifft eher nicht zu
+f67b        4                     trifft nicht zu
+f67b        -97                   kann ich nicht beurteilen
+f67c        1                     trifft voll zu
+f67c        2                     trifft eher zu
+f67c        3                     trifft eher nicht zu
+f67c        4                     trifft nicht zu
+f67c        -97                   kann ich nicht beurteilen
+f67d        1                     trifft voll zu
+f67d        2                     trifft eher zu
+f67d        3                     trifft eher nicht zu
+f67d        4                     trifft nicht zu
+f67d        -97                   kann ich nicht beurteilen
+f67e        1                     trifft voll zu
+f67e        2                     trifft eher zu
+f67e        3                     trifft eher nicht zu
+f67e        4                     trifft nicht zu
+f67e        -97                   kann ich nicht beurteilen
+f67f        1                     trifft voll zu
+f67f        2                     trifft eher zu
+f67f        3                     trifft eher nicht zu
+f67f        4                     trifft nicht zu
+f67f        -97                   kann ich nicht beurteilen
+f67g        1                     trifft voll zu
+f67g        2                     trifft eher zu
+f67g        3                     trifft eher nicht zu
+f67g        4                     trifft nicht zu
+f67g        -97                   kann ich nicht beurteilen
+f67h        1                     trifft voll zu
+f67h        2                     trifft eher zu
+f67h        3                     trifft eher nicht zu
+f67h        4                     trifft nicht zu
+f67h        -97                   kann ich nicht beurteilen
+f67i        1                     trifft voll zu
+f67i        2                     trifft eher zu
+f67i        3                     trifft eher nicht zu
+f67i        4                     trifft nicht zu
+f67i        -97                   kann ich nicht beurteilen
+f67j        1                     trifft voll zu
+f67j        2                     trifft eher zu
+f67j        3                     trifft eher nicht zu
+f67j        4                     trifft nicht zu
+f67j        -97                   kann ich nicht beurteilen
+f67k        1                     trifft voll zu
+f67k        2                     trifft eher zu
+f67k        3                     trifft eher nicht zu
+f67k        4                     trifft nicht zu
+f67k        -97                   kann ich nicht beurteilen
+f67l        1                     trifft voll zu
+f67l        2                     trifft eher zu
+f67l        3                     trifft eher nicht zu
+f67l        4                     trifft nicht zu
+f67l        -97                   kann ich nicht beurteilen
+f68         1                     Ja, die Inhalte sind mir bekannt.
+f68         2                     Davon habe ich schon mal gehört, aber ich kenne die Inhalte nicht oder nicht genau.
+f68         3                     Nein, davon habe ich noch nicht gehört.
+f70a        1                     ja
+f70a        2                     nein
+f70a        -98                   weiß nicht
+f70b        1                     ja
+f70b        2                     nein
+f70b        -98                   weiß nicht
+f70c        1                     ja
+f70c        2                     nein
+f70c        -98                   weiß nicht
+f70d        1                     ja
+f70d        2                     nein
+f70d        -98                   weiß nicht
+f70e        1                     ja
+f70e        2                     nein
+f70e        -98                   weiß nicht
+f70f        1                     ja
+f70f        2                     nein
+f70f        -98                   weiß nicht
+f70v        1                     ja
+f70v        2                     nein
+f70v        -98                   weiß nicht
+f71a        1                     ja
+f71a        0                     nein
+f71b        1                     ja
+f71b        0                     nein
+f71c        1                     ja
+f71c        0                     nein
+f71d        1                     ja
+f71d        0                     nein
+f71e        1                     ja
+f71e        0                     nein
+f71f        1                     ja
+f71f        0                     nein
+f71g        1                     ja
+f71g        0                     nein
+f71h        1                     ja
+f71h        0                     nein
+f71i        1                     ja
+f71i        0                     nein
+f71j        1                     ja
+f71j        0                     nein
+f71k        1                     ja
+f71k        0                     nein
+f71v        1                     ja
+f71v        0                     nein
+f72a        1                     genutzt
+f72a        2                     nicht genutzt
+f72b        1                     genutzt
+f72b        2                     nicht genutzt
+f72c        1                     genutzt
+f72c        2                     nicht genutzt
+f72d        1                     genutzt
+f72d        2                     nicht genutzt
+f72e        1                     genutzt
+f72e        2                     nicht genutzt
+f72f        1                     genutzt
+f72f        2                     nicht genutzt
+f72g        1                     genutzt
+f72g        2                     nicht genutzt
+f72h        1                     genutzt
+f72h        2                     nicht genutzt
+f72i        1                     genutzt
+f72i        2                     nicht genutzt
+f72j        1                     genutzt
+f72j        2                     nicht genutzt
+f72k        1                     genutzt
+f72k        2                     nicht genutzt
+f72v        1                     genutzt
+f72v        2                     nicht genutzt
+f73x        1                     ja
+f73x        0                     nein
+f74         1                     männlich
+f74         2                     weiblich
+f74         3                     divers
+f74         -98                   Ich möchte hierzu keine Angabe machen.

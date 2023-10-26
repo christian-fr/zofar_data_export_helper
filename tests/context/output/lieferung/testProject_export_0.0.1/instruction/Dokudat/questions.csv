@@ -1,0 +1,293 @@
+pre_hs       
+consent       Ich habe die Datenschutzerklärung gelesen und bin damit einverstanden, dass meine Angaben elektronisch gesichert und in anonymisierter Form zu Forschungszwecken genutzt werden.
+noconsent     Ich habe den Hinweis verstanden und möchte nicht teilnehmen.
+flag_index   
+f01          Würden Sie uns zumindest mitteilen, an welcher Hochschulart Sie beschäftigt sind?
+f02shk       Bitte sagen Sie uns zunächst, über welche Hochschule Sie zu dieser Befragung eingeladen wurden.
+f03          Welcher Personalkategorie ordnen Sie sich selbst zu?
+f03str       Welcher Personalkategorie ordnen Sie sich selbst zu? Sonstiges, und zwar:
+flag_f03     
+f04a         Welcher beruflichen Stellung oder Laufbahngruppe ordnen Sie sich zu bzw. welche Tätigkeit üben Sie aus?
+f04          Sind Sie als Mitarbeiter*in in Service, Technik und Verwaltung (wissenschaftsunterstützendes Personal) zentral oder dezentral beschäftigt?
+f05          Welcher Fächergruppe ist Ihre Stelle am ehesten zugehörig?
+f06          Ist Ihre Professur unbefristet?
+f07          Um was für eine befristete Professur handelt es sich?
+f08          Sind Sie (ganz oder teilweise) befristet beschäftigt?
+f09          Auf welcher gesetzlichen Grundlage sind Sie befristet beschäftigt?
+f09_str      Auf welcher gesetzlichen Grundlage sind Sie befristet beschäftigt? andere Grundlage, und zwar:
+f10a         Welche Befristungsgründe treffen auf Sie zu? Die Vertragslaufzeit ist an die Projektlaufzeit gekoppelt.
+f10b         Welche Befristungsgründe treffen auf Sie zu? Stelle ist eine Vertretung (z. B. wegen Krankheit, Elternzeit).
+f10c         Welche Befristungsgründe treffen auf Sie zu? Studien- oder Promotionsabschluss steht bevor.
+f10d         Welche Befristungsgründe treffen auf Sie zu? Befristungsgrenze des Wissenschaftszeitvertragsgesetzes greift.
+f10e         Welche Befristungsgründe treffen auf Sie zu? Finanzierung läuft aus, mehr Mittel stehen nicht zur Verfügung.
+f10f         Welche Befristungsgründe treffen auf Sie zu? Die Vertragslaufzeit ist an die Vorlesungs- oder Semesterzeit gekoppelt.
+f10g         Welche Befristungsgründe treffen auf Sie zu? Überbrückung, Zwischenfinanzierung, z. B. bis neues Projekt beginnt.
+f10h         Welche Befristungsgründe treffen auf Sie zu? Bevorstehende Förderung aus anderen Quellen (z. B. Stipendium).
+f10i         Welche Befristungsgründe treffen auf Sie zu? Vertrag ist an eine bestimmte Aufgabe geknüpft.
+f10j         Welche Befristungsgründe treffen auf Sie zu? Der Bedarf an der Arbeitsleistung besteht nur vorübergehend.
+f10k         Welche Befristungsgründe treffen auf Sie zu? Die Befristung erfolgt im Anschluss an eine Ausbildung oder ein Studium, um den Übergang in eine Anschlussbeschäftigung zu erleichtern.
+f10l         Welche Befristungsgründe treffen auf Sie zu? Die Eigenart der Arbeitsleistung begründet die Befristung.
+f10m         Welche Befristungsgründe treffen auf Sie zu? Die Befristung dient der Erprobung.
+f10n         Welche Befristungsgründe treffen auf Sie zu? Die Vergütung ist haushaltsrechtlich nur für eine befristete Beschäftigung bestimmt.
+f10o         Welche Befristungsgründe treffen auf Sie zu? Die Befristung beruht auf einem gerichtlichen Vergleich.
+f10p         Welche Befristungsgründe treffen auf Sie zu? Befristung erfolgt sachgrundlos (z. B. bei Neueinstellung).
+f10q         Welche Befristungsgründe treffen auf Sie zu? Mein*e Vorgesetzte*r hat es so entschieden.
+f10r         Welche Befristungsgründe treffen auf Sie zu? Eigener Wunsch, persönliche Gründe.
+f10s         Welche Befristungsgründe treffen auf Sie zu? Auslaufende Aufenthaltsgenehmigung.
+f10v         Welche Befristungsgründe treffen auf Sie zu? Anderer Grund, und zwar:
+f10v_str     Welche Befristungsgründe treffen auf Sie zu? Anderer Grund, und zwar:
+f10w         Welche Befristungsgründe treffen auf Sie zu? Weiß nicht. / Mir wurde kein Grund angegeben.
+f11          Haben Sie mehr als eine*n unmittelbare*n Vorgesetzte*n?
+f11_str      
+f11x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f12          Sind Sie an Ihrer Hochschule in Teilzeit oder in Vollzeit beschäftigt?
+f13          In welchem Stellenanteil sind Sie derzeit an Ihrer Hochschule insgesamt beschäftigt?
+f13a_str     
+f13x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f14          Können Sie Angaben zur vereinbarten Wochenarbeitszeit oder der vereinbarten Gesamtarbeitszeit machen? Über wie viele Stunden pro Woche bzw. wie viele Stunden insgesamt läuft Ihr gegenwärtiger Arbeitsvertrag?
+f14a_str     
+f14b_str     
+f14x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f15a         In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt? befristet mit
+f15a1_str    
+f15a2_str    
+f15b         In welchem Stellenumfang sind Sie an Ihrer Hochschule jeweils befristet und unbefristet beschäftigt? unbefristet mit
+f15b1_str    
+f15b2_str    
+f15x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f16          Wie ist Ihre Stelle bzw. der befristete Anteil Ihrer Stelle finanziert?
+f16_str      Wie ist Ihre Stelle bzw. der befristete Anteil Ihrer Stelle finanziert? anders finanziert, und zwar:
+f17_str      
+f17x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f18          War die Stelle Ihres gegenwärtigen Vertrags ausgeschrieben?
+f19          Wurde bei der Ausschreibung angegeben, in welche Entgeltgruppe Sie voraussichtlich eingruppiert werden?
+f21_str      
+f21x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f22          Haben Sie bereits einen Folgevertrag unterschrieben?
+f22_str      
+f22x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f23          War die Stelle Ihres Folgevertrags ausgeschrieben?
+f24          Wurde bei dieser Ausschreibung angegeben, in welche Entgeltgruppe Sie voraussichtlich eingruppiert werden?
+f26          Wurden Sie seit Beginn des gegenwärtigen Arbeitsvertrags darüber informiert, ob es eine Anschlussbeschäftigung geben oder nicht geben wird?
+f27          Wie lange ist das ungefähr her?
+f27_str      
+f27x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f28a         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Eine Fortführung des gegenwärtigen Vertrags ist vorgesehen.
+f28b         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Ich habe eine unbefristete Stelle in Aussicht.
+f28c         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Ich würde gerne weiter an der Hochschule arbeiten, aber die Perspektive ist derzeit unsicher/unklar.
+f28d         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Ich habe eine Förderung aus anderen Quellen (z. B. Stipendium) in Aussicht.
+f28e         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Ich plane eine Stelle an einer (anderen) wissenschaftlichen Einrichtung zu suchen oder anzunehmen.
+f28f         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Ich plane eine Stelle an einer nicht-wissenschaftlichen Einrichtung zu suchen oder anzunehmen.
+f28g         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Ich plane eine freiberufliche oder selbstständige Tätigkeit auszuüben.
+f28h         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Ich werde mich erst einmal auf mein Studium/meine Qualifizierung konzentrieren.
+f28v         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Sonstiges, und zwar:
+f28v_str     Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Sonstiges, und zwar:
+f28w         Wissen Sie schon, wie es im Anschluss an Ihre gegenwärtige Beschäftigung beruflich weitergeht? Ich habe noch keine Vorstellungen.
+f29          Nach diesen Fragen zu Ihrer derzeitigen Beschäftigung haben wir nun einige Fragen zu Ihren Qualifikations- und Karrierezielen. Zunächst: Welchen höchsten Studienabschluss haben Sie erworben?
+f29_str      Nach diesen Fragen zu Ihrer derzeitigen Beschäftigung haben wir nun einige Fragen zu Ihren Qualifikations- und Karrierezielen. Zunächst: Welchen höchsten Studienabschluss haben Sie erworben? Sonstiges, und zwar:
+f30          Sind Sie promoviert?
+f31          Werden Sie in Ihrer Promotion von Ihrer/Ihrem Dienstvorgesetzten betreut?
+f32          Sind Sie habilitiert?
+f33          Gehört die wissenschaftliche oder künstlerische Weiterqualifizierung laut Arbeitsvertrag zu Ihren Dienstaufgaben?
+f34          Und ist Ihnen ein Teil Ihrer Arbeitszeit zur wissenschaftlichen oder künstlerischen Qualifizierung belassen? Und ist Ihnen trotzdem ein Teil Ihrer Arbeitszeit zur wissenschaftlichen oder künstlerischen Qualifizierung belassen?
+f35          Wie hoch ist dieser vereinbarte Anteil Ihrer Arbeitszeit, der Ihnen zur Qualifizierung belassen ist?
+f35_str      
+f35x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f36_str      
+f36x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f37a_str     
+f37b_str     
+f37c_str     
+f37d_str     
+f37e_str     
+f37v_str     
+f37x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f38a_str     
+f38b_str     
+f38c_str     
+f38v_str     
+f38x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f39a         Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? im Hochschulbereich
+f39b         Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? außerhalb des Hochschulbereichs
+f39c         Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? im Bereich Forschung
+f39d         Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? im Bereich Lehre
+f39e         Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? im Bereich Wissenschaftsmanagement
+f39f         Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? im Bereich Technik, Service und Verwaltung
+f39g         Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? im künstlerischen, kulturellen Bereich
+f39v         Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? Sonstiges, und zwar:
+f39v_str     Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? Sonstiges, und zwar:
+f39w         Wenn Sie nun einmal an Ihre berufliche Zukunft denken: In welchem Bereich möchten Sie langfristig tätig sein? weiß nicht
+f40          Und welche Position entspricht am ehesten Ihrer langfristigen Vorstellung?
+f40_str      Und welche Position entspricht am ehesten Ihrer langfristigen Vorstellung? andere Position, und zwar:
+f41          Kommen wir noch einmal kurz zurück zu Ihrer Berufsbiografie an sächsischen Hochschulen. Handelt es sich bei Ihrem derzeitigen Arbeitsvertrag um den ersten Arbeitsvertrag an einer staatlichen Hochschule in Sachsen?
+f42          Waren Sie zuvor als studentische Hilfskraft an einer staatlichen Hochschule in Sachsen tätig?
+f43          Gab es weitere Vorbeschäftigungen an einer staatlichen Hochschule in Sachsen?
+f44a         In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt? (Junior)Professor*in
+f44b         In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt? Akademische*r Assistent*in
+f44c         In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt? Wissenschaftliche*r/künstlerischer*r Mitarbeiter*in
+f44d         In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt? Wissenschaftliche/künstlerischer Hilfskraft
+f44e         In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt? Lehrkraft für besondere Aufgaben (LfbA)
+f44f         In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt? Mitarbeiter*in in Service, Technik und Verwaltung (Wissenschaftsunterstützendes Personal)
+f44v         In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt? Andere, und zwar:
+f44_str      In welcher weiteren Personalkategorie waren Sie zuvor bereits an einer staatlichen Hochschule in Sachsen beschäftigt? Andere, und zwar:
+f45_str      
+f45x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f46_m        
+f46_y        
+f46x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f47_str      
+f47x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f48_y        
+f48x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f49          Und gab es in dieser Zeit tatsächliche, ungewollte Beschäftigungslücken, d. h. Zeiten ohne Arbeitsvertrag? Und wenn ja, wie viele?
+f49_str      
+f49x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f50_str      
+f50x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f51a         Unmittelbare Unterstützung und Zuarbeiten im Bereich Forschung (z. B. Literaturrecherche, Korrekturlesen, Datenerhebung/-aufbereitung, …)
+f51b         Unmittelbare Unterstützung und Zuarbeiten im Bereich Lehre und Prüfungen (z. B. Vorbereitung von Seminaren, Klausuraufsicht, Betreuung von Studierenden, Tutorien, …)
+f51c         Sonstige Unterstützung und Zuarbeiten, die sich nicht unmittelbar den Bereichen Forschung und Lehre zuordnen lassen (z. B. Bibliotheksaufsicht, Korrespondenz, Catering, IT-Support, Pflege von Musikinstrumenten, …)
+f52a         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Allgemeine Labor- oder Atelierarbeiten (z. B. Vorbereitung, Aufräumen)
+f52b         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Überwachung und Pflege von Messgeräten
+f52c         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Pflege oder Ausgabe von (Musik-)Instrumenten oder Arbeitsmaterialen
+f52d         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Organisation von Reisen
+f52e         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Aufsicht und Katalogisierung in einer Bibliothek
+f52f         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Sekretariatsarbeiten, Korrespondenz
+f52g         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Service, Catering
+f52h         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Netzwerk-/IT-Administration und Support (Hard- und Software)
+f52i         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Webmastertätigkeiten, Social Media
+f52j         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Medizinische Überwachung/Betreuung von Patient*innen
+f52k         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? (Tier-)pflegerische Tätigkeiten
+f52l         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Private Aufgaben für Vorgesetzte
+f52v         Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Sonstiges, und zwar:
+f52v_str     Hier möchten wir noch einmal genauer nachfragen. Welche sonstigen Aufgaben übernehmen Sie im Rahmen Ihrer Tätigkeit? Sonstiges, und zwar:
+f53          Nachdem wir nun viele Fragen zu Ihrer Beschäftigung gestellt haben, geht es auf den folgenden Seiten um Ihre Qualifizierung. Haben Sie im Rahmen Ihrer gegenwärtigen Qualifizierungsphase eine Betreuungsvereinbarung abgeschlossen?
+f54a         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? das angestrebte Qualifikationsziel
+f54b         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Art und Umfang der Betreuung
+f54c         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Qualifikationsform (z. B. kumulativ, Monografie)
+f54d         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Zeitplanung/Zeitliche Ressourcen für die Qualifizierung
+f54e         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Verfahren in Konfliktfällen
+f54f         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? regelmäßiger Bericht zum Stand der Qualifikation
+f54g         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Art und Form zu erbringender Leistungen
+f54h         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Infrastruktur, die zur Verfügung gestellt wird
+f54i         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Regeln guter wissenschaftlicher Praxis
+f54j         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? finanzielle Ressourcen, z. B. für Reisen oder Publikationen
+f54k         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Registrierungs-/Immatrikulationspflicht
+f54v         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Sonstiges, und zwar:
+f54v_str     Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? Sonstiges, und zwar:
+f54w         Uns interessieren die Inhalte Ihrer Betreuungsvereinbarung. Welche der folgenden Punkte sind darin enthalten? weiß nicht
+f55a         Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in … …spricht mit Ihnen über Ihre Zukunftspläne im Allgemeinen.
+f55b         Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in … …spricht mit Ihnen über den Verlauf der Qualifikationsphase.
+f55c         Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in … …spricht mit Ihnen über die zu erbringenden Leistungen.
+f55d         Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in … …berät Sie zu geeigneten Fort-/Weiterbildungen.
+f55e         Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in … …berät Sie gezielt im Hinblick auf eine wiss. Karriere.
+f55f         Welche der folgenden Aussagen trifft bzw. treffen auf Gespräche mit Ihrem/Ihrer Betreuer*in zu? Ihr*e Betreuer*in … …berät Sie gezielt im Hinblick auf eine Karriere außerhalb der Wissenschaft.
+f56a         Welche weiteren Unterstützungsleistungen können Sie berichten? Ihr*e Betreuer*in … …sichert die finanziellen Ressourcen für Fortbildungen, Reisen und Publikationen im Rahmen Ihrer Qualifikationsphase.
+f56b         Welche weiteren Unterstützungsleistungen können Sie berichten? Ihr*e Betreuer*in … …kümmert sich um Ihre Finanzierung in der Qualifikationsphase (z. B. durch Drittmittelanträge und Referenzschreiben etwa zur Beantragung von Stipendien).
+f56c         Welche weiteren Unterstützungsleistungen können Sie berichten? Ihr*e Betreuer*in … …nutzt seine/ihre wissenschaftlichen Kontakte, um Sie voranzubringen.
+f56d         Welche weiteren Unterstützungsleistungen können Sie berichten? Ihr*e Betreuer*in … …fördert Ihre Vernetzung durch das Herstellen von Kontakten und Austauschgelegenheiten.
+f57a         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Wissenschaftliches Arbeiten und Forschung
+f57b         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Berufliche Orientierung und Karriereplanung
+f57c         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Lehre und Betreuung
+f57d         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? (Personal-)Führung und Leitung
+f57e         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Wissenschafts-, Projekt-, Kunstmanagement
+f57f         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Einwerbung von Drittmitteln
+f57g         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Gremienarbeit
+f57h         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Wissenschaftskommunikation
+f57i         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Netzwerke knüpfen, pflegen und nutzen
+f57j         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Internationale Zusammenarbeit
+f57k         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Interdisziplinäre Zusammenarbeit
+f57l         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Gutachtertätigkeit
+f57v         Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Sonstiges, und zwar:
+f57v_str     Welche Rolle spielen die nachfolgenden Felder im Rahmen Ihrer gegenwärtigen Qualifizierungsphase? Sonstiges, und zwar:
+f58a         Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt? ja, aufgrund der Betreuung von Kindern unter 18 Jahren oder gesundheitlichen Beeinträchtigungen
+f58b         Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt? ja, aufgrund der Corona-Sonderregelungen
+f58c         Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt? ja, aus anderem Grund, und zwar:
+f58c_str     Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt? ja, aus anderem Grund, und zwar:
+f58d         Der Rahmenkodex über den Umgang mit befristeter Beschäftigung an den sächsischen Hochschulen sieht unter Verweis auf das Wissenschaftszeitvertragsgesetz vor, dass Qualifikationsstellen unter bestimmten Voraussetzungen auch über den normalen Befristungsrahmen hinaus verlängert werden können. Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von sechs Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen von zwölf (Medizin: 15) Jahren hinaus beschäftigt? Werden Sie aktuell oder in absehbarer Zeit über den üblichen Befristungsrahmen hinaus beschäftigt? nein
+f59a         Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Die Grenze des Befristungsrahmens ist noch so weit weg, dass sie für mich bislang kein Thema war.
+f59b         Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Ich werde mein Qualifikationsziel voraussichtlich ohne Vertragsverlängerung erreichen.
+f59c         Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Die Voraussetzungen (Kinderbetreuung oder gesundheitliche Beeinträchtigungen) treffen für mich aktuell nicht zu.
+f59d         Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Ich befürchte Nachteile, wenn ich auf eine Verlängerung hinwirke.
+f59e         Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Ich weiß nicht, an wen ich mich wenden soll.
+f59f         Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Das Projekt, in dem ich arbeite, bietet keine Option einer Verlängerung.
+f59g         Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Eine Verzögerung der Fertigstellung der Qualifikationsarbeit aufgrund der Coronapandemie wurde mir nicht anerkannt.
+f59h         Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Eine Verzögerung der Fertigstellung der Qualifikationsarbeit aufgrund persönlicher und/oder familiärer Bedingungen wurde mir nicht anerkannt.
+f59v         Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Sonstiges, und zwar:
+f59v_str     Warum werden Sie in absehbarer Zeit nicht über den normalen Befristungsrahmen des WissZeitVG hinaus beschäftigt? Sonstiges, und zwar:
+f60          Im Folgenden geht es um jährliche Gespräche, die mit Ihrer/Ihrem Dienstvorgesetzten stattfinden sollen. Wurde Ihnen in den letzten 18 Monaten ein solches Jahresgespräch/Mitarbeiter-Vorgesetzen-Gespräch angeboten?
+f61          Hat dieses Gespräch stattgefunden?
+f62          Haben Sie im Rahmen des Jahresgespräches Feedback über Ihre Leistungen und Ihre erbrachte Arbeit erhalten?
+f63          Haben Sie im Rahmen des mit Ihnen geführten Jahresgesprächs mit Ihrer bzw. Ihrem Vorgesetzten Vereinbarungen bezüglich der Zukunftsplanung/Zielvereinbarung getroffen?
+f64a         Wie beurteilen Sie die nachfolgende Aussage zu dem mit Ihnen geführten Jahresgespräch? Im Rahmen des Jahresgespräches wurden Vereinbarungen bezüglich der Zukunftsplanung/Zielvereinbarung getroffen und ich bin mit den getroffenen Vereinbarungen zufrieden.
+f64b         Wie beurteilen Sie die nachfolgende Aussage zu dem mit Ihnen geführten Jahresgespräch? Die im Rahmen des mit mir geführten Jahresgesprächs getroffenen Vereinbarungen wurden innerhalb der darauffolgenden 18 Monate umgesetzt.
+f64c         Wie beurteilen Sie die nachfolgende Aussage zu dem mit Ihnen geführten Jahresgespräch? Mit der Qualität des mit mir geführten Jahresgespräches bin ich zufrieden.
+f65a         Welche Wirkungen hatte das Jahresgespräch auf Sie? Durch das Gespräch hat sich die Kommunikation mit meiner Führungskraft verbessert.
+f65b         Welche Wirkungen hatte das Jahresgespräch auf Sie? Durch das Gespräch hat sich die Zusammenarbeit in meinem Arbeitsbereich verbessert.
+f65c         Welche Wirkungen hatte das Jahresgespräch auf Sie? Das Gespräch hat sich positiv auf meine Motivation ausgewirkt.
+f65d         Welche Wirkungen hatte das Jahresgespräch auf Sie? Durch das Gespräch habe ich ein besseres Verständnis für die Ziele in meinem Arbeitsbereich entwickelt.
+f65e         Welche Wirkungen hatte das Jahresgespräch auf Sie? Das Gespräch hatte keine Wirkungen auf mich.
+f65f         Welche Wirkungen hatte das Jahresgespräch auf Sie? Das Gespräch hat zu Spannungen zwischen mir und meiner Führungskraft geführt.
+f65g         Welche Wirkungen hatte das Jahresgespräch auf Sie? Das Gespräch hat zu Spannungen in meinem Arbeitsbereich geführt.
+f66a         Wie zufrieden sind Sie mit folgenden Aspekten Ihrer Stelle? Verhältnis zu Kolleg*innen
+f66b         Wie zufrieden sind Sie mit folgenden Aspekten Ihrer Stelle? Verhältnis zu Vorgesetzten
+f66c         Wie zufrieden sind Sie mit folgenden Aspekten Ihrer Stelle? eigene Lehrtätigkeit
+f66d         Wie zufrieden sind Sie mit folgenden Aspekten Ihrer Stelle? eigene Forschungstätigkeit
+f66e         Wie zufrieden sind Sie mit folgenden Aspekten Ihrer Stelle? Beschäftigungssicherheit
+f66f         Wie zufrieden sind Sie mit folgenden Aspekten Ihrer Stelle? berufliche Perspektiven
+f66g         Wie zufrieden sind Sie mit folgenden Aspekten Ihrer Stelle? Verwirklichung eigener Ideen
+f66h         Wie zufrieden sind Sie mit folgenden Aspekten Ihrer Stelle? erreichte berufliche Position
+f66i         Wie zufrieden sind Sie mit folgenden Aspekten Ihrer Stelle? berufliche Situation insgesamt
+f67a         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Meine Karriereperspektiven sind zu unsicher.
+f67b         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Meine Entwicklungsmöglichkeiten entsprechen dem, wovon ich ausgegangen bin.
+f67c         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Ich werde im Hinblick auf Karrierewege in der Wissenschaft unterstützt.
+f67d         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Ich werde im Hinblick auf Karrierewege außerhalb der Wissenschaft unterstützt.
+f67e         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Ich wünsche mir mehr Beratung im Hinblick auf Karrierewege in der Wissenschaft.
+f67f         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Ich wünsche mir mehr Beratung im Hinblick auf Karrierewege außerhalb der Wissenschaft.
+f67g         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Weiterbildungs- und Qualifizierungsangebote im Hinblick auf Karrierewege an der Hochschule empfinde ich als ausreichend.
+f67h         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Weiterbildungs- und Qualifizierungsangebote im Hinblick auf Karrierewege außerhalb von Hochschulen empfinde ich als ausreichend.
+f67i         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Die Laufzeit meines Vertrags ist für mich nachvollziehbar.
+f67j         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Die Tatsache, dass mein Arbeitsvertrag befristet ist, stellt für mich eine Belastung dar.
+f67k         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Das Bemühen meiner Hochschule um eine befristete Anschlussbeschäftigung empfinde ich als ausreichend.
+f67l         Wie beurteilen Sie die nachfolgenden Aussagen vor dem Hintergrund Ihrer bisherigen beruflichen Entwicklung? Das Bemühen meiner Hochschule, Perspektiven für eine dauerhafte Anschlussbeschäftigung zu bieten, empfinde ich als ausreichend.
+f68          Kennen Sie den „Rahmenkodex über den Umgang mit befristeter Beschäftigung und die Förderung von Karriereperspektiven an den Hochschulen im Freistaat Sachsen“?
+f69a_str     Wie beurteilen Sie den Rahmenkodex? Größte Stärken:
+f69b_str     Dringendster Handlungsbedarf:
+f70a         Kurz vor Ende der Befragung bitten wir an dieser Stelle um Ihre Einschätzungen zum Thema „Machtmissbrauch“. Hatten Sie schon einmal den Eindruck, dass ein*e Vorgesetzte*r oder ein*e Betreuer*in einer Ihrer Qualifikationsarbeiten Dinge getan oder von Ihnen verlangt hat, die … …gegen die Regeln guter wissenschaftlicher Praxis verstießen?
+f70b         Kurz vor Ende der Befragung bitten wir an dieser Stelle um Ihre Einschätzungen zum Thema „Machtmissbrauch“. Hatten Sie schon einmal den Eindruck, dass ein*e Vorgesetzte*r oder ein*e Betreuer*in einer Ihrer Qualifikationsarbeiten Dinge getan oder von Ihnen verlangt hat, die … …gegen Regeln des Arbeits- oder Dienstrechts verstießen?
+f70c         Kurz vor Ende der Befragung bitten wir an dieser Stelle um Ihre Einschätzungen zum Thema „Machtmissbrauch“. Hatten Sie schon einmal den Eindruck, dass ein*e Vorgesetzte*r oder ein*e Betreuer*in einer Ihrer Qualifikationsarbeiten Dinge getan oder von Ihnen verlangt hat, die … …strafrechtlich relevant waren?
+f70d         Kurz vor Ende der Befragung bitten wir an dieser Stelle um Ihre Einschätzungen zum Thema „Machtmissbrauch“. Hatten Sie schon einmal den Eindruck, dass ein*e Vorgesetzte*r oder ein*e Betreuer*in einer Ihrer Qualifikationsarbeiten Dinge getan oder von Ihnen verlangt hat, die … …als Mobbing/Bossing gelten können?
+f70e         Kurz vor Ende der Befragung bitten wir an dieser Stelle um Ihre Einschätzungen zum Thema „Machtmissbrauch“. Hatten Sie schon einmal den Eindruck, dass ein*e Vorgesetzte*r oder ein*e Betreuer*in einer Ihrer Qualifikationsarbeiten Dinge getan oder von Ihnen verlangt hat, die … …als Diskriminierung gelten können?
+f70f         Kurz vor Ende der Befragung bitten wir an dieser Stelle um Ihre Einschätzungen zum Thema „Machtmissbrauch“. Hatten Sie schon einmal den Eindruck, dass ein*e Vorgesetzte*r oder ein*e Betreuer*in einer Ihrer Qualifikationsarbeiten Dinge getan oder von Ihnen verlangt hat, die … …als sexuelle Belästigung gelten können?
+f70v         Kurz vor Ende der Befragung bitten wir an dieser Stelle um Ihre Einschätzungen zum Thema „Machtmissbrauch“. Hatten Sie schon einmal den Eindruck, dass ein*e Vorgesetzte*r oder ein*e Betreuer*in einer Ihrer Qualifikationsarbeiten Dinge getan oder von Ihnen verlangt hat, die … Sonstiges, und zwar:
+f70v_str     Kurz vor Ende der Befragung bitten wir an dieser Stelle um Ihre Einschätzungen zum Thema „Machtmissbrauch“. Hatten Sie schon einmal den Eindruck, dass ein*e Vorgesetzte*r oder ein*e Betreuer*in einer Ihrer Qualifikationsarbeiten Dinge getan oder von Ihnen verlangt hat, die … Sonstiges, und zwar:
+f71a         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Ombudsstelle / Beauftragte*r für gute wissenschaftliche Praxis
+f71b         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Gleichstellungsbeauftragte*r
+f71c         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Diversitätsbeauftragte*r
+f71d         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Personalabteilung
+f71e         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Justiziariat
+f71f         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Studienberatung
+f71g         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Studiendekan*in
+f71h         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Hochschulleitung
+f71i         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Beauftragte*r der Dienststelle für Konflikt- und Mobbingsituationen
+f71j         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Personalrat/ Ansprechperson des Personalrats für Konflikt- und Mobbingsituationen
+f71k         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Beschwerdestelle laut Allgemeinem Gleichbehandlungsgesetz (AGG)
+f71v         Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Andere, und zwar:
+f71v_str     Welche Anlaufstellen sind Ihnen bekannt, um Fälle von Machtmissbrauch höher gestellter Personen an Ihrer Hochschule zu handhaben? Andere, und zwar:
+f72a         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Ombudsstelle / Beauftragte*r für gute wissenschaftliche Praxis
+f72b         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Gleichstellungsbeauftragte*r
+f72c         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Diversitätsbeauftragte*r
+f72d         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Personalabteilung
+f72e         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Justiziariat
+f72f         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Studienberatung
+f72g         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Studiendekan*in
+f72h         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Hochschulleitung
+f72i         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Beauftragte*r der Dienststelle für Konflikt- und Mobbingsituationen
+f72j         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Personalrat/ Ansprechperson des Personalrats für Konflikt- und Mobbingsituationen
+f72k         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Beschwerdestelle laut Allgemeinem Gleichbehandlungsgesetz (AGG)
+f72v         Und haben Sie diese Anlaufstelle(n) in diesem Zusammenhang genutzt? Andere: #{f71v_str.value}
+f73_y        
+f73x          Ich habe den Hinweis verstanden und möchte dennoch fortfahren.
+f74          Bitte nennen Sie uns Ihr Geschlecht.
+f75_str      Zum Abschluss dieser Befragung danken wir Ihnen sehr für Ihre Teilnahme. Wenn Sie uns noch etwas mitteilen möchten, haben Sie im nachfolgenden Kommentarfeld die Gelegenheit dazu. Mit einem Klick auf „Weiter“ senden Sie diesen Kommentar ab und beenden die Befragung.
+cncl_str     Bitte beachten Sie, dass Sie die Befragung nur fortführen können, wenn Sie eine Angabe zu der vorangegangenen Frage machen. Sofern Sie doch noch Interesse an der Teilnahme an der Studie haben, klicken Sie bitte unten auf den Button „Zurück“ und beantworten Sie die Frage zur Personalkategorie. Ansonsten können Sie uns gern Kommentare und Anregungen zur Studie zukommen lassen. Mit einem Klick auf „Weiter“ senden Sie diesen Kommentar ab und beenden die Befragung.

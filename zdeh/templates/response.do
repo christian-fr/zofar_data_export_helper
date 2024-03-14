@@ -102,7 +102,7 @@ graph export "${out_dir}Rücklauf_Graph_day.png", as(png) replace
 qui sum date
 local date_min = r(min)
 local date_max = r(max)
-local date_range =  `date_max' - `date_min'
+local date_range =  `date_max' - `date_min' + 1
 local date_range_order_of_magnitude = floor(log10(`date_range'))
 
 **********************************

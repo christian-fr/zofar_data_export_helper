@@ -7,7 +7,7 @@ clear all
 
 version 17
 
-global version "{{ version }}"
+global version "{{ project_version }}"
 
 global initial_dir "`c(pwd)'"
 di "`c(pwd)'"
